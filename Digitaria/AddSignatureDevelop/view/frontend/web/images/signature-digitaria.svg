@@ -1,0 +1,21 @@
+<svg id="Versão_1_-_Font_Branca" data-name="Versão 1 - Font Branca" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="26" viewBox="0 0 100 26">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 64px;
+        text-anchor: middle;
+        fill: #dbae12;
+        font-family: "Arial Rounded MT Bold";
+      }
+
+      .cls-2 {
+        font-size: 65px;
+      }
+    </style>
+  </defs>
+  <image id="digitaria_copiar" data-name="digitaria copiar" x="4" y="1" width="92" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAYCAYAAAB3JpoiAAAFQ0lEQVRogeWZbYiVRRTHf/duuWFb7q679i7bLuJL6WYRkRJZbokEgUJRUfRGUBR9UPqyX7YiKjBLIqMsKRLsS5FSHzRLLENCNCXLdt21MF+SDN3d1NXr6omBM3Canfs899nlXpb6w2XmnjkvM2fOzJyZJyciZMC1wLNAHngH2JZFeJjIAc8BU4Bu4FUgU6dHE87L2JfbgIfV4b9VyOETgMeASWrzA+BwBeyWBfmMSu8FxuhE3VOhPrYCk7WvLcCNFbJbFmR1+AFTP1KhPp4O/v9SIbtlQWxLuQOYBdSYvdKVPcAlhq/UfXQ+cBNwYaDPTd6XQFeKfGjnZWAvcE63l56g3a2A24HxAb0P+BbYnGDrau3vROB34F3gbEr/moF5QJOeN2g5AGwFvvj3aET8b5KI7JLSscHIxn4zRaS7BG3LU/S0JciuM3xjRGRtCfY2i0h9xM4LEd67Uvq2pAR7B0Rklpfxgo0iUihB2GK9yj4pIp0i8qOI3Km0poy6VplBtItIl4jsEJFmEWlJkPveyO3MYO+gTpCXXVaEb462bxSRHhFZLSLVSnsr4xineIePV0UhjolIr5Z9kfa1aviQoX2qtHUp+voj7a0qe9rQFotITcB3XPtzRESeUJmnI/p6jc3eSPtLKjs90jagqz0vIrcGbWNFpCEi83cwxhDbRGSGOzQf0ezDw6V6VwB1QK0p24BTkT3sT1P3+/E8Q9ukqV2ob4Huwx6PannQ0Nw+WB3YW6DyjcB7SnvItLvD/Hq1423Vaqaz1/A9qOV9huYO6LuVf7r27/LA/kkji/I8EIytTs+QdYbvBpdS5zW/rTINS4FDgRF3cH0NbGAorNNOaNpo8Uoko3Eya4AthlZv2ojUPU5FDtJaU18N7Ijw7AFWmv+XRmTdhHweZEZhlpTXgPToBD6OHK5HgfaAVu+EzwTEMKIsQuMhcpFUc2wCv10xgym6PS6I0NIyCQ8bDH7caWMK4cZYMLRCAm/oy8F8JBKSbp+l3EyHq28k13Urm2TPruSYvVyElmavKoHv/FAuHxEYSFBg22KXJol0ulR9xRDaiUWUHcPJEnSOBOEqTorwIYhFeGMC/0RTjzk8F9ka6krUF8O5yIBikWlpV6boHCnOBqtoQhZ9TvA7PWW9Y54H/gqu0FX6djLb0HpMm8c4dXjB7Jev6T7pMwTRNvcIdk1K/8bpDdHibaAD+FUPR/RWOFXr9wM7gY36f1D/k2HLSILr/w+m/SrgQ309LaiNn/V8GhqUmmu2R/LGNDRrHmtvp+8rbekw9K1U2R5DW6K0VUVk3tT2uSm6P1G+DkPrV9rrhrY7cptcGOiqV58lYb/KtgY8K/K6bN37xDcZZnmRRpjDRYbu64tNVGWJnGL6Ho+8maBvNGjK+kaC7jYtbZbiddcY2sUR2TDLalKfLUyw57e1MHuqsSE/B1gGHE9Q1KXbjx1ct6l3mvpMYEVK2tVv6j7d22dofltzS3WaPlbZQWw39UX6cWR/xI5/sNpjaPuC0mF3RDacaH8x+0wfumKBdVTLY6Gu2Befan1x8xGQ0xk9XER5tb7OFTTSYphhIiWnTtuujrhZ6Wv0Fuki7hbNYDZFdNXpTZIEe67/DWrrTHBhm62RvMWcD3M1+r+K3EscrgMuA34qMqHTNAHwO8ZW4/TJ+qLoJq476ye2LGhQ431FLibuOv6R+b8ceKZcnRktKIfD63WGWzLKuVWwa1R5pwzI+sWnFEwdhrM7/g/OpkwO/yMD7wn9Iv9iGfoxKlGuPfyphEuNP4TdxKwPMo3/NoB/AHGCPdAe34ydAAAAAElFTkSuQmCC"/>
+  <image id="digitaria" x="74" y="1" width="7" height="6" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAGCAYAAAAPDoR2AAAAXklEQVQImU3NsQmDUBhF4c8oCMElrOIemcJFxHGsbbSVLJAVQqZIOgtBHjzkP80tDvfeotl+AgM6LHhF2eKLEh+Mt9B6ZpF4oI/yH/exV6hxYMY9f654J5kock5XDyfIGA59odxM9AAAAABJRU5ErkJggg=="/>
+  <image id="pingo_vermelho" data-name="pingo vermelho" x="40" y="1" width="4" height="5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAAPUlEQVQImWN8K62ix8DAkMPAwPCCgYGhg4WBgaGagYEhjAECzjEhcUDAFySADH6BtIDMCGFgYPjEwMAwAwCN3wiMO7L8lgAAAABJRU5ErkJggg=="/>
+  <image id="pingo_verde" data-name="pingo verde" x="9" y="1" width="58" height="15" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAPCAYAAAC1DNw2AAAAmUlEQVRIie3SMQ4BQRiG4Wc3dO6kE6LSSTSKPY5ruIMDOIEj6FRaFIhEQbPJnxh2x77Jn0wxk/neP18x2kwEGGKBE1bYRx7/kl7w7xmWOGPbJtEyeL9CHwPME2VKQlT0+HI+NNztjWh1pxjjgnXibB8lKrp7TuuIVre1dKK5USea1RLqZK5fzJGcrrq58S+i5UO0aECQtHC7A/CuEDgrQ51YAAAAAElFTkSuQmCC"/>
+  <text id="AGÊNCIA_DE_MARKETING_DIGITAL" data-name="AGÊNCIA DE MARKETING DIGITAL" class="cls-1" transform="translate(67.563 23.588) scale(0.05 0.05)"><tspan x="0">AGÊNCIA DE MARKETING DIGITA<tspan class="cls-2">L</tspan></tspan></text>
+</svg>

@@ -1,0 +1,11 @@
+<?php
+$om = \Magento\Framework\App\ObjectManager::getInstance();
+$manager = $om->get('Magento\Store\Model\StoreManagerInterface');
+$store = $manager->getStore(null)->getName();?>
+<div class="develop">
+  <div class="signature">Desenvolvido por <a href="https://digitaria.com.br/?utm_campaign=job-signature&utm_medium=SiteEntregue&utm_source=<?php echo $store;?>" target="_blank">
+    <noscript>
+    <img src="<?php echo $this->getViewFileUrl('Digitaria_AddSignatureDevelop::images/signature-digitaria.svg'); ?>" alt="Digitaria - Agência de Marketing Digital" width="80px"/>
+    </noscript>
+    <img class=" lazyloaded" src="<?php echo $this->getViewFileUrl('Digitaria_AddSignatureDevelop::images/signature-digitaria.svg'); ?>" alt="Digitaria - Agência de Marketing Digital" width="80px"></a></div>
+</div>
