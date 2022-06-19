@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+    <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="admin_system_config_changed_section_outstocklast">
+        <observer name="digitaria_outstocklast_disable" instance="Digitaria\OutStockLast\Observer\DisableOutput" />
+    </event>
+</config>
