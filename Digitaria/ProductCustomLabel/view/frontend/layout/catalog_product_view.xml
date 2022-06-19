@@ -1,0 +1,8 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+      <referenceContainer name="product.info.stock.sku">
+        <block name="product_custom_label" template="Digitaria_ProductCustomLabel::product_custom_label.phtml" after="-"/>
+      </referenceContainer>
+		<referenceBlock name="product.info.sku" remove="true" />
+    </body>
+</page>

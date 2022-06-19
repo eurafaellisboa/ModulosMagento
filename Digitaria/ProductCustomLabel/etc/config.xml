@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <productcustomlabels>
+            <general>
+                <enable>0</enable>
+                <enableproducthighview>0</enableproducthighview>
+				<textproducthighview><![CDATA[Produto com Alta Procura]]></textproducthighview>
+				<colorproducthighview>#000</colorproducthighview>
+				<colortextproducthighview>#FFF</colortextproducthighview>
+				<enableproductfreeshiping>0</enableproductfreeshiping>
+				<textproductfreeshiping>Frete Grátis*</textproductfreeshiping>
+				<colorproductfreeshiping>#000</colorproductfreeshiping>
+				<colortextproductfreeshiping>#FFF</colortextproductfreeshiping>
+            </general>
+        </productcustomlabels>
+    </default>
+</config>

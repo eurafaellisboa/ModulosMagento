@@ -1,0 +1,38 @@
+<?php
+$myBlock = \Magento\Framework\App\ObjectManager::getInstance()->get('Digitaria\ProductCustomLabel\Block\GetProduct');
+$currentProduct = $myBlock->getCurrentProduct();
+
+//producthighview settings
+$textproducthighview = $this->helper('Digitaria\ProductCustomLabel\Helper\Data')->getConfig('productcustomlabel/general/textproducthighview');
+$colorproducthighview = $this->helper('Digitaria\ProductCustomLabel\Helper\Data')->getConfig('productcustomlabel/general/colorproducthighview');
+$colortextproducthighview = $this->helper('Digitaria\ProductCustomLabel\Helper\Data')->getConfig('productcustomlabel/general/colortextproducthighview');
+
+//freeshipping settings
+$textproductfreeshiping = $this->helper('Digitaria\ProductCustomLabel\Helper\Data')->getConfig('productcustomlabel/general/textproductfreeshiping');
+$colorproductfreeshiping = $this->helper('Digitaria\ProductCustomLabel\Helper\Data')->getConfig('productcustomlabel/general/colorproductfreeshiping');
+$colortextproductfreeshiping = $this->helper('Digitaria\ProductCustomLabel\Helper\Data')->getConfig('productcustomlabel/general/colortextproductfreeshiping');
+
+
+if ( !$currentProduct->isSaleable() ) {
+    return;
+}
+
+//freeshipping
+$freeshipping = $myBlock->getCurrentProduct()->getData('ad_productfreeshipping');
+if ($freeshipping == '1'):?>
+<div class="block_product_custom_label">
+	<div class="productfreeshipping" style="color: <?php echo $colortextproductfreeshiping;?>;background:<?php echo $colorproductfreeshiping;?>">
+		<?php echo $textproductfreeshiping;?>
+    </div>
+</div>	
+<?php endif;
+
+//producthighview
+$producthighview = $myBlock->getCurrentProduct()->getData('ad_producthighview');
+if ($producthighview == '1'):?>
+<div class="block_product_custom_label">
+	<div class="producthighview" style="color: <?php echo $colortextproducthighview;?>;background:<?php echo $colorproducthighview;?>">
+		<?php echo $textproducthighview;?>
+    </div>
+ </div>	
+<?php endif;

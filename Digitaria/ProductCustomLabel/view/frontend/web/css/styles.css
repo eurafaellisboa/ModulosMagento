@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.block_product_custom_label {
+  float: left;
+  width: 100%;
+  font-size: 13px;
+}
+
+.producthighview, 
+.productfreeshipping {
+  float: left;
+  padding: 3px 7px;
+  margin-bottom: 10px;
+  font-size: 13px;	
+}

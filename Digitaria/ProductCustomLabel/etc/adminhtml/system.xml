@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="digitaria" translate="label" sortOrder="10">
+            <label>Agência Digitaria</label>
+        </tab>
+        <section id="productcustomlabel" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Etiquetas nos Produtos</label>
+            <tab>digitaria</tab>
+            <resource>Digitaria_ProductCustomLabel::productcustomlabels_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Geral</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativar Módulo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                 
+				
+				<field id="textproducthighview" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Texto da Label "Alta procura"</label>
+                   
+					<depends>
+                       <field id="productcustomlabel/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="colorproducthighview" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cor da Label "Alta procura"</label>
+					<frontend_model>Digitaria\ProductCustomLabel\Block\Color</frontend_model>
+					<depends>
+                        <field id="productcustomlabel/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="colortextproducthighview" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cor do Texto da Label "Alta procura"</label>
+					<frontend_model>Digitaria\ProductCustomLabel\Block\Color</frontend_model>
+					<depends>
+                       <field id="productcustomlabel/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				
+				<field id="textproductfreeshiping" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Texto da Label "Frete Grátis"</label>
+                   
+					<depends>
+                        <field id="productcustomlabel/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="colorproductfreeshiping" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cor da Label "Frete Grátis"</label>
+					<frontend_model>Digitaria\ProductCustomLabel\Block\Color</frontend_model>
+					<depends>
+                        <field id="productcustomlabel/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="colortextproductfreeshiping" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cor do Texto Label "Frete Grátis"</label>
+					<frontend_model>Digitaria\ProductCustomLabel\Block\Color</frontend_model>
+					<depends>
+                        <field id="productcustomlabel/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				
+            </group>
+        </section>
+    </system>
+</config>
