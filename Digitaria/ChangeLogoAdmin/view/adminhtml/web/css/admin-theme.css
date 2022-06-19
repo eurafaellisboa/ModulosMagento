@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+
+/* Primária */
+.menu-wrapper::before,
+.admin__menu .level-0 > .submenu,
+.page-layout-admin-login {
+  background-color: #203f57 !important;
+}
+
+/* Textos */
+body, .admin__field-label,
+.page-title,
+.admin__collapsible-block-wrapper .admin__collapsible-title,
+.admin__scope-old .fieldset-wrapper > .fieldset-wrapper-title .title, .admin__scope-old .fieldset > .legend span,
+.abs-action-quaternary, .page-actions > button, .page-actions .page-actions-buttons > .action, .page-actions .page-actions.floating-header > button, .page-actions .page-actions.floating-header > .action, .page-actions > .block-footer .action-add, .page-actions .page-actions-buttons > .block-footer .action-add, .admin__action-dropdown, .notifications-action, .admin-user .admin__action-dropdown::before, .page-layout-admin-login .admin__legend {
+	color: #203f57 !important;
+}
+
+/* Botões */
+.action-primary,
+.abs-action-primary, button.primary, .page-actions > button.action-primary, .page-actions .page-actions-buttons > button.action-primary, .page-actions .page-actions-buttons > .action.action-primary, .page-actions > button.primary, .page-actions .page-actions-buttons > button.primary, .page-actions .page-actions-buttons > .action.primary, .page-actions .page-actions.floating-header > button.action-primary, .page-actions .page-actions.floating-header > .action.action-primary, .page-actions .page-actions.floating-header > button.primary, .page-actions .page-actions.floating-header > .action.primary, .block-footer .action-add.primary, .page-actions > .block-footer .action-add.action-primary, .page-actions .page-actions-buttons > .block-footer .action-add.action-primary, .page-actions > .block-footer .action-add.primary, .page-actions .page-actions-buttons > .block-footer .action-add.primary, .action-configure, .action-configure:hover, .action-default, .action-default:hover,
+.abs-action-secondary, .action-basic, button.secondary, .ui-dialog .ui-button, .ui-dialog .action-primary, .attribute-popup-actions .page-actions-buttons > button.action-default.primary, .modal-popup .modal-footer .action-primary, .page-actions > button.action-secondary, .page-actions .page-actions-buttons > button.action-secondary, .page-actions .page-actions-buttons > .action.action-secondary, .steps-wizard .select-attributes-actions .action-default, .popup-window .magento_buttons .ok_button, .fade .actions .primary, .attribute-popup-actions .page-actions.floating-header > button.action-default.primary, .page-actions .page-actions.floating-header > button.action-secondary, .page-actions .page-actions.floating-header > .action.action-secondary, .block-footer .action-add.secondary, .attribute-popup-actions .page-actions-buttons > .block-footer .action-add.action-default.primary, .page-actions > .block-footer .action-add.action-secondary, .page-actions .page-actions-buttons > .block-footer .action-add.action-secondary, .action-secondary {
+  background-color: #52ade2 !important;
+  border-color: #52ade2 !important;
+	color: #FFF !important;
+}
+
+/* Secundária */
+.dashboard-totals-item:first-child .price,
+.dashboard-item-primary:first-child .dashboard-sales-value,
+.admin__menu .submenu .parent .submenu-group-title,
+.admin__field-tooltip .admin__field-tooltip-action::before {
+	color:#52ade2 !important;
+}
+
+.admin__menu .level-0._active > a, .data-grid .data-grid-th._sortable:focus, .data-grid .data-grid-th._sortable, .data-grid .data-grid-th._sortable:focus, .data-grid .data-grid-th._sortable:hover, .data-grid th, .admin__menu .level-0:hover > a, .admin__menu [class*="level-"]:not(.level-0) a:hover {
+	background-color: #52ade2 !important;
+}
+
+.tabs-horiz .ui-state-active .ui-tabs-anchor {
+  border-top: .4rem solid #52ade2 !important;
+}
+
+.admin__menu .level-0 > a,
+.admin__menu .level-0._active > a, .admin__menu .level-0:hover > a {
+	color:#FFF !important;
+}
+
+.admin__page-nav-item._active, .admin__page-nav-item.ui-state-active {
+	border-color: #52ade2 !important;
+}
+
+.action-default::before {
+	color: #FFF !important;	
+}
