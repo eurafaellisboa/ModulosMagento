@@ -1,0 +1,68 @@
+<script>
+    (function() {
+        const send = XMLHttpRequest.prototype.send;
+        XMLHttpRequest.prototype.send = function() {
+            this.addEventListener('load', function() {
+                if((this.responseURL.indexOf("shipping-information")!=-1) ||
+                    (this.responseURL.indexOf("totals")!=-1) ||
+                    (this.responseURL.indexOf("set-payment-information")!=-1)) {
+                    if(document.querySelector('tr.grand.totals span.price')){
+                        var value = document.querySelector('tr.grand.totals span.price').innerText;
+
+                        value = value.split(',');
+
+                        getInstalmentPagarMe(value[0].replace(/[^\d]+/g,'')+'.'+value[1]);
+
+                    }
+                }
+            });
+            return send.apply(this, arguments)
+        }
+    })();
+
+    function getInstalmentPagarMe(total) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var html_price = '';
+                    var data = this.responseText;
+                     data = JSON.parse(data);
+                     data = JSON.parse(data);
+                    data = data.installments;
+                    Object.keys(data).forEach(function(key) {
+                        html_price +='<option value="'+data[key]['installment']+'">'+data[key]['installment']+' x '+maskValue(data[key]['installment_amount'])+' total : '+maskValue(data[key]['amount'])+'</option>';
+                    });
+
+                    if(document.querySelector('#pagarmecc_installments')){
+                        document.querySelector('#pagarmecc_installments').innerHTML = html_price;
+                    }
+                }
+            };
+            xmlhttp.open("GET", BASE_URL+"rest/all/V1/mestremage-pagarme/pagarmeinstallment?param=" + total, true);
+            xmlhttp.send();
+    }
+
+    function maskValue(valor) {
+        valor = valor.toString().replace(/\D/g,"");
+        valor = valor.toString().replace(/(\d)(\d{8})$/,"$1.$2");
+        valor = valor.toString().replace(/(\d)(\d{5})$/,"$1.$2");
+        valor = valor.toString().replace(/(\d)(\d{2})$/,"$1,$2");
+        return valor
+
+    }
+
+    require(['jquery', 'jquery/ui'], function($){
+        $( document ).ready(function() {
+            var existCondition = setInterval(function() {
+                if ($('#pagarmecc-form').length) {
+                    clearInterval(existCondition);
+                    new Card({
+                        form: document.querySelector('#card-view-pagarme'),
+                        container: '.card-wrapper'
+                    });
+                }
+            }, 100);
+
+        });
+    });
+</script>

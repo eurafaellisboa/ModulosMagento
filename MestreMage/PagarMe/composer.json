@@ -1,0 +1,22 @@
+{
+    "name": "mestremage/module-pagarme",
+    "description": "Modulo de pagamento PagarMe",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "jamacio rocha",
+            "email": "suporte@mestremage.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MestreMage\\PagarMe\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

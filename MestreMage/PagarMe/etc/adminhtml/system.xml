@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mestremage" translate="label" sortOrder="700"  class="mestre-magento-tab">
+            <label>Settings</label>
+        </tab>
+        <section id="modulo_pagarme_section" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>PagarMe</label>
+            <tab>mestremage</tab>
+            <resource>MestreMage_PagarMe::config</resource>
+            <group id="modulo_pagarme_group" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>PagarMe</label>
+                <frontend_model>MestreMage\PagarMe\Block\Adminhtml\System\Config\Extensions</frontend_model>
+            </group>
+
+        </section>
+        <section id="payment">
+            <group id="pagarmeconfig" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mestre Magento | Configurar PagarMe</label>
+
+                <field id="api_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>api_key</label>
+                </field>
+
+                <field id="api_type" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Usar API V2</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="log" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log</label>
+                    <comment>Generated in directory [ROOT_MAGENTO]/var/log/pagarme_card.log</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+            <group id="pagarmecc" translate="label" type="text" sortOrder="201" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mestre Magento | PagarMe Credit Card</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="12" translate="label" type="text">
+                    <label>Title</label>
+                </field>
+
+                <field id="processing_type" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="14" translate="label" type="select">
+                    <label>Retornar erros no Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Impedir que o cliente finalize a compra, quando o cartão não for aprovado]]></comment>
+                </field>
+
+                <field id="free_installments" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+                    <label>Parcelas sem juros</label>
+                    <comment><![CDATA[Número de parcelas isentas de juros]]></comment>
+                </field>
+
+                <field id="max_installments" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+                    <label>Parcelas total</label>
+                    <comment><![CDATA[Valor máximo de parcelas]]></comment>
+                </field>
+
+                <field id="minimo_value_parcel" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="95" translate="label" type="text">
+                    <label>Valor minimo da parcela</label>
+                    <comment><![CDATA[Defina um valor minimo para parcelar]]></comment>
+                </field>
+                <field id="interest_rate" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+                    <label>Juros</label>
+                    <comment><![CDATA[Valor da taxa de juros   ex: 4,59]]></comment>
+                </field>
+                <field id="layout_card_view" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+                    <label>Display model</label>
+                    <source_model>MestreMage\PagarMe\Model\Source\Layoutcardview</source_model>
+                </field>
+
+
+                <field id="payment_action" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>Payment Action</label>
+                    <source_model>MestreMage\PagarMe\Model\Source\PaymentAction</source_model>
+                </field>
+                <field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="140" translate="label" type="allowspecific">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label" type="multiselect">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label" type="text">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+            <group id="pagarmebl" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="201" translate="label">
+                <label>Mestre Magento | PagarMe Boleto</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+                    <label>Title</label>
+                </field>
+
+                <field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="allowspecific">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="soft_descriptor" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <label>Breve descrição</label>
+                    <comment><![CDATA[Texto que irá aparecer na fatura do cliente depois do nome da loja. <br>
+OBS: Limite de 13 caracteres.]]></comment>
+                </field>
+
+                <field id="boleto_instructions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="textarea">
+                    <label>Instructions</label>
+                    <comment><![CDATA[Campo instruções do boleto. Máximo de 255 caracteres]]></comment>
+                </field>
+
+                <field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="multiselect">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="text">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

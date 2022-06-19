@@ -1,0 +1,34 @@
+<?php
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ $order = $objectManager->create('\Magento\Sales\Model\Order')->load($this->getRequest()->getParam('order_id'));
+
+if($order->getPayment()->getAdditionalInformation('pagarme_fullname')){
+    echo '<p>'.__('Card Owner:') .' '.$order->getPayment()->getAdditionalInformation('pagarme_fullname').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cc_number')){
+    echo '<p>'.__('Card Last 4 Digits: ************') .substr($order->getPayment()->getAdditionalInformation('cc_number'), -4).'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('pagarme_installments')){
+    echo '<p>'.__('Card Installments:') .' '.$order->getPayment()->getAdditionalInformation('pagarme_installments').'x</p>';
+}
+
+
+if($order->getPayment()->getAdditionalInformation('pagarme_transactions_id')){
+    echo '<p>'.__('Id Payment:') .' '.$order->getPayment()->getAdditionalInformation('pagarme_transactions_id').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('pagarme_acquirer_id')){
+    echo '<p>'.__('Transaction Identifier:') .' '.$order->getPayment()->getAdditionalInformation('pagarme_acquirer_id').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('boleto_barcode')){
+    echo '<p>'.__('Codigo de barras:') .' '.$order->getPayment()->getAdditionalInformation('boleto_barcode').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('pagarme_boleto_url')) {
+    echo '<p><a href="' . $order->getPayment()->getAdditionalInformation('pagarme_boleto_url') . '"  target="_blank" style="text-decoration: none;background-color: #32aeef;color: #fff;padding: 7px 20px;margin: 10px 0;display: block;width: 100px;text-align: center;border-radius: 5px;" >Gerar Boleto</a></p>';
+}

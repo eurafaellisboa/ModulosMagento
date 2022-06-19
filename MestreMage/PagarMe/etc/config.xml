@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <default>
+        <payment>
+            <pagarmecc>
+                <active>1</active>
+                <model>MestreMage\PagarMe\Model\Payment\CreditCard</model>
+                <layout_card_view>1</layout_card_view>
+                <payment_action>authorize</payment_action>
+                <order_status>pending</order_status>
+                <title><![CDATA[PagarMe - Cartão de Crédito]]></title>
+                <allowspecific>0</allowspecific>
+                <free_installments>1</free_installments>
+                <processing_type>1</processing_type>
+                <max_installments>12</max_installments>
+                <minimo_value_parcel>20</minimo_value_parcel>
+                <interest_rate>4,59</interest_rate>
+                <card_type_flag>mastercard,visa,amex,diners,elo,hipercard,discover,jcb,aura</card_type_flag>
+                <group>mestremage</group>
+            </pagarmecc>
+            <pagarmebl>
+                <active>1</active>
+                <payment_action>authorize</payment_action>
+                <model>MestreMage\PagarMe\Model\Payment\BankSlip</model>
+                <order_status>pending</order_status>
+                <title><![CDATA[PagarMe - Boleto]]></title>
+                <instructions><![CDATA[Aceitar somente até a data de vencimento]]></instructions>
+                <days>7</days>
+                <allowspecific>0</allowspecific>
+                <group>mestremage</group>
+            </pagarmebl>
+        </payment>
+    </default>
+</config>
