@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="digitaria" translate="label" sortOrder="10">
+            <label>Agência Digitaria</label>
+        </tab>
+        <section id="removemyaccountmenulink" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Remover Links Menu Minha Conta</label>
+            <tab>digitaria</tab>
+            <resource>Digitaria_RemoveMyAccountMenuLink::removemyaccountmenulink_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Geral</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativar Módulo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+				
+				<field id="removemyaccount" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Minha Conta</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removemyorders" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Meus Pedidos</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removemydownloads" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Meus Downloads</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removelmywishlist" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Minha Lista de Desejos</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removemyaddress" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Meus Endereços</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removelinksmenuminhaconta/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removeaccountinformation" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Informações da Conta</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removelinksmenuminhaconta/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removemypayments" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Métodos de Pagamento</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removemyreview" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Minhas Avaliações</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removenewsletter" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Link Newsletter</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removesubscriptions" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Assinaturas (Pagar.me)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removecards" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Cartões (Pagar.me)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="removecartsave" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remover Carrinhos Salvos (ShareCart)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="removemyaccountmenulink/general/enable">1</field>
+                    </depends>
+                </field>
+                
+            </group>
+        </section>
+    </system>
+</config>
