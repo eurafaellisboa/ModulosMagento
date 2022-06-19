@@ -1,0 +1,33 @@
+<?php
+/**
+ * MagePrince
+ * Copyright (C) 2020 Mageprince <info@mageprince.com>
+ *
+ * @package Mageprince_Faq
+ * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MagePrince <info@mageprince.com>
+ */
+?>
+<?php
+/** @var $block \Mageprince\Faq\Block\Index\Index */
+$faqGroupCollection = $block->getFaqGroupCollection();
+$faqCollection = $block->getFaqCollection($block->getGroupId());
+$group = $block->getGroupById($block->getGroupId());
+?>
+<?php if ($block->isShowGroupTitle()): ?>
+    <div class="group-title" id="group<?= /* @noEscape */ $group->getFaqGroupId(); ?>">
+        <?= /* @noEscape */ $group->getGroupName(); ?>
+    </div>
+<?php endif; ?>
+<div class="faq-accordion">
+    <?php $faqCollection = $block->getFaqCollection($group->getId()); ?>
+    <?php if ($faqCollection->getSize()): ?>
+        <?php foreach ($faqCollection as $faq): ?>
+            <h3><?= /* @noEscape */ $faq->getTitle(); ?></h3>
+            <div>
+                <p><?= /* @noEscape */ $block->filterOutputHtml($faq->getContent()); ?></p>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>

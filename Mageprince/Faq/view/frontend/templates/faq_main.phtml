@@ -1,0 +1,202 @@
+<?php
+/**
+ * MagePrince
+ * Copyright (C) 2020 Mageprince <info@mageprince.com>
+ *
+ * @package Mageprince_Faq
+ * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MagePrince <info@mageprince.com>
+ */
+?>
+<?php /** @var $block \Mageprince\Faq\Block\Index\Index */ ?>
+<?php if ($block->isEnable()): ?>
+    <?php $faqGroupCollection = $block->getFaqGroupCollection(); ?>
+    <?php if ($faqGroupCollection->getSize()): ?>
+        <?php $pageType = $block->getPageTypeAction(); ?>
+        <div class="mageprince-faq-loader">
+            <img src="<?= $block->getViewFileUrl('images/loader-1.gif'); ?>"  alt="loader"/>
+        </div>
+        <div class="mageprince-faq-collection" style="display: none">
+            <?php if ($this->getTitle()): ?>
+                <h1 class="faq-page-title"><?= $block->escapeHtml($this->getTitle()) ?></h1>
+            <?php endif; ?>
+            <?php if ($block->isShowGroup() || $pageType == 'ajax'): ?>
+                <div class="faq-groups">
+                    <?php foreach ($faqGroupCollection as $group): ?>
+                        <!--<div class="faq-group">
+                            <?php if ($block->isShowGroup() || $pageType == 'ajax'): ?>
+                                <div id="faq-group-image" class="faq-group-image">
+                                    <a href="#group<?= $block->escapeHtmlAttr($group->getFaqGroupId()); ?>"
+                                       class="group-link"
+                                       groupId="<?= $block->escapeHtmlAttr($group->getFaqGroupId()); ?>">
+                                        <?php if ($group->getIcon()): ?>
+                                            <img class="group-image" alt="group-image"
+                                                 src="<?= $block->escapeUrl($block->getImageUrl($group->getIcon())); ?>" />
+                                        <?php else: ?>
+                                            <img class="group-image" alt="group-image"
+                                                 src="<?= $block->escapeUrl($block->getViewFileUrl('Mageprince_Faq::images/faq.png')); ?>" />
+                                        <?php endif; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($block->isShowGroupTitle()): ?>
+                                <div class="faq-groupname">
+                                    <a href="#group<?= $block->escapeHtmlAttr($group->getFaqGroupId()); ?>"
+                                       class="group-link"
+                                       groupId="<?= $block->escapeHtmlAttr($group->getFaqGroupId()); ?>">
+                                        <?= $block->escapeHtml($group->getGroupName()); ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        </div>-->
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+            <?php if ($block->isCollapseExpandEnabled()): ?>
+                <div class="collspan-expand-block">
+                    <a href="#" id="collapse-faqs">
+                        <?= $block->escapeHtml(__('Collapse All')) ?>
+                    </a> |
+                    <a href="#" id="expand-faqs">
+                        <?= $block->escapeHtmlAttr(__('Expand All')) ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+            <div id="faq-content" class="faq-content">
+                <?php if ($pageType == 'scroll'): ?>
+                    <?php foreach ($faqGroupCollection as $group): ?>
+                        <div id="group<?= $block->escapeHtmlAttr($group->getFaqGroupId()); ?>">
+                            <?php if ($block->isShowGroupTitle()): ?>
+                                <!--<div class="group-title">
+                                    <?= $block->escapeHtml($group->getGroupName()); ?>
+                                </div>-->
+                            <?php endif; ?>
+                            <div class="faq-accordion">
+                                <?php $faqCollection = $block->getFaqCollection($group->getId()); ?>
+                                <?php if ($faqCollection->getSize()): ?>
+                                    <?php foreach ($faqCollection as $faq): ?>
+                                        <h3><span class="inside"><?= $block->escapeHtml(__($faq->getTitle())) ?></span></h3>
+                                        <div>
+                                            <p>
+                                                <?= /* @noEscape */  $block->filterOutputHtml($faq->getContent()); ?>
+                                            </p>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else:?>
+                    <?php $group = $faqGroupCollection->getFirstItem(); ?>
+                    <?php if ($block->isShowGroupTitle()): ?>
+                        <div class="group-title" id="group<?= /* @noEscape */  $group->getFaqGroupId(); ?>">
+                            <?= $block->escapeHtml($group->getGroupName()); ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="faq-accordion">
+                        <?php $faqCollection = $block->getFaqCollection($group->getId()); ?>
+                        <?php if ($faqCollection->getSize()): ?>
+                            <?php foreach ($faqCollection as $faq): ?>
+                                <h3><?= $block->escapeHtml(__($faq->getTitle())) ?></h3>
+                                <div>
+                                    <p><?= /* @noEscape */  $block->filterOutputHtml($faq->getContent()); ?></p>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Mageprince_Faq/js/faq": {
+                    "page_type" : "<?= $block->escapeHtml($pageType) ?>",
+                    "ajax_url" : "<?= $block->escapeUrl($block->getAjaxUrl()) ?>"
+                }
+            }
+        }
+        </script>
+    <?php else: ?>
+        <div>
+            <h1><?= $block->escapeHtml(__('No FAQ Group available')) ?></h1>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<style type="text/css">
+	
+.mageprince-faq-collection .faq-content .ui-accordion-header:hover {
+	color: #3b3735;
+	background-color: #FFF;
+}
+
+.ui-accordion-header-active {
+    background: #e3ae00 !important;
+    color: #FFF !important;
+}
+
+.mageprince-faq-collection .faq-accordion .ui-widget-content {
+    border: 2px solid #e3ae00;
+    background: #fff;
+    color: #FFF;
+    background: #e3ae00;
+    padding: 0px 100px 25px;
+}
+	
+.mageprince-faq-collection .ui-accordion .ui-accordion-header {
+    padding: 25px 100px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #3b3735;
+	margin-top: 10px;
+}
+	
+	.mageprince-faq-collection .ui-state-active {
+		border: 2px solid #e3ae00;
+	}
+	
+	.mageprince-faq-collection .ui-state-default {
+		background: #FFF;
+		border:2px solid #e3ae00;
+	}	
+	
+.mageprince-faq-collection .ui-accordion .ui-state-default::after {
+    content: "\f067";
+    font-family: 'FontAwesome';
+    float: left;
+    position: absolute;
+    top: 25%;
+    height: 50%;
+    display: flex;
+    color: #999;
+    width: 25px;
+    bottom: 50%;
+    align-items: center;
+	color: #e3ae00;
+}
+	
+.mageprince-faq-collection .ui-accordion .ui-accordion-header-active::after {
+    content: "\f068";
+    font-family: 'FontAwesome';
+	color: #FFF;
+}	
+	
+.mageprince-faq-collection .inside {
+    padding: 0 25px;
+    display: block;
+}
+	
+@media(max-width: 992px) {
+  .mageprince-faq-collection .ui-accordion .ui-accordion-header,
+.mageprince-faq-collection .faq-accordion .ui-widget-content {
+    padding: 30px;
+  }
+}
+@media(max-width: 520px) {
+  .mageprince-faq-collection .ui-accordion .ui-accordion-header {
+    font-size: 18px;
+  }
+}	
+</style>
