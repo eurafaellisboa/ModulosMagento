@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * system
+ *
+ * @copyright Copyright © 2020 Landofcoder. All rights reserved.
+ * @author    landofcoder@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="landofcoder" sortOrder="999" translate="label">
+            <label>landofcoder</label>
+        </tab>
+        <section id="lofshippingcalculator" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>Shipping Calculator</label>
+            <tab>landofcoder</tab>
+            <resource>Lof_ShippingCalculator::config_lof_shippingcalculator</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General Settings</label>
+                <field id="enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable Using Shipping Calculator</comment>
+                </field>
+            </group>
+            <group id="appearance" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+                <label>Appearance Settings</label>
+                <field id="auto_calculate" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label" type="select" canRestore="1">
+                    <label>Enabled Auto Calculate</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable Auto Calculate</comment>
+                </field>
+                <field id="message" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text" canRestore="1">
+                    <label>"Not found" message</label>
+                    <comment>If not found any rates show specified error message</comment>
+                </field>
+                <field id="cheapest_method_enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select" canRestore="1">
+                    <label>Highlight the Cheapest Method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[Highlight the price of the cheapest option in calculator results.]]>
+                    </comment>
+                </field>
+                <field id="default_shipping_address_enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select" canRestore="1">
+                    <label>Use Customer Default Shipping Address</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<b>Customer</b> data will be used instead of <b>Default</b> Country/State/Zipcode]]></comment>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="display_country" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Country Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_region" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Region Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_postcode" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Zip/Postal Code Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_price_inclucding_tax" translate="label,comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Use Price Including Tax</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set No, Price Excluding Tax will be displayed for shipping price</comment>
+                </field>
+                <field id="action_label" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Action label</label>
+                </field>
+                <field id="display_flag" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Flag</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

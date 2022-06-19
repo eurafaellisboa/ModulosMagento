@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		<add action="adminhtml/system_config/edit/section/lofshippingcalculator" id="Lof_ShippingCalculator::shipping_index" parent="Lof_All::license" module="Lof_ShippingCalculator" resource="Lof_ShippingCalculator::shipping_index" sortOrder="0" title="Shipping Calculator"/>
+	</menu>
+</config>

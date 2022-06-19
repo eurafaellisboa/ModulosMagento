@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * config
+ *
+ * @copyright Copyright © 2020 Landofcoder. All rights reserved.
+ * @author    landofcoder@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <lofshippingcalculator>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <appearance>
+                <message>There are no shipping methods available for this region.</message>
+                <default_country/>
+                <state_region/>
+                <zip_postcode/>
+                <cheapest_method_enable>1</cheapest_method_enable>
+                <default_shipping_address_enable>1</default_shipping_address_enable>
+                <display_country>1</display_country>
+                <display_region>1</display_region>
+                <display_postcode>1</display_postcode>
+                <use_price_inclucding_tax>0</use_price_inclucding_tax>
+                <auto_calculate>0</auto_calculate>
+                <address_format><![CDATA[<%- country_id %>, <%- region_name %>]]></address_format>
+                <title>Ship to</title>
+                <action_label>Calculate Shipping Cost</action_label>
+                <display_flag>1</display_flag>
+            </appearance>
+        </lofshippingcalculator>
+    </default>
+</config>

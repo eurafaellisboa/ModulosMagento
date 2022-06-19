@@ -1,0 +1,25 @@
+{
+    "name": "landofcoder/module-shippingcalculator",
+    "description": "Magento 2 Shipping Cost Calculator on Product Page",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Landofcoder",
+            "email": "info@landofcoder.com",
+            "homepage": "https://landofcoder.com",
+            "role": "Magento 2 Extensions and Ecommerce Solution Provider"
+        }
+    ],
+    "minimum-stability": "dev",
+    "version": "1.0.0",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Lof\\ShippingCalculator\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

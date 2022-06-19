@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * di
+ *
+ * @copyright Copyright © 2020 Landofcoder. All rights reserved.
+ * @author    landofcoder@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Lof\ShippingCalculator\Api\Data\RequestRateInterface" type="Lof\ShippingCalculator\Model\Data\RequestRate"/>
+    <preference for="Lof\ShippingCalculator\Api\Data\ShippingDataInterface" type="Lof\ShippingCalculator\Model\Data\ShippingData"/>
+    <preference for="Lof\ShippingCalculator\Api\Data\ShippingRateInterface" type="Lof\ShippingCalculator\Model\Data\ShippingRate"/>
+    <preference for="Lof\ShippingCalculator\Api\ShippingRateRepositoryInterface"
+                type="Lof\ShippingCalculator\Model\ShippingRateRepository"/>
+</config>

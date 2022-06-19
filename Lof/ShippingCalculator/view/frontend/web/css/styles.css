@@ -1,0 +1,183 @@
+.busca-cep {
+    font-size: 11px;
+    float: left;
+    width: 100%;
+}
+
+#shipping-form button {
+  background: #0A0A0A;
+  height: 44px;
+  border: none;
+}
+
+#shipping-form .block-title h2 {
+  color: #0A0A0A !important;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+#zip {
+  max-width: 200px;
+  float: left;
+  margin-bottom: 0;
+  padding: 9px 20px !important;
+  height: 44px !important;
+}
+
+.block-shipping-estimation {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #0A0A0A;
+    display: inline-block;
+    width: 100%;
+}
+.block-shipping-estimation .current-address {
+    margin-left: 5px;
+}
+.rtl-layout .block-shipping-estimation .current-address {
+    margin-left: 0px;
+    margin-right: 5px;
+}
+.block-shipping-estimation .fieldset {
+    margin-bottom: 0px;
+    width: 100% !important;
+    padding: 0px 10px;
+    display: inline-block;
+}
+@media (min-width: 768px) {
+    .block-shipping-estimation .fieldset {
+        margin-bottom: -5px;
+    }
+}
+.block-shipping-estimation .fieldset > .field,
+.block-shipping-estimation .fieldset > .fields > .field {
+    margin-bottom: 10px;
+}
+.block-shipping-estimation .actions .btn-submit {
+    text-transform: none;
+    padding: 3px 10px;
+}
+.block-shipping-estimation .empty-msg {
+    padding: 5px 0px;
+}
+.block-shipping-estimation select,
+.block-shipping-estimation input[type="text"] {
+    height: 30px;
+}
+.product-add-form .product-options-wrapper .block-shipping-estimation .field:not(.date) > .control {
+    width: 100%;
+}
+.block-shipping-estimation .form-address-edit .block-title {
+    margin: 5px 0px;
+}
+.block-shipping-estimation img.country-flag {
+    max-width: 20px;
+    margin-left: 10px;
+}
+.rtl-layout .block-shipping-estimation img.country-flag {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+.block-shipping-estimation .block-content {
+    margin-top: 5px;
+	
+}
+.block-shipping-estimation .block-heading {
+    padding: 5px 10px;
+}
+.block-shipping-estimation .block-heading a.content-toggle {
+    float: right;
+    color: #5c6ac3;
+}
+.rtl-layout .block-shipping-estimation .block-heading a.content-toggle {
+    float: left;
+}
+.block-shipping-estimation .shipping-cost-result {
+    position: relative;
+    margin-bottom: 0px;
+    display: block;
+    width: 100%;
+    clear: both;
+}
+.block-shipping-estimation .shipping-cost-result .rs-inner {
+    padding: 20px 0;
+    display: block;
+    width: 100%;
+}
+.block-shipping-estimation .shipping-cost-result .rs-title {
+    padding-bottom: 5px;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-estimation .shipping-item:last-child {
+    border-bottom: 1px solid #eee;
+}
+.block-shipping-estimation .shipping-cost-result .loader-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-loader {
+    position: relative;
+    text-align: center;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-estimation {
+    line-height: 1;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-item {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 0px;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-item .shipping-title {
+    width: 100%;
+    font-weight: normal;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-item .shipping-title:before {
+    /*font-family: FontAwesome;
+    content: "\f105";
+    margin-right: 10px;*/
+}
+.rtl-layout .block-shipping-estimation .shipping-cost-result .shipping-item .shipping-title:before {
+    margin-right: 0px;
+    margin-left: 10px;
+    float: right;
+    content: "\f104";
+}
+.block-shipping-estimation .shipping-cost-result .shipping-item .shipping-detail {
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+    padding-left: 16px;
+}
+.rtl-layout .block-shipping-estimation .shipping-cost-result .shipping-item .shipping-detail {
+    padding-left: 0px;
+    padding-right: 16px;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-item .shipping-detail .method-title {
+    float: left;
+    margin-right: 20px;
+}
+.rtl-layout .block-shipping-estimation .shipping-cost-result .shipping-item .shipping-detail .method-title {
+    margin-right: 0px;
+    margin-left: 20px;
+    float: right;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-item .shipping-cost {
+    float: left;
+    font-weight: bold;
+}
+.block-shipping-estimation .shipping-cost-result .shipping-item .shipping-cost.error-msg {
+    font-weight: normal;
+}
+.rtl-layout .block-shipping-estimation .shipping-cost-result .shipping-item .shipping-cost {
+    float: right;
+}
+.block-shipping-estimation .bottom-section {
+  background: #E6E3DF;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+.shipping-estimation .is-cheapest {
+    padding: 5px;
+    background-color: none;
+}

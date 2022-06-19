@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Address\Edit $block */
+?>
+<?php
+$helper = $this->helper('Lof\ShippingCalculator\Helper\Data');
+?>
+<script>
+if (typeof(window.checkoutConfig) == 'undefined') {
+    window.checkoutConfig = {"storeCode": "<?= $helper->getStoreCode()?$helper->getStoreCode():'default';?>"}
+}
+</script>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * catalog_product_view
+ *
+ * @copyright Copyright © 2020 landofcoder. All rights reserved.
+ * @author    landofcoder@gmail.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Lof_ShippingCalculator::css/styles.css"/>
+    </head>
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="lofshippingcalculator.initjs" template="Lof_ShippingCalculator::head_js.phtml" />
+        </referenceBlock>
+        <referenceContainer name="product.info.form.content">
+            <block class="Magento\Directory\Block\Data" ifconfig="lofshippingcalculator/general/enable" after="product.info.addtocart" name="lof.shipping.estimation.simple" template="Lof_ShippingCalculator::shippingcalculator.phtml">
+                <arguments>
+                    <argument name="attribute_data" xsi:type="object">Lof\ShippingCalculator\Block\DataProvider\AddressAttributeData</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="product.info.options.wrapper">
+            <!--<block class="Magento\Directory\Block\Data" ifconfig="lofshippingcalculator/general/enable" after="product.info.options.configurable" before="-" name="lof.shipping.estimation.configurable" template="Lof_ShippingCalculator::shippingcalculator.phtml">-->
+			<block class="Magento\Directory\Block\Data" ifconfig="lofshippingcalculator/general/enable" after="product.info.addtocart" name="lof.shipping.estimation.configurable" template="Lof_ShippingCalculator::shippingcalculator.phtml">
+			
+                <arguments>
+                    <argument name="attribute_data" xsi:type="object">Lof\ShippingCalculator\Block\DataProvider\AddressAttributeData</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
