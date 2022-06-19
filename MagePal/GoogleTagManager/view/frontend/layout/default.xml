@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MagePal LLC. All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.magepal.com | support@magepal.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+          <block class="MagePal\GoogleTagManager\Block\GtmCode" name="magepal_gtm_iframe" as="magepal_gtm_iframe" before="-" template="MagePal_GoogleTagManager::iframe.phtml" />
+        </referenceContainer>
+        <referenceBlock name="head.additional">
+            <block class="MagePal\GoogleTagManager\Block\DataLayer" name="magepal_gtm_datalayer" as="magepal_gtm_datalayer" before="-" template="MagePal_GoogleTagManager::js.phtml" />
+        </referenceBlock>
+    </body>
+</page>

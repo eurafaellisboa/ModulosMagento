@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MagePal LLC. All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.magepal.com | support@magepal.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magepal" translate="label" sortOrder="400">
+            <label>MagePal</label>
+        </tab>
+        <section id="googletagmanager" translate="label" type="text" sortOrder="340" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Google Tag Manager</label>
+            <tab>magepal</tab>
+            <resource>MagePal_GoogleTagManager::googletagmanager</resource>
+            <group id="about" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label">
+                <label>About MagePal Google Tag Manager</label>
+                <attribute type="expanded">1</attribute>
+                <comment>
+                    <![CDATA[
+                    <div id="magepal-info">
+                        Copyright © 2019 <a href="https://www.magepal.com/magento2/extensions.html?utm_source=gtm&utm_medium=admin" target="_blank">MagePal, LLC</a>
+                        <a href="https://www.magepal.com/help/docs/google-tag-manager-for-magento/?utm_source=gtm&utm_medium=admin#support">Support</a>
+                        <a href="https://www.magepal.com/help/docs/google-tag-manager-for-magento/?utm_source=gtm&utm_medium=admin#documentation" target="_blank">Documentation</a>
+                        <a href="https://www.magepal.com/help/docs/google-tag-manager-for-magento?utm_source=gtm&utm_medium=admin#current_version" target="_blank">Latest Version</a>
+                        <a href="https://www.magepal.com/google-tag-manager.html?utm_source=gtm&utm_medium=admin" target="_blank">About Extension</a>
+                    </div>
+                    <div id="upgrade-to-enhanced-ecommerce">
+                        Want to learn more about your customers? Gain valuable insight on your customers shopping behavior, sales performance and more.
+                        Upgrade to our new <a href="http://bit.ly/MPE-EEGTM">Enhanced E-commerce</a> today,
+                        to take full advantage of Google Analytics most valuable features and reports.
+                    </div>
+                    <div id="upgrade-to-datalayer">
+                    Adding Facebook Pixel, Bing UET, or other third-party JavaScript to your site using Google Tag Manager?
+                    Learn how simple and easy it is to integrate any third party service with our new DataLayer extension.
+                    </div>
+                    <hr style="border-top: 1px solid #e3e3e3" />
+                    <style>
+                        #magepal-info a,
+                        #magepal-info-dl a,
+                        #magepal-info-ee a {
+                            font-weight: bold;
+                            border-left: 2px solid #e3e3e3;
+                            padding-left:10px;
+                            padding-right:10px;
+                            color: #ef7e1e;
+                        }
+
+                        #magepal-info a:first-child,
+                        #magepal-info-dl a:first-child,
+                        #magepal-info-ee a:first-child {
+                            padding-left: 5px;
+                            border-left: none;
+                        }
+
+                        #magepal-info,
+                        #upgrade-to-enhanced-ecommerce,
+                        #upgrade-to-datalayer {
+                            padding-bottom: 5px;
+                        }
+
+                        #upgrade-to-enhanced-ecommerce, upgrade-to-datalayer {
+                            padding-bottom: 7px;
+                        }
+
+                        .section-config.active #googletagmanager_about-head,
+                        .section-config.active #googletagmanager_enhanced_ecommerce-head,
+                        .section-config.active #googletagmanager_datalayer-head {
+                            padding-bottom: 0px;
+                        }
+                        #row_googletagmanager_gdpr_note label span{
+                            display:none;
+                        }
+                     </style>
+                  ]]>
+                </comment>
+                <field id="module_version" translate="label" type="label" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Version</label>
+                    <frontend_model>MagePal\GoogleTagManager\Block\Adminhtml\System\Config\Form\Module\Version</frontend_model>
+                </field>
+                <field id="composer_version" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Composer Version</label>
+                    <frontend_model>MagePal\GoogleTagManager\Block\Adminhtml\System\Config\Form\Composer\Version</frontend_model>
+                </field>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Tag Manager</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="account" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Account Number</label>
+                    <comment>e.g GTM-XXXXXX</comment>
+                    <validate>required-entry validate-no-html-tags</validate>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="item_variant_layer" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add item variant to data layer?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="item_variant_format" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Item variant format</label>
+                    <source_model>MagePal\GoogleTagManager\Block\Adminhtml\System\Config\Form\Field\ItemVariantFormat</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                        <field id="*/*/item_variant_layer">1</field>
+                    </depends>
+                </field>
+
+                <field id="category_layer" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Category to data layer?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="gdpr" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Data Protection Regulation (GDPR)</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable GDPR</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="add_js_in_header" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add GTM code in html header</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/enabled">0</field>
+                    </depends>
+                    <comment>
+                        Note: Data Layer event firing Order may change
+                    </comment>
+                </field>
+                <field id="option" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Options</label>
+                    <source_model>MagePal\GoogleTagManager\Model\Config\Source\GdprOption</source_model>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="restriction_cookie_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Name</label>
+                    <depends>
+                        <field id="*/*/option" separator=",">2,3</field>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                    <validate>required-entry alphanumeric</validate>
+                </field>
+                <field id="note" translate="label" type="note" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <comment>
+                        To enable disable tracking goto Stores > Configuration > General > Web > Default Cookie Settings > Cookie Restriction Mode
+                    </comment>
+                    <depends>
+                        <field id="*/*/option" separator=",">1</field>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
