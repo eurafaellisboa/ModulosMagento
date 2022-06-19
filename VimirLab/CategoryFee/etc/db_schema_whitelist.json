@@ -1,0 +1,40 @@
+{
+    "quote_item": {
+        "column": {
+            "insurance_offer": true,
+            "insurance_check": true,
+            "insurance_amount": true,
+            "insurance_tax_amount": true,
+            "category_fee": true,
+            "category_ids": true
+        }
+    },
+    "sales_order_item": {
+        "column": {
+            "insurance_amount": true,
+            "insurance_tax_amount": true,
+            "category_fee": true
+        }
+    },
+    "quote": {
+        "column": {
+            "insurance_amount": true,
+            "insurance_tax_amount": true,
+            "category_fee": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "insurance_amount": true,
+            "insurance_tax_amount": true,
+            "category_fee": true
+        }
+    },
+    "sales_invoice": {
+        "column": {
+            "insurance_amount": true,
+            "insurance_tax_amount": true,
+            "category_fee": true
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<!-- ko if: isDisplayCategoryFeeLabelTotal() -->
+<tr class="totals category-fee excl">
+    <th class="mark" colspan="1" scope="row" data-bind="text: getTotalSummaryLabel()"></th>
+    <td class="amount">
+        <span class="price" data-bind="text: getCategoryFeeTotal()"></span>
+    </td>
+</tr>
+<!-- /ko -->
