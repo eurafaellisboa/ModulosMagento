@@ -1,0 +1,436 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
+$scopeConfig = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface');
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+
+$baseUrl = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+
+$inscricao_estadual = "";
+$razao_social = "";
+$taxvat = "";
+$tipo_pessoa = 1;
+if($customerSession->isLoggedIn()) {
+    $tipo_pessoa = $customerSession->getCustomer()->getTipoPessoa();
+	$razao_social = $customerSession->getCustomer()->getRazaoSocial();
+	$inscricao_estadual = $customerSession->getCustomer()->getInscricaoEstadual();
+	$taxvat = $customerSession->getCustomer()->getTaxvat();
+}
+
+
+?>
+<?php //$this->setShowAddressFields(true); ?>
+<?php //if($this->getShowAddressFields()): ?>
+<?php if($scopeConfig->getValue("validacpf/geral/ativarmodulo", $storeScope)): ?>
+<script>
+  var yapay_credit_card = "<?=$scopeConfig->getValue('payment/yapay_credit_card/active', $storeScope)?>";
+	var htmlCheck,htmlFisica,htmlJuridica;
+
+	htmlCheck = '	<div class="cont_pessoa">';
+	htmlCheck += '<label class="checkbox-inline"><input type="radio" id="pessoa_fisica" class="cls_tipo_pessoa" name="ck_tipo_pessoa" value="1" <?php echo ( $tipo_pessoa == 1 ? "checked" : "" ); ?> >Pessoa Física</label>';
+	htmlCheck += '<label class="checkbox-inline"><input type="radio" id="pessoa_juridic" class="cls_tipo_pessoa" name="ck_tipo_pessoa" value="2" <?php echo ( $tipo_pessoa == 2 ? "checked" : "" ); ?>>Pessoa Jurídica</label>';
+	htmlCheck += '</div>';
+	htmlCheck += '<div class="valida"></div>';
+
+	htmlFisica = '<label class="label" id="lbl_pessoa_fisica" for="taxvat"><span><?=__('CPF')?></span></label>';
+	htmlFisica += '<div class="control">';
+	htmlFisica += '	<input type="text" id="taxvat" inputmode="numeric" onchange="buscarTaxVat(this)" onkeyup="mascaraMutuario(this,cpfCnpj)" name="taxvat" value="" title="<?=__('CPF')?>" class="input-text " data-validate="{required:true}" autocomplete="off" aria-required="true">';
+	htmlFisica += '	</div>';
+	htmlFisica += '	<input type="hidden" name="tipo_pessoa" value="1">';
+
+
+
+	htmlJuridica = '<label class="label" id="lbl_pessoa_juridica" for="taxvat"><span><?=__('CNPJ')?></span></label>';
+	htmlJuridica += '<div class="control">';
+	htmlJuridica += '	<input type="text" id="taxvat" inputmode="numeric" onchange="buscarTaxVat(this)" onkeyup="mascaraMutuario(this,cpfCnpj)" name="taxvat" value="" title="<?=__('CNPJ')?>" class="input-text " data-validate="{required:true}" autocomplete="off" aria-required="true">';
+	htmlJuridica += '</div>';
+	htmlJuridica += '<input type="hidden" name="tipo_pessoa" value="2">';
+
+	if(yapay_credit_card){
+		htmlJuridica = '<label class="label" id="lbl_pessoa_fisica" for="taxvat"><span><?=__('CPF')?></span></label>';
+		htmlJuridica += '<div class="control">';
+		htmlJuridica += '	<input type="text" id="taxvat" inputmode="numeric" onchange="buscarTaxVat(this)" onkeyup="mascaraMutuario(this,cpfCnpj)" name="taxvat" value="" title="<?=__('CPF')?>" class="input-text " data-validate="{required:true}" autocomplete="off" aria-required="true">';
+		htmlJuridica += '	</div>';
+		htmlJuridica += '	<input type="hidden" name="tipo_pessoa" value="1">';
+
+	}
+
+	<?php if($scopeConfig->getValue("validacpf/loja/razao_social", $storeScope)): ?>
+	htmlJuridica += '<label class="label" for="razao_social"><span><?=__('Razão Social')?></span></label>';
+	htmlJuridica += '<div class="control">';
+	htmlJuridica += '	<input type="text" id="razao_social" name="razao_social" value="" title="<?=__('Razão Social')?>" class="input-text " data-validate="{required:true}" autocomplete="off" aria-required="true">';
+	htmlJuridica += '</div>';
+	<?php endif; ?>
+
+	<?php if($scopeConfig->getValue("validacpf/loja/inscricao_estadual", $storeScope)): ?>
+	htmlJuridica += '<label class="label" for="inscricao_estadual"><span><?=__('Inscrição Estadual')?></span></label>';
+	htmlJuridica += '<div class="control">';
+	htmlJuridica += '	<input type="text" id="inscricao_estadual" inputmode="numeric" name="inscricao_estadual" value="" title="<?=__('Inscrição Estadual')?>" class="input-text " data-validate="{required:true}" autocomplete="off" aria-required="true">';
+	htmlJuridica += '</div>';
+	<?php endif; ?>
+
+var tipo_pessoa = "<?=$tipo_pessoa?>";
+var razao_social = "<?=$razao_social?>";
+var inscricao_estadual = "<?=$inscricao_estadual?>";
+var taxvat = "<?=$taxvat?>";
+	require([
+		"jquery",
+		"jquery/ui"
+	], function($){
+		if(yapay_credit_card){
+			$(".taxvat").html('<div class="valida"></div>');
+			$(".valida").html(htmlJuridica);
+			$("#taxvat").attr('maxlength','14');
+			$("#cnpj").attr('maxlength','18');
+			$("fieldset.fieldset.create.account .field.promotion_code.required:nth-child(3)").hide();
+
+			$("#taxvat").keyup(function() {
+				$('.field.promotion_code input#cpf').val($(this).val());
+			});
+
+			$("#cnpj").keyup(function() {
+			
+				v=$(this).val().replace(/\D/g,"");
+				if (v.length > 0 && v.length <= 11) {
+					//CPF
+					v=v.replace(/(\d{3})(\d)/,"$1.$2");
+					v=v.replace(/(\d{3})(\d)/,"$1.$2");
+					v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+				} else {
+					//CNPJ
+					v=v.replace(/^(\d{2})(\d)/,"$1.$2");
+					v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
+					v=v.replace(/\.(\d{3})(\d)/,".$1/$2");
+					v=v.replace(/(\d{4})(\d)/,"$1-$2");
+				}
+				$(this).val(v);
+
+			});
+
+		}else{
+			
+		$(".taxvat").html(htmlCheck);
+		$(".valida").html(htmlFisica);
+
+		$("#taxvat").attr('maxlength','14');
+		if(tipo_pessoa == 2){
+			$(".valida").html(htmlJuridica);
+			$("#taxvat").attr('maxlength','18');
+		}
+
+
+		$('#inscricao_estadual').val(inscricao_estadual);
+		$('#razao_social').val(razao_social);
+
+		$('#taxvat').val(taxvat);
+		$('input.cls_tipo_pessoa').change(function() {
+			if(this.checked) {
+				if(this.value == 1){
+					$(".valida").html(htmlFisica);
+					$("input#taxvat").attr('value',(tipo_pessoa == this.value ? taxvat : '' )).attr('maxlength','14');
+				}else if(this.value == 2){
+					$(".valida").html(htmlJuridica);
+					$("input#taxvat").attr('value',(tipo_pessoa == this.value ? taxvat : '' )).attr('maxlength','18');
+				}
+			}
+			$('#inscricao_estadual').val(inscricao_estadual);
+			$('#razao_social').val(razao_social);
+
+		});
+		}
+
+
+
+	});
+</script>
+
+<script>
+	function mascaraMutuario(o,f){
+		v_obj=o;
+		v_fun=f;
+		setTimeout('execmascara()',1)
+	}
+
+	function execmascara(){
+		v_obj.value=v_fun(v_obj.value)
+	}
+
+	function cpfCnpj(v){
+		v=v.replace(/\D/g,"");
+		if (v.length > 0 && v.length <= 11) {
+			//CPF
+			v=v.replace(/(\d{3})(\d)/,"$1.$2");
+			v=v.replace(/(\d{3})(\d)/,"$1.$2");
+			v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+		} else {
+			//CNPJ
+			v=v.replace(/^(\d{2})(\d)/,"$1.$2");
+			v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
+			v=v.replace(/\.(\d{3})(\d)/,".$1/$2");
+			v=v.replace(/(\d{4})(\d)/,"$1-$2");
+		}
+		return v
+	}
+
+
+	function buscarTaxVat(val) {
+		validaCampo(val.value);
+		<?php if($scopeConfig->getValue("validacpf/loja/taxvat_unico", $storeScope)): ?>
+		if(validaCampo(val.value)) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+
+					var taxvat = document.querySelector('#taxvat');
+
+
+					var labelTipoDoc = '';
+					if(document.querySelector('#pessoa_fisica')){
+						if (document.querySelector('#pessoa_fisica').checked) {
+							labelTipoDoc = 'CPF';
+						} else {
+							labelTipoDoc = 'CNPJ';
+						}
+					}else{
+						labelTipoDoc = 'CPF';
+					}
+
+
+					if (this.responseText == 1) {
+
+						if (!document.querySelector('.validacpf')) {
+							taxvat.insertAdjacentHTML('afterend', '<div class="field-error validacpf" data-bind="attr: { id: element.errorId }" generated="true" id="validacpf"><span data-bind="text: element.error">' + labelTipoDoc + ' já cadastrado, <a href="<?php echo  $baseUrl ?>customer/account/forgotpassword/"> clique aqui para se logar </a> </span></div>');
+						}
+						taxvat.style.border = "1px solid #ed8380";
+						document.querySelector('.validacpf').style.display = "Block";
+						document.querySelector('.actions-toolbar > .primary .action:last-child').style.display = "none";
+					} else {
+						if (document.querySelector('.validacpf'))
+							document.querySelector('.validacpf').style.display = "none";
+
+						document.querySelector('.actions-toolbar > .primary .action:last-child').style.display = "Block";
+						taxvat.style.border = "1px solid #c2c2c2";
+					}
+
+
+				}
+			};
+			xmlhttp.open("GET", "<?php echo  $baseUrl ?>magento_validacpf?taxvat=" + val.value + "&_=" + Date.now(), true);
+			xmlhttp.send();
+		}
+<?php endif; ?>
+	}
+
+
+</script>
+<style>
+	.valida label.label {
+		font-weight: 600;
+		margin: 0 0 8px;
+		display: inline-block;
+	}
+	.valida label.label:after {
+		content: '*';
+		color: #e02b27;
+		font-size: 1.2rem;
+		margin: 0 0 0 5px;
+	}
+	.valida .control {
+		margin: 0 0 20px;
+	}
+	.cont_pessoa > label {
+		margin-right: 20px;
+	}
+	.field.password .control {
+		width: 100%;
+	}
+</style>
+<?php endif; ?>
+
+<script>
+	function validaCampo(object) {
+		object = object.replace(/[^\d]+/g,'');
+		if(object.indexOf("11111")!=-1 ||
+			object.indexOf("22222")!=-1 ||
+			object.indexOf("33333")!=-1 ||
+			object.indexOf("44444")!=-1 ||
+			object.indexOf("55555")!=-1 ||
+			object.indexOf("66666")!=-1 ||
+			object.indexOf("77777")!=-1 ||
+			object.indexOf("88888")!=-1 ||
+			object.indexOf("99999")!=-1) {
+			errorReturn();
+			return false;
+		}
+
+
+		if (object.length <= 12) {
+
+			var pessoa_juridic = false;
+			if(document.querySelector('#pessoa_juridic')){
+				pessoa_juridic = document.querySelector('#pessoa_juridic').checked;
+			}
+			if(pessoa_juridic){
+				errorReturn();
+				return false;
+			}else{
+				sucessReturn();
+				return ValidarCPF(object)
+			}
+		
+
+		} else {
+			return ValidarCNPJ(object)
+		}
+	}
+	//valida o CPF digitado
+	function ValidarCPF(Objcpf) {
+		var cpf = Objcpf;
+		var exp = /\.|\-/g;
+		cpf = cpf.toString().replace(exp, "");
+
+
+		if (VerificaCPF(cpf)) {
+			sucessReturn();
+		} else {
+			errorReturn();
+		}
+		return VerificaCPF(cpf);
+	}
+	//valida o CNPJ digitado
+	function ValidarCNPJ(ObjCnpj) {
+
+		var cnpj = ObjCnpj;
+		var valida = new Array(6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2);
+		var dig1 = new Number;
+		var dig2 = new Number;
+
+		exp = /\.|\-|\//g;
+		cnpj = cnpj.toString().replace(exp, "");
+		var digito = new Number(eval(cnpj.charAt(12) + cnpj.charAt(13)));
+
+		for (i = 0; i < valida.length; i++) {
+			dig1 += (i > 0 ? (cnpj.charAt(i - 1) * valida[i]) : 0);
+			dig2 += cnpj.charAt(i) * valida[i];
+		}
+		dig1 = (((dig1 % 11) < 2) ? 0 : (11 - (dig1 % 11)));
+		dig2 = (((dig2 % 11) < 2) ? 0 : (11 - (dig2 % 11)));
+
+		if (((dig1 * 10) + dig2) != digito) {
+			errorReturn();
+			return false;
+		} else {
+			sucessReturn();
+			return true;
+		}
+
+	}
+
+	function sucessReturn(){
+		var taxvat = document.querySelector('#taxvat');
+		if(document.querySelector('.validacpf-val')){
+			document.querySelector('.validacpf-val').style.display = "none";
+		}
+
+
+		document.querySelector('.actions-toolbar > .primary .action:last-child').disabled = false;
+		taxvat.style.border = "1px solid #c2c2c2";
+	}
+	function errorReturn(){
+		var taxvat = document.querySelector('#taxvat');
+		if (!document.querySelector('.validacpf-val')) {
+			taxvat.insertAdjacentHTML('afterend', '<div class="field-error validacpf-val" data-bind="attr: { id: element.errorId }" generated="true" id="validacpf-val"><span data-bind="text: element.error"> CPF/CNPJ Inválido </span></div>');
+		}
+		taxvat.value = "";
+		taxvat.style.border = "1px solid #ed8380";
+		document.querySelector('.validacpf-val').style.display = "Block";
+		document.querySelector('.actions-toolbar > .primary .action:last-child').disabled = true;
+	}
+
+	function VerificaCPF(strCpf) {
+
+		var soma;
+		var resto;
+		soma = 0;
+		if (strCpf == "00000000000") {
+			return false;
+		}
+
+		for (i = 1; i <= 9; i++) {
+			soma = soma + parseInt(strCpf.substring(i - 1, i)) * (11 - i);
+		}
+
+		resto = soma % 11;
+
+		if (resto == 10 || resto == 11 || resto < 2) {
+			resto = 0;
+		} else {
+			resto = 11 - resto;
+		}
+
+		if (resto != parseInt(strCpf.substring(9, 10))) {
+			return validarCpf2(strCpf);
+		}
+
+		soma = 0;
+
+		for (i = 1; i <= 10; i++) {
+			soma = soma + parseInt(strCpf.substring(i - 1, i)) * (12 - i);
+		}
+		resto = soma % 11;
+
+		if (resto == 10 || resto == 11 || resto < 2) {
+			resto = 0;
+		} else {
+			resto = 11 - resto;
+		}
+
+		if (resto != parseInt(strCpf.substring(10, 11))) {
+			return validarCpf2(strCpf);
+		}
+
+		return true;
+	}
+
+
+	function validarCpf2(strCPF) {
+		var Soma;
+		var Resto;
+		Soma = 0;
+		if (strCPF == "00000000000") return false;
+
+		for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+		Resto = (Soma * 10) % 11;
+
+		if ((Resto == 10) || (Resto == 11))  Resto = 0;
+		if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+		Soma = 0;
+		for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+		Resto = (Soma * 10) % 11;
+
+		if ((Resto == 10) || (Resto == 11))  Resto = 0;
+		if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+		return true;
+	}
+
+</script>
+
+<style>
+	.fieldset > .field:not(.choice) > .label {
+		padding: 6px 15px 0 0;
+		text-align: left;
+		width: 100%;
+		box-sizing: border-box;
+		float: left;
+	}
+	.valida .control {
+		margin: 0 0 20px;
+		width: 74.2%;
+	}
+	.field.choice.newsletter {
+		float: left;
+		width: 100%;
+	}
+</style>
