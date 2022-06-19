@@ -1,0 +1,37 @@
+{
+    "name": "abzertech/smtp",
+    "version": "1.2.0",
+    "description": "Magento 2 SMTP Extension - Configure Magento 2 to send all transactional email using SMTP servers",
+    "keywords": [
+        "magento 2",
+        "gmail smtp",
+        "magento2 email",
+        "magento2 smtp",
+        "magento2 email setup",
+        "send email magento2",
+        "configure magento email",
+        "setup email magento2"
+    ],
+
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "homepage": "https://www.abzer.com/",    
+    "authors": [
+        {
+            "name": "Abzer",
+            "email": "info@abzer.com",
+            "homepage": "http://www.abzer.com/",
+            "role": "Development and Support"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Abzertech\\Smtp\\": ""
+        }
+    }
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="abzertech" sortOrder="400" translate="label">
+            <label>Abzer Extensions</label>
+        </tab>
+        <section id="abzer_smtp" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>SMTP</label>
+            <tab>abzertech</tab>
+            <resource>Abzer_Core::smtp_config</resource>
+            
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SMTP Settings</label>   
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>abzer/smtp/active</config_path>
+                </field>
+               
+                <field id="auth" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Authentication method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Smtpauth</source_model>
+                    <config_path>abzer/smtp/auth</config_path>
+                    <comment>Default: login</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="protocol" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SSL type</label>
+                    <source_model>Abzertech\Smtp\Model\Config\Source\Authtype</source_model>
+                    <config_path>abzer/smtp/protocol</config_path>
+                    <comment>Default: ssl</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="host" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SMTP Host</label>
+                    <config_path>abzer/smtp/host</config_path>
+                    <comment>The server name (eg smtp.gmail.com).</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="port" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SMTP Port</label>
+                    <config_path>abzer/smtp/port</config_path>
+                    <validate>validate-number</validate>
+                    <frontend_class>validate-number</frontend_class>
+                    <comment>Use 465 (ssl) or 587 (tls) if port 25 is throttled or blocked.</comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="username" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <comment>Email Address or Account ID.</comment>
+                    <config_path>abzer/smtp/username</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="password" translate="label" type="obscure" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <config_path>abzer/smtp/password</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>                
+                
+                <group id="debug" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                    <label>Test Email</label>
+                    <attribute type="expanded">0</attribute>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Fieldset</frontend_model>
+                    <field id="to_email" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>To Email</label>
+                        <comment>Email address to send test to.</comment>
+                        <config_path>abzer/smtp/to_email</config_path>
+                        <frontend_class>validate-email</frontend_class>
+                    </field>
+                    <field id="from_email" translate="label comment" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>From Email</label>
+                        <comment>Leave blank to use Username instead</comment>
+                        <config_path>abzer/smtp/from_email</config_path>
+                        <frontend_class>validate-email</frontend_class>
+                    </field>
+                    <field id="button" translate="label comment" type="button" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>Abzertech\Smtp\Block\Adminhtml\System\Config\TestButton</frontend_model>
+                    </field>
+                </group>
+                <group id="emaillog" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                    <label>Email Log</label>
+                    <field id="log" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable Log</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>abzer/smtp/log</config_path>
+                    </field>
+                    <field id="clearlog" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Clear Log</label>
+                        <source_model>Abzertech\Smtp\Model\Config\Source\TimePeriod</source_model>
+                        <config_path>abzer/smtp/clearlog</config_path>
+                        <depends>
+                            <field id="log">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+        </section>        
+    </system>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+    <type name="\Magento\Framework\Mail\Transport">
+        <plugin sortOrder="100" name="abzerTechSmtpAppTransport" type="Abzertech\Smtp\Plugin\Mail\TransportPlugin"/>
+    </type>
+
+    <type name="\Magento\Framework\Mail\TransportInterface">
+        <plugin sortOrder="100" name="abzerTechSmtpAppTransportInterface" type="Abzertech\Smtp\Plugin\Mail\TransportPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\Mail\Template\TransportBuilder">
+        <plugin sortOrder="1" name="abzerTechSmtpAppTransportBuilder" type="Abzertech\Smtp\Plugin\Mail\Template\TransportBuilderPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\Mail\Template\TransportBuilderByStore">
+        <plugin sortOrder="1" name="abzerTechSmtpAppTransportBuilderByStore" type="Abzertech\Smtp\Plugin\Mail\Template\TransportBuilderByStorePlugin"/>
+    </type>
+    
+</config>

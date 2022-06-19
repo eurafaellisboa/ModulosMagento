@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Abzertech_Smtp::email_log" title="Abzer SMTP Email Log" 
+             module="Abzertech_Smtp" sortOrder="100" parent="Magento_Reports::report_marketing" 
+             action="abzertechsmtp/email/log" resource="Abzertech_Smtp::email_log"/>
+       </menu>
+</config>

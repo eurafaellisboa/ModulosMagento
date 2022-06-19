@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Abzertech\Smtp\Block\Adminhtml\Email" name="abzertechsmtp_email_log.grid.container">
+                <block class="Magento\Backend\Block\Widget\Grid" name="abzertechsmtp_email_log.grid" as="grid">
+                    <arguments>
+                        <argument name="id" xsi:type="string">abzertechsmtp_email_log_grid</argument>
+                        <argument name="dataSource" xsi:type="object">Abzertech\Smtp\Model\ResourceModel\Core\Collection</argument>
+                        <argument name="default_sort" xsi:type="string">id</argument>
+                        <argument name="default_dir" xsi:type="string">desc</argument>
+                        <argument name="pager_visibility" xsi:type="string">1</argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="abzertechsmtp_email_log.grid.columnSet">
+                        <arguments>
+                            <argument name="filter_visibility" xsi:type="string">1</argument>
+                        </arguments>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="id">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">ID</argument>
+                                <argument name="index" xsi:type="string">id</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="recipient">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">To</argument>
+                                <argument name="index" xsi:type="string">recipient</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="sender">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">From</argument>
+                                <argument name="index" xsi:type="string">sender</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="subject">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Subject</argument>
+                                <argument name="index" xsi:type="string">subject</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="body"  name="bodyText">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Message</argument>
+                                <argument name="index" xsi:type="string">body</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="sent_at">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Sent At</argument>
+                                <argument name="index" xsi:type="string">sent_at</argument>
+                                <argument name="type" xsi:type="string">datetime</argument>
+                                <argument name="column_css_class" xsi:type="string">col-date</argument>
+                                <argument name="header_css_class" xsi:type="string">col-date</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="abzertech.smtp_massaction" as="grid.massaction">
+                        <arguments>
+                            <argument name="massaction_id_field" xsi:type="string">id</argument>
+                            <argument name="form_field_name" xsi:type="string">id</argument>
+                            <argument name="use_select_all" xsi:type="string">1</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="disable" xsi:type="array">
+                                    <item name="label" xsi:type="string" translate="true">Delete</item>
+                                    <item name="url" xsi:type="string">*/*/massdelete</item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
