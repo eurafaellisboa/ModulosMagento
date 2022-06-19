@@ -1,0 +1,119 @@
+<?xml version="1.0"?><!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_DeleteOrders
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="delete_orders" translate="label" type="text" sortOrder="450" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Delete Orders</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_DeleteOrders::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable this module</comment>
+                </field>
+            </group>
+            <group id="schedule" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label>Automatic Delete Configuration</label>
+                <field id="schedule_for" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Schedule For</label>
+                    <source_model>Mageplaza\DeleteOrders\Model\Config\Source\Frequency</source_model>
+                    <backend_model>Mageplaza\DeleteOrders\Model\Config\Backend\Order\Frequency</backend_model>
+                    <comment>Set up the schedule in which orders are deleted automatically.</comment>
+                </field>
+                <field id="time" translate="label" type="time" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Time</label>
+                    <depends>
+                        <field id="schedule_for" separator="|">D|W|M</field>
+                    </depends>
+                </field>
+                <field id="day_before" translate="label comment" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Excluded Period</label>
+                    <validate>validate-number</validate>
+                    <comment>For example, today is Sunday this week. If you set the period as 7 days, all the orders before Sunday last week will be deleted (if they meet the below conditions).</comment>
+                </field>
+                <field id="order_status" translate="label comment" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id="customer_groups" translate="label comment" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Group(s)</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                </field>
+                <field id="store_views" translate="label comment" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store View(s)</label>
+                    <source_model>Magento\Store\Model\System\Store</source_model>
+                </field>
+                <field id="country" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Countries</label>
+                    <source_model>Mageplaza\DeleteOrders\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="specific_country" translate="label comment" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <depends>
+                        <field id="country">1</field>
+                    </depends>
+                </field>
+                <field id="order_under" translate="label comment" sortOrder="60" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Total</label>
+                    <validate>validate-number</validate>
+                    <comment>Less than or equal this amount</comment>
+                </field>
+                <field id="run_manually" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Mageplaza\DeleteOrders\Block\Adminhtml\System\Config\Manually</frontend_model>
+                    <comment><![CDATA[
+                            <span>Click Run Manually to delete the orders which meet the above conditions anytime</span><br />
+                            <span>In case you want to delete a specific order, you can use command line</span><br />
+                            <span><b>php bin/magento order:delete order_id</b></span><br />
+                        ]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="email" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Notification</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[
+                            <span>Email can be sent only when orders are deleted automatically by schedule.</span><br />
+                            <span>Install <a href="https://www.mageplaza.com/magento-2-smtp/?utm_source=mageplaza&utm_medium=mageplaza&utm_campaign=mageplaza-review&utm_content=SMTP" target="_blank">Mageplaza_SMTP</a> to avoid sending to spam box.</span>
+                        ]]>
+                    </comment>
+                </field>
+                <field id="sender" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="to" sortOrder="40" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send To</label>
+                    <comment>Separated by comma(s)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
