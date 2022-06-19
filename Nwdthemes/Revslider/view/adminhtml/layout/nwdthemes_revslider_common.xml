@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Nwdthemes_Revslider::admin/assets/css/tp-color-picker.css" />
+        <css src="Nwdthemes_Revslider::admin/assets/css/ddTP.css" />
+        <css src="Nwdthemes_Revslider::admin/assets/css/basics.css" />
+        <css src="Nwdthemes_Revslider::admin/assets/css/builder.css" />
+        <css src="Nwdthemes_Revslider::framework/css/jquery-ui-dialog.min.css" />
+        <css src="Nwdthemes_Revslider::framework/css/buttons.css" />
+        <css src="Nwdthemes_Revslider::framework/css/color-picker.css" />
+        <css src="Nwdthemes_Revslider::framework/css/common.css" />
+        <css src="Nwdthemes_Revslider::framework/css/dashicons.css" />
+        <css src="Nwdthemes_Revslider::framework/css/edit.css" />
+        <css src="Nwdthemes_Revslider::framework/css/forms.css" />
+        <css src="Nwdthemes_Revslider::framework/css/list-tables.css" />
+        <css src="Nwdthemes_Revslider::framework/css/m2revslider.css" />
+        <css src="Nwdthemes_Revslider::public/assets/css/rs6.min.css" />
+        <css src="Nwdthemes_Revslider::public/assets/fonts/font-awesome/css/font-awesome.min.css" />
+        <css src="Nwdthemes_Revslider::public/assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.min.css" />
+    </head>
+</page>

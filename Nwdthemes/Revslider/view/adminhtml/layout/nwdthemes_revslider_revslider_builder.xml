@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="nwdthemes_revslider_common"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_header" template="Nwdthemes_Revslider::header.phtml" />
+            <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_builder" template="Nwdthemes_Revslider::builder.phtml">
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_modals-copyright" template="Nwdthemes_Revslider::modals-copyright.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_modals-general" template="Nwdthemes_Revslider::modals-general.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_builder-slider-forms" template="Nwdthemes_Revslider::builder-slider-forms.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_builder-nav-forms" template="Nwdthemes_Revslider::builder-nav-forms.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_builder-slide-forms" template="Nwdthemes_Revslider::builder-slide-forms.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_builder-layer-forms" template="Nwdthemes_Revslider::builder-layer-forms.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_modals-builder" template="Nwdthemes_Revslider::modals-builder.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_builder-timeline" template="Nwdthemes_Revslider::builder-timeline.phtml" />
+            </block>
+            <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_footer" template="Nwdthemes_Revslider::footer.phtml" />
+        </referenceContainer>
+    </body>
+</page>

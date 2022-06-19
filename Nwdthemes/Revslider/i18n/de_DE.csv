@@ -1,0 +1,1213 @@
+" should be numeric"," sollte numerisch sein"
+" should not be empty"," sollte nicht leer sein"
+"&copy; Copyright & License Info","&copy; Copyright & Lizenzinfo"
+"&lt;a&gt; Tag Link","&lt; a&gt; Tag-Link"
+"* All settings adjusted by the guide can be changed later.<br>Click the <strong>Help Icon</strong> to find options & documentation","* Alle im Handbuch vorgenommenen Einstellungen können später geändert werden. <br> Klicken Sie auf das <strong> Hilfesymbol </ strong>, um Optionen und Dokumentation anzuzeigen"
+"1 Purchase Code per Website","1 Purchase Code pro Website"
+"1 Purchase Code per Website!","1 Purchase Code pro Website!"
+"1 Spike Bottom","1 Spike Unten"
+"1 Spike Middle","1 Spike Mitte"
+"1 Spike Top","1 Spike Oben"
+"1on1 Support",1zu1-Unterstützung
+"1st Frame","1. Frame"
+"3D Effects Enabled","3D Effekte aktiviert"
+"3D Settings","3D Einstellungen"
+"A Slider with the given alias already exists","Ein Slider mit dem angegebenen Alias existiert bereits"
+"API Key",API-Schlüssel
+"Action Delay",Aktionsverzögerung
+"Action Needed","Aktion erforderlich"
+"Action Type",Aktionstyp
+Actions,Aktionen
+"Activate Add-On","Addon aktivieren"
+"Activate Global Add-On","Globales Addon aktivieren"
+"Activate License","Lizenz aktivieren"
+"Activate To Update","Aktivieren zum Aktualisieren"
+Activated,Aktiviert
+"Activating Add-On","Aktiviere Addon"
+Activation,Aktivierung
+"Add Action to ","Aktion hinzufügen zu "
+"Add Folder","Ordner hinzufügen"
+"Add Layer","Layer hinzufügen"
+"Add LineBreak After","Zeilenumbruch danach hinzufügen"
+"Add LineBreak Before","Zeilenumbruch davor hinzufügen"
+"Add New Meta","Neues Meta hinzufügen"
+"Add New Navigation ","Neue Navigation hinzufügen "
+"Add Slide(s)","Slide(s) hinzufügen"
+"Add Slider as Modal","Slider als Modal hinzufügen"
+"Add to Selection","Zur Auswahl hinzufügen"
+"AddOn could not be activated","AddOn konnte nicht aktiviert werden"
+"AddOn could not be deactivated","AddOn konnte nicht deaktiviert werden"
+"AddOn deactivated","AddOn deaktiviert"
+AddOns,Addons
+"AddOns Outdated. Please Update","AddOns veraltet. Bitte aktualisieren"
+"AddOns need attention","AddOns brauchen Aufmerksamkeit"
+"Adding new Blank Module...","Neues leeres Modul hinzufügen ..."
+Additional,Zusätzlich
+"Addon Required","Addon erforderlich"
+"Admin Thumb","Admin Miniaturansicht"
+"Adv. Style","Erw. Stil"
+Advanced,Fortgeschritten
+"Advanced Actions","Erweiterte Aktionen"
+"Advanced Module Embedding","Erweiterte Modul Einbettung"
+"Advanced Settings","Erweiterte Einstellungen"
+"After Action","Nach der Aktion"
+Aligment,Ausrichtung
+Align,Ausrichten
+"Aligned by","Ausgerichtet an"
+All,Alles
+"All Layers","Alle Layer"
+"Allow Fullscreen","Vollbild erlauben"
+"Alt. Image","Alt. Bild"
+"Amount of Slides","Anzahl der Slides"
+"An Error Occured while importing","Beim Importieren ist ein Fehler aufgetreten"
+"Anim From","Animation von"
+"Anim To","Animation zu"
+"Animate From","Animiere von"
+"Animate to ""Start"" in Loop","Animiere zu ""Start"" im Loop"
+"Animation Duration",Animationsdauer
+"Animation Duration in ms","Animationsdauer in ms"
+"Animation Template",Animationsvorlage
+"Animation View","Animation Ansicht"
+"Animation could not be saved","Animation konnte nicht gespeichert werden"
+"Animation deleted","Animation gelöscht"
+"Animation saved","Animation gespeichert"
+"Are you sure you want to continue?","Sind Sie sicher, dass Sie fortfahren möchten?"
+"Are you sure you want to delete ","Sind Sie sicher, dass Sie löschen möchten "
+"Are you sure you want to delete the selected Slide:","Möchten Sie den ausgewählten Slide wirklich löschen:"
+"Are you sure you want to export ","Möchten Sie wirklich exportieren? "
+Arguments,Argumente
+"Arrow Style",Pfeilstil
+"Arrow Type",Pfeilart
+Arrows,Pfeile
+"As Modal","Als Modal"
+Ascending,Aufsteigend
+"Aspect Ratio",Seitenverhältnis
+"Attach to BG","An HG anhängen"
+Attributes,Attribute
+"Audio Wave Library is Loading...","Audio Wave Library wird geladen ..."
+"Auto Rotate","Automatisch drehen"
+"Available Version","Verfügbare Version"
+"BG 3D Depth","HG 3D Tiefe"
+"BG Color","HG Farbe"
+"BG Filter","HG Filter"
+"BG Fit","HG Fit"
+"BG Image","HG Bild"
+"BG Speed","HG Geschwindigkeit"
+"BG in Frame","HG in Frame"
+Back,Zurück
+"Back to Overview","Zurück zur Übersicht"
+Background,Hintergrund
+"Background Color",Hintergrundfarbe
+"Background Video",Hintergrundvideo
+Backward,Rückwärts
+"Bad Request","Ungültige Anforderung"
+"Basic Transforms","Grundlegende Transformationen"
+Basics,Grundlagen
+"Bearer Token is good, check your query","Inhaber-Token ist gut, überprüfen Sie Ihre Anfrage"
+"Behind Layers (Back)","Hinter Layer (Rückseite)"
+"Blank Page Created","Leere Seite erstellt"
+"Blank page has been created:","Leere Seite wurde erstellt:"
+"Blank slide","Leerer Slide"
+"Blend Mode",Mischmodus
+"Block Color",Blockfarbe
+"Block Scroll","Scroll blockieren"
+"Block to Bottom","Block nach unten"
+"Block to Left","Block nach links"
+"Block to Right","Block nach rechts"
+"Block to Top","Block nach oben"
+Blur,Verwischen
+"Body Class","Body Klasse"
+Border,Rand
+"Border Color",Randfarbe
+"Border Style",Randstil
+Both,Beide
+Bottom,Unten
+"Box Shadow","Box Schatten"
+"Break At","Pause bei"
+"Browser Width","Browser Breite"
+"Browser behavior",Browserverhalten
+"Building Select Boxes","Erstellen von Auswahlfeldern"
+"Bulk Slide","Mehrere Slides"
+"Bullets Style","Bullets Stil"
+"Bullets Type","Bullets Typ"
+"Bullets Visibility","Bullets Sichtbarkeit"
+"CSS/JS Editor","CSS / JS Editor"
+"CUSTOM CSS","BENUTZERDEFINIERTES CSS"
+"CUSTOM JS","BENUTZERDEFINIERTES JS"
+"Cache (sec)","Cache (Sek.)"
+"Cache (sec):","Cache (Sek.):"
+"Call this function to pause the slider.","Rufen Sie diese Funktion auf, um den Slider zu pausieren."
+"Call this function to play the slider if it is paused.","Rufen Sie diese Funktion auf, um den Slider zu starten, wenn er pausiert wird."
+"Call this function to start the slider.","Rufe diese Funktion auf, um Slider zu starten."
+"Can not be Empty","Darf nicht leer sein"
+"Can not be rendered in Editor. Please preview in Frontend.","Kann nicht im Editor gerendert werden. Bitte Vorschau im Frontend."
+"Can't create zip file: ","ZIP-Datei kann nicht erstellt werden: "
+"Can't modify a default preset of default navigations","Standardvoreinstellung der Standardnavigation kann nicht geändert werden"
+Cancel,Abbrechen
+"Cancel & Reload Later","Abbrechen & Später neu laden"
+Capitalize,"Erster Buchstabe groß"
+Caraousel,Karussell
+Carousel,Karussell
+"Carousel Layout","Karussell Layout"
+Categories,Kategorien
+Categories:,Kategorien:
+Center,Zentriert
+"Center - Left Right","Mitte - links rechts"
+"Center - Right Left","Mitte - rechts links"
+"Center Diagonal",Mitteldiagonale
+"Changes that you made may not be saved.","Von Ihnen vorgenommene Änderungen werden möglicherweise nicht gespeichert."
+"Changing Screen Size","Ändern der Bildschirmgröße"
+Channel,Kanal
+"Channel ID","Kanal ID"
+Char,Zeichen
+"Check Requirements","Überprüfen Sie die Anforderungen"
+"Check for Updates","Auf Updates prüfen"
+"Choose Image","Bild wählen"
+"Choose Video","Video wählen"
+Circle,Kreis
+Class,Klasse
+"Class to Toggle","Klasse zum Umschalten"
+Classes,Klassen
+Clear,Leeren
+"Cleared Photosets","Fotosets geleert"
+Click,Klicken
+"Click to Choose","Klicken zum Auswählen"
+Close,Schließen
+"Close Slider Modal","Schließe Slider Modal"
+Color,Farbe
+"Color in Frame","Farbe im Rahmen"
+Colored,Farbig
+"Column Settings",Spalteneinstellungen
+Columns,Spalten
+"Coming Slide as jQuery Object","Kommender Slide als jQuery-Objekt"
+"Connection to Update Server Failed","Verbindung zum Update-Server fehlgeschlagen"
+"Cons. Secret","Cons. Geheimnis"
+Content,Inhalt
+"Content Based",Inhaltsbasiert
+"Content and Width Based","Inhalt und Breite basiert"
+Controls,Bedienelemente
+Copy,Kopieren
+"Copy Embed Code","Einbettungscode kopieren"
+"Copy Shortcode","Shortcode kopieren"
+"Copyright & Licensing - Slider Revolution Library","Copyright & Lizenzierung - Slider Revolution Library"
+Corners,Ecken
+"Could not create Slide","Slide konnte nicht erstellt werden"
+"Could not create Slider","Slider konnte nicht erstellt werden"
+"Could not fetch Facebook albums","Facebook-Alben konnten nicht abgerufen werden"
+"Could not fetch YouTube playlists","YouTube-Wiedergabelisten konnten nicht abgerufen werden"
+"Could not fetch flickr photosets","Flickr-Fotosets konnten nicht abgerufen werden"
+"Cover Color","Cover Farbe"
+"Create Blank Page","Leere Seite erstellen"
+"Creation Ascending","Erstellung aufsteigend"
+"Current <li> Index","Aktueller <li> Index"
+"Current Level","Aktuelles Level"
+"Current Slide","Aktueller Slide"
+"Current Slide as jQuery Object","Aktueller Slide als jQuery-Objekt"
+Cursor,Mauszeiger
+Curved,Gebogen
+Custom,Angepasst
+"Custom CSS","Benutzerdefiniertes CSS"
+"Custom Inline & Hover CSS","Eigene Inline & Hover CSS"
+"Custom Size","Benutzerdefinierte Grösse"
+"Custom Size is currently Disabled","Benutzerdefinierte Größe ist derzeit deaktiviert"
+CustomCSS,"Benutzerdefinierte CSS"
+Dashed,Gestrichelt
+Date,Datum
+"Date Modified",Änderungsdatum
+"Date Published",Erscheinungsdatum
+"Date created",Erstellungsdatum
+"Debug Mode","Debug Modus"
+"Decision Modal Title","Entscheidung Modal Titel"
+"Decrease Module Height","Modul Höhe verringern"
+Default,Voreinstellung
+"Default (Global Settings)","Standard (globale Einstellungen)"
+"Default Basics",Standard-Grundlagen
+"Default New Layer Settings","Standardeinstellungen Neue Layer"
+"Default Setting",Voreinstellung
+"Default Settings for Layer","Standardeinstellungen für Layer"
+Defaults,Voreinstellungen
+Delete,Löschen
+"Delete All Sliders and Folders included in ","Löschen aller Slider und Ordner enthalten in "
+"Delete Slide","Slide löschen"
+"Delete Slider","Slider löschen"
+"Delete Template ?","Vorlage löschen?"
+"Deleting Slider","Slider löschen"
+"Deletion failed","Löschen fehlgeschlagen"
+"Depricated Function !<br>Only visible by Rendering. Limited influence on Styled Layers. Custom CSS Inline will be removed in Version 6.2","Aufgekündigte Funktion!<br>Nur beim Rendern sichtbar. Begrenzter Einfluss auf gestaltete Ebenen. Benutzerdefiniertes CSS Inline wird in Version 6.2 entfernt"
+Depths,Tiefe
+"Deregister this Code","Deregistrieren dieses Codes"
+"Deregistration failed!","Abmeldung fehlgeschlagen!"
+Descending,Absteigend
+Description,Beschreibung
+"Desktop Swipe Enabled","Desktop Swipe aktiviert"
+"Diagonal From","Diagonale von"
+Dimension,Abmessungen
+Direction,Richtung
+Disable,Deaktivieren
+"Disable Add-On","Addon deaktivieren"
+"Disable Blur/Focus behav.","Unschärfe/Fokus deakt."
+"Disable Global Add-On","Globales Addon deaktivieren"
+"Disable Ken B.","Deaktiviere Ken B."
+"Disable Mobile","Mobile deaktivieren"
+"Disable Slider","Slider deaktivieren"
+"Disable on Mobile","Deaktivieren auf Mobil"
+Disabled,Deaktiviert
+"Disabled - Time Based","Deaktiviert - zeitbasiert"
+"Disabling Add-On","Deaktiviere Addon"
+"Dismiss Messages","Nachrichten schließen"
+Display,Anzeige
+"Display Mode in Column","Anzeigemodus in Spalte"
+"Display a certain photoset from a user","Zeigen Sie einen bestimmten Fotosatz eines Benutzers an"
+"Display a gallery","Galerie anzeigen"
+"Do It","Tu es"
+"Do you want to start the Update process?","Möchten Sie den Update Vorgang starten?"
+Docs,Doku
+Done,Erledigt
+"Dont Do It","Tu es nicht"
+"Dont Force Fullwidth","Volle Breite nicht erzwingen"
+Dotted,Gepunktet
+Double,Doppelt
+"Downloading the Zip File may take a few moments.","Das Herunterladen der Zip-Datei kann einige Momente dauern."
+"Drag & Drop Import File","Drag & Drop Import-Datei"
+"Drag to Select","Zum Auswählen ziehen"
+Duplicate,Duplikat
+"Duplication Failed","Duplikation fehlgeschlagen"
+Duration,Dauer
+"Dynamic Viewport Loading","Dynamisches Laden des Viewport"
+"Edge to Middle","Rand bis Mitte"
+"Edit Page","Seite bearbeiten"
+"Editor View",Editor-Ansicht
+"Editor is Loading...","Editor wird geladen ..."
+Effect,Effekt
+Effects,Effekte
+Elements,Elemente
+Embed,Einbetten
+"Empty Placeholder","Leerer Platzhalter"
+"Enable Add-On","Addon aktivieren"
+"Enable Global Add-On","Globales Addon aktivieren"
+"Enable Loop Effects","Aktivieren Sie die Loop-Effekte"
+"Enable Spikes","Aktivieren Sie Spikes"
+"Enable Timeline Loops","Aktivieren Sie Zeitleisten-Loops"
+"Enable/Disable Add-On on Module","Addon für Modul aktivieren/deaktivieren"
+Enabled,Aktiviert
+"Enabled - Scroll Based","Aktiviert - scrollbasiert"
+"Enabling Add-On","Aktivieren des Addon"
+End,Ende
+"End Frame","Frame beenden"
+"Enter Access Secret","Access Secret eingeben"
+"Enter Access Token","Access Token eingeben"
+"Enter Api Key","Api Key eingeben"
+"Enter Channel Name","Kanal Namen eingeben"
+"Enter Consumer Key","Consumer Key eingeben"
+"Enter Container .class or #id","Geben Sie Container .class oder #id ein"
+"Enter External URL","Externe URL eingeben"
+"Enter Fullscreen","Vollbildmodus aktivieren"
+"Enter Gallery URL","Geben Sie die Galerie-URL ein"
+"Enter Group Name","Gruppenname eingeben"
+"Enter Group URL","Geben Sie die Gruppen-URL ein"
+"Enter Image URL","Bild-URL eingeben"
+"Enter Link","Link eingeben"
+"Enter MPEG Source","Geben Sie die MPEG-Quelle ein"
+"Enter Preset Name to Save or Delete","Voreingestellten Namen eingeben, um zu speichern oder zu löschen"
+"Enter Purchase Code","Geben Sie den Purchase Code ein"
+"Enter Secret","Secret eingeben"
+"Enter Twitter Name","Twitter Name eingeben"
+"Enter User Name","Benutzername eingeben"
+"Enter User URL","Geben Sie die Benutzer-URL ein"
+"Enter Video ID","Video ID eingeben"
+"Enter Vimeo ID","Geben Sie die Vimeo ID ein"
+"Enter YouTube Channel ID","YouTube Kanal ID eingeben"
+"Enter YouTube ID","Gib die YouTube-ID ein"
+"Enter a Module name","Geben Sie einen Modulnamen ein"
+"Enter your Api Key","Geben Sie Ihren Api-Schlüssel ein"
+"Error downloading layers","Fehler beim Herunterladen von Layern"
+"Error downloading layers data","Fehler beim Herunterladen der Layerdaten"
+"Error downloading object","Fehler beim Herunterladen des Objekts"
+"Exceeded filesize limit.","Dateigrößenlimit überschritten."
+Excerpt,Auszug
+"Excerpt ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy.","Auszug ipsum dolor sitzen amet, consetetur sadipscing elitr sed diam nonumy."
+"Exit Fullscreen","Vollbild beenden"
+"Export Slider","Slider exportieren"
+"External Image","Externes Bild"
+"External Scroll","Externer Scroll"
+FOLDER,ORDNER
+FONT,SCHRIFTART
+"FaceBook Settings",FaceBook-Einstellungen
+"Factor on Layers","Faktor auf Layer"
+Fade,Verblassen
+"Failed to Move Slider Into Folder","Fehler beim Verschieben des Sliders in den Ordner"
+"Failed to Update Tags","Tags konnten nicht aktualisiert werden"
+"Failed to update Title","Fehler beim Aktualisieren des Titels"
+"Fallback Settings","Fallback Einstellungen"
+"Favorite Changed","Favorit geändert"
+"Favorite Count","Anzahl Favoriten"
+Favorites,Favoriten
+"Featured Only","Nur Empfohlene"
+"Fetch By","Fetch Von"
+"File Succesfully Imported","Datei erfolgreich importiert"
+Filename,Dateiname
+"Filter Effect Scroll Based","Filtereffekt scrollbasiert"
+"Filter Effect Scroll is now generally Enabled","Filter Effect Scroll ist jetzt allgemein aktiviert"
+Filters,Filter
+"Find My Code","Meinen Code finden"
+"Find information about the YouTube API key <a target=""_blank"" href=""https://developers.google.com/youtube/v3/getting-started#before-you-start"">here</a>","Informationen zum YouTube-API-Schlüssel <a target=""_blank"" href=""https://developers.google.com/youtube/v3/getting-started#before-you-start""> finden Sie hier </ a >"
+"Finnished with slide change","Fertig mit dem Slidewechsel"
+"First Slide","Erster Slide"
+"Five Spikes","Fünf Stacheln"
+"Fix during Scroll","Fix während des Scrollens"
+"Fixed on Top","Oben fixiert"
+"Flickr Settings","Flickr Einstellungen"
+Folder,Ordner
+"Folder Creation Failed","Fehler bei der Ordnererstellung"
+"Folder Deleted","Ordner gelöscht"
+"Folder Deletion Failed","Ordnerlöschung fehlgeschlagen"
+Follow,Folgen
+"Follow Link",Follow
+Font,Schriftart
+"Font & Icon","Schrift & Icon"
+"Font Family",Schriftfamilie
+"Font Icons","Schrift Icons"
+"Force Cover Mode","Cover-Modus erzwingen"
+"Force Lazy Loading","Lazy Loading erzwingen"
+"Force Overflow Visible","Überlauf Sichtbarkeit erzwingen"
+Forward,Vorwärts
+"Four Spikes","Vier Stacheln"
+"Frame Alias",Frame-Alias
+"Frame Size can not be Extended. Not enough Space.","Die Rahmengröße kann nicht erweitert werden. Nicht genug Platz."
+From,Von
+"From Bottom","Von unten"
+"From Left","Von links"
+"From Right","Von rechts"
+"From Slider Settings","Von Slider-Einstellungen"
+"From Stream","Von Stream"
+"From Top","Von oben"
+Front,Vorderseite
+"Full Height","Vollständige Höhe"
+"Full Width",Gesamtbreite
+Full-Screen,Vollbildschirm
+Full-Width,Gesamtbreite
+"Fullscreen Actions","Vollbild Aktionen"
+Function,Funktion
+"Function Not Available in Demo Mode","Funktion im Demo-Modus nicht verfügbar"
+Gallery,Galerie
+"Gallery URL",Galerie-URL
+Gap,Abstand
+"Gap (Border)","Lücke (Rand)"
+General,Allgemeines
+"General Settings","Allgemeine Einstellungen"
+"Get a Purchase Code","Holen Sie sich einen Purchase Code"
+"Get the amount of existing slides in the slider.","Erhalten Sie die Menge der vorhandenen Slides im Slider."
+"Get the current focused slide index.","Ruft den aktuellen fokussierten Slide-Index ab."
+"Get the previously played slide.","Holen Sie sich den zuvor gespielten Slide."
+"Global Layer Settings","Globale Layer Einstellungen"
+"Global Layers","Globale Layers"
+"Global Layers Timeline","Globale Layer-Zeitleiste"
+"Global Settings","Globale Einstellungen"
+"Global Settings not saved/updated","Globale Einstellungen nicht gespeichert/aktualisiert"
+"Global Settings saved/updated","Globale Einstellungen gespeichert/aktualisiert"
+"Global Style Presets","Globale Style Voreinstellungen"
+"Global Value ! Option to find under Slider Settings - Parallax Tab","Globaler Wert! Option unter Slider Settings - Parallax Tab"
+"Go To Slide","Gehe zu Slide"
+"Go To Slide with ID","Gehe zu Slide mit ID"
+"Go to 1st Frame ","Gehe zum 1. Frame "
+"Go to Editor","Gehe zum Editor"
+"Go to Last Frame","Gehe zum letzten Frame"
+"GoTo Frame","Gehe zu Frame"
+"Good Afternoon ","Guten Nachmittag "
+"Good Evening ","Guten Abend "
+"Good Morning ","Guten Morgen "
+Grayscale,Graustufen
+"Grid = Module","Grid = Modul"
+Group,Gruppe
+"Group URL",Gruppen-URL
+"HTML Data",HTML-Daten
+"HTML Tag",HTML-Tag
+Handling,Handhabung
+Headlines,Überschriften
+Height,Höhe
+"Height Attrib.","Höhe Attrib."
+Hidden,Versteckt
+"Hidden in Navigation","Versteckt in Navigation"
+"Hide ""Under"" Width","""Unter"" Breite ausblenden"
+"Hide Highlight Boxes","Markierungsfelder ausblenden"
+"Hide Over","Verstecken über"
+"Hide Under","Verstecken unter"
+"Hide Under Browser width...","Unter folgender Browserbreite verstecken ..."
+"Hierarchy Sticky","Hierarchie Sticky"
+High,Hoch
+"Higher Level","Höheres Level"
+"Hover View","Hover Ansicht"
+"I have a Purchase Code","Ich habe einen Purchase Code"
+"ID of Element","ID des Elements"
+IMAGE,BILD
+IN,REIN
+"If you want to use your purchase code on<br>another domain, please deregister it first or","Wenn Sie Ihren Einkaufscode für eine andere Domain verwenden möchten, müssen Sie ihn zuerst abmelden oder"
+"Ignore Lazy Loading","Lazy Loading ignorieren"
+Image,Bild
+"Image Layer Content",Bild-Layer-Inhalt
+"Image URL","Bild URL"
+"Image from Stream if exist","Bild vom Stream, falls vorhanden"
+"Image from Stream if exists","Bild vom Stream, falls vorhanden"
+"Image is Loading...","Bild wird geladen ..."
+Images,Bilder
+"Import Layer","Layer importieren"
+"Import Report","Import Bericht"
+"Import Selected Layers","Ausgewählte Layer importieren"
+"Import file not found","Importdatei nicht gefunden"
+Imported,Importiert
+"Importing Layers...","Layers importieren ..."
+"In Stock Only","Nur auf Lager"
+"Index of Current Slide","Index des aktuellen Slides"
+"Infinity Scroll","Unendliches Scrollen"
+Inherit,Vererben
+"Initialization Delay",Initialisierungsverzögerung
+"Inline Mode",Inline-Modus
+Inner,Innen
+"Inner / Outer","Innen / Außen"
+"Instagram Settings",Instagram-Einstellungen
+"Instagram reports: Content did not match expected","Instagram: Inhalte stimmen nicht überein"
+"Instagram reports: Content is private","Instagram: Inhalt ist privat"
+"Instagram reports: Parse script error","Instagram: Parse-Skriptfehler"
+Install,Installieren
+"Install Add-On","Addon installieren"
+"Install Template","Vorlage installieren"
+"Install Template Package","Installieren Sie das Vorlagenpaket"
+Installed,Installiert
+"Installed Version","Installierte Version"
+"Installing Add-On","Installieren des Addon"
+"Installing Template","Vorlage installieren"
+"Instant Updates","Sofortige Updates"
+"Intelligent Inheriting","Intelligente Vererbung"
+Interaction,Interaktion
+"Invalid Email","Ungültige E-Mail"
+"Invalid Email/Could not connect to the Newsletter server","Ungültige E-Mail / Verbindung zum Newsletter-Server konnte nicht hergestellt werden"
+"Invalid ID","Ungültige ID"
+"Inverse Toggled Content","Umgekehrter umgeschalteter Inhalt"
+"Invert Horizontal","Horizontal umkehren"
+"Invert Vertical","Vertikal umkehren"
+Inverts,Invertiert
+"Jump to Slide","Zu Slide springen"
+"Keep Auto Sizes","Automatische Größen beibehalten"
+"Keep Breakpoint Heights","Haltepunkthöhen behalten"
+"Keep Last State","Letzten Zustand beibehalten"
+Keyboard,Tastatur
+"Keyboard Arrow Navigation",Tastatur-Pfeilnavigation
+"Keyboard Settings",Tastatureinstellungen
+"Kill Slider","Slider töten"
+Large,Groß
+"Large Controls","Große Bedienelemente"
+"Large Square","Großes Quadrat"
+"Last Frame","Letzter Frame"
+"Last Slide","Letzter Slide"
+"Last Slide Started, Slider is at the end","Letzte Slide gestartet, Slider ist am Ende"
+"Last slide starts","Letzter Slide startet"
+"Layer Action (enterstage, enteredstage, leavestage,leftstage)","Layer Aktion (Enterstage, Enterstage, Leavestage, Leftstage)"
+"Layer Actions","Layer Aktionen"
+"Layer Align","Layer Ausrichtung"
+"Layer Area","Layer Bereich"
+"Layer Area Size","Größe des Layerbereichs"
+"Layer Events","Layer Ereignisse"
+"Layer Library","Layer Bibliothek"
+"Layer Loop Animations",Ebenen-Loop-Animationen
+"Layer Looping Effects",Layer-Looping-Effekte
+"Layer Objects",Layerobjekte
+"Layer Options","Layer Optionen"
+"Layer Type (image,video,html)","Layer Typ (Bild, Video, HTML)"
+"Layer as jQuery Object","Layer als jQuery-Objekt"
+"Layer is Global","Layer ist global"
+"Layer options","Layer Optionen"
+"Layer with Action","Layer mit Aktion"
+Layers,Layer
+"Layers Importing","Importieren von Layers"
+"Layers Overflow Hidden","Layer Überlauf ausgeblendet"
+"Layers Speed","Layer Geschwindigkeit"
+"Layers Visible","Layers sichtbar"
+"Layers are Selectable","Layer sind wählbar"
+"Layers default Enabled","Layer-Standard aktiviert"
+"Leave without Save","Ohne Speichern verlassen"
+"Leaving current Page","Aktuelle Seite verlassen"
+Left,Links
+"Left Arrow","Linker Pfeil"
+"Left Bottom","Links unten"
+"Left Corner","Linke Ecke"
+"Left Spike","Linker Spike"
+"Left Top","Links oben"
+"Left/Right Arrow Keys","Pfeiltasten links / rechts"
+Less,Weniger
+Level,Niveau
+"License validation issue Occured. Please contact our Support.","Lizenzvalidierungsproblem ist aufgetreten. Bitte wenden Sie sich an unseren Support."
+"Limit Excerpt","Auszug begrenzen"
+Line,Linie
+"Line Break",Zeilenumbruch
+Line-through,Durchgestrichen
+"Link Actions",Verknüpfungsaktionen
+"Link Target",Linkziel
+"Link Type",Linktyp
+"Link URL","URL verknüpfen"
+"Link to Slide","Link zu Slide"
+Load,Laden
+"Load Loop Template","Loop Vorlage laden"
+"Loaded Google Fonts","Geladene Google Fonts"
+Loading,Laden
+"Loading Configuration","Konfiguration wird geladen"
+"Loading Content...","Inhalt wird geladen ..."
+"Loading Error",Ladefehler
+"Loading Error: ","Ladefehler: "
+"Loading RevMirror Library...","RevMirror Bibliothek wird geladen..."
+"Loading Thumbnails...","Vorschaubilder werden geladen ..."
+"Loading Type",Ladetyp
+"Lock / Unlock Selected","Ausgewählte sperren / entsperren"
+"Lock/Unlock Selected","Ausgewählte sperren / entsperren"
+"Loop All Layer Timeline","Loop Alle Layer Zeitleiste"
+"Loop Amount","Loop Anzahl"
+"Loop Layer",Loop-Layer
+"Loop Layers","Loop Layer"
+"Loop Mode","Loop Modus"
+"Loop One Slide","Loop eines Slides"
+"Loop Template","Loop Vorlage"
+"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.","Lorem ipsum dolor sitzt amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt."
+"Low Resolution","Niedrige Auflösung"
+Lowercase,Kleinbuchstaben
+MODULE,MODUL
+"Main Style",Basisstil
+"Manual Import","Manueller Import"
+"Marked Layers","Markierte Layer"
+Mask,Maske
+"Max Blur Strength","Max. Unschärfestärke"
+"Max Posts","Max Beiträge"
+"Max Slides","Max. Slides"
+"Max Width","Maximale Breite"
+"Max. Post Size (256M)","Max. Post-Größe (256 MB)"
+"Max. Visible","Max. Sichtbar"
+"Media Actions","Medien Aktionen"
+"Media Content","Medien Inhalt"
+"Media Library",Medienbibliothek
+"Media Poster",Medienposter
+"Media Volume (0-100)","Medien Volumen (0-100)"
+"Memory Limit (256M)","Speicherlimit (256 MB)"
+"Meta Config","Meta Kofiguration"
+"Meta Data",Metadaten
+"Meta Datas",Metadaten
+"Meta Values",Meta-Werte
+Methods,Methoden
+Middle,Mitte
+"Middle To Edge","Mitte zum Rand"
+"Min Height","Min. Höhe"
+Mobile,"Mobile Geräte"
+"Mobile Settings","Mobile Einstellungen"
+"Mobile Swipe Enabled","Mobile Swipe aktiviert"
+"Module .zip","Modul .zip"
+"Module Admin Thumbnail","Moduladministrator Miniaturansicht"
+"Module Background","Modul Hintergrund"
+"Module Classes","Modul Klassen"
+"Module Creation Guide","Handbuch zur Modulerstellung"
+"Module Defaults",Modul-Standardeinstellungen
+"Module Dimension",Modulabmessung
+"Module Dimensions","Modul Abmessungen"
+"Module Fixed From","Modul fixiert von"
+"Module Fixed Until","Modul fixiert bis"
+"Module General Options","Modul Allgemeine Optionen"
+"Module ID","Modul ID"
+"Module Naming","Modul Benennung"
+"Module Position within Wrapper","Modulposition innerhalb des Wrappers"
+"Module Templates","Modul Vorlagen"
+"Module Type","Modul Typ"
+Modules,Module
+"Monospace Fonts","Monospace Schriften"
+More,Mehr
+Mouse,Maus
+"Mouse Enter","Maus Über"
+"Mouse Enter Point","Maus Eingabepunkt"
+"Mouse Interaction",Mausinteraktion
+"Mouse Leave","Maus verlassen"
+"Mouse Move","Maus Bewegung"
+"Mouse Move & Scroll","Maus Bewegung & Scroll"
+"Mouse Speed",Mausgeschwindigkeit
+Move,Bewegen
+"Multiple Selection",Mehrfachauswahl
+"Mute Media","Medien Ton aus"
+"Mute at Start","Stumm beim Start"
+"Nav Image Dimensions","Nav. Bild Abmessungen"
+"Navig. Thumb","Navigation Miniaturansicht"
+"Navigation Editor",Navigationseditor
+"Navigation Options",Navigationsoptionen
+"Navigation Style","Navigations Stil"
+"Navigation could not be deleted","Navigation konnte nicht gelöscht werden"
+"Navigation not found, could not add preset","Navigation nicht gefunden, Voreinstellung konnte nicht hinzugefügt werden"
+"Navigation not found, could not delete preset","Navigation nicht gefunden, Voreinstellung konnte nicht gelöscht werden"
+"Navigation preset deleted","Navigationsvoreinstellung gelöscht"
+"Navigation preset saved/updated","Navigationsvoreinstellung gespeichert/aktualisiert"
+"Need Attention by removing","Braucht Aufmerksamkeit durch Entfernen"
+"New Blank Module","Neues leeres Modul"
+"New Folder","Neuer Ordner"
+"New Module from Template","Neues Modul aus Vorlage"
+"New Version Available. Please Update","Neue Version verfügbar. Bitte aktualisieren"
+"New Window","Neues Fenster"
+News,Neuigkeiten
+"Next Frame","Nächster Frame"
+"Next Slide","Nächster Slide"
+"Next Slide at End","Nächster Slide beim Ende"
+"Next Step","Nächster Schritt"
+"Next on Browser Focus","Nächste bei Browser Fokus"
+"No API KEY - Could not fetch flickr photosets","Kein API KEY - Flickr-Fotosets konnten nicht abgerufen werden"
+"No Action Selected","Keine Aktion ausgewählt"
+"No Corner","Keine Ecke"
+"No Data Received","Keine Daten empfangen"
+"No Email given","Keine E-Mail angegeben"
+"No Interaction","Keine Interaktion"
+"No Layers Selected","Keine Layer ausgewählt"
+"No Poster on Mobile","Kein Poster auf Mobile"
+"No Shadow","Kein Schatten"
+"No Special Effect","Kein Spezialeffekt"
+"No Spikes","Keine Spikes"
+"No Sticky Keyframes","Keine Sticky Keyframes"
+"No Style","Kein Stil"
+"No User URL - Could not fetch flickr photosets","Keine Benutzer-URL - flickr-Fotosets konnten nicht abgerufen werden"
+"No data received","Keine Daten empfangen"
+"No file sent.","Keine Datei gesendet."
+"No further source settings needed. Content is created manually.","Keine weiteren Quelleneinstellungen erforderlich. Der Inhalt wird manuell erstellt."
+"No response on action","Keine Antwort auf Aktion"
+"No slides found, please add at least one Slide Template to the choosen language.","Keine Slides gefunden. Fügen Sie der ausgewählten Sprache mindestens ein Slide Template hinzu."
+"No slides found, please add some slides","Keine Slides gefunden, bitte fügen Sie einige Slides hinzu"
+None,Nichts
+"None of the Settings changed. There is Nothing to Save","Keine der Einstellungen wurde geändert. Es gibt nichts zu speichern"
+"Not Activated","Nicht aktiviert"
+"Not Enough space between Frames.","Nicht genügend Platz zwischen den Frames."
+"Not Installed","Nicht installiert"
+"Nothing Selected","Keine Auswahl getroffen"
+"Number of Comments","Anzahl der Kommentare"
+"Number of Likes","Anzahl der Likes"
+"Number of Views","Anzahl der Aufrufe"
+OBJECT,OBJEKT
+OUT,AUS
+"Object Library","Objekt Bibliothek"
+"Object could not be loaded","Objekt konnte nicht geladen werden"
+Objects,Objekte
+Off,Aus
+"Offset (Tilt) Effect","Versatz (Tilt) Effekt"
+"Offset to Scroll Position","Offset zur Scroll Position"
+On,Ein
+"On - Skip 1st Time Slide","Ein - Überspringen 1. mal Slide"
+"On IE8","Auf IE8"
+"On Mobile","Auf Mobil"
+"On Mobile and IE8","Auf Mobile und IE8"
+"On Scroll","Beim Scrollen"
+"On Scroll Details","Scroll Details"
+"On Scroll can be Added per Slider in the General Options","On Scroll kann per Slider in den Allgemeinen Optionen hinzugefügt werden"
+"On Stage","Auf der Bühne"
+"Only 1st Time Slide shown","Wird nur das 1. Mal angezeigt"
+"Only Manual &lt;br/&gt;","Nur manuell & lt; br / & gt;"
+"Only Poster on Mobile","Nur Poster auf mobilen Geräten"
+Ooppps....,"Uuppps ...."
+"Open Document","Dokument öffnen"
+"Open Modal","Modal öffnen"
+"Open Slide","Slide öffnen"
+"Open Slider Modal","Öffne Slider Modal"
+Opening,Öffnet
+"Option is depricated and will be removed in upcoming updates !","Die Option ist aufgekündigt und wird in zukünftigen Updates entfernt!"
+"Optional OGV Source","Optionale OGV-Quelle"
+"Optional WEBM Source","Optionale WEBM-Quelle"
+Orientation,Orientierung
+Origin,Ursprung
+"Original Size","Original Größe"
+"Other 1. Slide","Anderer 1. Slide"
+"Other Folders","Andere Ordner"
+"Outer Horizontal","Äußere Horizontale"
+"Outer Vertical","Äußere Vertikale"
+"Over Layers (Front)","Über Layer (Vorderseite)"
+Overflow,Überlauf
+Overline,Überstrichen
+"Override Style on Slide","Stil auf Slide überschreiben"
+"Overwrite Template ?","Vorlage überschreiben?"
+"Own Modules","Eigene Module"
+PACKAGE,PAKET
+"Page URL","Seiten URL"
+"Page is reloading...","Seite wird neu geladen ..."
+"Pan Zoom Settings","PanZoom Einstellungen"
+"Parallax & 3D Settings","Parallax & 3D Einstellungen"
+"Parallax Enabled","Parallax aktiviert"
+"Parallax Level","Parallax Ebene"
+"Parallax is now generally Enabled","Parallax ist jetzt allgemein aktiviert"
+Parameters,Parameter
+Params,Parameter
+"Parent Level","Übergeordnete Ebene"
+Paste,Einfügen
+"Pause Slider","Slider anhalten"
+"Per Page","Pro Seite"
+Photoset,Fotosatz
+"Pick an Item","Wähle ein Item"
+"Place the shortcode on the page or post where you want to show this modal.","Platzieren Sie den Shortcode auf der Seite oder im Beitrag, auf der Sie dieses Modal anzeigen möchten."
+"Place the shortcode on the page or post where you want to show this module.","Platzieren Sie den Shortcode auf der Seite oder im Beitrag, auf der Sie dieses Modul anzeigen möchten."
+Placeholder,Platzhalter
+"Play Slide","Slide abspielen"
+"Please <a target=""_blank"" href=""https://dev.twitter.com/apps"">register</a> your application with Twitter<br>to get the right values","Bitte <a target=""_blank"" href=""https://dev.twitter.com/apps"">registrieren</a> Sie Ihre Application bei Twitter um die richtigen Werte zu erhalten"
+"Please Wait a Moment","Bitte warte einen Moment"
+"Please Wait...","Bitte warten ..."
+"Please activate Slider Revolution","Bitte aktivieren Sie Slider Revolution"
+"Please add at least one Layer.","Bitte füge mindestens einen Layer hinzu."
+"Please follow this link to edit the Slider:","Bitte folgen Sie diesem Link, um den Slider zu bearbeiten:"
+"Please select an Addon to start with.","Bitte wählen Sie ein Addon zum Start aus."
+"Please select the correct zip file, checksum failed!","Bitte wählen Sie die richtige Zip-Datei aus, Prüfsumme fehlgeschlagen!"
+"Plugin deregistered","Plugin abgemeldet"
+"Plugin is not Registered","Plugin ist nicht registriert"
+"Plugin not activated","Plugin nicht aktiviert"
+"Plugin successfully activated","Plugin erfolgreich aktiviert"
+"Pointer Event",Zeigerereignis
+"Position & Size","Position & Größe"
+"Post Title",Beitragstitel
+"Post content",Beitragsinhalt
+"Post content limit by chars","Beitrag Inhalt Limit nach Zeichen"
+"Post content limit by words","Beitrag Inhalt Limit nach Wörtern"
+"Poster Image",Poster-Bild
+"Poster from Stream if exist","Poster von Stream, falls vorhanden"
+Posts,Beiträge
+Preload,Vorladen
+"Prepared for slide change","Vorbereitet für Slidewechsel"
+"Preparing Data...","Daten werden vorbereitet ..."
+Preset,Voreinstellung
+"Preset could not be saved/values are the same","Voreinstellung konnte nicht gespeichert werden / Werte sind gleich"
+"Preset handle already exists, please choose a different name","Das vor eingestellte Handle existiert bereits. Bitte wählen Sie einen anderen Namen"
+"Preset not found","Voreinstellung nicht gefunden"
+"Preset not found in default navigations","Voreinstellung nicht in Standardnavigationen gefunden"
+Presets,Voreinstellungen
+"Prev Size","Vorherige Größe"
+"Prev. Slide as jQuery Object","Vorheriger Slide als jQuery-Objekt"
+Preview,Vorschau
+"Preview Image",Vorschaubild
+"Previous Frame","Vorheriger Frame"
+"Previous Slide","Vorheriger Slide"
+"Previous Slide as jQuery Object","Vorheriger Slide als jQuery-Objekt"
+"Previous Step","Vorheriger Schritt"
+"Processing Import of","Verarbeitet Import von"
+Product,Produkt
+Progress,Fortschritt
+"Progress Bar",Fortschrittsanzeige
+"Pub. Rules","Pub. Regeln"
+Publish,Veröffentlichen
+Published,Veröffentlicht
+"Purchase Code already registered!","Purchase Code bereits registriert!"
+"Purchase Code could not be validated","Purchase Code konnte nicht überprüft werden"
+"Purchase Code is invalid","Der Purchase Code ist ungültig"
+"Purchase Code was locked, please contact the ThemePunch support!","Der Purchase Code wurde gesperrt, bitte wenden Sie sich an den ThemePunch-Support!"
+"Put JS to Body","JS in den Body setzen"
+"Quick Style Content","Quick Style Inhalt"
+"Quick Style Headline","Quick Style Überschrift"
+"Quit Guide","Anleitung beenden"
+"RTL Direction",RTL-Richtung
+Random,Zufällig
+"Random Order","Zufällige Reihenfolge"
+"Re-Download Online","Erneut Online herunterladen"
+"Read <a target=""_blank"" href=""http://weblizar.com/get-flickr-api-key/"">here</a> how to receive your Flickr API key","Lesen Sie <a target=""_blank"" href=""http://weblizar.com/get-flickr-api-key/""> hier </a>, wie Sie Ihren Flickr-API-Schlüssel erhalten"
+"Recalculate all positions, sizing etc in the slider.  This should be called i.e. if Slider was invisible and becomes visible without any window resize event.","Berechnen Sie alle Positionen, Größen usw. im Silber neu. Dies sollte zB aufgerufen werden, wenn der Slider unsichtbar war und ohne ein Ereignis zur Größenänderung des Fensters sichtbar wird."
+Rectangle,Rechteck
+"Redirecting to Overview Page","Weiterleitung zur Übersichtsseite"
+"Redraw Slider","Silber neu zeichnen"
+"Refresh Source","Quelle aktualisieren"
+"Register Purchase Code","Registrieren Sie den Purchase Code"
+"Register Slider Revolution<br>to Unlock Premium Features","Registrieren Sie Slider Revolution <br>, um Premium-Funktionen freizuschalten"
+"Register this Code","Registriere diesen Codes"
+"Register to Unlock","Registrieren zum entsperren"
+"Register to Unlock all Features","Registrieren Sie sich, um alle Funktionen freizuschalten"
+"Register to unlock AddOns","Registrieren Sie sich, um AddOns freizuschalten"
+"Register to unlock Library","Registrieren Sie sich, um die Bibliothek freizuschalten"
+"Register to unlock Premium Features","Registrieren Sie sich, um die Premium-Funktionen freizuschalten"
+"Register to unlock Support","Registrieren Sie sich, um den Support freizuschalten"
+"Register to unlock Templates","Registrieren Sie sich, um Vorlagen freizuschalten"
+"Register to unlock Updates","Registrieren Sie sich, um Updates freizuschalten"
+"Register to unlock all Premium Features","Registrieren um alle Premium Funktionen freizuschalten"
+Registered,Registriert
+Regular,Regulär
+"Release to Upload file","Zum Hochladen loslassen"
+"Reload Page","Seite neuladen"
+Remove,Entfernen
+"Remove One Slide with Slide Index from the Slider. Index starts with 0 which will remove the first slide.","Entfernen Sie einen Slide mit Slideindex aus dem Slider. Der Index beginnt mit 0, wodurch die erste Slide entfernt wird."
+"Remove Poster","Poster entfernen"
+"Remove Slide","Slide entfernen"
+Rename,Umbenennen
+Repeat,Wiederholen
+Replies,Antworten
+Requirements,Voraussetzungen
+"Reset Children Timeline","Reset untergeordnete Zeitleiste"
+"Reset Children Timelines","Reset untergeordnete Zeitleisten"
+"Reset Style","Reset Stil"
+"Reset before each Loop","Reset vor jeder Schleife"
+"Resize Between Devices","Größe zwischen Geräten ändern"
+"Respect Ratio","Seitenverhältnis beibehalten"
+Responisvity,Responisvität
+"Responsive Behavior","Responsives Verhalten"
+"Responsive Between Devices","Responsive zwischen Geräten"
+"Responsive Children","Responsive Kinder"
+"Restriction !<br>Children Layers of Group, Column and Row will simply restart, without animation from the last loop Frame to first loop frame, independent of the Animate to ""start"" in Loop enabled option.","Einschränkung! <br> Untergeordnete Ebenen aus Gruppe, Spalte und Zeile werden einfach ohne Animation vom letzten Loop-Frame zum ersten Loop-Frame neu gestartet, unabhängig von der Option ""Animieren zum"" Start ""in Loop aktiviert."
+"Resume Slider","Slider fortsetzen"
+Reverse,Umgekehrt
+"Reverse Scroll","Rückwärts Scrollen"
+"Rewind at Start","Zurückspulen bei Start"
+Right,Rechts
+"Right Arrow","Rechter Pfeil"
+"Right Bottom","Rechts unten"
+"Right Corner","Rechte Ecke"
+"Right Spike","Rechter Spike"
+"Right Top","Rechts oben"
+Root,Wurzel
+"Root Level",Wurzelebene
+Rotate,Drehen
+Rotation,Drehung
+Row,Zeile
+"Row Position",Zeilenposition
+"Row Settings","Zeile Einstellungen"
+"SVG Color",SVG-Farbe
+"Same Window","Gleiches Fenster"
+"Sans-Serif Fonts","Sans-Serif Schriften"
+Save,Speichern
+"Save & Reload","Speichern & Neu laden"
+"Save Configuration","Konfiguration speichern"
+"Save Global Settings","Globale Einstellungen speichern"
+"Save Navigation","Navigation speichern"
+"Save your project & reload the page or cancel","Speichern Sie Ihr Projekt und laden Sie die Seite neu oder brechen Sie ab"
+Saved,Gespeichert
+"Saving Slide","Slide wird gespeichert"
+Scale,Skalierung
+Scene,Szene
+"Scroll Based Features","Scroll basierte Funktionen"
+"Scroll Based Timeline is now generally Enabled","Die scrollbasierte Zeitleiste ist jetzt allgemein aktiviert"
+"Scroll Effects","Scroll Effekte"
+"Scroll Effects Default","Scroll Effekte Standard"
+"Scroll Effects Settings","Scroll Effekte Einstellungen"
+"Scroll To ID","Zu ID scrollen"
+"Scroll based Effects","Scrollbasierte Effekte"
+"Scroll below Slider","Unter Slider scrollen"
+"Scroll page under the slider.","Scrolle Seite unter den Slider."
+"Scroll to ID","Zu ID scrollen"
+Search,Suche
+"Search Icons...","Icons suchen..."
+"Search Modules...","Module suchen ..."
+"See how to find the Youtube channel ID <a target=""_blank"" href=""https://support.google.com/youtube/answer/3250431?hl=en"">here</a>","Weitere Informationen zum Finden der Youtube-Kanal-ID <a target=""_blank"" href=""https://support.google.com/youtube/answer/3250431?hl=de""> hier </a>"
+Select,Wählen
+"Select Album","Album auswählen"
+"Select Playlist","Playlist auswählen"
+"Select a Layer","Wählen Sie einen Layer aus"
+Selectable,Wählbar
+Sensibility,Sensibilität
+"Serif Fonts",Serifen-Schriften
+"Set All Visible","Alles sichtbar machen"
+"Set a Slide Background Image to use this feature","Legen Sie ein Slidehintergrundbild fest, um diese Funktion zu verwenden"
+"Set all Timings","Festlegen aller Timings"
+"Set as Editor View","Als Editoransicht festlegen"
+Settings,Einstellungen
+"Setup Notes","Setup Hinweise"
+Shadow,Schatten
+"Shadow Color",Schattenfarbe
+"Shadow Type",Schattentyp
+"Shadow on","Schatten an"
+"Sharp Corner Extensions","Scharfe Eckerweiterungen"
+"Shortcode could not be parsed.","Shortcode konnte nicht analysiert werden."
+"Shortcode parsing successfull. Items can be found in step 3","Shortcode-Analyse erfolgreich. Die Elemente finden Sie in Schritt 3"
+Show,Zeige
+"Show All","Alles anzeigen"
+"Show Always","Immer anzeigen"
+"Show Delay","Verzögerung anzeigen"
+"Show Highlight Boxes","Markierungsfelder anzeigen"
+"Show Last Edited Slide","Letzten bearbeiteten Slide anzeigen"
+"Show Speed","Geschwindigkeit anzeigen"
+"Show all Modules","Alle Module anzeigen"
+"Show if mouse over Slider","Anzeigen wenn Maus über Slider"
+"Show in Editor","Im Editor anzeigen"
+"Show/Hide Selected","Auswahl ein- / ausblenden"
+"Simple Link","Einfacher Link"
+"Simplify on IOS4 / IE8","Vereinfachen auf iOS4/IE8"
+"Simulate Click","Klick simulieren"
+"Single Layer Sticky","Einzelner Layer Stick"
+"Single Select",Einzelauswahl
+Size,Größe
+"Size & Pos","Größe & Pos"
+"Size Presets",Größenvorgaben
+Sizing,Dimensionierung
+"Skip Preload","Vorladen überspringen"
+"Slide Actions","Slide Aktionen"
+"Slide BG Animation","Silber Hintergrundanimation"
+"Slide Description","Slide Beschreibung"
+"Slide Direction based Mirroring","Slide Richtung Spiegelung"
+"Slide Duration","Slide Dauer"
+"Slide HTML Tags","Slide HTML-Tags"
+"Slide Length","Slide Länge"
+"Slide Options","Slide Optionen"
+"Slide Saved","Slide gespeichert"
+"Slide Title","Slide Titel"
+"Slide could not be duplicated","Slide konnte nicht dupliziert werden"
+"Slide duplication failed","Slide Duplikation fehlgeschlagen"
+"Slide has no Layers","Slide hat keine Layers"
+"Slide not found","Slide nicht gefunden"
+"Slide not found in the main slides of the slider. Maybe it","Slide nicht in den Hauptslides des Sliders gefunden. Vielleicht"
+"Slider After Swap","Slider Nach Saide-Wechsel"
+"Slider Before Swap","Slider vor dem Slide-Tausch"
+"Slider Center","Slider Mittelpunkt"
+"Slider Deleted","Slider gelöscht"
+"Slider Import Failed","Slider-Import fehlgeschlagen"
+"Slider Layout",Slider-Layout
+"Slider Loaded","Slider geladen"
+"Slider Moved to Folder","Slider in Ordner verschoben"
+"Slider Overflow Hidden","Slider Überlauf ausgeblendet"
+"Slider Revolution Plugin updated Failure:","Slider Revolution Plugin Aktualisierungs Fehler:"
+"Slider Revolution Plugin updated Successfully to","Slider Revolution Plugin erfolgreich aktualisiert auf"
+"Slider Revolution Plugin updated Successfully.","Slider Revolution Plugin erfolgreich aktualisiert."
+"Slider Revolution Preview","Slider Revolution Vorschau"
+"Slider Revolution database structure was updated","Slider Revolution Datenbankstruktur wurde aktualisiert"
+"Slider Revolution encountered the following error: ","Slider Revolution hat den folgenden Fehler festgestellt: "
+"Slider Settings","Slider Einstellungen"
+"Slider Stopped","Slider gestoppt"
+"Slider as Modal","Slider als Modal"
+"Slider could not be loaded","Slider konnte nicht geladen werden"
+"Slider is Playing after pause","Slider spielt nach Pause"
+"Slider not found","Slider nicht gefunden"
+"Slider paused","Slider pausiert"
+"Slider reached the 'stop at' slide","Der Slider erreichte den ""Stoppen bei""  Slide"
+"Slider swapped to an other slide","Slider hat Slide gewechselt"
+"Slides default Enabled","Slides-Standard aktiviert"
+"Slot Amount","Slot Anzahl"
+Small,Klein
+"Small 320","Klein 320"
+"Social Basics (Flickr, Instagram, Twitter, Facebook, YouTube)","Soziale Grundlagen (Flickr, Instagram, Twitter, Facebook, YouTube)"
+Solid,Solide
+"Some AddOns have new versions available","Für einige AddOns sind neue Versionen verfügbar"
+"Some Layers are <strong>Locked</strong> and/or <strong>Invisible</strong>.<br>Change Status in Timeline.","Einige Layer sind <strong> gesperrt </ strong> und / oder <strong> unsichtbar </ strong>. <br> Ändern Sie den Status in der Zeitleiste."
+"Some Settings in Slider <strong>Source may not complete</strong>.<br>Please Complete All Settings in Slider Sources.","Einige Einstellungen in der Slider Quelle <strong> sind möglicherweise nicht komplett </ strong>. <br> Bitte vervollständigen Sie alle Einstellungen in den Slider Quellen."
+"Sorry, this Social Stream cannot be displayed.","Dieser Social Stream kann leider nicht angezeigt werden."
+"Sort Direction",Sortierrichtung
+"Sort by Creation","Nach Erstellung sortieren"
+"Sort by Title","Nach Titel sortieren"
+"Sorting & Settings","Sortierung & Einstellungen"
+Source,Quelle
+"Source Size",Quellgröße
+"Source Type","Quelle Typ"
+"Source must be from Stream","Die Quelle muss von Stream stammen"
+Spacings,Abstände
+"Specific Posts","Bestimmte Beiträge"
+Speed,Geschwindigkeit
+"Spike Masks",Spike-Masken
+"Spike Width","Spike Breite"
+"Spinner Color","Spinner Farbe"
+"Spinner Settings",Spinner-Einstellungen
+"Split Chars","Zeichen teilen"
+"Split Lines","Linien teilen"
+"Split Words","Wörter teilen"
+Square,Quadrat
+"Standard Module Embedding",Standardmodul-Einbettung
+"Standard Resolution","Standard Auflösung"
+"Start Earlier","Früher starten"
+"Start Frame","Frame starten"
+"Start Guide","Anleitung starten"
+"Start Media","Medien starten"
+"Start Slider","Slider starten"
+Static,Statisch
+"Static Layer","Statischer Layer"
+"Stay in Edior","Bleib in Editor"
+"Stop Media","Medien stoppen"
+"Stop Other Media","Stop anderer Medien"
+"Stop Slider Progress","Stop Slider Fortschritt"
+"Stop after N Loops","Stop nach N Loops"
+"Stop on Hover","Stop bei Hover"
+Stretch,Strecken
+"Stretch Slides","Slides dehnen"
+"Stroke Color",Strichfarbe
+Style,Stil
+"Style Global","Stil Global"
+"Style on Slide","Stil auf Silber"
+"Success! Please check your E-Mails to finish the subscription","Erfolgreich! Bitte überprüfen Sie Ihre E-Mails, um das Abonnement abzuschließen"
+"Successfully fetched Facebook albums","Facebook-Alben erfolgreich abgerufen"
+"Successfully fetched YouTube playlists","YouTube-Wiedergabelisten wurden erfolgreich abgerufen"
+"Successfully fetched flickr photosets","Flickr-Fotosets wurden erfolgreich abgerufen"
+Support,Hilfe
+"Swipe Settings","Swipe Einstellungen"
+"Switch slider to next slide.","Schalte im Slider zum nächsten Slide."
+"Switch slider to previous slide.","Schalte im Slider zum vorherigen Slide."
+"Switch to the slide which is defined as parameter.","Wechseln Sie zu dem Slide, der als Parameter definiert ist."
+"Tabs Style","Tab Stil"
+"Tabs Type","Tab Typ"
+"Tabs Visibility","Tabs Sichtbarkeit"
+"Tags Updated","Tags aktualisiert"
+Target,Ziel
+"Target Layer",Ziel-Layer
+"Template & Object Library","Vorlagen- & Objektbibliothek"
+"Template Slider Import Failed","Import des Template Sliders fehlgeschlagen"
+"Template Slider Installation Failed","Template Slider Installation fehlgeschlagen"
+"Text Align",Textausrichtung
+"Text Color",Textfarbe
+"Text Shadow","Text Schatten"
+"Text Tweets",Text-Tweets
+"Text/Button Layer Content","Inhalt der Text/Buttonebene"
+"The Current Size is set to ""Auto Size"". Do you want to continue with Custom Size?","Die aktuelle Größe ist auf ""Automatische Größe"" eingestellt. Möchten Sie mit der benutzerdefinierten Größe fortfahren?"
+"The Current Size is set to calculate the Layer grid sizes Automatically.<br>Do you want to continue with Custom Sizes or do you want to keep the Automatically generated sizes ?","Die aktuelle Größe ist so eingestellt, dass die Layer Rastergröße automatisch berechnet wird. <br> Möchten Sie mit benutzerdefinierten Größen fortfahren oder die automatisch generierten Größen beibehalten?"
+"The Purchase Code needs to be set!","Der Purchase Code muss eingesetzt werden!"
+"The changes you made require a page reload!","Die vorgenommenen Änderungen erfordern ein erneutes Laden der Seite!"
+"The changes you made will be lost!","Die vorgenommenen Änderungen gehen verloren!"
+"The following AddOns require an update:","Die folgenden AddOns erfordern ein Update:"
+"The link to the post","Der Link zum Beitrag"
+"The “Vimeo Stream” content source is used to display a full stream of videos from a user/album/group/channel.<br> If you want to display a single vimeo video, please select the content source “Default Slider” and add a video layer in the slide editor.","Die Inhaltsquelle ""Vimeo-Stream"" wird verwendet, um einen vollständigen Stream von Videos von einem Benutzer / Album / einer Gruppe / einem Kanal anzuzeigen. <br> Wenn Sie ein einzelnes Vimeo-Video anzeigen möchten, wählen Sie die Inhaltsquelle ""Standard-Slider” aus und fügen Sie sie hinzu einen Videolayer im Slide-Editor."
+"The “YouTube Stream” content source is used to display a full stream of videos from a channel/playlist.<br> If you want to display a single youtube video, please select the content source “Default Slider” and add a video layer in the slide editor.","Die Inhaltsquelle ""YouTube-Stream"" wird verwendet, um einen vollständigen Stream von Videos aus einem Kanal / einer Wiedergabeliste anzuzeigen. <br> Wenn Sie ein einzelnes YouTube-Video anzeigen möchten, wählen Sie die Inhaltsquelle ""Standard Silber” aus und fügen Sie einen Videolayer hinzu im  Slide-Editor."
+"This Guide will help you with the basic configuration *<br>of your Slider Revolution 6 Module.","Dieses Handbuch hilft Ihnen bei der Grundkonfiguration *<br>Slider Revolution 6 Modul."
+"This Source Type must be from posts.","Dieser Quelltyp muss von Beiträgen stammen."
+"This action can not be undone !!","Diese Aktion kann nicht rückgängig gemacht werden !!"
+"This can be Undone only within the Current session.","Dies kann nur innerhalb der aktuellen Sitzung rückgängig gemacht werden."
+"Three Spikes","Drei Stacheln"
+"Thumb Type","Miniaturansicht Typ"
+Thumbnail,Vorschaubild
+Thumbs,Miniaturansichten
+"Thumbs Style","Miniaturansicht Stil"
+"Thumbs Visibility","Miniaturansicht Sichtbarkeit"
+TimeLine,Timeline
+Timeline,Zeitleiste
+"Timeline Scroll Based","Zeitleiste Scroll basiert"
+"Timelines Scroll based","Zeitleiste Scroll-basiert"
+"Timer Paused","Timer angehalten"
+"Timer Resumed","Timer fortgesetzt"
+Title,Titel
+"Title Descending","Titel absteigend"
+"Title updated","Titel aktualisiert"
+To,Zu
+"To Slide","Zu Slide"
+"To add the slider only to single Pages, use:","Um den Slider nur zu einzelnen Seiten hinzuzufügen, verwenden Sie:"
+Toggle,Umschalten
+"Toggle ""N/M"" Frames","""N/M"" Frames umschalten"
+"Toggle 1st / Last Frame","1. / letzten Frame umschalten"
+"Toggle Class","Klasse umschalten"
+"Toggle Document Body Class on Open and Close of the Modal.","Aktivieren oder Deaktivieren der Dokument Body Klasse beim Öffnen und Schließen des Modals."
+"Toggle Fullscreen","Vollbild umschalten"
+"Toggle Media","Medien umschalten"
+"Toggle Mute All Media","Umschalten Alle Medien Ton An/Aus"
+"Toggle Mute Media","Umschalten Ton An/Aus Medien"
+"Toggle Slider","Slider umschalten"
+"Toggle Start State","Startstatus umschalten"
+"Toggled (Visible)","Umgeschaltet (sichtbar)"
+"Toggled in Hover Style","Im Hover Style umgeschaltet"
+Top,Oben
+Transitions,Übergänge
+"Trigger Memory","Trigger Speicher"
+"Triggered By","Ausgelöst durch"
+"Triggered by","Ausgelöst durch"
+"Twitter Settings","Twitter Einstellungen"
+"Two Spikes","Zwei Stacheln"
+Type,Typ
+"Unbind all listeners, remove current animations and delete containers. Ready for Garbage collection.","Trennen aller Listener, aktuelle Animationen entfernen und Löschen von Containern. Bereit für die Garbagecollection."
+"Under Mask","Unter der Maske"
+Underline,Unterstreichen
+"Unlock All","Alle entsperren"
+"Unmute Media","Medien Ton an"
+Unpublished,Unveröffentlicht
+Unregistered,"Nicht registriert"
+Unselectable,"Nicht auswählbar"
+Unsorted,Unsortiert
+"Untoggled (Hidden)","Untoggled (Versteckt)"
+"Up/Down Arrow Keys","Pfeiltasten auf / ab"
+"Update All","Alle aktualisieren"
+"Update History","Verlauf aktualisieren"
+"Update Later","Später aktualisieren"
+"Update List","Liste aktualisieren"
+"Update Now","Jetzt aktualisieren"
+"Update Plugin","Aktualisiere Plugin"
+"Update Row","Zeile aktualisieren"
+Updates,Aktualisierungen
+Updating,Aktualisiere
+"Updating Lists","Aktualisieren von Listen"
+"Updating Plugin Failed","Aktualisierung des Plugins fehlgeschlagen"
+"Updating Plugin...","Plugin wird aktualisiert ..."
+"Updating the Plugin may take a few moments.","Das Aktualisieren des Plugins kann einige Momente dauern."
+"Upload Max. Filesize (256M)","Max. Upload Dateigröße (256MB)"
+"Upload folder writable","Upload-Ordner beschreibbar"
+Uppercase,Großbuchstaben
+"Use Clip Path","Clip-Pfad verwenden"
+"Use Cover","Cover verwenden"
+"Use Custom Sizes","Benutzerdefinierte Größen verwenden"
+"Use Default on...","Standard verwenden auf ..."
+"Use Full Screen or Full Width Layout to Use Fixed Scroll.","Verwenden Sie Vollbild oder Vollbreitenlayout, um den festen Bildlauf zu verwenden."
+"Use Image","Verwende das Bild"
+"Use LineBreaks only in Columns","Verwenden Sie Zeilenumbrüche nur in Spalten"
+"Use Masking","Maskierung verwenden"
+"Use Slide Loop","Slide Loop verwenden"
+"Use Toggle","Verwenden von Umschalten"
+User,Nutzer
+"User Photoset","Benutzer Fotosatz"
+"User Public Photos","Öffentliche Benutzerfotos"
+"User URL:",Benutzer-URL:
+Username,Nutzername
+Velocity,Geschwindigkeit
+Vertical,Vertikal
+"Vertical Align","Vertikal ausrichten"
+"Video API",Video-API
+"Video Settings",Video-Einstellungen
+"Video cover could not be loaded","Video Cover konnte nicht geladen werden"
+"Video from Stream if exist","Video aus Stream, falls vorhanden"
+"Video from Stream if exists","Video vom Stream, falls vorhanden"
+"Video in Active Slide","Video im aktiven Slide"
+"Video is playing","Video wird abgespielt"
+"Video is playing in slider","Video spielt im Slider"
+"Video is stopped","Video ist angehalten"
+"Video stopped in slider","Video in Slider gestoppt"
+"View all posts in %s","Zeige alle Beiträge in %s"
+"Vimeo Settings",Vimeo-Einstellungen
+"Vimeo Thumb","Vimeo Miniaturansicht"
+Visibility,Sichtbarkeit
+Visible,Sichtbar
+"Visible amount","Sichtbare Anzahl"
+"Visible in Navigation","Sichtbar in Navigation"
+"Visit Page","Seite besuchen"
+WAIT,WARTEN
+Wait,Warten
+"Wait for API","Warten auf API"
+"Wait for Action","Warten auf Aktion"
+Warning,Warnung
+"Welcome to Slider Revolution 6","Willkommen bei Slider Revolution 6"
+"What should happen Next?","Was soll als nächstes passieren?"
+"Where do you want to move the Inherited Layers?","Wohin möchten Sie die geerbten Layer verschieben?"
+"Width Attrib.","Breite Attrib."
+"Width Based",Breitenbasiert
+Word,Wort
+"Wrapper Classes","Wrapper Klassen"
+"Wrapper ID",Wrapper-ID
+"Wrapper Max Height","Wrapper Max Höhe"
+"Wrapping Tag",Wrapping-Tag
+"Wrong category format","Falsches Kategorieformat"
+"Wrong export slider file format! Please make sure that the uploaded file is either a zip file with a correct slider_export.txt in the root of it or an valid slider_export.txt file.","Falsches Export-Slider-Dateiformat! Stellen Sie sicher, dass die hochgeladene Datei entweder eine Zip-Datei mit einer korrekten Datei slider_export.txt im Stammverzeichnis oder eine gültige Datei slider_export.txt ist."
+"Wrong request!","Falsche Anfrage!"
+"Yes, Delete All Slider(s)","Ja, alle Slider löschen"
+"Yes, Delete Slide","Ja, Slide löschen"
+"Yes, Delete Slider","Ja, Slider löschen"
+"Yes, Export Slider","Ja, Slider exportieren"
+"You are running Slider Revolution ","Sie nutzen gerade Slider Revolution "
+"YouTube ID",YouTube-ID
+"YouTube Poster",YouTube-Poster
+"YouTube Settings",YouTube-Einstellungen
+"YouTube Thumb","YouTube Miniaturansicht"
+"YouTube Video",YouTube-Video
+Youtube,YouTube
+"Z Position",Z-Position
+"Zoom In",Hineinzoomen
+"Zoom Out",Rauszoomen
+"as HTML Document","als HTML-Dokument"
+auto,Auto
+"by Container","mit dem Container"
+"by PX or %","nach PX oder %"
+"center bottom","Mitte Unten"
+"center center","Mitte Mitte"
+"center top","Mitte Oben"
+"class Name to Toggle","Klassenname zum Umschalten"
+"coma separated list | ex: 23,24,25","durch Koma getrennte Liste | Beispiel: 23,24,25"
+"could not find correct Slide to copy, please try again.","konnte nicht den richtigen Slide zum Kopieren finden. Bitte versuchen Sie es erneut."
+enter-a-module-name,"Geben Sie einen Modulnamen ein"
+from,von
+"i.e. 0:15","dh 0:15"
+"i.e. 1200","z. B. 1200"
+"i.e. 2:41","dh 2:41"
+"jQuery Triggered","jQuery ausgelöst"
+"javaScript Function","JavaScript Funktion"
+"left bottom","Links Unten"
+"left center","Links Mittig"
+"left top","Links Oben"
+"on Action","auf Aktion"
+or,oder
+"right bottom","Rechts Unten"
+"right center","Rechts Mittig"
+"right top","Rechts Oben"
+"slider_export.txt does not exist!","slider_export.txt existiert nicht!"
+to,zu
+x1.5,"x1,5"
+"youtube, vimeo, html5","YouTube, Vimeo, html5"

@@ -1,0 +1,1556 @@
+
+
+
+NWDthemes.com - Slider Revolution Responsive Magento 2 Extension
+
+
+
+31 August 2021
+---------------
+Version 6.5.3
+
+New Features:
+
+ * Added performance option to slider transitions, which will allow to prioritise perfomance vs image quality during the slide transition
+ * Added new option "Set Filters on Mask" to layer animation. This option allows to set the filters on the layer wrapper mask instead of the layer itself.
+     * to avoid strange cuts on overflow hidden elements
+     * as workaround for the Safari bug where blur and x,y rotations resizes the layers
+ * Extended openModalAPI to be able to load modules in page by ajax on demand by id, index or slide key
+ * Added vimeo thumbnail loader for background videos
+ * Added new global initialisation process optimization
+ * All JS files (except rbtools.min.js) will load asynchronous defered in footer to fill the new Google Lighthouse requests for better ranking
+ * New global option to enable viewport an viewport distance on all existing modules with one click
+ * New global option to overwrite "no lazy loading" with any other setting, to enable lazy loading internally in each slider modules
+ * New modal API added to load any slider as modal via API i.e. jQuery.fn.revolution.openModalAPI(modal,modalslide,url) where the URL is the URL of ajax action, modal is the modal slider id and modal slide the modal slide id
+ * Solved high memory usage on iOS browsers where 3x sized retina images may brake the maximum 384MB limitations
+ * During slide animations, all content will reduce resolution to speed up the processing in complex rendering, however after that it changes back to the best available resolutions
+ * Added two new metas to dynamic add current slide index and count of slides into layer content. {{current_slide_index}} and {{total_slide_count}}
+ * Three.js and WebGL support management between Slider Revolution AddOns
+ * SVG Layer: Added new option 'Style All Elements', enabling it will style all SVG elements in layer, like ellipse, polygon etc.
+ * Added popup on "url hash" to shortcode builder options
+ * Added "1 Time per session Pop Up" option with session length (default 24 hours) in the shortcode builder options. (Disable and reload frontend to clear cookie)
+ * Global option internal caching added. This will cache slider HTML to improve loading times
+ * Added gradient animation style (fading and sliding) to allow different hover animation effects on gradient layer backgrounds
+ * Added canvas based slide animations
+     * New sorting of animation types
+     * Very smooth and effective rendering of animations
+     * Extended the library with tons of new effects
+     * Added options like timing, flow, index, row & columns, filters, rotation, scale, motion filters
+     * In and out animation can be differently handled now
+     * Video, PanZoom, local and external images can be now animated without limitations
+ * Apple mouse and touch pads can now also scroll the carousel templates horizontal
+ * Added a "wrapper observer" option to execute a module redraw in case the wrapper dimension has changed. This is useful for modules in tabs. Check the editor/general/browser behavior tab
+ * Added PHP 8.0 compatibility
+ * Added vertical and horizontal mask offsets to the navigation thumbs and tabs to allows shadows and glows on objects
+ * Replaced the rendering processes which decreases page loading times, removes unneeded delays and boosts rendered frames per second
+ * Reduced memory usage, improved rendering and calculation processes, smoothed out frame drops
+ * Added 1 click installation for Modules and Packages with Addons that were not activated yet. They will be automatically activated and enabled
+ * Static Layers can now be set individually to stay behind or over the module. This will not work on Rows and children of rows
+ * Added custom deeplink tag per slide. Slides can be addressed now due to custom names like: http://mydomain.com#sunnyslide and also by slide order like: http://mydomain.com#slide2
+ * Object Library Extension: Custom SVG files can be now uploaded to Object Library under My Custom SVG Files folder. Tags, Naming can be set directly in the Object Library
+ * Layer Settings: Introducing SVG orignal Color option, which will respect to the original SVG's colors and will not fill / color paths and strokes
+ * Particles Effects Addon 2.3.0 : Added custom SVG Support (Version 6.3.0 required)
+ * Particles Effects Addon 2.3.0 : Added original Color option in case Custom SVG used as Particle
+ * Particles Effects Addon 2.3.0 : Added Responsive Size management
+ * Introducing Modal general speed, which will allow to harmonise and set the in and out animation of Modal windows
+ * Added Mouse Wheel options to stop slider scroll on the way up/down and go through slides before page scrolls further if % of Module is visible in viewport
+ * Paintbrush Addon Version 2.1.9 (13 Oct 2020) : Added support for Mobile Devices
+ * MouseTrap Addon Version 2.0.8 (13 October 2020) : Added support for Mobile Devices
+ * Introducing Video Scroll Addon 1.0.0
+ * Introducing a brand new Lottie Addon
+ * Added Random Slide to a layer action "Jump to Slide"
+ * Delete and Duplicate slides now also available in the Overview Mode
+ * Editor can zoom in and zoom out for now between 0,5 and 2 factors for better editing and support of smaller screen editing
+ * Full Screen module offsets will be respected also if Time Scroll based animation enabled, to keep/stick the Module at the offset point instead of the top of the page
+ * Added new Mouse Trap addon for mouse animations and advanced actions on layers
+ * 7 brand new templates are now available (3 for demonstrating the Mouse Trap addon functionality)
+ * Added new option: Start Background Video after the slide transition finished to avoid issues where the bg videos first few seconds were missing if the transition animated only the poster image
+
+Changes:
+
+ * Videos will not be prepared at the start on invisible slides, which will avoid unwanted loading side effects
+ * Backend optimiziation, further editor loading time and runtime optimizations
+     * Replaced Select2 function with ThemePunch functions which brings a great performance boost on the backend
+     * Optimized the opening processes in the slider editor. Less loops on multiple draws until all elements are created
+     * Replaced tons of innerHTML content building due documentFrames creation
+     * Replaced slow input element initialisation processes
+     * Added further RAF processes in drawing and initialisation processes to optimize editor runtime processes
+     * Changed behaviour by dropping/dragging layers when a group is overlaying rows and columns with an overdimensioned shape inside
+ * DPR got now also auto max values and default is auto DPR
+ * Removed unneeded functions and files on WP pages and posts
+ * Reduced and cleaned up some of the PHP sources
+ * Added indexes to Slider Revolution tables
+ * Partly optimized db queries (More will come in next udpates)
+ * Slides with random speed will fall back to 1000ms, random speed won't be allowed any more
+ * Distortion AddOn stretch images. Option added to set optional scaling
+ * HTML5 video and background layer have a new option 'Video Fit Cover', by default this option is enabled to fit videos as cover. Disable it in case of video size jumps on slide change.
+ * Force cover option on bg videos has been removed, the overlay option is now always available on bg videos
+ * Slides are now numbered in the actions choices for better usability
+ * Parallax has been optimized to avoid calculations on inactive slides
+ * Changed several internal PHP scripts to improve speed and memory usage
+ * Updated the Google Fonts list
+ * Slicey AddOn support to RS 6.4.0 added. Required version 2.1.0
+ * Before After AddOn support to RS 6.4.0 added. Required version 2.1.0
+ * Revealer AddOn support to RS 6.4.0 added. Required version 2.2.0
+ * Distortion / Liquied Effect AddOn support to RS 6.4.0 added. Required version 2.1.0
+ * TypeWriter layer position will auto update if the layer dimension is set to auto. Required version 2.1.0
+ * Lottie AddOn version 2.0.5 added "Respect Timeline Start" option. Requires RS 6.4.0
+ * Post meta data are not saved anymore when they are at the default value
+ * First click of a slider module will double check now any existences of videos in the active slide before the call is triggered
+ * Updated the Google Fonts library
+ * Updated Drag and Drop functionality in Editor to protect column, row and group orders and make even more simple to move layers within a group , columns and rows
+ * Updated Preloading and Preparing processes in Editor to make Editor loading time 50%+ quicker
+ * Added intelligent on the demand of a field management in Editor to only render and prepare functions which are really necessary while in editing mode
+ * Drag, Move, resize and further events will only be prepared if layers , slides, or referenced elements touched to win over 50%+ speed in backend rendering processes
+ * Changed CodeMirror against RevMirror to avoid Namespacing issues with other Themes and Plugins
+ * Reversed Timeline Frames (frame_999 of layers) will now respect in animation lengths
+ * Reversed Timeline Frames are not marked with "(R)"
+ * Added new Colorpicker Engine similiar to Slider Revolution. Custom Colors can be saved and they are synchronised with Slider Revolutions Color Palettes
+ * Improved the initial presizing of the slider area to get less layout shift penalty
+ * Imporved the backend preview feature
+
+Bugfixes:
+
+ * Adding the same slider more than once to the post/page resulted in the JS revapi variable beeing defined multiple times
+ * Tags are written in image titles on certain conditions
+ * Splitted and blurred text animation on Safari looks different, letters pop up without animation
+ * Required AddOn update message shows wrong update versions in certain cases
+ * Hidden slides are printed into the HTML
+ * Some external images are not visible in backend and load stretched on frontend (CORS error visible in console)
+ * iFrame in layers fail to load in some special cases
+ * Layer actions with target layers fail to open due to error
+ * HTML export does not write some newly added JavaScript
+ * JS error if slider uses "Observe Wrapper" option
+ * Elementor, Divi, Wp Backery or other third party plugin conflicts if the library loading is set to defered, async in footer
+ * Clicking on buttons sometimes fails in Firefox if 3D parallax is used
+ * "Lazy Load All" does not load all images one by one in case the ViewPort option is enabled globally
+ * Error causes release version to fail in backend and it prevents some backend features from working
+ * Updating to latest AddOn versions may load old JavaScript files
+ * Slider fails to load because third party scripts polluted default Array and Object objects
+ * Slider Revolution and Elementor conflicts if Elementor section is also fullwidth
+ * Opening page in new tab on iPhone gives slider wrong dimensions because Safari reports height incorrectly
+ * Strange Artifacts on Slider backgrounds and transitions. Comes due to an early load of the Slider Revolution environment, where i.e. WP Rocket (and other tools) may re-add already processed images to the DOM
+ * Lock and visibility icons are not available on the layer list after adding, removing, duplicating layers
+ * Disabling hover options on layers still shows animation on mouse enter and leave
+ * Custom navigation presets can not be added or do not save
+ * Weather AddOn location can not be extended
+ * Page content jumps on initial load if JS files are added to the footer
+ * Elliptical gradients are not drawing well
+ * YouTube posters is not displaying after reloading editor
+ * Navigation thumbs speed option is not working
+ * Wrong start/end y position if from/to top or from/to bottom layer animation selected on rows
+ * Some old slider layers had the subtype set accidentally which prevented them from being imported.
+ * In very rare cases a normal slide converted into a global slide, making 2 global slides available in the module
+ * Videos not playing in static slides if the slider layout is set to carousel
+ * Parsing CSS can create a PHP notice
+ * Safari mask animations do not show animation on second loop
+ * PolyFold AddOn stops rendering the editor view until the browser gets resized
+ * Added protection against Avada's transform z on main container which would break the scroll functionality of the slider
+ * Global layers can not be controlled by layer actions
+ * Canvas with too big area breaks on iOS
+ * Selecting 'auto DPR 4' would select 'DPR 4'
+ * Closing modals were failing due to a wrong id if the page had multiple modals
+ * Video jumps/shows the cover a short time after the animation ends
+ * Having none Isometric Slides before Isometric slider will brake in animation of Layers
+ * Disable PanZoom on mobile has no effect
+ * In the backend, layers are sometimes not in position until offsetted layers gets selected
+ * Parallax content jumps on previous/next slide if page has been scrolled before slide change
+ * Multiple carousel navigation's on same page conflicts with each other
+ * Bullet navigation does not get recalculated on resize
+ * Modal on default templates doesn't cover full width
+ * Fullscreen modal doesn't show fullscreen if slider has "Decrease module height" option set
+ * AddOn installation not available due to version comparing failure (hotfix)
+ * Installing slider templates with higher version requirements allows to download templates even if current installed version is not able to handle the data
+ * Mobile issues with blurred and 3d animated elements (i.e. Black Friday Template)
+ * Static HTML5 video layers can not be imported in editor due to invalid id failure
+ * Fullscreen button on HTML5 video is not responding or closing full screen after opening
+ * Spinner is showing up under 100ms, even if next carousel element reached
+ * Exporting sliders with SVG has a problem when the server was changed from http:// to https://
+ * Importing sliders with SVG in the global slide does not properly import them
+ * Video background on IE with landscape video not fitting entire canvas
+ * Canvas animation brakes in some cases iOS memory limits, and use too many resources on retina displays
+ * Max width of container would stretch image content, and still keep some cached values on original height
+ * Play button appears on slide background video
+ * Multiselect dropdowns do not show the selected values
+ * Scrolling, resizing screen during select dropdown is open, puts the dropdown offseted to original select position
+ * Resizing Layers in editor with aspect ratio set to "auto" or "none" calculates the wrong height of element or giving NaNpx as result
+ * Particles Addon 2.3.5: Custom 1 Colored SVG files from Original library can not be colored by particle styles
+ * Swapping between External source, image source and solid color/transparent do not update the current slide background image in editor
+ * Higher Modal window may add horizontal scrollbar on Window resize
+ * Draging Text layer wrap the text if layer hit the right side of parent container, after releaseing all good
+ * Slide based aligned layers in backend positioend wrong if layers added to group
+ * Issue with high resolution displays and multiple slicey elements. Elements are scaled or getting very slow. Fix is available in Slicey AddOn 2.1.1
+ * {{featured_image_url_original_size}} not working properly.
+ * YouTube video on mobile does not start automatically
+ * YouTube video on event pauses, plays and pauses again
+ * Gutenberg styling issues after latest WP version update
+ * Layer images and background images do not load sometimes (mostly over CDN, or with lazy loading 3rd party plugins)
+ * One time error occuring in the update process introduced in 6.4.4
+ * There was an empty line in the plugin overview at Slider Revolution
+ * All text was getting selected at once, now user can select layer text manually
+ * On resize Vimeo and YouTube iframes were getting affected by 'Twenty Twenty One' theme and causing them to get wrong sizes
+ * Sometimes resizing would create horizontal scrollbar or leave blank space on right side
+ * Image loading times out on slow network before load, now slider will wait longer for images to load
+ * Custom SVG elements would not create a new category on upload, and setting favorite on them would first be visible after reload
+ * Pan zoom may show half sized images after the latest DPR function
+ * If scrollbar gets removed due to page height change then sometimes the slider doesn't resize
+ * Fixed WPBakery page builder block styling
+ * HTML5 video layer cover sizing
+ * Video fit cover option was causing issues to Vimeo/YouTube backgrounds
+ * Bg cover and x% offset calculates the horizontal offset wrong wise on the vertical axis
+ * Fixed Vimeo thumbnail not loading in editor.
+ * All cookies were decoded by RS, now only cookies set by RS are decoded.
+ * Video play/pause button was not showing on mobile.
+ * TypeWriter layer postions are not correct in fullscreen sliders. Revolution Slider version 6.4.4 and TypeWriter AddOn version 2.1.1 required
+ * Deep linking does not always link to the right page
+ * Layer videos without poster image and paused not showing until revisiting the slide
+ * Filter willow breaks in Safari the background visibility. Safari will show a simple black and white filter instead
+ * HTML5 video does not playing when the preload options are set to 'disabled'
+ * Navigation thumb shows more thumbs on mobile due to a width calculation bug
+ * Slider not resizing on touch screen desktop screens
+ * Background video was getting pushed out of view if filter is set on slide
+ * Long videos sometimes buffer. Logic for how videos start playing has been changed to address this but it still depends on browser's prediction and can't be always gauranteed
+ * Overlay pattern was not working on video layer
+ * Backend canvas was not clearing completely if browser was zoomed in
+ * Justified carousel ignores aspect ratio at the first load if external images are used
+ * Max amount of thumbnails is not working if the thumbnail space is set with the px suffix
+ * Video with unusual aspect ratios zoom in after slide animation. object-fit:cover is now removed from html5 videos
+ * Material icon size conflict with WPBakery plugin resolved
+ * Retina display shows blurry background images after Slide background animation
+ * Random slide background animations break the editor and does not show transitions on frontend
+ * Background rendering on auto size, % size, background aligns and background repeats like repeat-x and repeat-y do not render well since version 6.4.0
+ * Having slots could create an error in 6.4.0
+ * Firefox character animation with blur has artifacts
+ * WP-CLI global variables issues are now fixed.
+ * Shape layer with stream sources will show icon now and will hide coloring and image.
+ * Hover animations from gradient to solid, solid to gradient will work well now in the editor and frontend
+ * Protection against an issue where rapidly opening modal windows in the row may break the page
+ * Dragging layer in animation mode where init values is inherit do not change the x,y transition values
+ * SVG layer icons show text layer icon on timeline
+ * Fixed issues in the Slider Revolution Gutenberg block causing React warnings
+ * Fixed slide thumbnail previews not always refreshing in admin
+ * Fixed parallax causing screen artifacts in rare cases
+ * Progress bar circle throws error if radius is smaller than strength
+ * Blur overflows the image layer on Safari
+ * Fast clicking on carousel would trigger "cancel" event on carousel and carousel would fail
+ * Added protection against third party plugins/themes conflict with slider background images
+ * Clicking outside of a modal fails to close the modal
+ * Fixed Chrome artifact issue when using parallax with blur animation
+ * Frames with filters rendering glitch due the latest fixes in version 6.3.8 and 6.3.9
+ * Before After interaction not available if thumbnail or tab navigation is enabled
+ * Slider export with audio files missing the file or url pointing on the original audio file
+ * Issues with audio editing in backend. Playback can not be started
+ * Filter effects produce artifacts on hover animations since the latest fix 6.3.8
+ * Layer animated with blur produce artifacts in Chrome version 88 and Chrome version 89
+ * In some odd cases slider is hidden in the Facebook "In App Browser"
+ * Installing AddOn does not show the installed version until refreshing the page
+ * "Observe Wrap" option is not working
+ * Carousel layers sometimes animate again after changing slides
+ * Carousel rows change in size after being focused, if column has an overdimensional image
+ * PHP notices sometimes influence content and content dimensions
+ * Bubble Morph dimension issues in carousel
+ * Images are not fetched from WooCommerce posts, if "image from stream if exist" is selected
+ * Steam preview shows wrong error information
+ * Custom particle not using the correct color in particle effects
+ * Issues with toggle media and mute in groups
+ * FilmStrip scrolling issues on mobile
+ * Wrong dimension calculations sometimes causes overlapped layers in the editor
+ * Global color skin modal not showing automatically
+ * Google fonts download for Material Icons to host Material Icons locally not working correctly
+ * WhiteBoard addon issues
+ * Updated and extended error messages if the stream is not available. The preview will be auto closed
+ * Dragging a carousel when touching a link does not work in some cases
+ * Translated slides are not removed if the parent slide has been deleted
+ * "From left" and "from right" animations on rows have wrong offset values
+ * Vimeo "Auto Play: Off" and "Mute at Start: Off" is not playing music, neither does it show the mute/unmute button on mobile devices
+ * Changing animation attributes on the "Anim From" keyframe, does not visually update changes
+ * Dragging layers in animation view doesn't change the values of the selected (Set as Editor View) frame
+ * Added a protection against loop animation on layers where curviness was allowed and no values were set on x,y which may have produced console errors
+ * Changing metas in the navigation editor will now straight add changes to the global and slide based styles
+ * Fixed: Post excerpt limitations will now really make a difference between words and chars
+ * Fixed: The vertically position of the progress bar may not show up well on slides with dynamic height in carousel view
+ * Reducing amount of columns in a row will now copy layers from the "removed" column into the last existing column
+ * Fixed: Rare error in backend that prevented editing sliders in case the new covered mode of layers has been used
+ * Fixed: Chrome layout breaks on device orientation change
+ * Videos may have started on the 1st click on the module in case the video was already played and paused. This comes due to a fix for the new browser rules which would not allow to play any media without user interaction. Now further protection has been added
+ * Added protection in the editor against corrupt layers which are not standard and have been added due to an earlier bug in very rare situations.
+ * Deprecated function align left, right, center of the module has been removed. Floating of full container must added on a higher container structure and not within the slider itself anymore.
+ * Fixed integration of Essential Grid, which was not loading as an embeded layer in Slider Revolution on second or further slides
+ * Slider with static group layers may got huge offsets next to the module on mobile devices. This overflow issue has been fixed now
+ * Fixed Maintenance AddOn WP 5.6 compatibilty. Requried AddOn version: 2.1.3
+ * Navigation default font-family was not editable/available in the navigation editor and in the slide/module navigation presets
+ * Selected navigation type did not open up the right modal if the navigation has been edited
+ * Fixed image border in columns where the image was overlaying its own border in columns
+ * Rows with 10 columns were not allowed due to a bug in the sanitize function. This bug is solved now
+ * Fixed the optimizer where websafe fonts broke the font size output in some rare cases
+ * Single slides were not visible when importing template slides in the editor
+ * ​Added protection against layertype "textshadow" and "boxshadow" which could accidentally be added due to the quick style editor in preversions of RS.
+ * Navigation bullet position based style did not work due to missing spaces between the class names
+ * Dione bullets had no font size and line height settings, which made dione bullet look different in the backend and in frontend
+ * Fixed video position calculation in groups if the video height is set to 100% and the video is not loaded before the group is drawn
+ * In some cases the slider height was not auto updated when the height shrinks and a new slide has no rows added to the content
+ * Covered shape and image aligned to the module was not showing well in the editor
+ * Fixed a bug where in the layer actions, simple links did not properly prepend the correct http/https
+ * Removed the "Undefined Text" output over the YouTube layer and background videos
+ * Fixed a bug where setting the permissions inside of the global settings did not work properly
+ * Exporting modules from backend may compress the file with a wrong format. Also requires the Video Scroll AddOn 2.0.2
+ * Fixed a bug where the instagram video was not showing as a layer
+ * Disabled the New Relic browser monitoring in preview mode
+ * Fixed undo/redo bug where color changing and further actions were sometimes not Undoable in editor due a color skin logical error
+ * Changing Video sources in editor caused javascript crash on preview without reloading the page. This issue has been fixed
+ * Fixed PE7 icon lineheights in frontend
+ * Slide links over front layer did not work due some reference issues. This bug has beed fixed now
+ * Fixed calculation issues if Group Layer height and width were defined via percentage and set to scene aligned
+ * Fixed IE11 getElementsByTagName issue
+ * Fixed vertical position calculation on Vertical centered rows
+ * Fixed action triggered animations due multiple Frames where sometimes content was not visible after triggering them
+ * Get rid of the bug where transparent Background Images with pan zoom effect doubled the bacground.
+ * MouseTrap Addon 2.0.7: Fixed RTL Issues which disorted the horizontal position of Mouse triggered items
+ * Fixed an issue where appending 3d Parallax items moved group and row children out of their wrapper causing random bugs
+ * Issue with showing of multiple Adverts, warnings and information containers after Slider regsitration process has been fixed
+ * Solved an issue where editor may not show layer and slide backgrounds if file name had spaces or special charachters
+ * Problem solved when zIndex and Layer order was not sorted well after importing Layers from other Slider
+ * Slide link zIndex issues has been fixed in some cases where Slide link which should overaly the layer was still underlaying them
+ * Auto Reverse on Char, Word or Line splitted animations did not play the animation correct before. This issue has been fixed
+ * Fixed a problem with default delays in general split animations where frame0 or frame1 anination used a dealy of 0
+ * Fixed Split animation direction "Edge to Middle" which was until now a simple forward animation direction
+ * Deleting Key Frame of Animation did not auto refreshed the Input fields in editor
+ * Loading / editing Layers with splitted animation may not shown the correct frame lengths in editor
+ * New Quickstyle elements will get auto Intelligent inheriting and these will be straight visible, without the needs to save and reload the module
+ * Fixed Before/After Addon Safari issues. Required version 2.0.10
+ * Fixed Version Comparing in Addons lists where version 2.0.10 was older than 2.0.9
+ * z Transforms in depth were not well rendered on Splitted Text animations like Chars, Words and Lines
+ * Calculation of Scroll progresses were not calculated well if the time scroll based module added as first element in page
+ * Global Layers on two Slides disappeared on "backwards" module rotation
+ * Fixed a bug where iOS Transformation on z axis were rendered on the wrong position
+ * Particle Addon 2.3.1 Fixed: Particles failed to load on first slide in carousel slider
+ * Bubble Morph Addon 2.3.1 Fixed: Bubbles failed to render on Carousel module
+ * Fixed and issue where mutliple frame based layer animations get mixed up if layer is moved into a group / column
+ * Filtering on char, words and line animations shown warning in console. This issue has been fixed
+ * Fixed a bug where post based sliders would show the featured image instead of its correct setting, if the background type was set to transparent or colored and image from stream was set to on
+ * Fixed a conflict with the oxygen builder plugin that resulted in the previews of sliders not working properly
+ * Moved the loading of custom eases to a later point to save some time for the first rendering of elements
+ * Fixed initialisation of Slider Revolution if 3rd party plugins and/or themes do unbind state events on DOM
+ * Fixed the admin top bar list where all slider were listed in some odd cases
+ * Fixed and added Custom Meta lists to Sort Order
+ * Fixed Pe7 Stroke icon getting wrong line-height issue
+ * Improved compatibility with jQuery 3.x for checked and disabled inputs in backend
+ * The initialisation process when more than 1 slider exists, may have broken the page loading. Important fix
+ * Fixed an early call of dimension updates in carousel mode, which may produce some JavaScript erros in some odd cases
+ * Auto sized containers and their content may not get the right dimensions if tabs or thumbnails are added outside of the module
+ * Added protection against issues if the jQuery library is loaded in the footer
+ * Fixed issues for Vimeo background video sizing issues if dimensions are doubled to retina size
+ * Particles Effects 2.2.6: WP 5.5 issues fixed
+ * Added protection against wrong URL parameter orders which can negatively effect Slider Revolution editor mode
+ * Added protection against 3rd party and theme WP5.5 incompatibilities. Even if the theme or 3rd party plugin throws JavaScript errors, Slider Revolution will try its best to process normaly
+ * Copy/Paste shapes in editor with % based sizes may failed. This issue has been fixed now
+ * Group, row and column layers can only have JavaScript based actions. The "a" tag option is removed now for these layer types
+ * Fixed rows and layer alignment issue in RTL mode
+ * Fixed overall calculation issues on layers in RTL mode
+ * Fixed layer repositioning on refocus bug when the 'respect ratio' option is turned on
+ * Backend rows/columns background style with padding and margin may not show the same result as in frontend. This styling issue has been fixed now
+ * Fixed resize issue for auto layout slider
+ * Fixed scrollbar issue for windows where on resizing scrollbar disappears/reappears
+ * Fixed custom navigation skin CSS metas, where no new metas can be added if at first start a meta was not existing
+ * Fixed static layer failing display in IE11
+ * Fixed issue where 3D transformed layers jump due to changed perspective
+ * Font Family drop down in the navigation editor for custom meta placeholders has been fixed
+ * Bubbledmorph: Fixed a bug where bubblemorphs disappear on desktop. Version 2.1.5 Required
+ * Fixed calculation of layer positions during browser resizing
+ * Fixed iOS Zoom calculation issues
+ * Video resizing issue after orientation change fixed on mobile devices
+ * Instagram and other social stream video sources and their image covers was not showing in some kind of odd situations. This issue has been fixed now
+ * Fixed HTML5 flickering issues on slide change and loop
+ * Slider optimization overview delivered undefined values
+ * added two missing ; into JavaScript parts in output.class.php
+ * Fixed Kenburns effects initial load issue where the background was getting a wrong height
+ * Fixed the background video flash effect at the first start of the video
+ * Added support for slider exported on Safari where after re-compressing, the slider wasn't getting imported properly
+ * Bubbledmorph: Fixed converted sizes order (mobile was getting the wrong size)
+ * Throttled scroll event listener to improve performance
+ * Fixed a bug where modules could not be initialised if they opened delayed via a custom scripts or were loaded per ajax not using internal functions.
+ * Fixed Toggled Text styling issues, where the whitespace settings were not written onto the toggled content, but only on idle content
+ * Fixed instagram, taking the videos even if the slide is set to transparent
+ * Changed HTML5 video in animation to avoid flickering when the poster and video crossfades
+ * Fixed optimizer JavaScript error if it was called from the Module Overview page and AddOns are in use but not loaded yet
+ * Fixed the conflict with other extensions that have colorPicker path in their require config
+ * Fixed the alignment issues in the RTL locale
+ * Fixed the issue with missing static layers after the slider upgade from the version 5
+ * Fixed prototype.js related errors on add video layers
+ * Fixed the UTF-8 characters problem in the backend preview
+ * Fixed the JavaScript error on the frontend when HTML is minified
+ * Fix for possible error on loading icons fonts in editor
+ * Fix for possible error with insertion of SVG icons to Add-Ons
+ * Added missing image layer Alt attribute option
+ * Fixed include globally and include by page handle configuration feature
+ * Fixed error with YouTube cover image as video poster
+ * Fix for unset count for YouTube stream sliders
+ * Fixed issue with incorrect svg icon url
+
+
+9 December 2020
+---------------
+Version 6.2.15.5
+
+New Features:
+
+ * Added ThemePunch update servers and Vimeo frame to the Content Security Policies whitelist
+
+Changes:
+
+ * Removed unapplicable show double jQuery error function
+
+Bugfixes:
+
+ * Fixed error in drag and drop media upload
+ * Fixed problem with link actions urls
+ * Fixed missing Add-On admin minified scripts issue
+ * Fixed admin user dropdown and slider overvew navigation overlay issue
+ * Fixed issue with missing images after importing the slider
+ * Fixed bug in editing Story Block package templates sliders
+ * Fixed the Whiteboard Add-On update popup problem
+ * Corrected the scope of delete_all_slides method
+ * Fixed bug in image optimizer
+ * Fixed error when the slider image is missing
+ * Fixed text layers localization
+ * Fixed the admin slider preview bug caused by the failed script tag injection into the json encoded html response
+ * Fixed loading of the minified Vimeo player script for Magento versons below 2.3.5
+ * Fixed the object library resizing issue
+
+
+
+26 October 2020
+---------------
+Version 6.2.15.4
+
+Changes:
+
+ * Removed unapplicable JS to footer feature
+
+Bugfixes:
+
+ * Fixed problem with slide links behind layers
+ * Fixed insert image from the Object Library bug
+ * Fixed undefined variable error on animations update
+ * Fixed Magento 2.4.1 image uploader problem
+ * Fixed the possible undefined jQuery error on the frontend
+ * Fixed problem with resolving images urls from another domain
+ * Fixed error on slider import
+
+
+
+14 August 2020
+---------------
+Version 6.2.15.3
+
+New Features:
+
+ * Added external sources to the whitelist of Content Security Policies
+
+Changes:
+
+ * Added more sizes to the optmize slider images feature
+
+Bugfixes:
+
+ * Fixed issue with getting image file name on the frontend (undefined path error)
+ * Fixed issue with redirects when generating slider preview in the backend
+ * Fixed error in the overview page when frontend preview preload url is not available
+ * Fixed export to HTML feature
+
+
+
+6 August 2020
+---------------
+Version 6.2.15.2
+
+Bugfixes:
+
+ * Fixed missing quote in add_inline_double_jquery_error
+ * Fixed PHP 7.4 compatibility issues
+
+
+
+24 July 2020
+---------------
+Version 6.2.15.1
+
+Bugfixes:
+
+ * Added missing gallery images helper to Magento 2.1.x patch
+ * Fixed get_attachment_image_src error on frontend
+
+
+
+20 July 2020
+---------------
+Version 6.2.15
+
+New Features:
+
+ * Added the layer upscaling option module wide for fullwidth sliders which will open new design directions for % scaled elements i.e (See our Charity Map Template functionality)
+ * Added align by option for the progress bar which can now be aligned by grid and module
+ * Added further warnings in editor in case of a conflict with themes/plugins and server accessability
+ * Added an option to ignore mobile browser height changes based on scrolls. The urlbar and toolbar do disappear based on scroll, which would resize the fullscreen sliders. Set per module if you wish to ignore these behaviour of the mobile browser. This option is enabled by default
+ * Introducing new options for the progress bar:
+     * Modes: Show progress of full slider module or show progress of single slide
+     * Progress types: horizontal, vertical, CW circle, CCW circle
+     * Progress directions: RTL and LTR mode
+     * Styling: background, color, gap size and color
+     * Visibility on desktop, notebook, mobile and tablet
+ * Introducing a core listener system which will synchronise and manage sliders on pages automatically
+ * Layer background supports now also image sources from stream
+ * Added custom fonts list to global settings, which supports custom fonts in the editor area also.<br>Available options: font family name, url to font style, available font weights, load font in front- and/or backend environment
+ * Added Image Background from Stream for Layers
+ * Added color skins to define global colors for different color attributes through any kind of element. I.e. create a color group for highlight colors and then attach them to the font-color, border-color, navigation elements, slide backgrounds, shape colors and so on. This is the best way to edit templates very quick and simple.
+ * Carousel offset values can scale now also linear to slide scales to allow different horizontal carousel animations based on scale, horizontal offset and this new option
+ * Added retina canvas support for the Paintbrush AddOn. The Paintbrush AddOn version 2.1.3 is required
+ * Carousel slides will load on demand with lazy loading if lazy loading is set to single/smart. The amount of loaded elements depend on the amount of visible slides set in the carousel settings.
+ * Added auto width slides for the carousel mode (justified) Option.
+ * Added sticky mode for the carousel layout
+ * Added permanent visible individual layers, to extend the "visible all" layers feature in the carousel mode. This gives you more freedom as for which layers should always be visible and which should only be visible on slide focus
+ * Added an force overflow hidden option for the carousel mode which can be very useful in the new justified carousel mode
+ * Added new option to hide hover functionality on layers if the Slider is loaded on mobile.
+ * Added Page Template "Slider Revolution Blank Page" for Posts too
+ * Added Background Color Page option for Slider Revolution Blank Page Template
+ * Added Block Settings (PopUp, Spacing, zIndex etc) for Gutenberg, WP Bakery Page Builder and Elementor
+ * Moving layers in animation mode will move the layers x/y transform value in the selected frame. This will allow to fine tune the animation positions of layers
+ * Drag and drop images and or videos to the editor to create layers on demand to shorten the required steps to create image/video layers
+ * German and French translation added
+ * Added a link help option to slide and action links, to help auto selection of http and https protocols for links
+ * Added a file and media optimizer feature, available on pages/posts, overview and Slider Editor mode to optimize embeded media files and to get a general overview about loaded filesizes
+ * Added guide lines based on grid and on similar aligned layers where layers can snap to these guidlines also. Even gaps can be set to snap by predefined spaces
+ * Added new depth on the overview page for slides in sliders
+     * Rename, delete, publish and unpublish slides straight in the overview without opening the editor itself
+     * Change sorting, set admin thumbnail and open the editor with selected slide straight from the overview
+ * Added custom font-family definition in global settings to extend the text layer font-family selectors
+ * Added high contrast mode for better readability. Turn this option on/off in the global settings
+ * Added admin thumb image to the Slider Revolution Gutenberg Block
+ * Added a new text stroke option in the advanced styles
+
+Changes:
+
+ * Slicey AddOn's "Min PanZoom" value can be now also changed anything to >=100 (version 2.0.2 required)
+ * Synchronised the video animation start with the slide change to start videos earlier
+ * Updated many core functions to reduce loading times
+ * Reduced the slider preparation times
+ * Massively reduced CPU and GPU usage during slider processes
+ * Favorit selection on templates in packages will show now in the favorite list as well
+ * Links with target="_blank" will be extended with the rel="noopener" attribute to avoid performance and security issues
+ * Double defined slide link actions : "Next Slide" and "Previous Slide" removed from the "Jump To Slide" action to avoid misunderstanding (existing values are still available)
+ * Added ScrollTo GreenSock Plugin with the latest Version to avoid issues where 3th Party Plugins and Themes using RS Libraries with older components of GreenSock
+ * ThemePunch tool main reference "punchgs" has been replaced by "tpGS"
+ * <b>GreenSock</b> Engine update from Version 2.x to <b>Version 3.x</b>
+ * Easing now have new aliases. i.e. Power2.easeInOut now can be referenced with short names like power2.inOut
+ * Added carousel mobile swipe and desktop mobile swipe options under the navigation touch section which allows you to disable the carousel navigation via touch if needed
+ * Timeline limit extended to a maximum of 3:00 min
+ * Merged the AddOn notices into one single notice
+ * Optimized page loading
+ * Reduced file sizes for faster loading times
+ * Added sharp corners also to shape layers
+ * Updated google fonts
+ * Updated the preview function to show a more realistic preview in the backend using desktop mode
+ * Updated the carousel engine for a better performance and smoother animations
+ * Added throw phyiscs to the carousel engine
+ * Added a workaround for a Safari bug where image layer animations shift when the opacity is below 1 at start
+ * Essential Grid will now be parsed in layer. On start animation, Essential Grid will call the redraw option
+ * Static layer editor will now honor the last edited slide and will resize and reposition none editable elements for better orientation in the static slide editing
+ * Warning added on background filters to inform about incompatible filters on videos for the Edge and Internet Explorer Browsers
+ * Videos in the editor can now have "auto" height and "%" width independent if they are positioned in columns, groups or on the stage directly
+ * The gutenberg block opens the module library now directly when added
+ * Updated google font list
+ * Removed unneeded font stylings from img layers
+ * The slide links and layer action links http/https auto adjustment behavior can now be changed as an own option
+ * Optimized the output to ignore the font style based settings on unrelated layers
+ * Updated some output details if something goes wrong for better understanding
+ * Optimized the snap and guideline settings to simplify the usage. If it is enabled, it will always show guidelines and will always snap to them.
+ * Changed the values for carousel opacity, rotation and scale. some of the values were not working properly, some of the values were the other way around.
+ * Folders in overview will show now the first found elements admin thumb even in multiple depths
+ * GreenSock TweenMax library updated to version 2.1.3.
+ * Changed the Event Manager meta for layers from {{event_event_id}} to {{event_id}}
+ * Added an option in the Panorama AddOn to lock vertical draggings. Panorama AddOn 2.1.0 is required
+ * Change Facebook API connection to access tokens (because of the new API security guidelines)
+ * Changed the usage of wp_upload_dir() in the object library, so that the calls of it are minimized, as it caused issues on Pantheon Servers
+ * Changed behavior of certain functions to better support Pantheon servers
+ * Modal loading will now use the cover background already before the modal window is loaded. This happens only if the cover background is enabled and a color is selected
+ * Importing template packages that has a modal slider, will now set all the needed actions in the layers so that the modal works directly. Please note that for already downloaded sliders, a new installation is needed with the "Re-Download Online" option set to "on"
+ * Changes due to Instagram API retiring public information for security reasons:
+     * Removed "likes" meta. The output of former used "likes" meta will be blank
+     * "author name" meta will now display the searched user name
+ * Default cycles for scale animation updated to (0.5 to 1) from (-50 to 50)
+     * Removed update now button from overview page
+ * Removed not applicable troubleshooting options
+
+Bugfixes:
+
+ * Position information will be hidden by dragging elements within columns or out of the columns to hide unneeded undefined parameters
+ * Added protection against infinity loops in the overview page in case folders were somehow pointing into each other creating recursive traps
+ * Fixed a bug where text and button layers with placholders did not refresh the visibility after editing their real content in the editor
+ * Fixed a bug where video streams would not work properly
+ * Fixed Instagram Stream functionality
+ * Fixed a bug where JavaScript based simple links doubles the output and brakes the link process. This was an earlier fix for the action "CallBack" where ":" chars did brake the callback function. Both bugs are fixed now
+ * Fixed issue with ":" special chars in call back actions
+ * Fixed an issue where opening a modal with slide "x" multiple times was breaking the opening process
+ * Fixed an odd zIndex issue where not focused slides in the editor with more layers than current editing slide may loose their zindex on layers after saving the full module
+ * TypeWriter AddOn fixes version 2.0.3:
+     * Added support for inline style on span tags
+     * Added option to change the cursor color
+ * Fixed a bug where action triggered loop animations did not start the animation. Also fixed loop animated elements which jumped to loop animation frame 0 during the slide out animation
+ * Fixed issues with row/column heights where images that were added with padding into the first column, and the height of the image may negatively influence the calculation of the module height on slide swap
+ * Fixed horizontal and vertical slide transition issues
+ * Fixed a bug that leads to broken post based sliders
+ * Video poster will show up if video has not started and the video has been resetted (just like coming from another slide) even if "Show Poster on Pause" is not selected
+ * Video timeline now can be dragged even if "Show Poster on Pause" is selected, which is showing up with delay in this case if needed
+ * Video click will now honor original clicks and start/play videos correctly
+ * Fixed HTML5 video fullscreen playback on IE11
+ * Fixed JavasScript error if an Essential Grid exists on the page and the Slider tries to recall Essential Grid's refreshing method
+ * Fixed an issue where the loading of modules with ajax, removing them (with or without revkill method) and readding them to a later point in time did not start the modules correctly
+ * Fixed an issue where the alt for slide images was not written if it was empty
+ * Fixed an issue where AddOn downloads showed up as success and after reload the AddOn is not installed
+ * Fixed an issue not displaying photos from a Facebook albums
+ * Fixed a bug where static layers with Custom animations may do not appear in certain situations
+ * Panorama Addon 2.1.2: Added support for external images
+ * Fixed an issue with a tag links not being able to be clicked in carousels in some cases
+ * Fixed undefined JavaScript error in the thumbnail position calculation in case thumbnails were loaded with delay on stage
+ * Fixed JavaScript error if the progressbar stopped due to a mouse event before the progressbar has been created. This issue occured in very rare situations only
+ * Fixed a lazy loading issue where relative paths created by 3rd party plugins could not be compared with loaded filepaths in some very odd cases
+ * Fixed mobile fallback on background images issue
+ * Before After 2.0.7: Fixed a bug where the divider drop shadow wasn't getting a correct color
+ * PaintBrush 2.1.8: Optimized rendering for FireFox
+ * Particles Effects 2.2.3: Reduced the sensitivity of the particle reduction calculation
+ * Particles Effects 2.2.3: Are now slowly removed over period of 5 seconds instead of removing them suddenly
+ * Fixed an issue where toggled layers become visible and may overlay hoverable areas on underlaying modules before they started at all
+ * Media dimension calculation in rows, columns and groups was not always set on the first rendering. If the dimension of the parent container change, childen will reflow to show all layer sizes in the correct dimension
+ * Removing a slide during slider process broke the progress. Issue is fixed now
+ * Added perspective during layer animations to avoid unsmooth scaling, jittering effects
+ * Fullscreen slider offset heights will be calculated on the very early start to avoid small height jumps
+ * Calculating parent container dimensions for layer frame animations with top, left, right, bottom sources will now respect groups, rows and columns which will also fix the predefined Layer Library animation effects
+ * New progress bars vertical and horizontal could not run on IE Edge and IE11 due the quick rendering process which detached and reattached elements to DOM
+ * Removed overflow:hidden for IE browsers if the slider should go to fullwidth without the support of the sourrounding environment. This will now force in IE11 and Edge the containers to show the real fullwidth again
+ * Before After 2.0.6: Fixed an issue where the Before After Slider did not resize well in modal after the modal opened a 2nd time in the browser
+ * Fixed console errors in case static layers did not exist in some very rare cases
+ * Fixed the block vertical scroll option on iOS which in some cases still allowed vertical scroll after swiping horizontally
+ * Fixed a bug where block vertical scroll disabled the click on a tags and link actions
+ * Carousel swipe on iOS was not possible if the slide link existed on single slides
+ * Removed unneeded console logs
+ * Fine tuned the file optimizer to ignore empty or not existing URLs
+ * Added iOS 9.3.5 support for parallax events
+ * Some URL parameter broke the slider on load. This issue has been fixed now
+ * Fixed video animations start on 1st loop if videos were added as layers on carousel slides
+ * ViewPort with % selection and scroll based animation may fail when the process falls back to JavaScript based calculation instead of the CSS solution. This bug has been fixed now.
+ * Fixed an annoying bug with scroll issues in the backend, where sometimes right toolbar got stuck after selecting layers, changing background types etc.
+ * Conflicts between themes and the Slider Revolution Plugin based on the GSAP library has been resolved
+ * Hover on elements were not working well in some situations if the mouse pointer was already hovering an element during the in animation.
+ * Particle Effects 2.2.1: Grab mouse interactivity failed with an JavaScript error
+ * FilmStrip 2.0.3: Fixed a bug where the filmstrip animation was getting slower after a while.
+ * FilmStrip 2.0.3: Already animating elements were still animating in the background due to a syntax error. This has been fixed now
+ * Fullwidth carousels get cut off in some cases in themes and templates. Added a new calculation way to force fullwdith carousel sliders to overflow parent containers if needed
+ * Added protection against double start of sliders during the initialisation process where in some very rare cases the process could break
+ * Added a protection against double generated IDs for different auto created slide link layers
+ * JavaScript error due to typo failure in middle arranged rows fixed
+ * Imported or updated layer actions may fail if Toggle N/M is selected. The current fix will update the values and let you resave the slider with the correct values
+ * Added new version for Tools to force Cached files to reload. In some cases Cache would not be rewritten after the plugin update
+ * OnScroll - the timeline based scroll range selection will not be shown anymore if it is not selected
+ * Fixed a bug if justify carousel was selected in combination with auto width mode, where the calculation of window width returns NaN
+ * Fixed an issue with scroll below and scroll to actions
+ * SFX box out animation makes layers already visible before "IN" animations. This issue has been fixed now
+ * Navigation thumbnails may not appear from streams in some odd cased. Issue is fixed now
+ * Fixed layer positioning issues on first load when the outer navigation container was added to auto sized sliders
+ * Added fallback to older scroll animation methods in case the template or theme is not supporting new methods
+ * Fixed varousel bg videos which will now fill (cover) the slide to make sure that no black gaps exist, if a video was added as a background video
+ * Particle Effects 2.2.0: Optimized drawing and calculations to improve performance
+ * Particle Effects 2.2.0: Added support to play/pause drawing when slider is not in viewport
+ * Particle Effects 2.2.0: Added support to measure performance and reduce number of particles to improve perfomance
+ * Added a protection against mixed urls like www.domain.com/ and domain.com/ where sometimes images could not be loaded well
+ * Fixed an issue where the Gutenberg Block ID of Slider Revolution could not be rewritten after reload
+ * Fixed a bug where the saved color schemes were not imported properly
+ * Fixed an deprecated notice in output.class.php for PHP 7.4 and newer
+ * Fixed an E_ERROR in revslider-admin.class.php
+ * Start with "predefiend" slide was not respected. Now it can be set even if the shuffle mode activated
+ * Fixed the PanZoom blur filter effect in backend, which was only rendered in the editor during the PanZoom Animation
+ * Background videos were not playing in carousel mode if the slide switched by navigation or automatically by progress. This issue is fixed now for all kind of sliders
+ * Animating Before/After AddOn split position was not available on click since core version 6.2.x. To fix the issue please update the Before/After AddOn to version 2.0.4
+ * Fixed JavaScript errors by removing loop animated layers from stage via action
+ * Fixed an issue where some pseudo elements like placeholder within inputs had a wrong line height in Safari browsers
+ * Fixed 'Slide to Left/Right/Top/Bottom' animations, which were disappearing in some cases after the second loop
+ * Fixed click events on buttons and links in mobile browsers if the swipe action with block scroll was enabled
+ * Fixed some Logic failure in Paint Brush AddOn which strongly influenced the Performance of slider processes. Requires Paint Brush AddOn version 2.1.6
+ * Images from V5 with auto width and height on root will auto get their original dimension to properly resize on smaller devices. Bug fix for sliders which have been created in older V5 SR.
+ * Fixed Lazy Load Support for Slicey AddOn. Requires Slicey 2.1.3
+ * Fixed a bug where the disabling of "Lazy Loading of Images" may break the distortion effects in some situations. Requires 2.0.1 of Distortion AddOn
+ * Fixed custom background gradient colors with easing effect where loading custom saved values stopped with JavaScript failures
+ * Fixed Firefox 3D rotation issues where clickable elements were not available due to high tilts. There is now a max tilt of 25 in Firefox for 3D parallax worlds to solve this
+ * Paint Brush 2.1.6 fix - Optimized performance
+ * Paint Brush 2.1.6 fix - Option for blur effect on brush is respected now
+ * Distortion 2.0.2 fix - Fixed a bug that caused additional calculations
+ * Distortion 2.0.2 fix - Updated canvas size implementation to improve performance
+ * Distortion 2.0.2 fix - Fixed a mousemove glitch and improved performance
+ * Distortion 2.0.3 fix - Cross origin issue
+ * Distortion 2.0.3 fix - Wrong distortion map before redrawing
+ * Bubble Morph 2.1.1 fix - Fixed bug preventing some bubblemorphs from starting
+ * Bubble Morph 2.1.1 fix - Optimized performance if page includes multiple bubblemorphs
+ * Before After Slider 2.0.5 - Fixed jQuery error if Slider loaded in Modal Sliders with Before After Addon
+ * Slicey 2.0.5 - Fixed Javascript error on Slicey Addon when Blur Filter get activated
+ * Fixed the navigation position calculation where vertical positions were not always calculated correctly
+ * Fixed miscalculation of paddings, margins and navigations in carousel mode if the padding and/or margin was set via module and carousel
+ * Fixed an error where SVG file paths for static layers in existing templates and exports may point to the wrong direction after reimporting them
+ * Old templates with YouTube or Vimeo streams did not import correctly. This bug is fixed now
+ * Fixed an bug where fonticons where not loaded in modal sliders
+ * Global Skin Colors were not working after import oder import/export of layers due wrong id references
+ * Fixed Allow FullScreen button in video settings. It will disable fullscreen options in almost all cases except HTML5 videos in Firefox and Safari which are not supported out of box unfortunately
+ * Fixed an issue where layers were not available for pointer events if they were included in other layers with scroll based animation and scroll is not yet triggered.
+ * Fixed HTML5 Video Loop and Start issues in Safari browser.  The Video will be shorten with 0.075sec and auto rewinded in case the loop option is selected to work around the native videoplayer delay bug in Safari Browser
+ * Fixed Windows Browser behaving when the modal opens to avoid small jumps and/or double scrollbars
+ * Fixed an issue where sliders could not be lunched on iOS 9.x deviced due to a JavaScript issue
+ * Corrected the naming of some attributes in the 3D parallax settings for better understanding
+ * Fixed a bug where the update process from V5.x to 6.2.1 would break in some cases the slide animation settings
+ * Fixed "first slide" and "last slide" links due the "jump to slide" action
+ * Fixed skew transforms in frontend rendering where elements kept their calculated "scale and skew" values in case any of the skew attributes had negative values
+ * Fixed layer size calculation in frontend rendering if the layer was added to a group with % based width and/or heights
+ * Fixed Thumbail and Tab positions calculation glitches if RTL navigation is enabled.
+ * Text decoration style will no longer be applied to row, column and group layers
+ * Auto width full height image layers will now respect also the image width in FireFox
+ * Importing a package into a folder will no longer return an moving error even thought the slider was properly moved
+ * Releasing Mouse outside of Modal windows will not any more close the Modal windows, to support copy/paste within text editors
+ * Fixed an issue where the touch/swipe functionality on full slide links in carousel mode was not working properly.
+ * Fixed the color animation if the text color has been animated from a different value to the default and the splitted text option was set in character, word or lines mode.
+ * Fixed hover animation issues in editor mode where the default filters added an odd black flash effect to the animation start
+ * Fixed navigation not working anymore after loading a slider in a modal that has the "Put JS To Body" option set to on
+ * Fixed a bug where old carousel sliders do not show all slides even if they should
+ * Elements without 3d animation settings will now ignore the transform perspective attribute to render layers on retina displays as sharp as possible
+ * Fixed an issue where the navigation arrows lost their thumbnail images after the first slide
+ * Fixed an issue where the navigation thumbs of a post based slider would be scaled two times
+ * Issue with Ken Burns effect in Firefox's latest browser hes been fixed where the animation stop playing after slide in transform
+ * Fixed a very rare bug where JavaScript errors blocked any further functionality in the overview page when a template has been directly installed after updating the AddOns
+ * Fixed small glitches in overview page and in editor
+ * Scroll navigation in carousel sliders has beed fixed
+ * Long Touch and swipe function in Carousel Sliders may made the whole slider container to jump and laggy
+ * Fixed an issue where moving sliders from folders to root and back broke with JavaScript error
+ * Fixed google font preload not working properly with italic fonts
+ * Fixed CountDown AddOn where the count down layers were not auto updated within groups, rows and columns. CountDown AddOn version 2.1.1 is required
+ * Carousel animation was laggy if all layers were visible on all slide elements
+ * Carousel did not auto transform to next slide and did not reacted to navigation evens if "snap to X aligment" option was turned off
+ * Carousel Elements sometimes disappearing by Swipe if max amount of elements size smaller then Document width
+ * Fixed exploding layers issues in the editor where a layer can not be moved around in the animation mode. AddOn version 2.1.0 required
+ * Fixed an issue with exploding layers where the animation on Layers with a tag will not animate smoothly. AddOn version 2.1.0 required
+ * Fixed an issue in the core of the Distortion AddOn which was breaking the slider editor in some rare cases
+ * Fixed BubbleMorph shadow options. AddOn version 2.1.0 of the BubbleMorph AddOn is required
+ * Navigation tabs and thumbs vertical scrolling will not scroll the page any more on mobile devices
+ * Fixed Avada Slider Revolution Block (bug came with the 6.1.7 update of RevSlider)
+ * Importing a package into a folder will no longer return an moving error even thought the slider were properly moved
+ * Buttons become unresponsive on mobile (both iOS and Android) if Block Scroll option is turned on
+ * Fixed Android Scroll issues on Slider when Swipe was enabled
+ * Fixed tabindex not beeing properly added
+ * Fixed a bug with the plugin_locale filter
+ * Fixed an issue with flickr not displaying images if original size is not available anymore
+ * Fixed a bug where the usage of {{featured_image_url_*}} parameters for post based and Instagram sliders did not work properly
+ * Fixed a bug where layers from the layer library could not be imported
+ * Fixed a bug where the a slide would be visible on mobile even if the setting was set that it should not be visible
+ * Fixed a bug where updating from an old version of Slider Revolution could change the animations in rare cases, so that the slider editor can not be loaded
+ * Fixed tons of small glitches in the carousel rendering. Fixed swipe failures and missing elements on the left/right side. Fixed rotation and scale issues if the varying option was set to true
+ * The slider editor will now also save published/unpublished slides even if no other setting was changed on those slides
+ * Fixed scroll effects on mobile devices
+ * The dropzone will now only be shown to real dragged files in the editor
+ * Fixed minHeight issue on fullwidth sliders. From now on it will ignore unused values set by auto layout
+ * The Toggle state of playing/pausing a slider will not jump anymore between forward and backward when the slide is changing.
+ * Fixed box-shadow issue in FireFox by removing the filter rest blur(0px) on some elements
+ * Fixed a bug where Vimeo Autoplay on iOS was not working well on the 2nd and further Loops
+ * Bubble Morph bug fixed where linear resized small containers used to shake on mobile devices. Bubble Morph 2.0.3 is required
+ * Fixed a bug where an empty Slider Revolution block opens the template library on page/post editor loading
+ * Fixed the smart loading feature, which will now load the previous/next slide content when the slide is focused
+ * Fixed a bug where the optimizer stopped working in the page editor in case the module included any AddOns
+ * Fixed inline style issues on layers when the slide link was added at the end of the slide container
+ * Fixed a bug where looped media could not be saved. After 1 reload and resave the video lost its looped state
+ * Fixed a bug where inline styled colors in splitted text (chars, lines, words) were not respected
+ * TypWriter multiple line editing bug fixed. TypeWriter version 2.0.2 required
+ * Fixed device pixel ratio issue on retina displays. The Paintbrush AddOn version 2.1.3 is required
+ * Fixed an issue where none of the YouTube playlist listitems was selected after the playlist updates
+ * Fixed click mouseenter and mouseleave actions on layers in combination with navigation show/hide, slider focus/blur events
+ * Before After AddOn split initialisation will respect all screensizes now, instead of jumping 50% on smaller screens. The Before After AddOn 2.0.3 is required
+ * Fixed Slicey AddOn compatibility with the Type Writer AddOn. Slicey 2.0.1 AddOn required
+ * Fixed Google Font loading issue if the global option for preload was selected
+ * Fixed scrollbar issues in the editor and overview pages
+ * Fixed an issue with line heights in some rare cases where i.e. Safari was ignoring the responsive children sizes
+ * Fixed drop zone issues in the overview and editor mode where dragging files from desktop over the browser was not always working well
+ * Fixed a bug where the slider timer was still processing after a slide change. Even pause on hover was activated
+ * Adding folders into other folders were not respecting the parent folder strucutre in the editor overview
+ * Fixed svg's at the layer import process to point to the correct path
+ * Fixed a preview slider bug where the order was not shown correctly
+ * Fixed a preview slider bug where unpublished slides would be shown
+ * Fixed a bug where custom animations where not transfered from v5 to v6. With this fix, missing v5 animations should now show up
+ * Fixed timeline option not working for some Facebook pages
+ * Fixed an issue where modal sliders did not show up when JavaScript was loading in footer
+ * Fixed iOS9 bugs
+ * Fixed double shown posters on YouTube background videos in Safari
+ * Fixed WhiteBoard ghost pixels in Firefox by removing the rotation effect of the "Hand" for Firefox. WhiteBoard 2.1 required
+ * Fixed an issue where 43+ layers exsits and the order of layers are equal to 6 + layer order. In this case it would fall back to the last order
+ * Typo issue fixed in file wp-content\plugins\revslider\admin\revslider-admin.class.php
+ * Fixed a bug where video or mp3 layers in the gobal layers would create an extra slide in the export file
+ * Fixed an issue where entering the viewport would restart layer videos even if this already paused/stopped due to another process
+ * Fixed looping issues in case the slider became hidden by exteral CSS/JavaScript code independet of the internal option hideSlideUnder
+ * Fixed an issue where invisible layers should be visible when hovering list elements in the editor
+ * Fixed a problem where auto played videos were not playing in carousel slider when all layers where shown at, once the option was selected and the slide change was processed
+ * Fixed audio layer issues in the global layers (visible control buttons, muted audio, etc.)
+ * Fixed videos that might be muted after import even if they should have sound on start
+ * Fixed the export/import of svg files not working properly
+ * Fixed exported zip files where they could not be imported again in certain circumstances
+ * Changes on the new custom navigation could not be saved before reloading the page. This issue has been fixed now
+ * Fixed placeholder feature for text and button layers to simplify the visible content on layers if needed
+ * Solved navigation styling issues in the editor
+ * Fixed loop effect animation issues with 0px dimensions
+ * Fixed carousel opacity, rotation, scale and vary opacity, vary rotation and vary scale options. You need to adjust the settings in some cases after this update!
+ * Fixed overview problems where modules were not showing up under folders in some very rare cases.
+ * Fixed an issue where adding bulk slides, importing slide(s) from templates or other modules did not save the slide content properly
+ * Importing layers modals will not open anymore if the import slide process started and the module has only one slide
+ * Fixed IE11 HTML5 bug
+ * Fixed IE11 navigation bugs
+ * Fixed migration issues where in the slide transition the first element was existing but was an empty string
+ * Fixed Instagram issue function 'instagram_autoloader' not found
+ * Fixed predefined height calculation of Sliders where preloaders on mobile devices were offset positioned
+ * Fixed import bug of static slides not deleting the old image id of a layer
+ * Fixed a scroll animation issue where a fullwidth slider position offsetted if the element was not embeded on a blank page template. Thanks to Kashif for the great suggestion!
+ * Updated missing media filters for the Pan Zoom effects
+ * Fixed "start with slide" in carousel mode which was somehow not fixed in version 6.1.2 due to a glitch
+ * Fixed issues in the overview/dashboard where some of the control buttons were not clickable in Safari Browser
+ * Fixed custom preset loading issues with the Particle Effects AddOn. Required version 2.1.0
+ * Fixed a notice that occured in a carousel if scale is set to off and fadeout is set to on
+ * Fixed issue where carousel elements scale over an acceptable limit. This value has been limited now
+ * Fixed line height issues on colums. Now you can also set line height defaults for columns to avoid spacing issues where layers within columns are lower than 25px
+ * Fixed a Paintbrush AddOn issue where the paintbrush option were not added to streams and post based sliders
+ * Fixed an issue with the carousel navigation due to bullets and arrows in some cases where the slide size was equal or bigger than screensize
+ * Fixed a markup issue in the overview where folder drop zones were not available anymore after last browser updates
+ * Fixed YouTube slide background images to show as default the high resolution image if available
+ * Fixed the tabs/thumbs navigation alignment navigation element styles with gaps issues.
+ * Fixed overall navigation align issues where rows and columns with media content added to stage
+ * Fixed covered background videos and covered layer videos in the Edge Browser
+ * Fixed styling issues of the pagination and sorting in the backend overview page
+ * Fullscreen video background sizes will calculate now already on the first load when the grid size is overdimensioned
+ * Fixed an issue where images with no dimension would break the editor at initialisation in Firefox
+ * Fixed Instagram fatal error in combination with older Essential Grid versions
+ * Fixed Instagram slide link {{link}} not working due to changed API structure
+ * Fixed Instagram connection issue for servers with 'allow_url_fopen' restriction
+ * Fixed Instagram stream {{link}} in slide link option not working
+ * Fixed many minor RTL styling issues in the editor
+ * Fixed IE11 issues. Now the slider works also with older Internet Explorer versions
+ * Fixed bad aligned layers when elements are center aligned with offsets. Requires the TypeWriter AddOn 2.0.1
+ * Installing template packages into folders will now respect the installation target folder also after reloading the page
+ * Fixed MS Edge masking issues, where layers were not correct rendering under mask animations
+ * Fixed blurry layers in Firefox that happened in some special cases
+ * Only real changes will be saved, independent what element has been touched during the session
+ * Fixed double starting of layers in carousel mode during auto processing of slides
+ * Fixed BubbleMorph on static layers. BubbleMorph version 2.0.2 is required
+ * Fixed the Nashville image filter with Ken Burns effect
+ * Fixed compatibility issues on older versions of iOS 9.x or newer
+ * Fixed "start with slide" value in carousel mode
+ * Fixed content jumping when a fullscreen slider is set up with min height values
+ * Fixed toggle mute/unmute of Vimeo videos on mobile issues
+ * Fixed layer video issue where "no loop" was not selectable together with the "auto progress of slide" option
+ * Removed folders will not break any more the last visited folder in the page editor
+ * Forced minify of icon fonts on frontend
+ * Fixed conflict with other extensions that have editor or admin in require config path
+ * Fixed error with preloaded Google fonts on frontend
+ * Fixed undefined punchgs error in sliders that use GS library in custom JavaScript
+ * Fixed Custom CSS/JS editor
+ * Fixed backend preview feature in minify and bundle js mode
+ * Fixed the slide sorting problem
+ * Fixed cache issue with slide store permissions
+ * Fixed issue with image urls in multistore installation
+
+
+
+25 May 2020
+---------------
+Version 6.1.1.3
+
+Changes:
+
+ * Changed Add-On download url
+
+Bugfixes:
+
+ * Added missing minified font styles
+ * Added missing Store Visibility feature to slides
+
+
+
+21 May 2020
+---------------
+Version 6.1.1.2
+
+Bugfixes:
+
+ * Fixed svg path error
+ * Fixed slider editor error in js bundle mode
+
+
+
+20 May 2020
+---------------
+Version 6.1.1.1
+
+Bugfixes:
+
+ * Fixed get animations error
+
+
+
+9 May 2020
+---------------
+Version 6.1.1
+
+New Features:
+
+ * Upgraded to Slider Revolution 6
+
+
+
+13 June 2019
+---------------
+Version 5.4.8.4
+
+Changes:
+
+ * Removed output of style tag if global styles are empty
+
+Bugfixes:
+
+ * Added missing prallax mouse sensibility speed options
+ * Fixed potential issues with corrupted strings length in serialized data
+ * Fixed bug with {{store url="\ in slide link
+ * Fixed html issues in slide settings
+ * Added upload patch for 2.1.x. functions: escapeHtmlAttr and escapeJs are introduced in Magento 2.2.
+ * Fixed edit slide animation link in timeline
+ * Fixed adding of extra slashes for custom arrows characters in slider settings and slide editor
+ * Fixed dropping layer to row error
+ * Fixed bug with rs_obj_favorites - broken or incomplete serialized data
+ * Fixed rendering of CMS shortcode blocks in layers content
+ * Fixed incompatibility of require js settings module
+ * Fixed bug with getting image alt and title from media library
+
+
+
+3 December 2018
+---------------
+Version 5.4.8.3
+
+Bugfixes:
+
+ * Fixed Images helper esaceper argument issue in Magento 2.3.0
+ * Fixed no definition for tinytext type error in Magento 2.3.0
+ * Fixed styles in slides list and slider preview in Magento 2.3.0
+
+Changes:
+
+ * Allow access to Slider Media Gallery if allowed to access Slider Overview
+
+
+
+11 October 2018
+---------------
+Version 5.4.8.2
+
+Bugfixes:
+
+ * Fixed display of error message on template import
+ * Fixed z-index of delete item confirmation dialog in media library
+ * Fixed warning in getting Facebook stream
+ * Fixed error on slider import error
+ * Fixed area already set error on extension upgrade
+ * Fixed empty letter-spacing value if no letter spacing specified
+ * Fixed overlay z-index on media gallery in Magento 2.2.6
+ * Fixed slider changing font style of left navigation
+
+
+
+19 July 2018
+---------------
+Version 5.4.8.1
+
+New Features:
+
+ * Added Exploding Layers Add-On
+ * Added Paint Brush Add-On
+
+Changes:
+
+ * Changed inclusion of JS and CSS asssets of Add-Ons on frontend and in export to HTML
+
+Bugfixes:
+
+ * Fixed bug with combination of Product slider and Typewriter Add-On
+ * Fixed empty px values of line-hegiht and font-size that break validation
+ * Fixed inital image size in add image layer
+
+
+
+22 June 2018
+---------------
+Version 5.4.8
+
+New Features:
+
+ * GDPR Policy Updates: https://nwdthemes.com/2018/05/24/nwdthemes-extensions-and-new-gdpr-policy-compliance/
+ * Added options for GDPR: Added Global Setting to download Google Fonts instead of including them
+ * Added options for GDPR: Added Global Setting to stop the inclusion of Google Fonts completely
+ * Added (Re)Load Add-On
+ * Added BubbleMorph Add-On
+ * Added Distortion Add-On
+
+Changes:
+
+ * Updated Google Fonts List
+ * YouTube videos now loaded from youtube-nocookie.com
+ * Changed database checks to lower the query count
+ * Changed line endings of two svg files from CR to CRLF
+
+Bugfixes:
+
+ * Fixed YouTube BG video not loading sometimes in the latest Chrome
+ * Fixed incorrect Vimeo Layer position on slide change
+ * Fixed PHP count() warning messages occuring on latest PHP builds
+ * Fixed a small Visual Composer page builder issue
+ * Fixed Video Playback Issues with Chrome Browser
+ * Fixed and adapted to new Instagram requirements
+ * Fixed upgrade data issue in Magento 2.2
+ * Fixed typo in admin.css
+ * Fixed unwanted one pixel line in edit slide toolbar
+ * Fixed right panel width in slider settings
+
+
+
+10 April 2018
+---------------
+Version 5.4.7.2
+
+Changes:
+
+ * Removed not applicable troubleshoot options from slider settings
+ * Removed depricated 'revslider' shortcode functionality and replaced existent occurrences with Nwdthemes\Revslider\Block\Revslider block
+
+Bugfixes:
+
+ * Fixed a Bug where a change of Slide Length in Slide General Settings negative influences Default Transition Time
+ * Added ";" to  Slider Initialisation to avoid issues by minimising files
+ * Fixed ForceRewind Video option, which will now reset Video Position before the Layer shown to avoid Frame jumps
+ * Fixed and adapted to new Instagram API result format
+ * Fix for error with sanitizing data containing object
+ * Fixed bug with importing template package
+ * Fixed possible problem with extra whitespace output and image insertion
+ * Fixed compatibility with PHP 5.6
+ * Fixed empty thumbnail source when no thumbnail image available
+ * Fixed incompatibility of media gallery with Magento 2.3.0
+ * Fixed shape background image url
+ * Fixed line breaks in depricated static css
+ * Fixed view static css dialog
+ * Fixed mysterious Add-Ons deactivation issue
+ * Fixed getting tempaltes when Add-Ons list is empty
+ * Fixed possible errors in Bundle & Merge JS mode
+ * Fixed Data helper Logger argument compilation error
+ * Fixed Vimeo error in minify JS production mode
+ * Added missed revslider_exportSlider_usedMedia filter application
+ * Fixed non static methods calling in apply_action
+
+
+
+20 February 2018
+---------------
+Version 5.4.7.1
+
+New Features:
+
+ * Added ability to display Static Layers behind Slide content
+ * Added CSS pointer-events option for Slide Layers
+
+Changes:
+
+ * Removed themepunch.tools scripts from head includes to load them with require.js
+ * Now fetching higher quality YouTube Video Poster
+ * Fixed bug with deactivation of single installed Add-On
+ * Moved add layout update handle from plugin to event observer
+
+Bugfixes:
+
+ * Further fixes for DOMContentLoaded issues where document height was not well calculated at start
+ * Fixed DOMContentLoaded issues and extended with fall back on Document Ready State to support Deferred
+ * Fixed Instagram Author not displaying correctly
+ * Removed create_function() to retrieve compatibility with latest PHP versions
+ * Fixed Instagram Content/Title not displaying correctly
+ * Fixed Safari 11.0 HTML5 Audio File Playback on frontend
+ * Fixed Twitter Content Text not displaying
+ * Fixed remaining Vimeo Video API Issues
+ * Fixed Color Picker Widget Display Issue
+ * Fixed HTML5 Audio issue for Safari 11
+ * Fixed revapi.revstart() issue
+ * Fixed Twitter Image issue with tweets over 168 characters
+ * HotFix Instagram API issue
+ * Fixed problem with disable slide on mobile option when cache is enabled
+ * Removed multiple inclusion of font-awesome css on front end
+ * Fixed undefined index notice in color picker when color is 3 digits with no hash
+ * Fixed bug with loading and saving slider settings presets
+ * Fixed undefined index warning in slider init by data
+ * Fixed loading of presets in Particles Add-On
+ * Fixed bugs in Filmstrip Add-On
+ * Fixed export to html with Pclzip library
+ * Fixed bug with plugin update on empty idle styles
+ * Fixed notice in wp_remote_post
+
+
+
+22 November 2017
+---------------
+Version 5.4.6.3
+
+New Features:
+
+ * Added slider Access Permissions by Customer User Group options to Slider Settings
+
+Changes:
+
+ * Added "playsinline" support for Safari 11 video
+
+Bugfixes:
+
+ * Fixed add slide to user templates feature
+ * Fixed preview of uploaded slide thumbnail image
+ * Fixed import slide from template in slide editor
+ * Fixed backend JavaScript errors in production mode
+ * Fixed Instagram API issue
+ * Fixed Vimeo autoplay issue
+ * Fixed muted YouTube playing brief sound issue
+ * Fixed backend JavaScript errors in Merge with Bundling JavaScript mode
+ * Fixed insert image from Image Gallery feature
+ * Fixed DOM validation exception in slider widget
+ * Fixed javascript error in import slider dialog
+ * Fixed bug in slider import and other places where std class was missing namespace
+
+
+
+26 October 2017
+---------------
+Version 5.4.6.2.1
+
+Bugfixes:
+
+ * Fixed install schema script
+
+
+
+20 October 2017
+---------------
+Version 5.4.6.2
+
+New Features:
+
+ * Added action to prepare the plugin for upcoming AddOns
+ * Added ability to include slider assets on pages by url key
+ * Added autoplay functionality for HTML5 videos on mobile
+ * Added loadbalancing functionality for further stability of premium features
+
+Changes:
+
+ * Added error message with instructions when front end script is failed to load
+ * Moved head_includes template from head.components to after.body.start section for better compatibility with custom themes
+
+Bugfixes:
+
+ * Fixed text typos
+ * Fixed TGM and general activation issues
+ * Fixed captions installation issue
+ * Fixed HTML5 Video autoplay for Safari 11
+ * Fixed video upload in Media Library
+ * Removed notifications block from admin slider preview in Magento 2.2
+ * Fixed head includes block incorrect class name in front layout for Magento 2.2 compatibility
+ * Fixed problems with checkboxes restyling in slide editor
+ * Fixed letter spacing option
+ * Fixed replace urls in slider feature
+ * Fixed bug with updating navigation in Navigation Editor
+ * Fixed premium popup dialog in not registered plugin
+ * Fixed scrollbar slideout javascript error on Add-Ons page
+ * Fixed get current time feature to include locale timezone offset
+
+
+
+31 August 2017
+---------------
+Version 5.4.5.2
+
+New Features:
+
+ * Added Panorama 360 Add-On
+ * Added Weather Add-On
+ * Added Before & After Add-On
+
+Changes:
+
+ * Replaced jQuery(document).on('ready', ) with jQuery(document).ready()
+ * Improved first time loading of template slider images
+ * Updated Google Fonts list
+ * Changed attr('checked') to prop('checked') for jQuery migrate
+ * Removed not applicable Put JS to Body option from Slider Settings
+
+Bugfixes:
+
+ * Added missing images to export to HTML
+ * Fixed update Add-Ons feature
+ * Fixed add video button text and problem with opening add video dialog
+ * Fixed upload slide thumbnail feature
+ * Fixed javascript error and z-index problem in Slide Editor font selector
+ * Fix for color picker bug when color is 6 digit number without hash
+ * Fix export to HTML for resources declared in json attributes.
+ * Fixed bug with Add Slide from Template feature
+ * Fixed Color Picker PHP bug caused in old PHP versions
+ * Fixed bug with touch swipe on front end
+ * Fixed problem when other jQuery lib included in head
+ * Fixed z-index problem of save CSS menu
+ * Fixed problem with names of CSS styles starting with number
+ * Removed WP Meta Generator tag
+ * Fix for problem with caching and option for disable slider on mobile
+ * Changed block type for slider head includes
+ * Removed old unused template reference from layout
+
+
+
+14 June 2017
+---------------
+Version 5.4.5.1
+
+Bugfixes:
+
+ * Fixed upgrade script add indexes sql error when indexes exists.
+
+
+
+12 June 2017
+-------------
+Version 5.4.5
+
+
+New Features:
+
+ * Set Parallax BG and Layers Speed/Delay Globally independent. 15 Levels Depth still available !
+ * Added Color Animation Attributes like Background and Font Color for Shape and Text Layers
+ * Added Brightness Filter Attribute for Idle, Hover, Start and End Animation frames to provide new Effects on Layers
+ * Added Grayscale, Brightness, Blur Slide Transitions in different Combinations
+ * Introducing jQuery.fn.getRSVersion() and jQuery.fn.getRSVersion(true) functions to get Core and all Loded Module Version numbers.
+ * InLine Play of HTML5 Videos on Android and on iOS are supported
+ * New Content Source "Current Product"
+ * Added Blur Effect on Ken Burn Animation. Start and End Value can be defined
+ * Added Letter Spacing on Multiple Levels
+ * Introducing new Layer animations: Block Animation (left,right,top,bottom)
+ * Introducing a new Color Picker which allows to pick Alpha Values and Gradient Colors as well
+ * Communication with ThemePunch servers now only via SSL
+ * Added a feature to allow autoplay HTML5 Videos on Android Devices also
+ * Added SEO follow/nofollow option to simple link actions
+ * Added Split Animation Direction like forwards, backwards, middle to edge, edge to middle, random
+ * Random Split Transitions will calculate on demand Random values per Splitted element
+ * Added Split Animation Cycles to create Animation patterns on Splitted elements
+
+Changes:
+
+ * Added indexes to db tables
+ * Typo in API descriptions removed
+ * Added a new Option to enable/disable Desktop Swipe functions. This will allow you to enable Swipe on Mobile Devices, and still make Content Selectable on Desktop Systems
+
+Bugfixes:
+
+ * Fixed HTML Export gradients not working properly
+ * Fixed YouTube and Vimeo Video Rewind issue on reenter specific slides.
+ * Fixed Toggle FullScreen Mode where YouTube and Vimeo Videos were not Play any more
+ * Ken Burn Slide Effect Issues at first Slide Change has been fixed
+ * First Covered BG Video in some Templates and Themes were calculated on the wrong Height Base. Issue is fixed due a double call on setSize at preparing the Video
+ * Safari Scroll, 3D and Blur Effects with missing layers Bug has been fixed by adding  a preserve-3d transform style on Parallax Wrap level to the current layers
+ * Image Filters on Ken Burn Animated BG Elements are working now fine.  FireFox is still a bit Laggy if CSS Filters are enabled on Ken Burn Elements
+ * Fixed Responsive Levels not working properly in certain constellations
+ * Fixed Background Default Volume Settings in Backend
+ * Fixed Rotation issues on Slide Main Image transitions (like Box Slot Animation Rotated)
+ * Updated Colorpicker JS to fix some issues with Progress Bar.
+ * Fixed HTML5 volume not being written
+ * Changed Google Fonts | to %7C for HTML/CSS Validation
+ * Fixed several typos
+ * Fixed Instagram bug, where Slides would not show if maximum entries are higher than what was fetched
+ * Fixed Deep Linking in Carousel Slider
+ * Fixed Issue where YouTube Video Background in Pause / End Mode shows the Default YouTube Cover image instead of the Predefined poster Image
+ * Fixed Wrong Navigation Direction / Thumbnail Images on Arrow Navigation in some kind of Cases
+ * Fixed Disable on Mobile not working if Slider was added through a Widget
+ * Fixed FadeFromRight Animation
+ * Fixed RevKill() Bugs and updated Focus/Blur features which will only triggered once. Blur Focus Listener will also called once per DOM instead of per Slider
+ * Fixed Columns Margin calculation. Columns now can be perfectly spaced with the 4 level margin and padding attributes
+ * Fixed Column BG Animation and Position Calculations.
+ * Fixed Facebook API Issue
+ * Fixed Colorpicker Issues where wrong old Color values broke the Convert process and negative influenced the Slide Editor
+ * Fixed Scroll Below bugs
+ * Fixed Notices of undefined variables that can occur after updating
+ * Fixed an Issue where Template Slides could not be added due the Slide Editor due some License Code issues
+ * Fixed some GUI Issues
+ * Fixed Bug with Slider Alias will not save
+ * Issues with background image url in export files has been fixed
+ * Extended Max. Slide Time to Unlimited
+ * Fixed Slide Timeline Bar Visual Effect on  Slide Length change event
+ * Bug fixed where "Split Out Animation" breaks none "Split In Animation" on Layers
+ * Fixed bugs with SVG Stroke Animation / Coloring on Simple Idle, and on Idle/Hover status
+ * Group Embeded Layer Timing issues has been fixed. Out / In Animation Time points were  wrong calculated in some kind of cases
+ * Fixed double display of Slide Edit tab on Slide Editor
+
+
+
+18 May 2017
+-----------------
+Version 5.3.1.6.2
+
+
+Changes:
+
+ * Improved performance of loading Google Fonts in language website views.
+
+Bugfixes:
+
+ * Fixed display of object library dialog.
+ * Fixed bug with clear button alignment of solid color background color picker under sticky slide editor toolbar.
+ * Fixed update template libraries js error.
+ * Fixed slide editor advanced css editor.
+ * Fixed slide editor dropdown glitches.
+ * Fixed conversion of line breaks and tab characters on slide editor save and preview
+ * Fixed non functional animations toolbar tab in slide editor.
+
+
+
+13 February 2017
+-----------------
+Version 5.3.1.6.1
+
+
+Bugfixes:
+
+ * Fixed not defined jQuery javascript error on slider notices
+
+
+
+10 February 2017
+-----------------
+Version 5.3.1.6
+
+
+New Features:
+
+ * Introducing placeholders to gallery sliders (already available for post/stream sources)
+ * Added Ease and Speed to Scroll Below Action to make individual Scroll Effects
+ * Added option to delete User Slide Templates
+ * Added option to show layers on all Slides in Carousel mode
+ * Added option to use YouTube video cover for YouTube video background on slides
+ * New Option added to fade Out Hero Content optional when Parallax Scroll activated, like Slider BG, Layer, Static Layer, Parallax Layer
+ * Added an option to set the Group Sizes by %. Content of Groups can be set also % based
+ * Added new Option for Easing and Speed of Carousel Slides
+ * Added an option which allows to show Carousel first in Viewport.
+ * Added option for layers to add an tabindex.
+ * New Brasilian/Portuguese translation added! Special thanks to Diego Fernandes
+ * Introducing Rows and Columns as Layer Groups
+ * Added Layer Groups for logical and physical grouping of Layers.
+ * Animations are now allowed in multiple levels for Groups, Rows, Columns and wrapped Layers
+ * Added Margin for relative Layers (Columns, Rows, Layers in Columns)
+ * Rows can be sorted within Top, Middle and Bottom Containers
+ * Added Post ID {{id}} into the Meta List
+ * Added Layer Background Images for Text, Column, Row, Group and Shape
+ * Added Instagram Image Filtering for Slide Backgrounds
+ * Slides will receive an Auto Height with Rows and Columns
+ * Introducing Right Click Content Menu on Layers and BG in Slide Editor for quick Edit mode and shortcuts
+ * Introducing the Object Library with dozens of new Images, BG Images and Objects
+ * Added Font Icons to Object Library for quicker icon selection within a Text Layer
+ * Copy/Paste Layer styles easily from one Layer to the other
+ * Selecting more than one Layer, to move them together, now available
+ * Introducing logical grouping of Layers
+ * Added CSS Blend Modes for Text Layer to get some exclusive effects on backgrounds. (Will not work with older IE Browser)
+ * Easy Editing and Movement of Groups and Layers in Groups
+ * Added CTRL / CMD + Click function to enable multiple selections
+ * Added device based level for Spacings like Paddings, Margins, Text-Aligns which can be set now individual based on Responsive Level
+ * Added Ken Burns Live Editor
+ * Added option to include all Slider Revolution JavaScript libraries on page load
+ * Added new option on Slider Import, to be able to create blank pages with the Slider inside
+
+Changes:
+
+ * Layout of Sticky Layers Settings has been changed
+ * Removed unneeded CSS Lines and minified the CSS Export of settings.css
+ * Merged Google Font loading into less calls
+ * Removed unneeded CSS Lines and minified the CSS Export of settings.css
+ * Added Version Checking for Loaded Modules and some function to handle Cache issues
+ * Redesigned the Import Process of Slider and Slide Templates
+ * Carousel Slides will always fade in first without a Start Slide effect which was annoying in some kind of situations
+ * Carousel Slider will act on Swipe even due Clickable elements
+ * Extended Idle/Hover Style Editor in Slide Editor mode for quicker work processes
+ * jQuery and Slider CSS Editor also available due Slide Editor mode to simplfy the Slide building processes
+ * Static/Global Styles are now obsolete
+ * Font Awesome Library Updated to 4.7.0
+ * Improved loading speed at Slider Overview
+ * Changed Timeline Interface for better and easier Time Settings
+ * Add-On Deactivation Button more visual
+ * Changed Button Hover feature to allow Hover during the Layer Animation already. Direct feedback from Button to customer
+ * Changed the Layer Animation Core. Introducing Timeline feature which will allow build multiple frames within one Layer Animation
+ * Improved the Timeline functionality
+ * Fixed Template and Object Library Loading methods to improve the Loading speed of Background Edit Modes
+ * Removed deprecated function, removed with PHP 7
+ * Padding, Margin and Text Align are now saved for all devices on saving a style
+
+Bugfixes:
+
+ * Slide Link was not linking to the correct Slides in some cases.
+ * Slide Link was not visible at start
+ * Fixed Bug in "Add New" Page/Post, Slider Selector overview in Visual Composer not working properly
+ * Fixed an issue where static element Position Calculation was broken in some kind of cases
+ * Fixed an issue where inline styled Content lost its FontWeight, Line Height and Font Size in some kind of cases
+ * Fixed a Rendering issue with Row Oversizing in case Image element added into Columns
+ * Fixed "Child Elements Responsive" to stay at "off" after Slide Editor reload
+ * ID of Wrapper Elements added via Option was not available on Frontend
+ * Fixed date selector for Visible From/To z-index issue
+ * Fixed Layer Action issues where multiple Actions on same Layer was not recognised on FrontEnd
+ * Fixed Border issues on Buttons
+ * Loading of Video Elements in Rows driven by Actions was not Showing up in some kind of rare cases
+ * Hidden "Max Width" field is available in Auto Mode again
+ * Fixed notice in output.class.php for certain Sliders
+ * Fixed a strange Effect on Scroll where Stick Style Menu was not clearly docked on the top, but was flickering before docking
+ * Fixed Image Filter issues related to Slide Changes
+ * Fixed Slide Transitions where Transion should happen based on the Slide Direction
+ * Flickering issue by Static Layers with Action fixed
+ * Fixed an issue where Quick and Long LAyer Actions made Layers unavailable
+ * Fixed Order issues on Row Duplication
+ * RTL Backend Issues with the new Objet Library has been fixed
+ * Fixed missing Styles after Hovering Layers in Firefox
+ * Toggled Content without Action was not swapping its Toggled Status. Issue is fixed now
+ * Fixed Grid Based Static Layer Positions in Carousel Sliders
+ * Fixed Issue where adding New Layer due Context menu was broken
+ * Fixed Backend Margin calculation issue on Backend. Frontend and Backend was behaving differently. Now Frontend view covers backend view
+ * Fixed Split Animation not beeing written in some cases for the out animation
+ * Fixed Export to HTML issue with background images creating HTML an error
+ * Fixed Global CSS not opening
+ * Fixed rare Slider Import bug
+ * Fixed border-width not saving correctly in Style Templates
+ * Fixed warning in not existing pages caused by Slider Revolution
+ * Fixed the Row / Column  / InnerLayer Timing in Backend and in Frontend
+ * Split Animation did not change the Timeline Behaviours directly. This has been fixed now
+ * Hover on SVG Elements was not coloring well the Idle or Hover status has been fixed
+ * Fixed installation warning that could occur in certain installations
+ * Fixed layer video cover not showing in Slide Editor for imported Slider
+ * Fixed Slider Pack import sometimes having wrong orders in created Draft Page
+ * Layers other than text no longer have "Open Sans" as font-family as default
+ * Replace Image URL's now properly working with Static Layers
+ * Fixed a problem where Sliders with Full Slide link in Carousel and in some special mode had issues with the Full Slide Link layer
+ * Static Layer issues with Invisible Slides where Static Layers were not disappearing on Unvisible Slides on demenad
+ * Fixed WhiteBoard's multiple "Hand" issue
+ * Fixed Hover / Idle issues where quick focus/blur events would not remove the Hover animation effects from the layers
+ * Fixed Syntax and Logical Issues like Removing a Slide from Slider based on the Feedback of Sébastien Ledan (http://dotevo.com)! Thank you for the great Feedbacks and Suggestions
+ * Fixed Slider disappearing in IE11 if Parallax Mode is activated. Double parameter definition in Animation Engine has been fixed
+ * Fixed an issue where all extension modules should be loaded at once. Folder Name in Path has been renamed from extension to extensions
+ * Fixed PHP7 issue: "Fatal error: Uncaught Error: [] operator not supported for strings"
+ * Fixed preview issue where the Slide Editor was not working properly after opening and closing the preview
+ * Fixed preview in Slide Editor, to show the current changes made without saving the Slide
+ * Fixed an issue where cross referencing Static Layers were disappeared
+ * Disappearing elements on Drag & Drop in Slide Editor has been fixed
+ * Fixed an issue where in Viewpoint Scrolled Slides did not start straight but with a small delay
+ * Fixed Restarted Static Layers which are animating on each Slide if Start time was smaller than 100ms
+ * Fixed Warning: Illegal string offset 'width' in [...] object-library.class.php on line 994
+ * Fixed Global Settings getting reset in certain cases. Which ultimately causes for some customers blank Sliders as the JavaScript files are no longer loaded in the footer
+ * Fixed bug where actions in Static Layers could be lost after saving
+ * Improved Google Font loading by removing duplicated inclusions
+ * Fixed Slot Animation Issues where Slot Amount was ignored in Fade Slots Transitions
+ * Fixed issue where Layer On Complete Event was triggered twice on Slide Changes. This had negative influence i.e. on Add Ons like White Board
+ * Fixed SVG Resizing issues in the Slide Editor after changing SVG Source of an Object Layer
+ * Fixed Dotted Overlays issues on Slides
+ * Fixed CTRL+S (CMD+S) Quick save functions
+ * Fixed Image Size and Aspect Ratio issues in Slide Editor
+ * Fixed a bug where FullScreen Slider Offset Container parameter was not working with the Carousel Slider Layout
+ * Fixed Slide Direction Animation on Horizontal and Vertical direction when slide change has been triggered by Mouse Scroll
+ * Fixed Ken Burns Issues where Horizontal and Vertical Start Offsets were not implemented well
+ * YouTube Playback on Mobile Phones lost Focus and lost Video after Slide Change in some rare situations has been fixed
+ * Fixed a YouTube Bug which was not allow to trigger YouTube Videos via Layer Action on Mobiles
+ * Fixed Blurry Buttons in YouTube Videos on Mobile Phones
+ * Issue where Pendulum Easing was ignored in frontend fixed
+ * Parallax effect on Background Media was not working without Existing Layer in Slide has been fixed
+ * Facebook Timeline Images did not show under certain circumstances before. Now they do.
+
+
+
+28 October 2016
+-----------------
+Version 5.2.6.3
+
+
+New Features:
+
+ * Add to cart action added to layer actions for product based sliders
+
+Changes:
+
+ * Disabled autoload when checking for class existance
+ * Removed unused WMPL related code
+
+Bugfixes:
+
+ * Fixed error on saving custom slider preset
+
+
+
+14 October 2016
+-----------------
+Version 5.2.6.2
+
+
+Bugfixes:
+
+ * Forced https protocol on sliders thumbnails urls
+ * Fixed ajax error bug when saving slide after duplicating layer
+ * Removed deprecated characters from name attribute in backend layout
+ * Fix for missing title attribute in ACL resource
+ * Fix for undefined function error warning when importing template online
+
+
+
+1 September 2016
+-----------------
+Version 5.2.6.1
+
+
+New Features:
+
+ * Positioned manual animation timing dialog to layer it was called for
+
+Changes:
+
+ * Setting default font family if not specified on captions saving
+ * Updated translation functions calls
+ * Minified addons scripts
+ * Removed depricated use of old Magento helpers
+
+Bugfixes:
+
+ * Fixed bug with importing template sliders for databases with custom table prefix
+ * Fixed bug with edit layers timeline split text time incorrectly added to each layer
+ * Fix for add slider enter title dialog displaying under templates shop dialog
+ * Fix for showing all hidden dialogs after image inserting
+ * Fix for delete confirmation popover displaying under select image slide out dialog
+ * Fix for guide lines zindex issue with save styles dropdown
+ * Fix for color picker edit field zindex
+ * Fix for preview captions after inserting new caption style
+ * Fix for navigation save function
+ * Fix for saving css captions
+ * Fix for dialog zIndex problems
+ * Fix for javascript error on slide editor
+ * Fix for color picker edit field
+ * Fix for not showing inline css template and layer dialogs
+ * Fix for media gallery dialog z-index issue
+ * Fixed typo in video settings autoplay option
+ * Fix for audio mp3 layer in slide editor. Fix for whiteboard addon
+ * Fixed error with backup addons
+ * Fix for left arrow override
+ * Fix for svg import from template
+ * Fix for product based slider slide links
+ * Fix for product based view link, prices and preview
+
+
+
+28 July 2016
+-----------------
+Version 5.2.6
+
+
+New Features:
+
+ * Slider Revolution Magento 2 Extension Version Created!

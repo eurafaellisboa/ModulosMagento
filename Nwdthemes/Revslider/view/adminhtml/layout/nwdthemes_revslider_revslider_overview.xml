@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="nwdthemes_revslider_common"/>
+    <update handle="nwdthemes_revslider_gallery"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_header" template="Nwdthemes_Revslider::header.phtml" />
+            <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_overview" template="Nwdthemes_Revslider::overview.phtml">
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_modals-general" template="Nwdthemes_Revslider::modals-general.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_modals-overview" template="Nwdthemes_Revslider::modals-overview.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_modals-copyright" template="Nwdthemes_Revslider::modals-copyright.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_release_log" template="Nwdthemes_Revslider::release_log.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_features_premade_template" template="Nwdthemes_Revslider::features/premade_template.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_features_object_library" template="Nwdthemes_Revslider::features/object_library.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_features_layer_animations" template="Nwdthemes_Revslider::features/layer_animations.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_features_add_ons" template="Nwdthemes_Revslider::features/add_ons.phtml" />
+                <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_features_support" template="Nwdthemes_Revslider::features/support.phtml" />
+            </block>
+            <block class="Nwdthemes\Revslider\Block\Adminhtml\Block\Template" name="nwdrevslider_footer" template="Nwdthemes_Revslider::footer.phtml" />
+        </referenceContainer>
+    </body>
+</page>

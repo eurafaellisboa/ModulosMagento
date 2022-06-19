@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="connect-src">
+            <values>
+                <value id="google_fonts_api" type="host">https://fonts.googleapis.com</value>
+                <value id="google_fonts" type="host">https://fonts.gstatic.com</value>
+                <value id="weather_api" type="host">https://api.weatherbit.io</value>
+            </values>
+        </policy>
+        <policy id="font-src">
+            <values>
+                <value id="google_fonts" type="host">https://fonts.gstatic.com</value>
+                <value id="dashicon_fonts" type="host">'self' data:</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="vimeo_player_api" type="host">https://player.vimeo.com</value>
+                <value id="youtube_player_frame" type="host">https://www.youtube.com</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="google_fonts_api_secure" type="host">https://fonts.googleapis.com</value>
+                <value id="google_fonts_api_insecure" type="host">http://fonts.googleapis.com</value>
+            </values>
+        </policy>
+        <policy id="media-src">
+            <values>
+                <value id="blob" type="host">blob:</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="data" type="host">data:</value>
+                <value id="data" type="host">blob:</value>
+                <value id="themepunch_updates_server_images_secure" type="host">https://updates.themepunch.tools</value>
+                <value id="themepunch_updates_server_images_insecure" type="host">http://updates.themepunch.tools</value>
+                <value id="themepunch_updates_server_a_images_secure" type="host">https://updates.themepunch-ext-a.tools</value>
+                <value id="themepunch_updates_server_a_images_insecure" type="host">http://updates.themepunch-ext-a.tools</value>
+                <value id="themepunch_updates_server_b_images_secure" type="host">https://updates.themepunch-ext-b.tools</value>
+                <value id="themepunch_updates_server_b_images_insecure" type="host">http://updates.themepunch-ext-b.tools</value>
+                <value id="dev_sliderevolution" type="host">https://dev.sliderrevolution.com</value>
+                <value id="revolution_plugin_images" type="host">https://revolution.themepunch.com</value>
+                <value id="revolution5_plugin_images" type="host">http://revolution5.themepunch.com</value>
+                <value id="twitter_images_insecure" type="host">http://pbs.twimg.com</value>
+                <value id="twitter_images_secure" type="host">https://pbs.twimg.com</value>
+                <value id="instagram_images" type="host">http://scontent.cdninstagram.com</value>
+                <value id="youtube_images" type="host">https://img.youtube.com</value>
+                <value id="flickr_images_insecure" type="host">http://live.staticflickr.com</value>
+                <value id="flickr_images_secure" type="host">https://live.staticflickr.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="vimeo_frame" type="host">https://player.vimeo.com</value>
+                <value id="youtube_frame" type="host">https://www.youtube-nocookie.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

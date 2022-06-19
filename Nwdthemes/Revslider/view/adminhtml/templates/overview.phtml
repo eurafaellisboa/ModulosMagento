@@ -1,0 +1,217 @@
+<?php
+/**
+ * @author    ThemePunch <info@themepunch.com>
+ * @link      https://www.themepunch.com/
+ * @copyright 2019 ThemePunch
+ */
+
+use \Nwdthemes\Revslider\Helper\Framework;
+use \Nwdthemes\Revslider\Model\FrameworkAdapter as FA;
+use \Nwdthemes\Revslider\Model\Revslider\RevSliderGlobals;
+
+$rsaf = RevSliderGlobals::instance()->get('RevSliderFunctionsAdmin');
+$rs_od = FA::getOverviewData();
+
+$system_config    = $rsaf->get_system_requirements();
+$current_user	= FA::wp_get_current_user();
+$revslider_valid = FA::get_option('revslider-valid', 'false');
+$latest_version	= FA::get_option('revslider-latest-version', Framework::RS_REVISION);
+$stable_version	= FA::get_option('revslider-stable-version', '4.2');
+$latest_version    = ($revslider_valid !== 'true' && version_compare($latest_version, $stable_version, '<')) ? $stable_version : $latest_version;
+$code			= FA::get_option('revslider-code', '');
+$time			= date('H');
+$timezone		= date('e');/* Set the $timezone variable to become the current timezone */
+$hi				= __('Good Evening ', 'revslider');
+$selling 		= $rsaf->get_addition('selling');
+if($time < '12'){
+	$hi = __('Good Morning ', 'revslider');
+}elseif($time >= '12' && $time < '17'){
+	$hi = __('Good Afternoon ', 'revslider');
+}
+?>
+<div id="rb_tlw">
+	<?php
+	// INCLUDE NEEDED CONTAINERS
+	echo $this->getChildHtml('nwdrevslider_modals-general');
+	echo $this->getChildHtml('nwdrevslider_modals-overview');
+	echo $this->getChildHtml('nwdrevslider_modals-copyright');
+	?>
+</div>
+
+
+
+<div id="rs_overview_menu" class="_TPRB_">
+	<div class="rso_scrollmenuitem" data-ref="#rs_overview" ><i class="material-icons">view_module</i><?php echo __('Modules', 'revslider');?></div>
+	<div class="rso_scrollmenuitem" data-ref="#plugin_update_row" ><i class="material-icons">update</i><?php echo __('Updates', 'revslider');?></div>
+	<div class="rso_scrollmenuitem" data-ref="#plugin_activation_row"><i class="material-icons">vpn_key</i><?php echo __('Activation', 'revslider');?></div>
+    <div class="rso_scrollmenuitem" id="globalsettings" ><i class="material-icons">settings</i><?php echo __('Globals', 'revslider');?></div>
+    <div class="rso_scrollmenuitem" id="linktodocumentation" ><i class="material-icons">chrome_reader_mode</i><?php echo __('FAQ\'s', 'revslider');?></div>
+    <div class="rso_scrollmenuitem" id="contactsupport" ><i class="material-icons">contact_support</i><?php echo __('Support', 'revslider');?></div>
+	<div class="rso_scrollmenuitem" id="rso_menu_notices"><div id="rs_notice_bell" class="notice_level_2"><i id="rs_notice_the_bell" class="material-icons">notifications_active</i></div><div class="notice_level_2" id="rs_notice_counter">0</div><ul id="rs_notices_wrapper"></ul></div>
+</div>
+<div id="rs_overview" class="rs_overview _TPRB_">
+	<div id="rsalienfakeplaceholder"></div>
+	<!-- WELCOME TO SLIDER REVOLUTION -->
+	<div id="rs_welcome_header_area">
+		<h2 id="rs_welcome_h2" class="title"><?php echo $hi; echo $current_user->display_name; echo '!'; ?></h2>
+		<h3 id="rs_welcome_h3" class="subtitle"><?php echo __('You are running Slider Revolution ', 'revslider'); echo Framework::RS_REVISION; ?></h3>
+		<?php if ($selling === true) { ?>
+            <a href="https://account.sliderrevolution.com/portal/" target="_blank" id="rs_memarea_registered" class="basic_action_button longbutton basic_action_lilabutton"><i class="material-icons">person_outline</i><?php echo __('Members Area', 'revslider');?></a>
+		<?php } ?>
+	</div>
+
+	<!-- CREATE YOUR SLIDERS -->
+	<div id="add_new_slider_wrap">
+		<div id="new_blank_slider" class="new_slider_block"><i class="material-icons">movie_filter</i><span class="nsb_title"><?php echo __('New Blank Module', 'revslider');?></span></div><!--
+		--><div id="new_slider_from_template" class="new_slider_block"><i class="material-icons">style</i><span class="nsb_title"><?php echo __('New Module from Template', 'revslider');?></span><div id="new_templates_counter" class="new_elements_available">+ 13</div></div><!--
+		--><div id="new_slider_import" class="new_slider_block"><i class="material-icons">file_upload</i><span class="nsb_title"><?php echo __('Manual Import', 'revslider');?></span></div><!--
+		--><div id="add_on_management" class="new_slider_block"><i class="material-icons">extension</i><span class="nsb_title"><?php echo __('AddOns', 'revslider');?></span><div id="new_addons_counter" class="new_elements_available">2</div></div>
+	</div>
+
+	<!--LIST AND FILTER OF EXISTIN SLIDERS-->
+	<div id="existing_sliders" class="overview_wrap">
+		<div id="modulesoverviewheader" class="overview_header">
+			<div class="rs_fh_left"><input class="flat_input" id="searchmodules" type="text" placeholder="<?php echo __('Search Modules...', 'revslider');?>"/></div>
+            <div class="rs_fh_right" style="margin-right:-5px">
+				<i class="material-icons reset_select" id="reset_sorting">replay</i><select id="sel_overview_sorting" data-evt="updateSlidersOverview" data-evtparam="#reset_sorting" class="overview_sortby tos2 nosearchbox callEvent" data-theme="autowidth"><option value="datedesc"><?php echo __('Sort by Creation', 'revslider');?></option><option value="date"><?php echo __('Creation Ascending', 'revslider');?></option><option value="title"><?php echo __('Sort by Title', 'revslider');?></option><option value="titledesc"><?php echo __('Title Descending', 'revslider');?></option></select>
+				<i class="material-icons reset_select" id="reset_filtering">replay</i><select id="sel_overview_filtering" data-evt="updateSlidersOverview" data-evtparam="#reset_filtering" class="overview_filterby tos2 nosearchbox callEvent" data-theme="autowidth"><option value="all"><?php echo __('Show all Modules', 'revslider');?></option></select>
+				<div data-evt="updateSlidersOverview" id="add_folder" class="action_button"><?php echo __('Add Folder', 'revslider');?><i class="material-icons">add</i></div>
+			</div>
+			<div class="tp-clearfix"></div>
+		</div>
+		<div class="div15"></div>
+		<div class="overview_elements" style="z-index:2"><div class="overview_elements_overlay"></div></div>
+		<div class="overview_slide_elements" style="z-index:1"><div class="overview_slide_elements_overlay"></div>
+		<div id="modulesoverviewfooter" class="overview_header_footer">
+            <div class="rs_fh_right" style="margin-right:23px">
+				<div class="ov-pagination"></div>
+				<select id="pagination_select_2" data-evt="updateSlidersOverview" class="overview_pagination tos2 nosearchbox callEvent" data-theme="nomargin"><option id="page_per_page_0" value="4"></option><option id="page_per_page_1" selected="selected" value="8"></option><option id="page_per_page_2" value="16"></option><option id="page_per_page_3" value="32"></option><option id="page_per_page_4" value="64"></option><option value="all"><?php echo __('Show All', 'revslider');?></option></select>
+			</div>
+			<div class="tp-clearfix"></div>
+		</div>
+		<!-- FOLDER LIST -->
+		<div id="slider_folders_wrap"></div>
+		<div id="slider_folders_wrap_underlay"></div>
+	</div>
+
+
+
+	<div class="div150"></div>
+	<!-- PLUGIN INFORMATIONS -->
+	<div id="plugin_update_row" class="plugin_inforow">
+		<!-- PLUGIN UPDATE -->
+		<div class="pli_left">
+			<h3 class="pli_title"><?php echo __('Plugin Updates', 'revslider');?></h3>
+			<grayiconbox><i class="material-icons">flag</i></grayiconbox><div class="pli_twoline"><div class="pli_subtitle"><?php echo __('Installed Version', 'revslider');?></div><div class="dynamicval pli_subtitle"><?php echo Framework::RS_REVISION; ?></div></div>
+			<div class="div10"></div>
+			<grayiconbox id="available_version_icon"><i class="material-icons">cloud_download</i></grayiconbox><div id="available_version_content" class="pli_twoline"><div class="pli_subtitle"><?php echo __('Available Version', 'revslider');?></div><div class="available_latest_version dynamicval pli_subtitle"><?php echo $latest_version; ?></div></div>
+			<darkiconbox id="check_for_updates" class="rfloated"><i class="material-icons">refresh</i></darkiconbox>
+			<div class="div75"></div>
+			<div class="div75"></div>
+			<h3 class="pli_title"><?php echo __('System Requirements', 'revslider');?></h3>
+			<div id="system_requirements">
+				<div id="syscheck_upload_folder_writable" class="system_requirement"><i class="material-icons done_icon">done</i><i class="material-icons warning_icon">warning</i><?php echo __('Upload folder writable', 'revslider');?></div>
+				<div id="syscheck_memory_limit" class="system_requirement"><i class="material-icons done_icon">done</i><i class="material-icons warning_icon">warning</i><?php echo __('Memory Limit (256M)', 'revslider');?></div>
+				<div id="syscheck_upload_max_filesize" class="system_requirement"><i class="material-icons done_icon">done</i><i class="material-icons warning_icon">warning</i><?php echo __('Upload Max. Filesize (256M)', 'revslider');?></div>
+				<div id="syscheck_post_max_size" class="system_requirement"><i class="material-icons done_icon">done</i><i class="material-icons warning_icon">warning</i><?php echo __('Max. Post Size (256M)', 'revslider');?></div>
+				<div id="syscheck_server_connect" class="system_requirement"><i class="material-icons done_icon">done</i><i class="material-icons warning_icon">warning</i><?php echo __('ThemePunch Server', 'revslider');?><darkiconbox id="check_for_themepunchserver" class="rfloated"><i class="material-icons">refresh</i></darkiconbox></div>
+				<div id="syscheck_object_library_writable" class="system_requirement"><i class="material-icons done_icon">done</i><i class="material-icons warning_icon">warning</i><?php echo __('Object Library', 'revslider');?></div>
+
+			</div>
+		</div>
+		<!-- PLUGIN HISTORY -->
+		<div class="pli_right">
+			<h3 class="pli_title"><?php echo __('Update History', 'revslider');?></h3>
+			<div id="plugin_history" class="pli_update_history"><?php echo $this->getChildHtml('nwdrevslider_release_log'); ?></div>
+		</div>
+	</div>
+
+	<div class="div150"></div>
+	<!-- PLUGIN INFORMATIONS -->
+	<div id="plugin_activation_row" class="plugin_inforow">
+		<!-- PLUGIN UPDATE -->
+		<div id="activation_area" class="pli_left">
+			<h3 id="activateplugintitle" class="pli_title"><?php echo ($selling === true) ? __('Register License Key', 'revslider') : __('Register Purchase Code', 'revslider');?></h3>
+			<row>
+				<onehalf style="padding-right:5px"><div id="activated_ornot_box" class="box_with_icon"><i class="material-icons">done</i><?php echo __('Registered', 'revslider');?></div></onehalf>
+                <onehalf style="padding-left:5px"><a target="_blank" href="<?php echo ($selling === true) ? 'https://www.sliderrevolution.com/faq/where-to-find-purchase-code/' : 'https://themepunch.com/faq/where-to-find-the-purchase-code/'; ?>" class="box_with_icon"><i class="material-icons">vpn_key</i><?php echo ($selling === true) ? __('Find My Key', 'revslider') : __('Find My Code', 'revslider');?></a></onehalf>
+			</row>
+			<div class="div10"></div>
+			<div id="purchasekey_wrap" class="activated">
+				<div id="hide_purchasekey"><?php echo __('xxxx xxxx xxxx xxxx', 'revslider');?></div>
+				<input class="codeinput" id="purchasekey" placeholder="<?php echo ($selling === true) ? __('Enter License Key', 'revslider') : __('Enter Purchase Code', 'revslider');?>"/>
+			</div>
+			<div class="div25"></div>
+			<bluebutton id="activateplugin"><?php echo ($selling === true) ? __('Deregister this Key', 'revslider') : __('Deregister this Code', 'revslider');?></bluebutton>
+			<div class="div25"></div>
+			<div class="infobox">
+                <div class="whitetitle"><?php echo ($selling === true) ? __('1 License Key per Website', 'revslider') : __('1 Purchase Code per Website', 'revslider');?></div>
+				<?php if ($selling === true) { ?>
+                    <div class="simpletext"><?php echo __('If you want to use Slider Revolution on another domain, you need to use a different license key.', 'revslider');?></div>
+				<?php } else { ?>
+                    <div class="simpletext"><?php echo __('If you want to use Slider Revolution on another domain, you need to use a different license key.', 'revslider');?></div>
+				<?php } ?>
+                <div class="div25"></div>
+                <a class="lilabuybutton" href="https://codecanyon.net/item/slider-revolution-responsive-magento-extension/9332896?ref=nwdthemes&license=regular&open_purchase_for_item_id=9332896&purchasable=source" target="_blank"><?php echo __('Buy License Key', 'revslider');?></a>
+            </div>
+		</div>
+		<!-- PLUGIN FEATURES -->
+		<div class="pli_right">
+            <h3 class="pli_title" id="rs_register_to_unlock"><?php echo __('Register to Unlock All Premium Features', 'revslider');?></h3>
+			<div class="features_wrapper">
+				<!-- TEMPLATE LIBRARY -->
+				<div class="featurebox">
+					<div class="box_with_icon not_activated activate_to_unlock"><i class="material-icons">do_not_disturb</i><?php echo __('Register to Unlock', 'revslider');?></div>
+					<?php echo $this->getChildHtml('nwdrevslider_features_premade_template'); ?>
+				</div><!--
+				--><div class="featurebox">
+					<div class="box_with_icon not_activated activate_to_unlock"><i class="material-icons">do_not_disturb</i><?php echo __('Register to Unlock', 'revslider');?></div>
+					<?php echo $this->getChildHtml('nwdrevslider_features_object_library'); ?>
+				</div><!--
+				--><div class="featurebox">
+					<div class="box_with_icon not_activated activate_to_unlock"><i class="material-icons">do_not_disturb</i><?php echo __('Register to Unlock', 'revslider');?></div>
+					<?php echo $this->getChildHtml('nwdrevslider_features_add_ons'); ?>
+				</div><!--
+				--><div class="featurebox">
+					<div class="box_with_icon not_activated activate_to_unlock"><i class="material-icons">do_not_disturb</i><?php echo __('Register to Unlock', 'revslider');?></div>
+					<?php echo $this->getChildHtml('nwdrevslider_features_support'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="div150"></div>
+	<div id="plugin_news_row" class="plugin_inforow">
+		<!-- PLUGIN UPDATE -->
+		<div id="cwt_socials" class="pli_left">
+			<h3 class="pli_title"><?php echo __('Connect with NWDthemes', 'revslider');?></h3>
+			<a class="cwt_link" target="_blank" href="https://youtube.com/user/nwdthemes"><grayiconbox class="cwt_youtube"></grayiconbox><div class="pli_twoline"><div class="pli_subtitle"><?php echo __('Youtube', 'revslider');?></div><div class="dynamicval pli_subtitle">youtube.com/user/nwdthemes</div></div></a>
+			<div class="div10"></div>
+			<a class="cwt_link" target="_blank" href="https://twitter.com/nwdthemes"><grayiconbox class="cwt_twitter"></grayiconbox><div class="pli_twoline"><div class="pli_subtitle"><?php echo __('Twitter', 'revslider');?></div><div class="dynamicval pli_subtitle">twitter.com/nwdthemes</div></div></a>
+			<div class="div10"></div>
+			<a class="cwt_link" target="_blank" href="https://facebook.com/nwdthemes"><grayiconbox class="cwt_facebook"></grayiconbox><div class="pli_twoline"><div class="pli_subtitle"><?php echo __('Facebook', 'revslider');?></div><div class="dynamicval pli_subtitle">facebook.com/nwdthemes</div></div></a>
+			<div class="div10"></div>
+			<a class="cwt_link" target="_blank" href="https://instagram.com/nwd_themes/"><grayiconbox class="cwt_instagram"></grayiconbox><div class="pli_twoline"><div class="pli_subtitle"><?php echo __('Instagram', 'revslider');?></div><div class="dynamicval pli_subtitle">instagram.com/nwd_themes/</div></div></a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	require(['jquery', 'overview' <?php echo FA::includeRequiredScripts(); ?>], function(jQuery, RVS) {
+    window.sliderLibrary = JSON.parse(<?php echo $rsaf->json_encode_client_side(array('sliders' => $rs_od)); ?>);
+    window.rs_system = JSON.parse(<?php echo $rsaf->json_encode_client_side($system_config); ?>);
+    var rvs_f_initOverView_Once = false;
+    if (document.readyState === "loading")
+        document.addEventListener('readystatechange',function(){
+            if ((document.readyState === "interactive" || document.readyState === "complete") && !rvs_f_initOverView_Once) {
+                rvs_f_initOverView_Once = true;
+                RVS.ENV.code = "<?php echo $code; ?>";
+                RVS.F.initOverView();
+            }
+        });
+    else {
+        rvs_f_initOverView_Once = true;
+		RVS.F.initOverView();
+    }
+	});
+</script>

@@ -1,0 +1,43 @@
+/* Main area background */
+#anchor-content { background: #202224; font-family: "Open Sans",sans-serif; padding: 0; }
+
+/* Show admin menu */
+.menu-wrapper.show_magento_menu {
+    z-index: 120000;
+}
+
+/* media gallery dialogs */
+.modals-overlay {
+    z-index: 160000 !important;
+}
+.modals-wrapper .modal-slide,
+.modals-wrapper .modal-slide.magento._show {
+    z-index: 160001 !important;
+}
+
+/* position overivew navigation */
+div#rs_overview_menu {
+    margin-left: 0;
+    z-index: 489;
+}
+
+/* Hide post type selector for product based slider */
+select#post_types,
+select#post_types + .select2RS {
+    display: none;
+}
+
+/* Fix image width */
+#builderView img {
+    max-width: inherit;
+}
+
+/* Hide input in custom checkboxes */
+.tponoff_on input[type=checkbox] {
+    display: none;
+}
+
+/* Fix icons position */
+#fullpageinfo .material-icons {
+    line-height: inherit !important;
+}

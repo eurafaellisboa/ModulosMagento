@@ -1,0 +1,16 @@
+{
+  "name": "nwdthemes/base",
+  "description": "Base Module to share stuff between extensions",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [ "proprietary" ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Nwdthemes\\Base\\": ""
+    }
+  }
+}

@@ -1,0 +1,1303 @@
+" should be numeric",应该是数字
+" should not be empty",不应该是空的
+"&copy; Copyright & License Info",&copy;版权和许可证信息
+"* All settings adjusted by the guide can be changed later.<br>Click the <strong>Help Icon</strong> to find options & documentation","*以后可以更改指南调整的所有设置。<br>单击<strong>帮助图标</ strong>以查找选项和文档"
+"1 Purchase Code per Website",1每个网站的购买代码
+"1 Purchase Code per Website!",1每个网站购买代码！
+"1on1 Support",1on1支持
+"1st Frame",第一帧
+"3D Effects Enabled","3D 效果已启用"
+"3D Settings",3D设置
+"A Slider with the given alias already exists",已存在具有给定别名的滑块
+"Access Secret",访问秘密
+"Access Token",访问令牌
+"Action Delay",动作延迟
+"Action Needed",需要采取行动
+"Action Type",行动类型
+Actions,操作
+"Activate Add-On","启用 Add-On"
+"Activate Global Add-On","启用 Global Add-On"
+"Activate License",激活许可证
+"Activate To Update",激活更新
+Activated,活性
+"Activating Add-On","激活 Add-On"
+Activation,激活
+"Add Action to ",添加动作
+"Add Folder",新增文件夹
+"Add Layer",添加图层
+"Add LineBreak After","加 LineBreak 后"
+"Add LineBreak Before","加 LineBreak 之前"
+"Add New Meta","添新 Meta"
+"Add New Navigation ",添加新导航
+"Add Slide(s)","加 Slide(s)"
+"Add Slider as Modal","加 Slider 如弹出"
+"Add to Selection",添加到选择
+"AddOn could not be activated","AddOn 无法激活"
+"AddOn could not be deactivated","AddOn 无法停用"
+"AddOn deactivated","AddOn 停用"
+"AddOns Outdated. Please Update","AddOns 过时了。请更新"
+"AddOns need attention","AddOns 需要注意"
+"Adding new Blank Module...",添加新的空白模块......
+Additional,额外
+"Addon Required","Addon 需要"
+"Admin Thumb",管理员拇指
+"Adv. Style",高级样式
+Advanced,高级
+"Advanced Actions",高级操作
+"Advanced Module Embedding",高级模块嵌入
+"Advanced Settings",高级设置
+"After Action",行动之后
+Album,专辑
+Alias,别号
+Aligment,对准
+Align,对齐
+"Aligned by",对齐通过
+All,所有
+"All Layers",所有图层
+"Allow Fullscreen",允许全屏
+"Alt. Image",备用图片
+"Amount of Slides","金额 Slides"
+"An Error Occured while importing",导入时出错
+"Anim From",动画来自
+"Anim To",动画到
+"Animate From",动画来自
+"Animate to ""Start"" in Loop",动画到“开始”在循环中
+Animation,动画
+"Animation Duration",动画持续时间
+"Animation Duration in ms",动画持续时间以毫秒为单位
+"Animation Ease",动画轻松
+"Animation Template",动画模板
+"Animation View",动画视图
+"Animation could not be saved",动画无法保存
+"Animation deleted",动画已删除
+"Animation saved",动画保存
+"Are you sure you want to continue?",你确定你要继续吗？
+"Are you sure you want to delete ",你确定你要删除
+"Are you sure you want to delete the selected Slide:",你确定你要删除选中的Slide:
+"Are you sure you want to export ",您确定要导出吗？
+Arguments,参数
+"Arrow Style",箭头样式
+"Arrow Type",箭头类型
+Arrows,箭头
+"As Modal",如弹出
+Ascending,上升
+"Aspect Ratio",宽高比
+"Attach to BG",附上BG
+Attributes,属性
+Audio,音频
+"Audio Wave Library is Loading...",音频波库正在加载......
+Auto,汽车
+"Auto Play",自动播放
+"Auto Rotate",自动旋转
+"Auto Rotate Slideshow",自动旋转幻灯片
+"Available Version",可用版本
+"BG & Space",BG＆Space
+"BG 3D Depth","BG 3D深度"
+"BG Color",BG颜色
+"BG Filter",BG过滤器
+"BG Fit","BG 适合"
+"BG Image",BG图像
+"BG Speed",BG速度
+"BG in Frame",BG在框架中
+Back,背部
+"Back to Overview",回到概述
+Background,背景
+"Background Color",背景颜色
+"Background Video",背景视频
+Backward,向后
+"Bad Request",错误的请求
+"Basic Transforms",基本变换
+Basics,基本
+"Bearer Token is good, check your query","Bearer Token很好，请检查您的查询"
+"Behind Layers (Back)",层背后（背面）
+"Blank Page Created",空白页面已创建
+"Blank page has been created:",已创建空白页：
+"Blank slide",空白幻灯片
+"Blend Mode",混合模式
+Block,块
+"Block Color",块颜色
+"Block Scroll",阻止滚动
+"Block to Bottom",阻止底部
+"Block to Left",阻止到左边
+"Block to Right",阻止到右边
+"Block to Top",阻止顶部
+Blur,模糊
+"Body Class",身体类
+Border,边界
+"Border Color",边框颜色
+"Border Style",边框风格
+Both,都
+Bottom,底部
+"Box Shadow",盒子阴影
+"Break At",休息时间
+"Browser Width",浏览器宽度
+"Browser behavior",浏览器行为
+"Building Select Boxes",建立选择框
+"Bulk Slide",批量幻灯片
+Bullets,子弹
+"Bullets Style",子弹风格
+"Bullets Type",子弹类型
+"Bullets Visibility",子弹可见性
+Button,按键
+Buttons,纽扣
+"CSS/JS Editor","CSS / JS编辑器"
+"CUSTOM CSS","习惯 CSS"
+"CUSTOM JS","习惯 JS"
+"Cache (sec)","高速缓存 (第二)"
+"Cache (sec):","高速缓存 (第二):"
+"Call Back",打回来
+"Call this function to pause the slider.","调用此函数暂停 slider。"
+"Call this function to play the slider if it is paused.","调用此函数来播放 slider 如果它被暂停。"
+"Call this function to start the slider.","将此功能称为 slider。"
+"Can not be Empty",不能为空
+"Can not be rendered in Editor. Please preview in Frontend.",无法在编辑器中呈现。请在前端预览。
+"Can't create zip file: ",无法创建zip文件：
+"Can't modify a default preset of default navigations",无法修改默认预设的默认导航
+Cancel,取消
+"Cancel & Reload Later",取消并稍后重新加载
+Capitalize,大写
+Carousel,圆盘传送带
+"Carousel Layout",轮播布局
+Categories,分类
+Categories:,分类：
+"Changes that you made may not be saved.",您所做的更改可能无法保存。
+"Changing Screen Size",改变屏幕尺寸
+Channel,渠道
+"Channel ID",频道ID
+"Check Requirements",检查要求
+"Check for Updates",检查更新
+"Choose Image",选择图像
+"Choose Video",选择视频
+Circle,圈
+Clear,明确
+"Cleared Photosets",清除照片
+Click,点击
+"Click to Choose",点击选择
+Close,关
+"Close Slider Modal","关 Slider 弹出"
+Color,颜色
+"Color in Frame",框架中的颜色
+Colored,有色
+"Column Settings",列设置
+Columns,列
+"Coming Slide as jQuery Object","未来 Slide 如 jQuery 对象"
+"Connection to Update Server Failed",与更新服务器的连接失败
+"Cons. Secret",消费者。秘密
+"Consumer Key",消费者密钥
+Content,内容
+"Content Based",基于内容
+"Content and Width Based",基于内容和宽度
+Controls,控制
+Copy,复制
+"Copy Embed Code",复制嵌入代码
+"Copy Shortcode",复制短代码
+"Copyright & Licensing - Slider Revolution Library","版权和许可 -  Slider Revolution Library"
+Corners,角落
+"Could not create Slide",无法创建幻灯片
+"Could not create Slider",无法创建Slider
+"Could not fetch Facebook albums",无法获取Facebook专辑
+"Could not fetch YouTube playlists",无法获取YouTube播放列表
+"Could not fetch flickr photosets",无法获取flickr照片
+Cover,覆盖
+"Cover Color",封面颜色
+"Create Blank Page",创建空白页面
+"Creation Ascending",创造升序
+Credits,积分
+"Current <li> Index",当前<li>指数
+"Current Level",当前水平
+"Current Slide","当前 Slide"
+"Current Slide as jQuery Object","当前 Slide 如 jQuery 对象"
+Cursor,光标
+Curved,弯曲
+Custom,习惯
+"Custom CSS","习惯 CSS"
+"Custom Inline & Hover CSS",自定义内联和悬停CSS
+"Custom Size",习惯尺寸
+"Custom Size is currently Disabled",习惯尺寸目前已停用
+CustomCSS,"习惯 CSS"
+Dashed,虚线
+Date,日期
+"Date Modified",修改日期
+"Date Published",发布日期
+"Date created",创建日期
+"Debug Mode",调试模式
+"Decision Modal Title",决策模式标题
+"Decrease Module Height",降低模块高度
+Default,默认
+"Default (Global Settings)",默认（全局设置）
+"Default Basics",默认基础知识
+"Default New Layer Settings",默认新图层设置
+"Default Setting",默认设置
+"Default Settings for Layer",图层的默认设置
+Defaults,默认
+Delete,删除
+"Delete All Sliders and Folders included in ","删除所有 Sliders 和文件夹包括在内"
+"Delete Slide","删除 Slide"
+"Delete Slider","删除 Slider"
+"Delete Template ?",删除模板？
+"Deleting Slider","删除 Slider"
+"Deletion failed",删除失败
+"Depricated Function !<br>Only visible by Rendering. Limited influence on Styled Layers. Custom CSS Inline will be removed in Version 6.2","已删除的功能！<br>仅可通过渲染查看。对样式图层的影响有限。习惯CSS 内联将在版本中删除 6.2"
+Depths,深渊
+"Deregister this Code",取消注册此代码
+"Deregistration failed!",撤销注册失败！
+Descending,降序
+Description,描述
+Desktop,桌面
+"Desktop Swipe Enabled",桌面滑动已启用
+"Diagonal From",对角线
+"Diff. Anim",DIFF。动画
+Dimension,尺寸
+Direction,方向
+Disable,禁用
+"Disable Add-On","禁用 Add-On"
+"Disable Blur/Focus behav.","禁用 模糊/焦点行为."
+"Disable Global Add-On",禁用全局加载项
+"Disable Ken B.","禁用Ken Burns"
+"Disable Mobile",禁用手机
+"Disable Slider",禁用Slider
+"Disable on Mobile",禁用手机
+Disabled,残
+"Disabled - Time Based","禁用 - 基于时间"
+"Disabling Add-On",禁用Add-On
+"Dismiss Messages",关闭消息
+Display,显示
+"Display Mode in Column",列中的显示模式
+"Display a certain photoset from a user",显示用户的某个照片集
+"Display a gallery",显示图库
+"Do It",做吧
+"Do you want to start the Update process?",您想要启动更新过程吗？
+Docs,文件
+Done,完成
+"Dont Do It",不要这样做
+"Dont Force Fullwidth",不要强制全宽
+Dotted,带点
+Double,双
+"Downloading the Zip File may take a few moments.",下载Zip文件可能需要一些时间。
+"Drag & Drop Import File",拖放导入文件
+"Drag to Select",拖动到选择
+Duplicate,重复
+"Duplication Failed",复制失败
+Duration,持续时间
+"Dynamic Viewport Loading",动态视口加载
+"Ease Speed",缓解速度
+Easing,缓解
+"Edge to Middle",边缘到中间
+"Edit Page",编辑页面
+"Editor View",编辑观点
+"Editor is Loading...",编辑正在加载......
+Effect,影响
+Effects,效果
+Elements,分子
+Embed,嵌
+"Empty Placeholder",空占位符
+"Enable Add-On","启用 Add-On"
+"Enable Global Add-On","启用全球 Add-On"
+"Enable Loop Effects",启用循环效果
+"Enable Spikes",启用峰值
+"Enable Timeline Loops",启用时间轴循环
+"Enable/Disable Add-On on Module","启用/禁用 Add-On 在模块上"
+Enabled,启用
+"Enabled - Scroll Based","已启用 - 基于滚动"
+"Enabling Add-On",启用Add-On
+End,结束
+"End Frame",结束帧
+"Enter Access Secret","输入Access Secret"
+"Enter Access Token",输入访问令牌
+"Enter Api Key","输入Api Key"
+"Enter Channel Name",输入频道名称
+"Enter Consumer Key",输入消费者密钥
+"Enter Container .class or #id","输入Container .class或#id"
+"Enter External URL",输入外部URL
+"Enter Fullscreen",进入全屏
+"Enter Gallery URL",输入图库URL
+"Enter Group Name",输入组名称
+"Enter Group URL",输入组URL
+"Enter Image URL",输入图片网址
+"Enter Link",输入链接
+"Enter MPEG Source","输入MPEG Source"
+"Enter Preset Name to Save or Delete",输入预设名称以保存或删除
+"Enter Purchase Code",输入购买代码
+"Enter Secret",输入秘密
+"Enter Twitter Name",输入Twitter名称
+"Enter User Name",输入用户名
+"Enter User URL",输入用户URL
+"Enter Video ID",输入视频ID
+"Enter Vimeo ID","输入Vimeo ID"
+"Enter YouTube Channel ID",输入YouTube频道ID
+"Enter YouTube ID","输入YouTube ID"
+"Enter a Module name",输入模块名称
+"Enter your Api Key",输入您的Api密钥
+"Error downloading layers",下载图层时出错
+"Error downloading layers data",下载图层数据时出错
+"Error downloading object",下载对象时出错
+Events,活动
+"Exceeded filesize limit.",超出文件大小限制。
+Excerpt,摘抄
+"Exit Fullscreen",退出全屏
+Export,出口
+"Export Slider",导出Slider
+"External Image",外部图像
+"External Scroll",外部滚动
+FOLDER,夹
+FONT,字形
+"FaceBook Settings",FaceBook设置
+"Factor on Layers",层上因素
+"Factory Skins",工厂皮肤
+Fade,褪色
+"Failed to Move Slider Into Folder","移动失败Slider进入文件夹 "
+"Failed to Update Tags",无法更新标签
+"Failed to update Title",无法更新标题
+"Fallback Settings",后备设置
+"Favorite Changed",最喜欢的改变
+"Favorite Count",最爱的伯爵
+Favorites,最爱
+"Featured Images",特色图片
+"Featured Only",仅限精选
+"Fetch By",获取
+"File Succesfully Imported",文件成功导入
+Filename,文件名
+Filter,过滤
+"Filter Effect Scroll Based",滤镜效果滚动
+"Filter Effect Scroll is now generally Enabled",滤镜效果滚动现在通常已启用
+Filters,过滤器
+"Find My Code",找到我的代码
+"Find information about the YouTube API key <a target=""_blank"" href=""https://developers.google.com/youtube/v3/getting-started#before-you-start"">here</a>","查找有关YouTube API密钥的信息<a target=""_blank"" href=""https://developers.google.com/youtube/v3/getting-started#before-you-start"">此处</ a >"
+"Finnished with slide change",完成幻灯片更改
+"First Slide",第一张幻灯片
+"Five Spikes",五尖刺
+"Fix during Scroll",在滚动期间修复
+"Fixed on Top",固定在顶部
+"Flickr Settings",Flickr设置
+Float,浮动
+Folder,夹
+"Folder Creation Failed",文件夹创建失败
+"Folder Deleted",文件夹已删除
+"Folder Deletion Failed",文件夹删除失败
+Follow,跟随
+"Follow Link",关注链接
+Font,字形
+"Font & Icon",字体和图标
+"Font Family",字体系列
+"Font Icons",字体图标
+"Force Cover Mode",强制覆盖模式
+"Force Lazy Loading",强制延迟加载
+"Force Overflow Visible",强制溢出可见
+Forward,向前
+"Four Spikes",四个尖刺
+"Frame Alias",帧别名
+"Frame M",框架M.
+"Frame N",帧N.
+"Frame Size can not be Extended. Not enough Space.",帧大小无法扩展。没有足够的空位。
+From,从
+"From Bottom",从底部
+"From Left",从左边开始
+"From Right",来自右边
+"From Slider Settings","从Slider
+设置 "
+"From Stream",来自Stream
+"From Top",从顶部
+Front,面前
+"Full Height",全高
+"Full Width",全屏宽度
+Full-Screen,全屏
+Full-Width,全屏宽度
+"Fullscreen Actions",全屏操作
+Function,功能
+"Function Not Available in Demo Mode",功能在演示模式下不可用
+Gallery,画廊
+"Gallery URL",图库URL
+Gap,间隙
+"Gap (Border)",差距（边界）
+General,一般
+"General Settings",常规设置
+"Get a Purchase Code",获取购买代码
+"Get the amount of existing slides in the slider.",获取滑块中现有幻灯片的数量。
+"Get the current focused slide index.",获取当前关注的幻灯片索引。
+"Get the previously played slide.",获取之前播放的幻灯片。
+Global,全球
+"Global Layer Settings",全局图层设置
+"Global Layers",全局图层
+"Global Layers Timeline",全局图层时间轴
+"Global Settings",全局设置
+"Global Settings not saved/updated",全局设置未保存/更新
+"Global Settings saved/updated",全局设置已保存/更新
+"Global Style Presets",全局样式预设
+"Global Value ! Option to find under Slider Settings - Parallax Tab","全球价值！在滑块设置 - 视差选项卡下查找的选项"
+Globals,全局
+"Go To Slide","去 Slide"
+"Go To Slide with ID",去Slide同ID
+"Go to 1st Frame ",转到第一帧
+"Go to Editor",转到编辑
+"Go to Last Frame",转到最后一帧
+"GoTo Frame",GoTo框架
+"Good Afternoon ",下午好
+"Good Evening ",晚上好
+"Good Morning ",早上好
+"Google Fonts",谷歌字体
+Grayscale,灰度
+"Grid = Module",网格=模块
+Group,组
+"Group URL",组URL
+"HTML5 Autoplay",HTML5自动播放
+"HTML5 Video",HTML5视频
+Handle,处理
+Handling,处理
+Headlines,标题
+Height,高度
+"Height Attrib.",高度属性
+Hidden,隐
+"Hidden in Navigation",隐藏在导航中
+"Hide ""Under"" Width",隐藏“在”宽度下
+"Hide Highlight Boxes",隐藏突出显示框
+"Hide Over",隐藏
+"Hide Under",隐藏下
+"Hide Under Browser width...",在浏览器宽度下隐藏...
+"Hierarchy Sticky",层次结构粘滞
+High,高
+"Higher Level",更高层次
+Horizontal,横
+Hover,徘徊
+"Hover View",悬停视图
+"I have a Purchase Code",我有购买代码
+ICON,图标
+"ID of Element","ID 元素"
+IMAGE,图片
+IN,在
+Icon,图标
+"Icon / SVG","图标/ SVG"
+Idle,闲
+"If you want to use your purchase code on<br>another domain, please deregister it first or",如果您想在另一个域上使用您的购买代码，请先取消注册或
+"Ignore Lazy Loading",忽略延迟加载
+Image,图片
+"Image Layer Content",图像层内容
+"Image URL",图片网址
+"Image from Stream if exist",如果存在，来自Stream的图像
+"Image from Stream if exists",如果存在，来自Stream的图像
+"Image is Loading...",图片正在加载......
+Images,图片
+"Import Layer",导入图层
+"Import Report",导入报告
+"Import Selected Layers",导入所选图层
+"Import file not found",找不到导入文件
+Imported,进口
+"Importing Layers...",导入图层...
+"In Stock Only",仅限库存
+"Index of Current Slide",当前幻灯片的索引
+"Infinity Scroll",无限滚动
+Inherit,继承
+"Initialization Delay",初始化延迟
+"Inline Mode",内联模式
+Inline-Block,inline-block的
+Inner,内
+"Inner / Outer",内/外
+"Instagram Settings",Instagram设置
+"Instagram reports: Content did not match expected",Instagram报道：内容与预期不符
+"Instagram reports: Content is private",Instagram报道：内容是私密的
+"Instagram reports: Parse script error",Instagram报道：解析脚本错误
+Install,安装
+"Install Add-On",安装Add-On
+"Install Template",安装模板
+"Install Template Package",安装模板包
+Installed,安装
+"Installed Version",已安装的版本
+"Installing Add-On",安装Add-On
+"Installing Template",安装模板
+"Instant Updates",即时更新
+"Intelligent Inheriting",智能继承
+Interaction,相互作用
+"Invalid Email",不合规电邮
+"Invalid Email/Could not connect to the Newsletter server",无效的电子邮件/无法连接到新闻稿服务器
+"Invalid ID",ID无效
+"Inverse Toggled Content",反向切换内容
+"Invert Horizontal",反转水平
+"Invert Vertical",反转垂直
+Inverts,反转
+"John Doe",约翰·多伊
+"Jump to Slide",跳到Slide
+"Keep Auto Sizes",保持自动大小
+"Keep Breakpoint Heights",保持断点高度
+"Keep Last State",保持最后状态
+"Ken Burns",肯伯恩斯
+Keyboard,键盘
+"Keyboard Arrow Navigation",键盘箭头导航
+"Keyboard Settings",键盘设置
+Keyframe,关键帧
+"Keyframe #",关键帧＃
+Keyframes,关键帧
+"Kill Slider","杀 Slider"
+LAYERS,图层
+Large,大
+"Large Controls",大型控制
+"Large Square",大广场
+"Last Frame",最后一帧
+"Last Slide",持续Slide
+"Last Slide Started, Slider is at the end",最后一张幻灯片开始，Slider就在最后
+"Last slide starts",上一张幻灯片开始
+Layer,层
+"Layer Action (enterstage, enteredstage, leavestage,leftstage)",图层动作（输入，进入舞台，离开舞台，离开舞台）
+"Layer Actions",图层操作
+"Layer Align",图层对齐
+"Layer Area",图层区域
+"Layer Area Size",图层区域大小
+"Layer Container",图层容器
+"Layer Events",图层事件
+"Layer ID",图层ID
+"Layer Import",图层导入
+"Layer Library",图层库
+"Layer Loop Animations",图层循环动画
+"Layer Looping Effects",层循环效果
+"Layer Objects",图层对象
+"Layer Options",图层选项
+"Layer Type (image,video,html)",图层类型（图像，视频，html）
+"Layer as jQuery Object",图层为jQuery对象
+"Layer is Global",图层是全局的
+"Layer options",图层选项
+"Layer with Action",层与行动
+Layers,图层
+"Layers Importing",图层导入
+"Layers Overflow Hidden",图层溢出隐藏
+"Layers Speed",图层速度
+"Layers Visible",图层可见
+"Layers are Selectable",图层是可选择的
+"Layers default Enabled",图层默认为已启用
+Layout,布局
+"Lazy Loading",延迟加载
+"Leave without Save",离开时不保存
+"Leaving current Page",离开现在
+Left,剩下
+"Left Arrow",左箭头
+"Left Bottom",左下角
+"Left Corner",左角
+"Left Spike",左穗
+"Left Top",左上方
+"Left/Right Arrow Keys",左/右箭头键
+Less,减
+Level,水平
+"License validation issue Occured. Please contact our Support.",许可证验证问题已发布。请联系我们的支持。
+"Limit Excerpt",限制摘录
+Line,线
+"Line Break",越线
+Line-through,行通
+"Link & Seo",Link＆Seo
+"Link Actions",链接操作
+"Link Target",链接目标
+"Link Type",链接类型
+"Link URL",链接URL
+"Link to Slide",链接到幻灯片
+Load,加载
+"Load Loop Template",加载循环模板
+"Loaded Google Fonts",已加载的Google字体
+Loading,载入中
+"Loading Configuration",加载配置
+"Loading Content...",正在加载内容
+"Loading Error",加载错误
+"Loading Error: ",加载错误：
+"Loading RevMirror Library...",加载RevMirror库...
+"Loading Thumbnails...",正在加载缩略图...
+"Loading Type",装载类型
+"Lock / Unlock Selected",锁定/解锁已选中
+"Lock/Unlock Selected",锁定/解锁已选中
+Loop,环
+"Loop All Layer Timeline",循环所有图层时间轴
+"Loop Amount",循环金额
+"Loop Layer",循环层
+"Loop Layers",循环图层
+"Loop Mode",循环模式
+"Loop One Slide",循环一幻灯片
+"Loop Template",循环模板
+"Low Resolution",低解析度
+Lowercase,小写
+"Main Style",主要风格
+"Manual Import",手动导入
+"Marked Layers",标记的图层
+Markup,标记
+"Markup Meta",标记元
+Mask,面具
+"Max Blur Strength",最大模糊力量
+"Max Width",最大宽度
+"Max. Post Size (256M)",最大。邮政大小（256M）
+"Max. Res.","最大。 RES。"
+"Max. Visible",最大。可见
+"Media Actions",媒体行动
+"Media Content",媒体内容
+"Media Library",媒体库
+"Media Poster",媒体海报
+"Media Volume (0-100)",媒体量（0-100）
+Medium,介质
+"Medium 640",中等640
+"Medium 800",中等800
+"Memory Limit (256M)",内存限制（256M）
+Middle,中间
+"Middle To Edge",中到边缘
+"Min Height",最小高度
+"Min. Finger",闵。手指
+Mobile,移动
+"Mobile Settings",移动设置
+"Mobile Swipe Enabled",移动滑动已启用
+"Module .zip",模块.zip
+"Module Admin Thumbnail",模块管理员缩略图
+"Module Background",模块背景
+"Module Classes",模块类
+"Module Creation Guide",模块创建指南
+"Module Defaults",模块默认值
+"Module Dimension",模块尺寸
+"Module Dimensions",模块尺寸
+"Module Fixed From",模块固定
+"Module Fixed Until",模块固定直到
+"Module General Options",模块常规选项
+"Module ID",模块ID
+"Module Naming",模块命名
+"Module Position within Wrapper",包装器中的模块位置
+"Module Templates",模块模板
+"Module Type",模块类型
+Modules,模块
+"Monospace Fonts",等宽字体
+More,更多
+Mouse,老鼠
+"Mouse Enter",鼠标输入
+"Mouse Enter Point",鼠标输入点
+"Mouse Interaction",鼠标互动
+"Mouse Leave",鼠标离开
+"Mouse Move",鼠标移动
+"Mouse Move & Scroll",鼠标移动和滚动
+"Mouse Speed",鼠标速度
+Move,移动
+"Multiple Selection",多重选择
+"Mute Media",静音媒体
+"Mute at Start",开始时静音
+"Nav Editor",导航编辑器
+"Nav Image Dimensions",导航图像尺寸
+"Navig. Thumb",Navig。拇指
+"Navigation Editor",导航编辑器
+"Navigation Options",导航选项
+"Navigation Style",导航风格
+"Navigation could not be deleted",导航无法删除
+"Navigation not found, could not add preset",找不到导航，无法添加预设
+"Navigation not found, could not delete preset",找不到导航，无法删除预设
+"Navigation preset deleted",导航预设已删除
+"Navigation preset saved/updated",导航预设已保存/更新
+"Need Attention by removing",需要注意的是删除
+"New Blank Module",新的空白模块
+"New Folder",新建文件夹
+"New Module from Template",模板中的新模块
+"New Version Available. Please Update",新版本可用。请更新
+"New Window",新窗户
+News,新闻
+"Next Frame",下一帧
+"Next Slide",下一个Slide
+"Next Slide at End",下一个Slide在结束
+"Next Step",下一步
+"Next on Browser Focus","关于Browser Focus的下一个"
+"No API KEY - Could not fetch flickr photosets","没有API KEY  - 无法获取flickr照片集"
+"No Action Selected",没有选择行动
+"No Corner",没有角落
+"No Data Received",未收到数据
+"No Email given",没有电子邮件
+"No Follow",没有关注
+"No Interaction",没有互动
+"No Layers Selected",没有选择图层
+"No Poster on Mobile",手机上没有海报
+"No Shadow",没影子
+"No Special Effect",没有特效
+"No Spikes",没有尖峰
+"No Sticky Keyframes",没有粘性关键帧
+"No Style",没有风格
+"No User URL - Could not fetch flickr photosets","没有用户URL  - 无法获取flickr照片集"
+"No data received",未收到数据
+"No file sent.",没有发送文件。
+"No further source settings needed. Content is created manually.",无需进一步的源设置。内容是手动创建的。
+"No response on action",对行动没有回应
+"No slides found, please add at least one Slide Template to the choosen language.",没有Sliders发现，请至少添加一个Slide选择语言的模板。。
+"No slides found, please add some slides","没有Sliders发现，请加一些 slides"
+None,没有
+"None of the Settings changed. There is Nothing to Save",没有任何设置更改。没有什么可以节省的
+Normal,正常
+"Not Activated",未激活
+"Not Enough space between Frames.",帧之间没有足够的空间。
+"Not Installed",未安装
+Notebook,笔记本
+"Nothing Selected",没有选择
+"Number of Comments",评论数量
+"Number of Likes",喜欢的数量
+"Number of Views",观看次数
+OBJECT,宾语
+"Object Library",对象库
+"Object could not be loaded",无法加载对象
+Objects,对象
+"Offset (Tilt) Effect",偏移（倾斜）效果
+"Offset to Scroll Position",偏移到滚动位置
+"On - Skip 1st Time Slide","On  -  Skip 1st Time Slide"
+"On IE8",在IE8上
+"On Mobile",在移动
+"On Mobile and IE8",在移动和IE8上
+"On Scroll",在滚动
+"On Scroll Details",在滚动详细信息上
+"On Scroll can be Added per Slider in the General Options",可以在“常规选项”中为每个滑块添加“滚动”
+"On Stage",在舞台上
+"Only 1st Time Slide shown",只有第一次Slide显示
+"Only Manual &lt;br/&gt;","只有手动＆lt; br /＆gt;"
+"Only Poster on Mobile",只有移动海报
+Ooppps....,"Ooppps ...."
+"Open Document",打开文档
+"Open Modal",打开弹出
+"Open Slide",打开Slide
+"Open Slider Modal",打开Slider弹出
+Opening,开盘
+"Option is depricated and will be removed in upcoming updates !",选项已被删除，将在即将发布的更新中删除！
+"Optional OGV Source",可选的OGV来源
+"Optional WEBM Source",可选的WEBM源
+Orientation,取向
+Origin,起源
+Original,原版的
+"Original Size",原始尺寸
+"Other 1. Slide",其他1.Slide
+"Other Folders",其他文件夹
+"Outer Horizontal",外水平
+"Outer Vertical",外垂直
+"Over Layers (Front)",在图层上（正面）
+Overflow,溢出
+Overlay,覆盖
+Overline,上划线
+"Override Style on Slide",覆盖样式Slide
+"Overwrite Template ?",覆盖模板？
+"Own Modules",自己的模块
+PACKAGE,包
+"Page URL",页面URL
+"Page is reloading...",页面正在重新加载......
+"Pan Zoom Settings",平移缩放设置
+Parallax,视差
+"Parallax & 3D",视差和3D
+"Parallax & 3D Settings",视差和3D设置
+"Parallax Enabled",视差已启用
+"Parallax Level",视差水平
+"Parallax Orig.",原版的Parallax。
+"Parallax is now generally Enabled",Parallax现在通常已启用
+"Parameter 1",参数1
+"Parameter 10",参数10
+"Parameter 2",参数2
+"Parameter 3",参数3
+"Parameter 4",参数4
+"Parameter 5",参数5
+"Parameter 6",参数6
+"Parameter 7",参数7
+"Parameter 8",参数8
+"Parameter 9",参数9
+Parameters,参数
+"Parent Level",家长级别
+Paste,糊
+Pause,暂停
+"Pause Slider",暂停Slider
+"Per Page",每页
+"Pick an Item",选择一个项目
+"Place the shortcode on the page or post where you want to show this modal.",将短代码放在页面上或发布您要显示此模式的位置。
+"Place the shortcode on the page or post where you want to show this module.",将短代码放在要显示此模块的页面或帖子上。
+Placeholder,占位符
+"Play Slide",玩Slide
+Playlist,播放列表
+"Please <a target=""_blank"" href=""https://dev.twitter.com/apps"">register</a> your application with Twitter<br>to get the right values","请使用Twitter <br> <a target=""_blank"" href=""https://dev.twitter.com/apps"">注册</a>您的应用程序，以获得正确的价值"
+"Please Wait a Moment",请稍等片刻
+"Please Wait...",请耐心等待...
+"Please activate Slider Revolution","请激活Slider Revolution"
+"Please add at least one Layer.",请添加至少一个图层。
+"Please follow this link to edit the Slider:",请点击此链接进行编辑Slider：
+"Please select an Addon to start with.",请选择一个Addon开头。
+"Please select the correct zip file, checksum failed!",请选择正确的zip文件，校验和失败！
+"Plugin Updates",插件更新
+"Plugin deregistered",插件已取消注册
+"Plugin is not Registered",插件未注册
+"Plugin not activated",插件未激活
+"Plugin successfully activated",插件已成功激活
+"Pointer Event",指针事件
+Position,位置
+"Position & Size",位置和大小
+"Post Title",帖子标题
+"Post content",发布内容
+"Post content limit by chars",通过字符发布内容限制
+"Post content limit by words",通过单词发布内容限制
+"Poster Image",海报图片
+"Poster from Stream if exist",如果存在，来自Stream的海报
+"Poster in Pause",暂停海报
+Posts,帖子
+Preload,预载
+"Prepared for slide change",准备好了slide更改
+"Preparing Data...",准备数据......
+Preset,预置
+"Preset could not be saved/values are the same",无法保存预设/值是相同的
+"Preset handle already exists, please choose a different name",预设手柄已存在，请选择其他名称
+"Preset not found",预设未找到
+"Preset not found in default navigations",默认导航中未找到预设
+Presets,预置
+"Prev Size",上一个尺寸
+"Prev. Slide as jQuery Object",以前Slide如jQuery对象
+Preview,预习
+"Preview Image",预览图片
+"Previous Frame",以前帧
+"Previous Slide",以前Slide
+"Previous Slide as jQuery Object","以前Slide如jQuery对象
+"
+"Previous Step",前一步
+"Processing Import of",加工进口
+Product,产品
+Progress,进展
+"Progress Bar",进度条
+"Pub. Rules",发布规则
+Publish,发布
+Published,发布时间
+"Purchase Code already registered!",购买代码已经注册！
+"Purchase Code could not be validated",购买代码无法验证
+"Purchase Code is invalid",购买代码无效
+"Purchase Code was locked, please contact the ThemePunch support!",购买代码已被锁定，请联系ThemePunch支持！
+"Put JS to Body",把JS放到Body身上
+"Quick Style",快速风格
+"Quick Style Content",快速风格内容
+"Quick Style Headline",快速风格标题
+"Quit Guide",退出指南
+"RTL Direction",RTL方向
+Random,随机
+"Random Order",随机顺序
+"Re-Download Online",在线重新下载
+ReTweets,锐推
+"Read <a target=""_blank"" href=""http://weblizar.com/get-flickr-api-key/"">here</a> how to receive your Flickr API key","阅读<a target=""_blank"" href=""http://weblizar.com/get-flickr-api-key/"">此处</a>如何接收您的Flickr API密钥"
+"Recalculate all positions, sizing etc in the slider.  This should be called i.e. if Slider was invisible and becomes visible without any window resize event.",重新计算滑块中的所有位置，大小等。这应该被调用，即如果Slider是不可见的并且在没有任何窗口调整大小事件的情况下变得可见。
+Rectangle,长方形
+"Redirecting to Overview Page",重定向到概述页面
+"Redraw Slider",重绘Slider
+"Refresh Source",刷新源
+"Register Purchase Code",注册购买代码
+"Register Slider Revolution<br>to Unlock Premium Features","寄存器Slider Revolution<br>解锁高级功能"
+"Register this Code",注册此代码
+"Register to Unlock",注册解锁
+"Register to Unlock all Features",注册以解锁所有功能
+"Register to unlock AddOns",注册以解锁AddOns
+"Register to unlock Library",注册解锁图书馆
+"Register to unlock Premium Features",注册以解锁高级功能
+"Register to unlock Support",注册以解锁支持
+"Register to unlock Templates",注册以解锁模板
+"Register to unlock Updates",注册以解锁更新
+"Register to unlock all Premium Features",注册以解锁所有高级功能
+Registered,注册
+Regular,定期
+Rel,相对
+"Release to Upload file",发布到上传文件
+"Reload Page",重新加载页面
+Remove,去掉
+"Remove One Slide with Slide Index from the Slider. Index starts with 0 which will remove the first slide.","删除一个Slide同Slide索引来自Slider 。索引从0开始，将删除第一个slide。"
+"Remove Poster",删除海报
+"Remove Slide",去掉Slide
+Rename,改名
+Repeat,重复
+Replies,回复
+Requirements,要求
+Reset,重启
+"Reset Children Timeline",重置儿童时间表
+"Reset Children Timelines",重置儿童时间表
+"Reset Style",重置样式
+"Reset before each Loop",在每个循环之前重置
+"Resize Between Devices",在设备之间调整大小
+"Respect Ratio",尊重比率
+Responisvity,响应度
+"Responsive Behavior",响应行为
+"Responsive Between Devices",设备之间的响应
+"Responsive Children",反应迅速的孩子
+"Responsive Offsets",响应抵消
+Responsivity,响应度
+"Restriction !<br>Children Layers of Group, Column and Row will simply restart, without animation from the last loop Frame to first loop frame, independent of the Animate to ""start"" in Loop enabled option.",限制！<br>子组，列和行的子层将只是重新启动，没有动画从最后一个循环帧到第一个循环帧，独立于启用循环选项中的Animate到“start”。
+"Resume Slider",恢复Slider
+"Retweet Count",转推计数
+Reverse,相反
+"Reverse Scroll",反向滚动
+"Rewind at Start",在开始时回放
+Right,对
+"Right Arrow",右箭头
+"Right Bottom",右下角
+"Right Corner",右上角
+"Right Spike",右尖刺
+"Right Top",右上角
+Root,根
+"Root Level",根级别
+Rotate,旋转
+Rotation,回转
+Row,行
+"Row Position",行位置
+"Row Settings",行设置
+"SVG Color",SVG颜色
+"Same Window",同一个窗口
+"Sans-Serif Fonts",Sans-Serif字体
+Save,保存
+"Save & Reload",保存并重新加载
+"Save Configuration",保存配置
+"Save Global Settings",保存全局设置
+"Save Navigation",保存导航
+"Save your project & reload the page or cancel",保存您的项目并重新加载页面或取消
+Saved,保存
+"Saving Slide",保存Slide
+Scale,规模
+Scene,现场
+"Scroll Based Features",基于滚动的功能
+"Scroll Based Timeline is now generally Enabled",现在，基于滚动的时间轴通常已启用
+"Scroll Effects",滚动效果
+"Scroll Effects Default",滚动效果默认值
+"Scroll Effects Settings",滚动效果设置
+"Scroll Offset",滚动偏移
+"Scroll Position",滚动位置
+"Scroll To ID",滚动到ID
+"Scroll based Effects",基于滚动的效果
+"Scroll below Slider",滚动如下Slider
+"Scroll page under the slider.",滚动页面下slider。
+"Scroll to ID",滚动到ID
+Search,搜索
+"Search Icons...",搜索图标...
+"Search Modules...",搜索模块......
+"See how to find the Youtube channel ID <a target=""_blank"" href=""https://support.google.com/youtube/answer/3250431?hl=en"">here</a>","了解如何查找Youtube频道ID <a target=""_blank"" href=""https://support.google.com/youtube/answer/3250431?hl=en"">此处</a>"
+Select,选择
+"Select Album",选择相册
+"Select Playlist",选择播放列表
+"Select a Layer",选择一个图层
+Selectable,可选
+Sensibility,感性
+"Serif Fonts",Serif字体
+"Set All Visible",设置全部可见
+"Set a Slide Background Image to use this feature",设置一个Slide背景图像使用此功能
+"Set all Timings",设置所有计时
+"Set as Editor View",设置为编辑器视图
+Settings,设置
+"Setup Notes",设置说明
+Shadow,阴影
+"Shadow Color",阴影颜色
+"Shadow Type",阴影类型
+"Shadow on",阴影
+Shape,形状
+"Sharp Corner Extensions",锐角扩展
+Shortcode,短代码
+"Shortcode Generator",短代码生成器
+"Shortcode could not be parsed.",无法解析短代码。
+"Shortcode parsing successfull. Items can be found in step 3",短代码解析成功。项目可在第3步中找到
+Show,节目
+"Show All",显示所有
+"Show Always",显示始终
+"Show Delay",显示延迟
+"Show Highlight Boxes",显示突出显示框
+"Show Last Edited Slide",显示上次编辑Slide
+"Show Speed",显示速度
+"Show all Modules",显示所有模块
+"Show if mouse over Slider",显示鼠标悬停Slider
+"Show in Editor",在编辑器中显示
+"Show/Hide Selected",显示/隐藏选定的
+"Simple Link",简单链接
+"Simplify on IOS4 / IE8","在IOS4 / IE8上简化"
+"Simulate Click",模拟单击
+Single,单
+"Single Layer Sticky",单层粘性
+"Single Select",单选
+Size,尺寸
+"Size & Pos",尺寸和位置
+"Size Presets",大小预设
+Sizing,浆纱
+"Skip Preload",跳过预加载
+"Slide Actions","Slide 操作"
+"Slide BG Animation","Slide 背景动画"
+"Slide Description","Slide 描述"
+"Slide Direction based Mirroring","Slide 基于方向的镜像"
+"Slide Duration","Slide 持续时间"
+"Slide Length","Slide 长度"
+"Slide Link","Slide 链接"
+"Slide Options","Slide 选项"
+"Slide Saved",Slide保存
+"Slide Title","Slide 标题"
+"Slide could not be duplicated","Slide 无法复制"
+"Slide duplication failed","Slide 重复失败"
+"Slide has no Layers","Slide 没有图层"
+"Slide not found","Slide 未找到"
+"Slide not found in the main slides of the slider. Maybe it","Slide 主要没找到slides的slider 。也许吧"
+"Slider After Swap","Slider 交换后"
+"Slider Before Swap","Slider 在交换之前"
+"Slider Center","Slider 中央"
+"Slider Deleted","Slider 删除"
+"Slider Import Failed","Slider 导入失败"
+"Slider Layout","Slider 布局"
+"Slider Loaded","Slider 加载"
+"Slider Moved to Folder","Slider 已移至文件夹"
+"Slider Overflow Hidden","Slider 溢出隐藏"
+"Slider Revolution Plugin updated Failure:","Slider Revolution插件更新失败："
+"Slider Revolution Plugin updated Successfully to","Slider Revolution插件已成功更新"
+"Slider Revolution Plugin updated Successfully.","Slider Revolution插件已成功更新。"
+"Slider Revolution Preview","Slider Revolution预习"
+"Slider Revolution Version","Slider Revolution 版"
+"Slider Revolution database structure was updated","Slider Revolution数据库结构已更新"
+"Slider Revolution encountered the following error: ","Slider Revolution遇到以下错误："
+"Slider Settings","Slider 设置"
+"Slider Stopped","Slider 停止"
+"Slider as Modal","Slider 弹出"
+"Slider could not be loaded","Slider 无法加载"
+"Slider is Playing after pause","Slider 暂停后播放"
+"Slider not found","Slider 未找到"
+"Slider paused","Slider 暂停"
+"Slider reached the 'stop at' slide","Slider 达到'停在'slide"
+"Slider swapped to an other slide","Slider 交换到另一个slide"
+"Slides (<25)",Slides（<25）
+"Slides (<500)","Slides （<500）"
+"Slides (<60)","Slides （<60）"
+"Slides default Enabled","Slides 默认启用"
+Slideshow,幻灯片
+"Slot Amount",槽金额
+Small,小
+"Small 320",小320
+Smart,聪明
+Social,社会
+"Social Basics (Flickr, Instagram, Twitter, Facebook, YouTube)",社交基础知识（Flickr，Instagram，Twitter，Facebook，YouTube）
+Solid,固体
+"Some AddOns have new versions available",一些AddOns有新版本可用
+"Some Layers are <strong>Locked</strong> and/or <strong>Invisible</strong>.<br>Change Status in Timeline.","某些图层<strong>已锁定</ strong>和/或<strong>不可见</ strong>。<br>更改时间轴中的状态。"
+"Some Settings in Slider <strong>Source may not complete</strong>.<br>Please Complete All Settings in Slider Sources.","一些设置Slider <strong>来源可能无法完成</ strong>。<br>请完成滑块源中的所有设置。"
+"Sorry, this Social Stream cannot be displayed.",抱歉，无法显示此社交流。
+"Sort Direction",排序方向
+"Sort by Creation",按创建排序
+"Sort by Title",按标题排序
+"Sorting & Settings",排序和设置
+Source,资源
+"Source Size",来源大小
+"Source Type",来源类型
+"Source must be from Stream",来源必须来自Stream
+Spacings,间距
+Span,跨度
+"Specific Posts",具体帖子
+Speed,速度
+"Spike Masks",穗状面具
+"Spike Width",尖峰宽度
+Spinner,微调
+"Spinner Color",旋转器颜色
+"Spinner Settings",微调器设置
+"Split Chars",拆分字符
+"Split Lines",分裂线
+"Split Words",分裂的话
+Square,广场
+Standard,标准
+"Standard Module Embedding",标准模块嵌入
+"Standard Resolution",标准分辨率
+Start,开始
+"Start Earlier",早点开始
+"Start Frame",开始帧
+"Start Guide",入门指南
+"Start Media",启动媒体
+"Start Slider",开始Slider
+Static,静态的
+"Static Layer",静态层
+"Stay in Edior",留在Edior
+"Stop Media",停止媒体
+"Stop Other Media",停止其他媒体
+"Stop Slider Progress",停止滑块进度
+"Stop after N Loops",N循环后停止
+"Stop on Hover",停在悬停上
+Stretch,伸展
+"Stretch Slides",伸展Slides
+"Stroke Color",中风颜色
+Style,样式
+"Style Global",风格全球
+"Style on Slide",风格上Slide
+"Success! Please check your E-Mails to finish the subscription",成功！请检查您的电子邮件以完成订阅
+"Successfully fetched Facebook albums",成功获取Facebook专辑
+"Successfully fetched YouTube playlists",已成功获取YouTube播放列表
+"Successfully fetched flickr photosets",成功获取了flickr照片
+Support,支持
+"Swipe Dir",滑动目录
+"Swipe Settings",滑动设置
+"Switch slider to next slide.","开关slider到下一个slide 。"
+"Switch slider to previous slide.","开关slider到以前slide 。"
+"Switch to the slide which is defined as parameter.",切换到slide它被定义为参数。
+TabIndex,的TabIndex
+Tablet,片剂
+Tabs,标签
+"Tabs Style",标签样式
+"Tabs Type",标签类型
+"Tabs Visibility",标签可见性
+Tags,标签
+"Tags Updated",标签已更新
+Target,目标
+"Target Layer",目标层
+"Template & Object Library",模板和对象库
+"Template Slider Import Failed","模板Slider 导入失败"
+"Template Slider Installation Failed","模板Slider 安装失败"
+Text,文本
+"Text Align",文字对齐
+"Text Color",文字颜色
+"Text Shadow",文字阴影
+"Text Tweets",文字推文
+"Text/Button Layer Content",文本/按钮层内容
+"The Current Size is set to ""Auto Size"". Do you want to continue with Custom Size?",“当前大小”设置为“自动大小”。要继续使用自定义尺寸吗？
+"The Current Size is set to calculate the Layer grid sizes Automatically.<br>Do you want to continue with Custom Sizes or do you want to keep the Automatically generated sizes ?",“当前大小”设置为自动计算“图层”网格大小。<br>是否要继续使用“自定义大小”或者是否要保留“自动生成的大小”？
+"The Purchase Code needs to be set!",购买代码需要设置！
+"The changes you made require a page reload!",您所做的更改需要重新加载页面！
+"The changes you made will be lost!",你所做的改变将会丢失！
+"The following AddOns require an update:",以下AddOns需要更新：
+"The link to the post",帖子的链接
+"The “Vimeo Stream” content source is used to display a full stream of videos from a user/album/group/channel.<br> If you want to display a single vimeo video, please select the content source “Default Slider” and add a video layer in the slide editor.","“Vimeo Stream”内容源用于显示来自用户/相册/群组/频道的完整视频流。<br>如果要显示单个vimeo视频，请选择内容源“默认Slider”并添加幻灯片编辑器中的视频图层。"
+"The “YouTube Stream” content source is used to display a full stream of videos from a channel/playlist.<br> If you want to display a single youtube video, please select the content source “Default Slider” and add a video layer in the slide editor.","“YouTube Stream”内容源用于显示来自频道/播放列表的完整视频流。<br>如果您要显示单个YouTube视频，请选择内容源“默认Slider”并添加视频图层幻灯片编辑器。"
+"ThemePunch Server",ThemePunch服务器
+"This Guide will help you with the basic configuration *<br>of your Slider Revolution 6 Module.","本指南将帮助您了解Slider Revolution 6模块的基本配置*。"
+"This Source Type must be from posts.",此来源类型必须来自帖子。
+"This action can not be undone !!","此操作无法撤消 ！！"
+"This can be Undone only within the Current session.",这可以仅在当前会话中取消。
+"Three Spikes",三个尖刺
+"Thumb Type",拇指类型
+Thumbnail,缩略图
+Thumbs,大拇指
+"Thumbs Style",大拇指风格
+"Thumbs Visibility",拇指可见性
+TimeLine,时间线
+Timeline,时间线
+"Timeline Scroll Based",时间轴滚动
+"Timelines Scroll based",时间轴基于滚动
+"Timer Paused",定时器暂停
+"Timer Resumed",计时器恢复
+Title,标题
+"Title Descending",标题降序
+"Title updated",标题已更新
+To,至
+"To Slide",至Slide
+"To add the slider only to single Pages, use:","添加slider仅限单页 ，使用："
+Toggle,切换
+"Toggle ""N/M"" Frames","切换“N / M ”帧"
+"Toggle 1st / Last Frame",切换第一帧/最后一帧
+"Toggle Class",切换Class
+"Toggle Document Body Class on Open and Close of the Modal.",在打开和关闭时切换文档正文类弹出
+"Toggle Fullscreen",切换全屏
+"Toggle Media",切换媒体
+"Toggle Mute All Media",切换静音所有媒体
+"Toggle Mute Media",切换静音媒体
+"Toggle Slider",切换Slider
+"Toggle Start State",切换开始状态
+"Toggled (Visible)",切换（可见）
+"Toggled in Hover Style",切换为悬停风格
+Top,最佳
+Touch,触摸
+"Transform Idle",变换空闲
+Transitions,转变
+Transparent,透明
+"Trigger Memory",触发记忆
+"Triggered By",触发
+"Triggered by",触发
+"Twitter Settings",Twitter设置
+"Two Spikes",两个尖刺
+Type,类型
+"Unbind all listeners, remove current animations and delete containers. Ready for Garbage collection.",取消绑定所有侦听器，删除当前动画并删除容器。准备垃圾收集。
+"Under Mask",在面具下
+Underline,强调
+"Unlock All",全部解锁
+"Unmute Media",取消静音媒体
+Unpublished,未公布
+Unregistered,未注册
+Unselectable,不可选择
+Unsorted,未分类
+"Untoggled (Hidden)",未遮挡（隐藏）
+"Up/Down Arrow Keys",上/下箭头键
+"Update All",全部更新
+"Update History",更新历史记录
+"Update Later",稍后更新
+"Update List",更新清单
+"Update Now",现在更新
+"Update Plugin",更新插件
+"Update Row",更新行
+Updates,更新
+Updating,更新
+"Updating Lists",更新列表
+"Updating Plugin Failed",更新插件失败
+"Updating Plugin...",更新插件......
+"Updating the Plugin may take a few moments.",更新插件可能需要一些时间。
+"Upload Max. Filesize (256M)",上传最大。文件大小（256M）
+"Upload folder writable",上传文件夹可写
+Uppercase,大写
+"Use Clip Path",使用剪辑路径
+"Use Cover",使用封面
+"Use Custom Sizes",使用自定义大小
+"Use Default on...",使用默认值...
+"Use Full Screen or Full Width Layout to Use Fixed Scroll.",使用全屏或全宽布局使用固定滚动。
+"Use Image",使用图片
+"Use LineBreaks only in Columns",仅在列中使用LineBreaks
+"Use Masking",使用掩蔽
+"Use Slide Loop",使用幻灯片循环
+"Use Toggle",使用切换
+User,用户
+"User Photoset",用户Photoset
+"User Public Photos",用户公开照片
+"User URL:",用户网址：
+Username,用户名
+VIDEO,视频
+Velocity,速度
+Vertical,垂直
+"Vertical Align",垂直对齐
+Video,视频
+"Video API",视频API
+"Video ID",视频ID
+"Video Settings",视频设置
+"Video cover could not be loaded",无法加载视频封面
+"Video from Stream if exist",如果存在，来自Stream的视频
+"Video from Stream if exists",Stream中的视频（如果存在）
+"Video in Active Slide",视频有效Slide
+"Video is playing",视频正在播放
+"Video is playing in slider",正在播放视频slider
+"Video is stopped",视频已停止
+"Video stopped in slider",视频停在了slider
+Videos,影片
+"View all posts in %s",查看%s所有帖子
+"ViewPort Stop",ViewPort停止
+Views,查看
+Vimeo,Vimeo的
+"Vimeo Settings",Vimeo设置
+"Vimeo Video",Vimeo视频
+Visibility,能见度
+Visible,可见
+"Visible amount",可见金额
+"Visible in Navigation",在导航中可见
+"Visit Page",访问页面
+WAIT,等待
+Wait,等待
+"Wait for API",等待API
+"Wait for Action",等待行动
+Warning,警告
+"Welcome to Slider Revolution 6","欢迎来到Slider Revolution 6"
+"What should happen Next?",接下来会发生什么？
+"Where do you want to move the Inherited Layers?",你想在哪里移动继承层？
+"Width Attrib.",宽度属性
+"Width Based",基于宽度
+Word,字
+"Wrapper Container","Wrapper 容器"
+"Wrapper Max Height","Wrapper 最大高度"
+"Wrong category format",错误的类别格式
+"Wrong export slider file format! Please make sure that the uploaded file is either a zip file with a correct slider_export.txt in the root of it or an valid slider_export.txt file.","错误的出口slider 文件格式！请确保上传的文件是zip文件，其根目录中包含正确的slider_export.txt或有效的slider_export.txt文件。"
+"Wrong request!",错误的要求！
+"Yes, Delete All Slider(s)",是的，删除所有Slider(s)
+"Yes, Delete Slide",是的，删除Slide
+"Yes, Delete Slider",是的，删除Slider
+"Yes, Export Slider","是的, 出口Slider"
+"You are running Slider Revolution ","你正在运行Slider Revolution"
+YouTube,YouTube的
+"YouTube Poster",YouTube海报
+"YouTube Settings",YouTube设置
+"YouTube Thumb",YouTube拇指
+"YouTube Video",YouTube视频
+Youtube,的Youtube
+"Z Position",Z位置
+"Zoom In",放大
+"Zoom Out",缩小
+"as HTML Document",如HTML文献
+auto,汽车
+"by Container",通过Container
+"by PX or %",按PX或％
+"coma separated list | ex: 23,24,25","分开的清单：23,24,25"
+"could not find correct Slide to copy, please try again.",找不到正确的幻灯片复制，请再试一次。
+from,从
+"jQuery No Conflict Mode",jQuery没有冲突模式
+"jQuery Triggered",jQuery触发
+"javaScript Function",javaScript函数
+"left bottom",左下角
+"left center",离开中心
+"left top",左上角
+"on Action",在行动
+or,要么
+"right bottom",右下角
+"right center",正确的中心
+"right top",右上角
+"slider_export.txt does not exist!",slider_export.txt不存在！
+to,至
+"youtube, vimeo, html5",youtube，vimeo，html5

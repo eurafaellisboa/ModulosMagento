@@ -1,0 +1,36 @@
+<?php
+
+use \Nwdthemes\Revslider\Model\FrameworkAdapter as FA;
+
+$jsMin = FA::isMinified('js') ? '.min' : '';
+
+?>
+<html lang="en">
+    <head>
+        <script>
+            var BASE_URL = '<?= $block->escapeUrl($block->getBaseUrl()); ?>';
+            var require = {
+                "baseUrl": "<?= $block->escapeUrl($block->getViewFileUrl('/')); ?>"
+            };
+        </script>
+        <!-- scripts -->
+        <script type="text/javascript" src="<?= $block->getViewFileUrl("requirejs/require{$jsMin}.js"); ?>"></script>
+        <script type="text/javascript" src="<?= $block->getViewFileUrl("requirejs-config{$jsMin}.js"); ?>"></script>
+        <!-- /scripts -->
+        <link rel="stylesheet" type="text/css" media="all" href="<?= $block->getViewFileUrl('Nwdthemes_Revslider::public/assets/css/rs6.min.css'); ?>" />
+        <style type="text/css">
+            body:before { display:none !important}
+            body:after { display:none !important}
+            body { background:transparent}
+        </style>
+        <?php echo $head; ?>
+    </head>
+    <body>
+        <?php FA::do_action('rs_page_template_pre_content'); ?>
+        <div>
+            <?php echo $content; ?>
+        </div>
+        <?php FA::do_action('rs_page_template_post_content'); ?>
+        <?php echo $footer; ?>
+    </body>
+</html>

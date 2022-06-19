@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Nwdthemes_Revslider::revslider"
+            title="Slider Revolution"
+            module="Nwdthemes_Revslider"
+            sortOrder="100"
+            resource="Nwdthemes_Revslider::revslider"
+            parent="Nwdthemes_Base::base"
+            />
+        <add
+            id="Nwdthemes_Revslider::overview"
+            title="Slider Overview"
+            module="Nwdthemes_Revslider"
+            sortOrder="100"
+            resource="Nwdthemes_Revslider::overview"
+            parent="Nwdthemes_Revslider::revslider"
+            action="nwdthemes_revslider/revslider/overview"
+            />
+        <add
+            id="Nwdthemes_Revslider::config"
+            title="Configuration"
+            module="Nwdthemes_Revslider"
+            sortOrder="130"
+            resource="Nwdthemes_Revslider::config"
+            parent="Nwdthemes_Revslider::revslider"
+            action="adminhtml/system_config/edit/section/nwdthemes_revslider"
+            />
+    </menu>
+</config>
