@@ -1,0 +1,20 @@
+
+<?php 
+    $helper = $this->_helperGallery;
+    //$url=$helper->getBaseUrl().'referafriend/index/clearcart';
+?>
+    <div style="    width: 20%;
+    border: 2px solid #4c29a0;
+    padding: 10px;">
+    <label><?php echo __('Note : ') ?></label>
+    <label><?php echo __('If you want to load the cart, you need to empty the cart first') ?></label>
+    </div>
+ <div>   <button class="action subscribe primary" style="margin-top:2px;" name="Student" id="Student" onclick="runurl()"><?php echo __('Empty Cart & Load Cart') ?></button>
+ <div>
+<script>
+function runurl()
+{
+var currentur=window.location.href+"&clean=1";
+window.location.href=currentur;
+}
+</script>

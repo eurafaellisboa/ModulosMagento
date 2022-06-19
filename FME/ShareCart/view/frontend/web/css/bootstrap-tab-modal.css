@@ -1,0 +1,78 @@
+body > .tab-modal .modal-body {
+  padding: 10px 0px 0px;
+  background-color: #F9F9F9;
+  border-radius: 5px;
+}
+
+body > .tab-modal .tab-modal-header {
+  text-align: center;
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: lighter;
+  color: #425968;
+}
+
+body > .tab-modal .tab-modal-header > button.close {
+  margin-right: 10px;
+}
+
+body > .tab-modal .modal-body > ul.nav-tabs {
+  padding: 0 10px;
+}
+
+body > .tab-modal .modal-body > ul.nav-tabs > li > a {
+  padding: 5px;
+  border-color: #C5C4C4;
+  border-bottom-color: transparent;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.59);
+}
+
+body > .tab-modal .modal-body > ul.nav-tabs > li:not(.active) > a:hover {
+  border-bottom-color: #ddd;
+}
+
+body > .tab-modal .modal-body > ul.nav-tabs > li.active > a {
+  color: #000;
+}
+
+body > .tab-modal .modal-body .alert {
+  margin: 10px;
+  display: none;
+}
+
+body > .tab-modal .modal-body .alert .error-details {
+  color: #C18F8F;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+body > .tab-modal .modal-body .alert .popover {
+  max-width: 900px;
+}
+
+body > .tab-modal .modal-body .alert .popover .popover-content {
+  padding: 0;
+}
+
+body > .tab-modal .modal-body .alert .popover pre {
+  font-size: 10px;
+  background-color: white;
+  border: none;
+}
+
+body > .tab-modal .modal-body > .tab-content {
+  padding: 10px;
+  background-color: #FFF;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+body > .tab-modal .modal-body > .tab-content .tab-pane.throbbing {
+  text-align: center;
+  padding: 50px 10px;
+}
+
+body > .tab-modal .modal-body > .tab-content .tab-pane.throbbing canvas {
+  margin: auto;
+}

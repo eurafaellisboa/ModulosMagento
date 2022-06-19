@@ -1,0 +1,50 @@
+<!--@subject  {{var data.subject}}  @-->
+{{template config_path="design/email/header_template"}}
+<table>
+    <tr class="email-intro">
+        <td>            
+            <p>
+                A Friend Share the Cart with the following details. The details are as follows.
+            </p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <h1>Cart Detail</h1>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>            
+            <table class="message-info">                
+                <tr> 
+                                   <td align="center" style="text-align:left;width:30%;font-weight:bold;"> Name:</td>
+                                   <td align="center" style="padding-left:5px;text-align:left;width:70%;">{{var data.sender_name}}</td>
+                </tr>
+                <tr>
+                                   <td align="center" style="text-align:left;width:30%;font-weight:bold;">E-mail: </td>
+                                   <td align="center" style="padding-left:5px;text-align:left;width:70%;">{{var data.friend_email}}</td>
+                </tr>
+                <tr>
+                                   <td align="center" style="text-align:left;width:30%;font-weight:bold;"> Message From Friend :  </td>
+                                   <td align="center" style="padding-left:5px;text-align:left;width:70%;">  {{var data.message}}</td>
+                </tr>
+                <tr>
+                                   <td align="center" style="text-align:left;width:30%;font-weight:bold;"> Url: </td>
+                                   <td align="center" style="padding-left:5px;text-align:left;width:70%;"> {{var data.sharing_link}}</td>
+                </tr>               
+                <tr>
+                                   <td align="center" style="text-align:left;width:30%;">&nbsp;</td>
+                                   <td align="center" style="padding-left:5px;text-align:left;width:70%;">&nbsp;</td>
+                </tr>
+                <tr>
+                                   <td align="center" style="text-align:left;width:30%;font-weight:bold;">Regards,</td>
+                                   <td align="center" style="padding-left:5px;text-align:left;width:70%;">&nbsp; </td>
+                </tr>
+            </table>            
+            
+            
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

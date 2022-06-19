@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="fmeextensions" translate="label" sortOrder="1000">
+            <label>FME Extensions</label>
+        </tab>
+        <section id="sharecart" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Share Cart</label>
+            <tab>fmeextensions</tab>
+            <resource>FME_ShareCart::sharecart_config</resource>
+            <group id="store_enable" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Store Setting</label>
+                <field id="store" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Store</label>
+                    <source_model>FME\ShareCart\Model\Config\Source\Categorylist</source_model>
+                </field>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>General Settings</label>
+                <field id="enableModule" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="restictuser" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Restrict Usage of same Cart</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                 <field id="showandhide" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show and Hide Copy Link</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sctext" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Saved Cart Grid heading</label>                    
+                </field>
+
+            </group>
+            <group id="email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>Email Options</label>
+                
+                <field id="sender" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="subject" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Subject </label>                    
+                </field>
+            </group>
+            <group id="sharecartbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>Share/Save Cart Button Options</label>
+                 
+                <field id="textcolcolor" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Color</label>
+                    <frontend_model>FME\ShareCart\Block\Color</frontend_model> <!-- Our block for attaching color picker to text box -->
+        
+                </field>
+                <field id="backcolor" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Color</label>
+                    <frontend_model>FME\ShareCart\Block\Color</frontend_model> <!-- Our block for attaching color picker to text box -->
+        
+                </field>
+                <field id="stext" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Share Button Title </label>                    
+                </field>
+                <field id="svtext" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Save Button Title </label>                    
+                </field>
+                 <field id="btnposition" translate="label" type="select" sortOrder="107" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Position</label>
+                    <source_model>FME\ShareCart\Model\Config\Source\Sortby</source_model>
+                </field>
+            </group>
+            <group id="emailbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>Email Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field> 
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+            <group id="fbbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>FaceBook Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="txt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field> 
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Title</label>                    
+                </field> 
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+            <group id="whatbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>WhatsApp Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Label</label>                    
+                </field> 
+                <field id="txt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field>
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+           <group id="twitterbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>Twitter Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Label</label>                    
+                </field> 
+                <field id="txt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field>
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+            <group id="linkedinbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>LinkedIn Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label> Button Label</label>                    
+                </field> 
+                <field id="txt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field>
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+            <group id="pinterestbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>Pinterest Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="txt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field> 
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Title</label>                    
+                </field> 
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+            <group id="redditbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>Reddit Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="txt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field> 
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Title</label>                    
+                </field> 
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+            <group id="vkbtn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>VK Button Options</label>
+                <field id="enablebtn" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="txt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text</label>                    
+                </field> 
+                <field id="btntxt" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Title</label>                    
+                </field> 
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Upload Icon</label>
+                    <backend_model>FME\ShareCart\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">ShareCartConfig</base_url>
+                </field>
+            </group>
+            <group id="bussinessdetail" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">  
+                <label>Bussiness Detail</label>
+                 
+                <field id="compname" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Company Name </label>                    
+                </field> 
+                <field id="addressdetail" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Address Detail </label>                    
+                </field> 
+                <field id="vatdetail" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>VAT Detail </label>                    
+                </field> 
+                <field id="phonedetail" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>phone Number </label>                    
+                </field> 
+                <field id="emaildetail" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email</label>                    
+                </field> 
+                <field id="regdetail" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Registeration Detail</label>                    
+                </field> 
+                <field id="warndetail" translate="label" type="text" sortOrder="103" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Warning Message</label>
+                    <comment>Character must be less 330.</comment>                    
+                </field> 
+                
+            </group>
+        </section>
+    </system>
+</config>

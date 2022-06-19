@@ -1,0 +1,570 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/** @var $block \Magento\Checkout\Block\Cart */
+?>
+<?php if (!$block->hasError()): ?>
+<?php $methods = $block->getMethods('methods') ?: $block->getMethods('top_methods') ?>
+<ul class="checkout methods items checkout-methods-items">
+<?php foreach ($methods as $method): ?>
+    <?php $methodHtml = $block->getMethodHtml($method); ?>
+    <?php if (trim($methodHtml) !== ''): ?>
+    <li class="item"><?= /* @escapeNotVerified */ $methodHtml ?></li>
+    <?php endif; ?>
+<?php endforeach; ?>
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$helper = $objectManager->create('FME\ShareCart\Helper\Data');
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+?>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+.share-whatsapp {	
+	padding: 0 20px;
+	line-height: 35px;
+	font-size: 1.3rem;
+	font-weight: 500;
+	vertical-align: middle;
+	text-transform: uppercase;
+	text-align: center;
+	background: #E6B000 !important;
+	border: solid 1px #E6B000 !important;
+	transition: all .4s ease;
+	float: left;
+	height: 35px;
+	margin-top: 20px;
+}
+	
+.share-whatsapp:hover {
+	color: #FFF;
+}
+	
+#Whatsapp {
+    float: left;
+    width: 100%;
+}	
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<?php 
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$helper = $objectManager->create('FME\ShareCart\Helper\Data');
+
+$image = $objectManager->create('FME\ShareCart\Model\Config\Backend\Image');
+
+
+
+
+$url=$helper->getUrlforSharing();
+$urllll=$helper->getUrlforSharing();
+$fburl=$helper->fbfunction();
+$whatsappurl=$helper->whatsappfunction();
+$twitterurl=$helper->twitterfunction();
+$linkedinurl=$helper->linkedinfunction();
+      $pinterestlink=$helper->pinterestfunction();
+      $vKlink=$helper->vKfunction();
+      $rDlink=$helper->rDfunction();
+
+      //isEnabledCopyLink()
+//twitterfunction
+//linkedinfunction
+      //Load product by product id
+      $block = $objectManager->create('FME\ShareCart\Block\Link');
+      $url=\FME\ShareCart\Model\Config\Backend\Image::UPLOAD_DIR;
+      $configimageUrl=$block->getMediaUrl().$url;
+      $email= $block->getViewFileUrl('FME_ShareCart::images/email.png');
+      if($helper->getEMailBtnLogo()!="")
+      {
+        $email=$configimageUrl."/".$helper->getEMailBtnLogo();
+
+      }
+      $fb= $block->getViewFileUrl('FME_ShareCart::images/facebook.png');
+      if($helper->getfbBtnLogo()!="")
+      {
+        $fb=$configimageUrl."/".$helper->getfbBtnLogo();
+
+      }
+     //getWhatsappBtnLogo
+      $gp= $block->getViewFileUrl('FME_ShareCart::images/google-plus.png');
+      if($helper->getGPLUSBtnLogo()!="")
+      {
+        $gp=$configimageUrl."/".$helper->getGPLUSBtnLogo();
+
+      }
+      $linkin= $block->getViewFileUrl('FME_ShareCart::images/linkedin.png');
+      if($helper->getLINKEDINBtnLogo()!="")
+      {
+        $linkin=$configimageUrl."/".$helper->getLINKEDINBtnLogo();
+
+      }
+      $pinterest= $block->getViewFileUrl('FME_ShareCart::images/pinterest.png');
+      
+      if($helper->getPONTERESTBtnLogo()!="")
+      {
+        $pinterest=$configimageUrl."/".$helper->getPONTERESTBtnLogo();
+
+      }
+
+
+      $rd= $block->getViewFileUrl('FME_ShareCart::images/reddit.png');
+      if($helper->getREDDITBtnLogo()!="")
+      {
+        $rd=$configimageUrl."/".$helper->getREDDITBtnLogo();
+
+      }
+      $twitter= $block->getViewFileUrl('FME_ShareCart::images/twitter.png');
+      if($helper->getTWITTERBtnLogo()!="")
+      {
+        $twitter=$configimageUrl."/".$helper->getTWITTERBtnLogo();
+
+      }
+      
+      $vk= $block->getViewFileUrl('FME_ShareCart::images/vk.png');
+      if($helper->getVKBtnLogo()!="")
+      {
+        $vk=$configimageUrl."/".$helper->getVKBtnLogo();
+
+      }
+      $whatsapp= $block->getViewFileUrl('FME_ShareCart::images/whatsapp.png');
+      if($helper->getWhatsappBtnLogo()!="")
+      {
+        $whatsapp=$configimageUrl."/".$helper->getWhatsappBtnLogo();
+
+      }
+
+      $clink= $block->getViewFileUrl('FME_ShareCart::images/copy.png');
+      
+      
+?>
+
+<?php if ($helper->isEnabledInFrontend()) : ?>
+  <?php if ($helper->getBtnPosition()=="sbtn") : ?>
+    <li> <button   type="button" class="action primary checkout"  style="background-color: <?= $helper->getBtnBackColor() ?>;   color: <?= $helper->getBtnTextColor() ?>;  margin-bottom: 9%;   " > <a style="color:white;" href="<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/pdfgen') ?>"> <?php /* @escapeNotVerified */ echo __("Generate PDF") ?> </a></button></li>
+    
+    <li> <button id="btnpop"   type="button" class="action primary checkout"  style="background-color: <?= $helper->getBtnBackColor() ?>;   color: <?= $helper->getBtnTextColor() ?>;     " ><?php /* @escapeNotVerified */ echo __( $helper->getBtntext()) ?></button></li>
+    <form action="<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/save') ?>" method="post" >
+    <li> <input style="margin-top: 8%;" type="text" name="cartname" placeholder="Cart Label" required></li>
+    <li><br> 
+    <input type="submit" value="<?php /* @escapeNotVerified */ echo __($helper->getsaveBtntext()) ?>" type="button" class="action primary checkout" style="background: <?= $helper->getBtnBackColor() ?>     " ></li>
+    <form>
+  <?php endif; ?>
+<?php endif; ?>
+
+</ul>
+<?php endif; ?>
+
+<div id="popup-modal">
+   
+<div class="tab">
+<?php if (false) : ?>
+<button class="tablinks" onclick="openCity(event, 'London')"><img style=""  height='50' width='50' src=" <?php echo $email ?>" /></button>
+<?php endif; ?>
+<?php if ($helper->getfbBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Facebook')"><img style=""  height='50' width='50' src=" <?php echo $fb ?>" /></button>
+<?php endif; ?>
+<?php if ($helper->getWhatsappBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Whatsapp')"><img style=""  height='50' width='50' src=" <?php echo $whatsapp ?>" /></button>
+<?php endif; ?>
+<?php if ($helper->getTWITTERBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Twitter')"><img style=""  height='50' width='50' src=" <?php echo $twitter ?>" /></button>
+<?php endif; ?>
+<?php if ($helper->getLINKEDINBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Linkedin')"><img style=""  height='50' width='50' src=" <?php echo $linkin ?>" /></button>
+<?php endif; ?>
+<?php if ($helper->getGPLUSBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Gp')"><img style=""  height='50' width='50' src=" <?php echo $gp ?>" /></button>
+<?php endif; ?>
+<?php if ($helper->getPONTERESTBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Pinterest')"><img style=""  height='50' width='50' src=" <?php echo $pinterest ?>" /></button>
+<?php endif; ?>
+
+<?php if ($helper->getREDDITBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Rd')"><img style=""  height='50' width='50' src=" <?php echo $rd ?>" /></button>
+<?php endif; ?>
+<?php if ($helper->getVKBtnEnable()) : ?>
+<button class="tablinks" onclick="openCity(event, 'Vk')"><img style=""  height='50' width='50' src=" <?php echo $vk ?>" /></button>
+<?php endif; ?>
+
+<?php if ($helper->isEnabledCopyLink()) : ?>
+<button class="tablinks" onclick="openCity(event, 'COPY')"><img style=""  height='50' width='50' src=" <?php echo $clink ?>" /></button>
+<?php endif; ?>
+</div>
+
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+  
+<form  id="emailForm" method="post" action="/action_page.php">
+  Recipient Email:  <input type="email" id="reemail" name="repemailaddress"><br>
+  Your Name:  <input type="text" id="yname" name="name"><br>
+  Your Email:  <input type="email" id="yemail" name="youemailaddress"><br>
+  Message:  <textarea id="msggg" name ="msg" rows="4" cols="50"></textarea>
+  <button type="button" onclick="savetestimonials()"><?php /* @escapeNotVerified */ echo __($helper->getEMailBtnText()) ?></button>
+  <label id="lblName"></label>
+</form>
+</div>
+
+<div id="COPY" class="tabcontent">
+
+
+  <input type="text" name="fname" value="<?php echo $urllll?>">
+  </div>
+
+<div id="Facebook" class="tabcontent">
+  <h3><?= $helper->getfbText() ?></h3>
+  <button type="button" ><a href="<?php echo $fburl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getfbBtnText() ) ?></a></button>
+  </div>
+
+  <div id="Whatsapp" class="tabcontent">
+  <h3><?= $helper->getWhatsappText() ?></h3>
+ <a class="share-whatsapp" href="<?php echo $whatsappurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getWhatsappBtnText()) ?></a>
+  </div>
+
+  <div id="Twitter" class="tabcontent">
+  <h3><?= $helper->getTWITTERText() ?></h3>
+  <button type="button" ><a href="<?php echo $twitterurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getTWITTERBtnText()) ?></a></button>
+  </div>
+
+  <div id="Linkedin" class="tabcontent">
+  <h3><?= $helper->getLINKEDINText() ?></h3>
+  <button type="button" ><a href="<?php echo $linkedinurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getLINKEDINBtnText()) ?></a></button>
+  </div>
+
+  <div id="Gp" class="tabcontent">
+  <h3><?= $helper->getGPLUSText() ?></h3>
+  <button type="button" ><a href="<?php echo $url?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getGPLUSBtnText()) ?></a></button>
+  </div>
+
+  <div id="Pinterest" class="tabcontent">
+  <h3><?= $helper->getPONTERESTText() ?></h3>
+  <button type="button" ><a href="<?php echo $pinterestlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getPONTERESTBtnText()) ?></a></button>
+  </div>
+
+  <div id="Rd" class="tabcontent">
+  <h3><?= $helper->getREDDITText() ?></h3>
+  <button type="button" ><a href="<?php echo $rDlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getREDDITBtnText()) ?></a></button>
+  </div>
+
+  <div id="Vk" class="tabcontent">
+  <h3><?= $helper->getVKText() ?></h3>
+  <button type="button" ><a href="<?php echo $vKlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getVKBtnText()) ?></a></button>
+  </div>
+
+
+</div>
+<script>
+    require(['jquery','Magento_Ui/js/modal/modal'],function($,modal) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Compartilhe o Carrinho',
+                buttons: [{
+                    text: $.mage.__('Cancel'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+            var popup = modal(options, $('#popup-modal'));
+            $("#btnpop").click(function(){
+              $('#popup-modal').modal('openModal');
+              });
+
+              $("#savebtn").click(function(){
+                window.location.href = "www.google.com";
+              });
+           
+        }
+    );
+    
+
+  <?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$helper = $objectManager->create('FME\ShareCart\Helper\Data');
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+?>
+
+
+
+      
+
+function validate() {
+
+errorvalue="Error in ";
+flag=true;
+var remail="";
+var yemail="";
+var yname="";
+
+
+require(['jquery'],function($){
+  remail=$("#reemail").val();
+  yemail=$("#yemail").val();
+  yname=$("#yname").val();
+
+ 
+  //alert(remail);
+
+
+  if(yname=="")
+  {
+    flag=false;
+    errorvalue=errorvalue+"You Name, ";
+    $("#yname").css("border", "1px solid red");
+  }
+
+
+  if(remail==null || remail=="" || ((remail.split(" ").length - 1) == remail.length)){   
+    
+    flag=false;
+    errorvalue=errorvalue+"Recepient Email, "; 
+    $("#reemail").css("border", "1px solid red");
+  }
+  else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(remail)))
+  {
+          flag=false;
+          errorvalue=errorvalue+"Recepient Email, "; 
+          $("#reemail").css("border", "1px solid red");
+  }
+
+
+
+  if(yemail==null || yemail=="" || ((yemail.split(" ").length - 1) == yemail.length)){   
+      flag=false; 
+      errorvalue=errorvalue+"Your Email, "; 
+      $("#yemail").css("border", "1px solid red");
+  }
+  else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(yemail)))
+  {
+          flag=false;
+          errorvalue=errorvalue+"Your Email, "; 
+          $("#yemail").css("border", "1px solid red");
+  }
+  if(flag==false)
+  {
+    //alert("HHHHHH");
+    errorvalue=  errorvalue.substring(0,errorvalue.length - 2);
+    $("#lblName").text(errorvalue);
+    errorvalue="";
+    $("#lblName").css("color", "red");
+  }
+  
+});
+
+  
+require(['jquery'],function($){
+  remail=$("#reemail").val();
+  yemail=$("#yemail").val();
+  yname=$("#yname").val();
+});
+    
+    if(yname=="")
+    {
+      flag=false;
+    }
+    if(remail==null || remail=="" || ((remail.split(" ").length - 1) == remail.length)){   
+      flag=false;
+    }
+    else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(remail)))
+    {
+            flag=false;
+    }
+    if(yemail==null || yemail=="" || ((yemail.split(" ").length - 1) == yemail.length)){   
+        flag=false; 
+        
+    }
+    else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(yemail)))
+    {
+            flag=false;
+            
+    }
+return flag;
+}    
+
+function clearData()
+{
+  require(['jquery'],function($){
+  $('#yemail').val('');
+  $('#reemail').val('');
+  $('#yname').val('');
+  $('#msggg').val('');
+  });
+}
+function clearAll()
+{
+  require(['jquery'],function($){
+
+    $("#yemail").css("border", "1px solid #c2c2c2");
+    $("#reemail").css("border", "1px solid #c2c2c2");
+    $("#yname").css("border", "1px solid #c2c2c2");
+    $("#lblName").text("");
+    $("#lblName").css("color", "black");
+    //border: 1px solid #c2c2c2;
+
+  })
+
+
+}
+
+
+
+function savedata(){
+    
+   // alert("HIIIIIII");
+          var form = new FormData(document.getElementById('emailForm'));
+          // require(['jquery'],function($){
+          //     remail=$("#reemail").val();
+          //     yemail=$("#yemail").val();
+          //     yname=$("#yname").val();
+          // });
+         //alert(form);
+          var url = "<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/save') ?>";
+          jQuery.ajax({
+              url: url,
+              type: "POST",
+              data: form,
+              contentType: false,
+              processData: false,
+            
+              showLoader: true,
+              cache: false,
+              success: function(response){
+                if(response.error=="true")
+                {
+                  
+                  document.getElementById("lblName").style.color= "#E41313";
+                  document.getElementById("lblName").innerHTML = response.output;
+                
+                  //alert("hello");
+                  
+                }
+                else
+                {
+                  clearData();
+                  document.getElementById("lblName").style.color= "#1bb970";
+                  document.getElementById("lblName").innerHTML = response.output;
+                //alert("hi");
+                }
+                
+              }
+          });
+      }
+
+
+
+    function savetestimonials(){
+      clearAll() 
+      if(validate()==true){
+        clearAll()
+      //alert("sadasasd");
+
+          var form = new FormData(document.getElementById('emailForm'));
+         //alert(form);
+          var url = "<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/post') ?>";
+          jQuery.ajax({
+              url: url,
+              type: "POST",
+              data: form,
+              contentType: false,
+              processData: false,
+            
+              showLoader: true,
+              cache: false,
+              success: function(response){
+                if(response.error=="true")
+                {
+                  
+                  document.getElementById("lblName").style.color= "#E41313";
+                  document.getElementById("lblName").innerHTML = response.output;
+                
+                  //alert("hello");
+                  
+                }
+                else
+                {
+                  clearData();
+                  document.getElementById("lblName").style.color= "#1bb970";
+                  document.getElementById("lblName").innerHTML = response.output;
+                //alert("hi");
+                }
+                
+              }
+          });
+      }
+
+    }
+</script>
+
+

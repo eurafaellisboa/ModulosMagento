@@ -1,0 +1,508 @@
+
+<?php 
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$helper = $objectManager->create('FME\ShareCart\Helper\Data');
+$block = $objectManager->create('FME\ShareCart\Block\Link');
+$blockx = $objectManager->create('FME\ShareCart\Block\ShareCart');
+
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$data=$helper->getShareCartData();
+
+?>
+<?php 
+$image = $objectManager->create('FME\ShareCart\Model\Config\Backend\Image');
+$url=$helper->getUrlforSharing();
+$urllll=$helper->getUrlforSharing();
+$fburl=$helper->fbfunction();
+$whatsappurl=$helper->whatsappfunction();
+$twitterurl=$helper->twitterfunction();
+$linkedinurl=$helper->linkedinfunction();
+$pinterestlink=$helper->pinterestfunction();
+$vKlink=$helper->vKfunction();
+$rDlink=$helper->rDfunction();
+$block = $objectManager->create('FME\ShareCart\Block\Link');
+$url=\FME\ShareCart\Model\Config\Backend\Image::UPLOAD_DIR;
+$configimageUrl=$block->getMediaUrl().$url;
+$email= $block->getViewFileUrl('FME_ShareCart::images/email.png');
+if($helper->getEMailBtnLogo()!="")
+{
+  $email=$configimageUrl."/".$helper->getEMailBtnLogo();
+
+}
+$fb= $block->getViewFileUrl('FME_ShareCart::images/facebook.png');
+if($helper->getfbBtnLogo()!="")
+{
+  $fb=$configimageUrl."/".$helper->getfbBtnLogo();
+}
+$gp= $block->getViewFileUrl('FME_ShareCart::images/google-plus.png');
+if($helper->getGPLUSBtnLogo()!="")
+{
+  $gp=$configimageUrl."/".$helper->getGPLUSBtnLogo();
+}
+$linkin= $block->getViewFileUrl('FME_ShareCart::images/linkedin.png');
+if($helper->getLINKEDINBtnLogo()!="")
+{
+  $linkin=$configimageUrl."/".$helper->getLINKEDINBtnLogo();
+}
+$pinterest= $block->getViewFileUrl('FME_ShareCart::images/pinterest.png');
+if($helper->getPONTERESTBtnLogo()!="")
+{
+  $pinterest=$configimageUrl."/".$helper->getPONTERESTBtnLogo();
+}
+$rd= $block->getViewFileUrl('FME_ShareCart::images/reddit.png');
+if($helper->getREDDITBtnLogo()!="")
+{
+  $rd=$configimageUrl."/".$helper->getREDDITBtnLogo();
+}
+$twitter= $block->getViewFileUrl('FME_ShareCart::images/twitter.png');
+if($helper->getTWITTERBtnLogo()!="")
+{
+  $twitter=$configimageUrl."/".$helper->getTWITTERBtnLogo();
+}
+$vk= $block->getViewFileUrl('FME_ShareCart::images/vk.png');
+if($helper->getVKBtnLogo()!="")
+{
+  $vk=$configimageUrl."/".$helper->getVKBtnLogo();
+}
+$whatsapp= $block->getViewFileUrl('FME_ShareCart::images/whatsapp.png');
+if($helper->getWhatsappBtnLogo()!="")
+{
+  $whatsapp=$configimageUrl."/".$helper->getWhatsappBtnLogo();
+}
+$clink= $block->getViewFileUrl('FME_ShareCart::images/copy.png');   
+?>
+<style>
+
+.copybtn{
+    background-image: none;
+    background: #eeeeee;
+    border: 1px solid #cccccc;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 7px 15px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+table {
+	font-size: 12px;
+	margin: 0px 0 0px 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+	
+
+	
+table th {
+    background: #67bed2;
+    border: 1px solid #67bed2;
+	font-size:16px;
+	padding:8px 0;
+    color: #fff;
+    font-weight: 500 !important;
+}
+	
+table td {
+    color: #5c6f79;
+    border: 1px solid #ebf3f5;
+}
+	
+table td.bold {
+    font-weight:500 !important;
+}
+	
+table th, table td {
+    padding: 15px 10px;
+    text-align: center;
+}
+	
+table tr:nth-child(2n) {
+    background: #ebf3f5;
+}
+	
+	
+	
+</style>
+<div class="w3-container">
+<label id="lblName"></label>
+<form action="<?php echo $helper->getFormUrl() ?>" method="post">
+<table id="myTable" >
+    
+    <tbody>
+      <tr>
+      <td></td>
+      <td>Share Cart Name</td>
+      <td>Saving Date</td>
+      <td>Link</td>
+      <td>Edit Cart</td>
+      <td>CopyLink</td>
+      <td>Delete Cart</td>
+      <td>Detail</td>
+      <td>Share</td>
+      </tr>
+
+      <?php $sp=0;?>
+   <?php foreach ($data as $data1) { ?>
+    <?php $child= $blockx->getCartItems($data1->getQuoteId())?>
+    <?php if (count($child)>0) : ?> 
+      <tr >
+      <td><input type="checkbox" name="ischeck[]" value="<?php echo $data1->getQuoteId() ?>"/></td>
+      <td style="text-align: left;"><?php echo $data1->getCartname();?></td>
+      <td><?php echo $data1->getSharingDate();?></td>
+      <td><input id="<?php echo "a".$sp;?>" type = "text"  value = "<?php echo $helper->get_tiny_url($data1->getMessage());?>" /></td>
+      <td><button id=""  onclick="" class=""><a   href="<?php echo $helper->get_tiny_url($helper->getUrlforEditing($data1->getQuoteId())); ?>">Edit</a></button></td>
+      <td><div class="copybtn" id="<?php echo "b".$sp;?>" onclick="save('<?php echo 'a'.$sp;?>','<?php echo 'b'.$sp;?>')" class="">Copy</div></td>
+      <td><button  onclick="" class="deletebtn"><a   href="<?= $helper->get_tiny_url($block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/delete?id='.$data1->getSharecartId())) ?>">Delete</a></button></td>
+      <td>
+        <div class="copybtn getdetailbtn" quote-id="<?php echo $data1->getQuoteId(); ?>" id="<?php echo "detail".$sp;?>" >Detail</div>
+      </td>
+      
+      
+      <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn3.iconfinder.com/data/icons/user-interface-3-3/34/251-512.png" alt="Smiley face" height="24" width="30"></td>
+      <?php $sp++;?>
+      <?php  
+      $block1 = $objectManager->create('FME\ShareCart\Block\ShareCart');
+      $_item1=$block1->getCartdetailById($data1->getQuoteId());
+      $_grandTotal=$block1->getGrandTotalById($data1->getQuoteId());
+      $_subTotal=$block1->getSubTotalById($data1->getQuoteId());
+      //getSubTotalById
+      ?>
+      <?php foreach ($_item1 as $item): ?>
+          <input class="item-cart" type="hidden" unit-price="<?php echo $item->getQty()*$item->getPrice()?>" pro-qty="<?php echo $item->getQty();?>" product-name="<?php echo $item->getName()?>" quote-id="<?php echo $data1->getQuoteId(); ?>">
+      <?php endforeach; ?>
+      <input class="item-cart-2" type="hidden" sub-total="<?php echo $_subTotal; ?>" grand-total="<?php  echo $_grandTotal;?>" quote-id="<?php echo $data1->getQuoteId(); ?>">
+   
+    </tr>
+    <?php endif; ?>
+   <?php } ?>
+     
+    </tbody>
+  </table>
+  <br>
+  <input class="action primary" type="submit" value="Add to Cart">
+  <br>
+    <label style="font-size: 10px;"><?php echo __('after Mixing the different cart, Update the cart before saving!') ?></label>
+  </form>
+
+
+</div>
+
+<div id="popup-modal-detail">
+  
+</div>
+<script>
+require(['jquery','Magento_Ui/js/modal/modal'],function($,modal) {
+            var options1 = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Share Cart',
+                closed: function () {
+                  //alert("sadas");
+                  $(".modal-inner-wrap").css("width","75%")
+                  $(".modal-inner-wrap").css("left","0")
+                  },
+                buttons: [{
+                    text: $.mage.__('Cancel'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                        	
+                     
+                    }
+                }]
+            };
+           function gethtmltable(qid)
+           {
+             var ht="";
+             ht+="<table style='width:100%'>";
+             ht+="<tr>";
+             ht+="<th>Product Name</th><th>Qty</th><th>Unit Price</th>";
+             ht+="</tr>"
+              $('.item-cart').each(function() {
+                if($(this).attr("quote-id")==qid)
+                {
+                  //alert($(this).attr("quote-id"));
+                  ht+="<tr>"
+                  ht+="<td>"+$(this).attr("product-name")+"</td>";
+                  ht+="<td>"+$(this).attr("pro-qty")+"</td>";
+                  ht+="<td>"+$(this).attr("unit-price")+"</td>";
+                  ht+="</tr>";
+                }
+              });
+              ht+="</table>";
+
+              $('.item-cart-2').each(function() {
+                if($(this).attr("quote-id")==qid)
+                { 
+                  ht+="<div>";
+                  ht+="<hr>";
+                  ht+="<span style='font-weight:bold; '>Sub Total : "+$(this).attr("sub-total")+"</span>";
+                  ht+="</div>";
+                  ht+="<div>";
+                  ht+="<hr>";
+                  ht+="<span style='font-weight:bold; '>Total : "+$(this).attr("grand-total")+"</span>";
+                  ht+="</div>";
+
+                }
+              });              
+              return ht;
+           }
+            var popup1 = modal(options1, $('#popup-modal-detail'));
+            $(".getdetailbtn").click(function(){
+                $( "#popup-modal-detail" ).empty();
+                //modal-inner-wrap : width: 25%;
+                //.modal-popup    :    left: 60%;
+                $(".modal-inner-wrap").css("width","25%")
+                $(".modal-inner-wrap").css("left","60%")
+                var html = gethtmltable($(this).attr("quote-id"))
+                
+                $("#popup-modal-detail").append(html)
+                $('#popup-modal-detail').modal('openModal');
+                //alert("asdas")
+              });           
+        });
+// function showdetail(ab)
+// {
+//   require(['jquery'], function($){
+//     $('.item-cart').each(function() {
+//             alert($(this).attr("class"));
+//               //sum += +;
+//     });
+//   })
+ 
+// }
+function save(a,b)
+{
+
+
+  var copyText = document.getElementById(a);
+  copyText.select();
+  document.execCommand("copy");
+  document.getElementById('lblName').innerHTML="Text Copied";
+  document.getElementById('lblName').innerHTML="Text Copied";
+  document.getElementById('lblName').style.color = "green";
+
+  document.getElementById('lblName').style.display = "block";
+  setTimeout(function() {
+    
+    document.getElementById('lblName').style.display = "none";
+    }, 1500);
+}
+ // alert(a);
+
+		require(['jquery'], function ($) {
+      $(document).ready(function(){
+
+// code to read selected table row cell data (values).
+$("#myTable").on('click','.btnSelect',function(){
+     // get the current row
+     var currentRow=$(this).closest("tr");
+     var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+     col3.focus();
+     col3.select();
+  document.execCommand("copy");
+  alert("Copied the text: " + col3.value);
+     alert(col3);
+});
+});
+  
+});
+</script>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+<script>
+
+require(['jquery','Magento_Ui/js/modal/modal'],function($,modal) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Share Cart',
+                buttons: [{
+                    text: $.mage.__('Cancel'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+            function addUrl(url)
+            {
+              var fbtitle="Check out my Cart";
+              $("#Facebook").find( "a" ).attr("href","https://www.facebook.com/sharer.php?u="+url+"&t=TEst");
+              $("#Whatsapp").find( "a" ).attr("href","https://web.whatsapp.com/send?text="+"'Check Out My Cart'"+" \n"+url);
+              $("#Twitter").find( "a" ).attr("href","https://twitter.com/home?status="+fbtitle+"  "+url);
+              $("#Linkedin").find( "a" ).attr("href","https://www.linkedin.com/shareArticle?mini=true&url="+url);
+              $("#Pinterest").find( "a" ).attr("href","https://in.pinterest.com/pin/create/button/?description="+fbtitle+"&url="+url);
+              $("#Rd").find( "a" ).attr("href","https://www.reddit.com/submit?url="+url);
+              $("#Vk").find( "a" ).attr("href","https://vk.com/share.php?url="+url);
+              $("#COPY").find( "input" ).attr("value",url);
+              //COPY
+              //"https://vk.com/share.php?url="+url
+            ////$this->getUrlforSharing();
+             // alert( );
+             //Pinterest
+            }
+            var popup = modal(options, $('#popup-modal'));
+            $(".sharebtn").click(function(){
+
+             
+                 addUrl($(this).attr("url-data"));
+                $('#popup-modal').modal('openModal');
+
+
+
+
+
+              });           
+        }
+    );
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<div id="popup-modal">
+  <div class="tab">
+    <?php if (false) : ?>
+      <button class="tablinks" onclick="openCity(event, 'London')"><img style=""  height='50' width='50' src=" <?php echo $email ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getfbBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Facebook')"><img style=""  height='50' width='50' src=" <?php echo $fb ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getWhatsappBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Whatsapp')"><img style=""  height='50' width='50' src=" <?php echo $whatsapp ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getTWITTERBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Twitter')"><img style=""  height='50' width='50' src=" <?php echo $twitter ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getLINKEDINBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Linkedin')"><img style=""  height='50' width='50' src=" <?php echo $linkin ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getGPLUSBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Gp')"><img style=""  height='50' width='50' src=" <?php echo $gp ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getPONTERESTBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Pinterest')"><img style=""  height='50' width='50' src=" <?php echo $pinterest ?>" /></button>
+    <?php endif; ?>
+
+    <?php if ($helper->getREDDITBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Rd')"><img style=""  height='50' width='50' src=" <?php echo $rd ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getVKBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Vk')"><img style=""  height='50' width='50' src=" <?php echo $vk ?>" /></button>
+    <?php endif; ?>
+
+    <?php if ($helper->isEnabledCopyLink()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'COPY')"><img style=""  height='50' width='50' src=" <?php echo $clink ?>" /></button>
+    <?php endif; ?>
+  </div>
+  <div id="London" class="tabcontent">
+    <form  id="emailForm" method="post" action="/action_page.php">
+      Recipient Email:  <input type="email" id="reemail" name="repemailaddress"><br>
+      Your Name:  <input type="text" id="yname" name="name"><br>
+      Your Email:  <input type="email" id="yemail" name="youemailaddress"><br>
+      Message:  <textarea id="msggg" name ="msg" rows="4" cols="50"></textarea>
+      <button type="button" onclick="savetestimonials()"><?php /* @escapeNotVerified */ echo __($helper->getEMailBtnText()) ?></button>
+      <label id="lblName"></label>
+    </form>
+  </div>
+  <div id="COPY" class="tabcontent">
+    <input type="text" name="fname" value="<?php echo $urllll?>">
+  </div>
+  <div id="Facebook" class="tabcontent">
+      <h3><?= $helper->getfbText() ?></h3>
+      <button type="button" ><a href="<?php echo $fburl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getfbBtnText() ) ?></a></button>
+  </div>
+  <div id="Whatsapp" class="tabcontent">
+    <h3><?= $helper->getWhatsappText() ?></h3>
+    <button type="button" ><a href="<?php echo $whatsappurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getWhatsappBtnText()) ?></a></button>
+  </div>
+  <div id="Twitter" class="tabcontent">
+    <h3><?= $helper->getTWITTERText() ?></h3>
+    <button type="button" ><a href="<?php echo $twitterurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getTWITTERBtnText()) ?></a></button>
+  </div>
+  <div id="Linkedin" class="tabcontent">
+    <h3><?= $helper->getLINKEDINText() ?></h3>
+    <button type="button" ><a href="<?php echo $linkedinurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getLINKEDINBtnText()) ?></a></button>
+  </div>
+  <div id="Pinterest" class="tabcontent">
+    <h3><?= $helper->getPONTERESTText() ?></h3>
+    <button type="button" ><a href="<?php echo $pinterestlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getPONTERESTBtnText()) ?></a></button>
+  </div>
+  <div id="Rd" class="tabcontent">
+    <h3><?= $helper->getREDDITText() ?></h3>
+    <button type="button" ><a href="<?php echo $rDlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getREDDITBtnText()) ?></a></button>
+  </div>
+  <div id="Vk" class="tabcontent">
+    <h3><?= $helper->getVKText() ?></h3>
+    <button type="button" ><a href="<?php echo $vKlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getVKBtnText()) ?></a></button>
+  </div>
+</div>

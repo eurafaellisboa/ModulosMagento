@@ -1,0 +1,36 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!---
+    <type name="Magento\Checkout\Controller\Cart\Index">
+        <plugin name="change-shopping-cart" type="FME\ShareCart\Plugin\ChangeName" sortOrder="5" />
+    </type>
+    -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="fme_sharecart_listing_data_source" xsi:type="string">FME\ShareCart\Model\ResourceModel\Sharecart\Grid\Collection</item>                
+            </argument>
+        </arguments>
+    </type> 
+     <type name="FME\ShareCart\Model\ResourceModel\Sharecart\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">fme_sharecart</argument>
+            <argument name="eventPrefix" xsi:type="string">fme_sharecart_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">fme_sharecart_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">FME\ShareCart\Model\ResourceModel\Sharecart</argument>
+        </arguments>
+    </type>
+    <virtualType name="FMEShareGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+     <virtualType name="FMEShareGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">FME\ShareCart\Model\ResourceModel\Sharecart\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">FMEShareGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+</config>

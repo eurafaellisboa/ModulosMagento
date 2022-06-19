@@ -1,0 +1,262 @@
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$helper = $objectManager->create('FME\ShareCart\Helper\Data');
+$block = $objectManager->create('FME\ShareCart\Block\Link');
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$data=$helper->getShareCartData();
+?>
+<?php 
+$image = $objectManager->create('FME\ShareCart\Model\Config\Backend\Image');
+$url=$helper->getUrlforSharing();
+$urllll=$helper->getUrlforSharing();
+$fburl=$helper->fbfunction();
+$whatsappurl=$helper->whatsappfunction();
+$twitterurl=$helper->twitterfunction();
+$linkedinurl=$helper->linkedinfunction();
+$pinterestlink=$helper->pinterestfunction();
+$vKlink=$helper->vKfunction();
+$rDlink=$helper->rDfunction();
+$block = $objectManager->create('FME\ShareCart\Block\Link');
+$url=\FME\ShareCart\Model\Config\Backend\Image::UPLOAD_DIR;
+$configimageUrl=$block->getMediaUrl().$url;
+$email= $block->getViewFileUrl('FME_ShareCart::images/email.png');
+if($helper->getEMailBtnLogo()!="")
+{
+  $email=$configimageUrl."/".$helper->getEMailBtnLogo();
+
+}
+$fb= $block->getViewFileUrl('FME_ShareCart::images/facebook.png');
+if($helper->getfbBtnLogo()!="")
+{
+  $fb=$configimageUrl."/".$helper->getfbBtnLogo();
+}
+$gp= $block->getViewFileUrl('FME_ShareCart::images/google-plus.png');
+if($helper->getGPLUSBtnLogo()!="")
+{
+  $gp=$configimageUrl."/".$helper->getGPLUSBtnLogo();
+}
+$linkin= $block->getViewFileUrl('FME_ShareCart::images/linkedin.png');
+if($helper->getLINKEDINBtnLogo()!="")
+{
+  $linkin=$configimageUrl."/".$helper->getLINKEDINBtnLogo();
+}
+$pinterest= $block->getViewFileUrl('FME_ShareCart::images/pinterest.png');
+if($helper->getPONTERESTBtnLogo()!="")
+{
+  $pinterest=$configimageUrl."/".$helper->getPONTERESTBtnLogo();
+}
+$rd= $block->getViewFileUrl('FME_ShareCart::images/reddit.png');
+if($helper->getREDDITBtnLogo()!="")
+{
+  $rd=$configimageUrl."/".$helper->getREDDITBtnLogo();
+}
+$twitter= $block->getViewFileUrl('FME_ShareCart::images/twitter.png');
+if($helper->getTWITTERBtnLogo()!="")
+{
+  $twitter=$configimageUrl."/".$helper->getTWITTERBtnLogo();
+}
+$vk= $block->getViewFileUrl('FME_ShareCart::images/vk.png');
+if($helper->getVKBtnLogo()!="")
+{
+  $vk=$configimageUrl."/".$helper->getVKBtnLogo();
+}
+$whatsapp= $block->getViewFileUrl('FME_ShareCart::images/whatsapp.png');
+if($helper->getWhatsappBtnLogo()!="")
+{
+  $whatsapp=$configimageUrl."/".$helper->getWhatsappBtnLogo();
+}
+$clink= $block->getViewFileUrl('FME_ShareCart::images/copy.png');   
+?>
+<button id="btnpop"   type="button" class="action primary checkout sharebtn" url-data="https://lms.lums.edu.pk/portal"  style="background-color: <?= $helper->getBtnBackColor() ?>;   color: <?= $helper->getBtnTextColor() ?>;     " ><?php /* @escapeNotVerified */ echo __( $helper->getBtntext()) ?></button>
+
+<button id="btnpop"   type="button" class="action primary checkout sharebtn" url-data="https://www.google.com/"  style="background-color: <?= $helper->getBtnBackColor() ?>;   color: <?= $helper->getBtnTextColor() ?>;     " ><?php /* @escapeNotVerified */ echo __( $helper->getBtntext()) ?></button>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+<script>
+
+require(['jquery','Magento_Ui/js/modal/modal'],function($,modal) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Share Cart',
+                buttons: [{
+                    text: $.mage.__('Cancel'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+            function addUrl(url)
+            {
+              var fbtitle="Check out my Cart";
+              $("#Facebook").find( "a" ).attr("href","https://www.facebook.com/sharer.php?u="+url+"&t=TEst");
+              $("#Whatsapp").find( "a" ).attr("href","https://web.whatsapp.com/send?text="+"'Check Out My Cart'"+" \n"+url);
+              $("#Twitter").find( "a" ).attr("href","https://twitter.com/home?status="+fbtitle+"  "+url);
+              $("#Linkedin").find( "a" ).attr("href","https://www.linkedin.com/shareArticle?mini=true&url="+url);
+              $("#Pinterest").find( "a" ).attr("href","https://in.pinterest.com/pin/create/button/?description="+fbtitle+"&url="+url);
+              $("#Rd").find( "a" ).attr("href","https://www.reddit.com/submit?url="+url);
+              $("#Vk").find( "a" ).attr("href","https://vk.com/share.php?url="+url);
+              $("#COPY").find( "input" ).attr("value",url);
+              //COPY
+              //"https://vk.com/share.php?url="+url
+            ////$this->getUrlforSharing();
+             // alert( );
+             //Pinterest
+            }
+            var popup = modal(options, $('#popup-modal'));
+            $(".sharebtn").click(function(){
+
+             
+                 addUrl($(this).attr("url-data"));
+                $('#popup-modal').modal('openModal');
+
+
+
+
+
+              });           
+        }
+    );
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<div id="popup-modal">
+  <div class="tab">
+    <?php if ($helper->getEMailBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'London')"><img style=""  height='50' width='50' src=" <?php echo $email ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getfbBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Facebook')"><img style=""  height='50' width='50' src=" <?php echo $fb ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getWhatsappBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Whatsapp')"><img style=""  height='50' width='50' src=" <?php echo $whatsapp ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getTWITTERBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Twitter')"><img style=""  height='50' width='50' src=" <?php echo $twitter ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getLINKEDINBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Linkedin')"><img style=""  height='50' width='50' src=" <?php echo $linkin ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getGPLUSBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Gp')"><img style=""  height='50' width='50' src=" <?php echo $gp ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getPONTERESTBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Pinterest')"><img style=""  height='50' width='50' src=" <?php echo $pinterest ?>" /></button>
+    <?php endif; ?>
+
+    <?php if ($helper->getREDDITBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Rd')"><img style=""  height='50' width='50' src=" <?php echo $rd ?>" /></button>
+    <?php endif; ?>
+    <?php if ($helper->getVKBtnEnable()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'Vk')"><img style=""  height='50' width='50' src=" <?php echo $vk ?>" /></button>
+    <?php endif; ?>
+
+    <?php if ($helper->isEnabledCopyLink()) : ?>
+      <button class="tablinks" onclick="openCity(event, 'COPY')"><img style=""  height='50' width='50' src=" <?php echo $clink ?>" /></button>
+    <?php endif; ?>
+  </div>
+  <div id="London" class="tabcontent">
+    <form  id="emailForm" method="post" action="/action_page.php">
+      Recipient Email:  <input type="email" id="reemail" name="repemailaddress"><br>
+      Your Name:  <input type="text" id="yname" name="name"><br>
+      Your Email:  <input type="email" id="yemail" name="youemailaddress"><br>
+      Message:  <textarea id="msggg" name ="msg" rows="4" cols="50"></textarea>
+      <button type="button" onclick="savetestimonials()"><?php /* @escapeNotVerified */ echo __($helper->getEMailBtnText()) ?></button>
+      <label id="lblName"></label>
+    </form>
+  </div>
+  <div id="COPY" class="tabcontent">
+    <input type="text" name="fname" value="<?php echo $urllll?>">
+  </div>
+  <div id="Facebook" class="tabcontent">
+      <h3><?= $helper->getfbText() ?></h3>
+      <button type="button" ><a href="<?php echo $fburl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getfbBtnText() ) ?></a></button>
+  </div>
+  <div id="Whatsapp" class="tabcontent">
+    <h3><?= $helper->getWhatsappText() ?></h3>
+    <button type="button" ><a href="<?php echo $whatsappurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getWhatsappBtnText()) ?></a></button>
+  </div>
+  <div id="Twitter" class="tabcontent">
+    <h3><?= $helper->getTWITTERText() ?></h3>
+    <button type="button" ><a href="<?php echo $twitterurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getTWITTERBtnText()) ?></a></button>
+  </div>
+  <div id="Linkedin" class="tabcontent">
+    <h3><?= $helper->getLINKEDINText() ?></h3>
+    <button type="button" ><a href="<?php echo $linkedinurl?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getLINKEDINBtnText()) ?></a></button>
+  </div>
+  <div id="Pinterest" class="tabcontent">
+    <h3><?= $helper->getPONTERESTText() ?></h3>
+    <button type="button" ><a href="<?php echo $pinterestlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getPONTERESTBtnText()) ?></a></button>
+  </div>
+  <div id="Rd" class="tabcontent">
+    <h3><?= $helper->getREDDITText() ?></h3>
+    <button type="button" ><a href="<?php echo $rDlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getREDDITBtnText()) ?></a></button>
+  </div>
+  <div id="Vk" class="tabcontent">
+    <h3><?= $helper->getVKText() ?></h3>
+    <button type="button" ><a href="<?php echo $vKlink?>" target="_blank"><?php /* @escapeNotVerified */ echo __($helper->getVKBtnText()) ?></a></button>
+  </div>
+</div>

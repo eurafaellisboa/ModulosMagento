@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sharecart>
+            <general>
+                <enableModule>1</enableModule>
+                <showandhide>1</showandhide> 
+                <restictuser>1</restictuser>
+                <sctext>My Cart</sctext>
+            </general>
+            <store_enable>
+                <store>0</store>
+            </store_enable>
+            <email>
+                <sender>general</sender>
+                <subject>Share Cart</subject>
+
+            </email>
+            <sharecartbtn>
+                <backcolor>#1979c3</backcolor>
+                <textcolcolor>#ffffff</textcolcolor>
+                <stext>Share Cart</stext>
+                <svtext>Save Cart</svtext>
+                <btnposition>sbtn</btnposition>
+            </sharecartbtn>
+            <emailbtn>
+                <enablebtn>1</enablebtn>
+                <btntxt>Share Your Cart through Email</btntxt>
+              
+                <upload_image_id></upload_image_id>
+            </emailbtn>
+            <fbbtn>
+                <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On Facebook</txt>
+            </fbbtn>
+            <whatbtn>
+                 <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On WhatsApp</txt>
+            </whatbtn>
+            <twitterbtn>
+                <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On Twitter</txt>
+            </twitterbtn>
+            <linkedinbtn>
+                 <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On LinkedIn</txt>
+            </linkedinbtn>
+            <pinterestbtn>
+              <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On Pinterest</txt>
+            </pinterestbtn>
+            <redditbtn>
+                <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On ReddIt</txt>
+            </redditbtn>
+            <vkbtn>
+                 <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On VK</txt>
+            </vkbtn>
+            <googleplus>
+                <enablebtn>1</enablebtn>
+                <btntxt>Share</btntxt>
+                <txt>Share On Google-Plus</txt>
+            </googleplus>
+            <bussinessdetail> 
+                <compname>United Sol Pvt Lmt</compname>
+                <addressdetail>1600 Amphitheatre Parkway Mountain View, CA 94043 USA</addressdetail>
+                <vatdetail>12312**********</vatdetail>
+                <phonedetail>12312**********</phonedetail>
+                <emaildetail>ceo@google.com</emaildetail>
+                <regdetail>343223********</regdetail>
+                <warndetail>Type your message here</warndetail>
+            </bussinessdetail>
+        </sharecart>
+    </default>
+</config>

@@ -1,0 +1,22 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd"> 
+<update handle="customer_account"/> 
+<head>
+<css src="FME_ShareCart::css/jssocialplugin/jssocials.css" />
+<css src="FME_ShareCart::css/jssocialplugin/jssocials-theme-flat.css" />
+ <css src="FME_ShareCart::css/bootstrap-tab-modal.css" />
+        <title>My Cart</title>
+
+</head>
+<body> 
+    <referenceBlock name="page.main.title"> 
+            <action method="setPageTitle"> 
+             <argument name="path" xsi:type="helper" helper="FME\ShareCart\Helper\Data::getHeading"></argument> 
+               <!--> <argument translate="true" name="title" xsi:type="string">My Cart</argument> 
+                -->
+            </action> 
+     </referenceBlock> 
+     <referenceContainer name="content"> 
+        <block class="Magento\Framework\View\Element\Template" name="my_card" template="FME_ShareCart::mycart1.phtml" cacheable="false"/>  
+    </referenceContainer> 
+</body> 
+</page>

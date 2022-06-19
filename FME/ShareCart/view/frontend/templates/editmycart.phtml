@@ -1,0 +1,54 @@
+<?php
+$items=$this->getVariables();
+$label=$this->_helperGallery->getShareCartLabel($this->getMyPostParams());
+?>
+
+<?php 
+foreach($items as $item) {
+   /* echo 'ID: '.$item->getProductId().'<br />';
+     echo 'Name: '.$item->getName().'<br />';
+      echo 'Sku: '.$item->getSku().'<br />';
+      echo 'Quantity: '.$item->getQty().'<br />';
+     echo 'Price: '.$item->getPrice().'<br />';
+   echo "<br />";*/            
+ }
+
+?>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+<h2><?php echo $label;?></h2>
+<form action="<?php echo $this->getFormUrl() ?>" method="post">
+<input type="hidden" name="quote_id" value="<?php echo $this->getMyPostParams(); ?>">
+<table style="width:100%">
+  <tr>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Delete</th>
+  </tr>
+  <?php 
+foreach($items as $item) { ?>
+
+  <tr>
+    <input type="hidden" id="custId" name="product_id[]" value="<?php echo $item->getProductId(); ?>">
+    <td><?php echo $item->getName()?></td>
+    <td><?php echo $item->getQty();?></td>
+    <td><?php echo $item->getQty()*$item->getPrice()?></td>
+    <td><a href="<?php echo $this->_helperGallery->getDeleteItemCart($this->getMyPostParams(),$item->getProductId()) ?>">delete</a></td>
+  
+  </tr>
+
+<?php } ?>
+
+</table>
+
+</form>
+<br>
+<button class="action"><a href="<?php echo $this->_helperGallery->getMyCartUrl();?>"><?php echo __('Back') ?></a></button>
+<?php 
+$this->sessionBreak($this->getMyPostParams());
+?>

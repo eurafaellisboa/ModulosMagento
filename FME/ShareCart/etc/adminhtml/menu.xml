@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        
+        <update id="FME_Extensions::fmeextensions" title="FME Extensions" module="Magento_Backend" sortOrder="300" resource="FME_Extensions::fmeextensions"/>
+        <add id="FME_ShareCart::sharecart_main" title="Share Cart" module="FME_ShareCart" sortOrder="10" parent="FME_Extensions::fmeextensions" resource="FME_ShareCart::sharecart_main"/>
+        
+
+        <add id="FME_ShareCart::savedcart" 
+             resource="FME_ShareCart::savedcart" 
+             title="Manage Save Cart" 
+             action="sharecart/sharecart/index" 
+             module="FME_ShareCart" 
+             sortOrder="11" 
+             parent="FME_ShareCart::sharecart_main"/>
+        <add id="FME_ShareCart::sharecart_config"
+             title="Configurations"
+             module="FME_ShareCart" sortOrder="36" 
+             parent="FME_ShareCart::sharecart_main" 
+             action="adminhtml/system_config/edit/section/sharecart"
+             resource="FME_ShareCart::sharecart_config" /> 
+        
+        
+        </menu>
+</config> 

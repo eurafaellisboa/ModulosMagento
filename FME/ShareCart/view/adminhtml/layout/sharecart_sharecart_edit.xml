@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <update handle="editor"/>
+    <head>
+     <meta name="viewport" content="width=1024"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <link src="requirejs/require.js"/>
+        <css src="extjs/resources/css/ext-all.css"/>
+        <css src="extjs/resources/css/ytheme-magento.css"/>
+        </head>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="fme_sharecart_form"/>
+        </referenceContainer>
+    </body>
+</page>
