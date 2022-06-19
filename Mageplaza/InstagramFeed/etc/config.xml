@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_InstagramFeed
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mpinstagramfeed>
+            <module>
+                <type>1</type>
+            </module>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <display>
+                <total_number>12</total_number>
+                <layout>multiple</layout>
+                <number_row>2</number_row>
+                <show_caption>1</show_caption>
+                <show_popup>0</show_popup>
+            </display>
+        </mpinstagramfeed>
+    </default>
+</config>
