@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magetop
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magetop.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.magetop.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magetop
+ * @package     Magetop_Smtp
+ * @copyright   Copyright (c) Magetop (https://www.magetop.com/)
+ * @license     https://www.magetop.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="mpsmtp_resend_email_template" label="SMTP Resend Email" file="resend_email_template.html" type="html" module="Magetop_Smtp" area="frontend"/>
+    <template id="mpsmtp_test_email_template" label="SMTP Test Email" file="test_email_template.html" type="html" module="Magetop_Smtp" area="frontend"/>
+</config>

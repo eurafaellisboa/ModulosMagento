@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magetop
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magetop.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.magetop.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magetop
+ * @package     Magetop_Smtp
+ * @copyright   Copyright (c) Magetop (https://www.magetop.com/)
+ * @license     https://www.magetop.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magetop_Smtp::main_menu" title="SMTP" module="Magetop_Smtp" sortOrder="20" resource="Magetop_Smtp::main_menu" />
+        <add id="Magetop_Smtp::smtp" title="SMTP Configurations" module="Magetop_Smtp" sortOrder="10" resource="Magetop_Smtp::smtp" parent="Magetop_Smtp::main_menu" action="adminhtml/system_config/edit/section/smtp" />
+        <add id="Magetop_Smtp::log" title="SMTP Email Logs" module="Magetop_Smtp" sortOrder="20" resource="Magetop_Smtp::log" parent="Magetop_Smtp::main_menu" action="adminhtml/smtp/log"/>
+    </menu>
+</config>
