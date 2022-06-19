@@ -1,0 +1,154 @@
+.wrap-collabsible {
+    margin-bottom: 16px;
+	float: left;
+	width: 100%;
+}
+.wrap-collabsible input[type='checkbox'] {
+    display: none;
+}
+.lbl-toggle {
+  color: #777 !important;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-weight: normal;
+  padding: 1rem 0;
+  text-align: left;
+  text-transform: none;;
+  text-decoration: underline;
+  margin: 0 !important;	
+}
+.lbl-toggle::after {
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid white;
+    border-top: 5px solid transparent;
+    content: ' ';
+    display: inline-block;
+    margin-right: .7rem;
+    margin-top: 5px;
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-out;
+    vertical-align: middle;
+    float: right;
+}
+.toggle:checked + .lbl-toggle {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.toggle:checked + .lbl-toggle::after {
+    transform: rotate(90deg) translateX(-3px);
+}
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: min-content;
+}
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-in-out;
+}
+.collapsible-content .content-inner {
+ 
+}
+.backendorf-installment .best-installment {
+    color: #777;
+    font-weight: 500;
+	font-size: 11px;
+    margin: 5px 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.backendorf-installment .best-installment strong {
+    color: #777;
+}
+.backendorf-installment .footer-message {
+    color: #777;
+    font-size: 11px;
+    line-height: 1.2;
+	margin-left: 10px;
+}
+.backendorf-installment .installments.title {
+    font-size: 12px;
+	text-align: left;
+}
+
+.sticky_atc_price .price {
+  color: #696969;
+}
+
+.installments-options li:nth-child(2n+1) {
+  background: #F2F2F2;
+}
+.backendorf-installment .installments-options {
+    font-size: 12px;
+    padding: 0;
+	margin: 0;
+}
+.backendorf-installment .installments-options .installment-option {
+    list-style: none;
+    padding: 0 10px;
+	max-width: 250px;
+	color: #777 !important;
+}
+.backendorf-installment .installments-options .installment-option strong {
+    color: #0098d4;
+}
+.backendorf-installment .installments-options .installment-option span {
+    font-size: 13px;
+}
+.backendorf-installment .discounts .item strong {
+  color: #0A0A0A;
+  font-size: 20px;
+  line-height: 16px;
+  display: block;
+}
+.backendorf-installment .discounts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.discounts .item {
+  font-size: 11px;
+  color: #777;
+}
+
+.discounts ul {
+  margin: 0;
+}
+
+
+.catalog-product-view .product-info-main .backendorf-installment .best-installment {
+  float: left;
+  width: 100%;
+  margin-bottom: 0px;
+  color: #777;
+  font-weight: normal;
+  font-size: 16px;	
+}
+
+.catalog-product-view .product-info-main .discounts .item {
+  font-size: 16px;
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+  color: #777 !important;
+  line-height: 16px;
+}
+
+.catalog-product-view .product-info-main .backendorf-installment .discounts .item strong {
+  line-height: 16px;
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+
+.catalog-product-view .product-info-main .backendorf-installment .discounts .item strong {
+	display: block;
+	float: left;
+}
+
+
+.block.related .backendorf-installment .best-installment,
+.block.related .discounts .item{
+	font-size:11px !important;
+}
