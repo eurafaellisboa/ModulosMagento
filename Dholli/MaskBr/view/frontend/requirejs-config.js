@@ -1,0 +1,1 @@
+var config={config:{mixins:{"mage/validation":{"Dholi_MaskBr/js/validator/cpf-cnpj-validation":true},"Magento_Checkout/js/view/cart/shipping-estimation":{"Dholi_MaskBr/js/view/cart-mask":true},"Magento_Checkout/js/action/set-shipping-information":{"Dholi_MaskBr/js/view/checkout-mask":true}}}};

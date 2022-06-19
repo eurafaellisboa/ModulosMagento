@@ -1,0 +1,19 @@
+<?php
+/* @var $block \Dholi\MaskBr\Block\Mask */
+
+$canApply = $block->canApplyMasks();
+if ($canApply): ?>
+	<script type="text/x-magento-init">
+	    {
+	        "*": {
+	            "Magento_Ui/js/core/app": {
+	                "components": {
+	                        "dholi-mask": {
+	                            "component": "Dholi_MaskBr/js/view/mask-manager"
+	                        }
+	                    }
+	                }
+	            }
+	    }
+	</script>
+<?php endif; ?>
