@@ -1,0 +1,22 @@
+<?php
+/** @var \Bring\Pix\Block\Info $block */
+
+$paymentInfo = $block->getPaymentInfo();
+?>
+<?php 
+		if($paymentInfo):
+		$pix = $paymentInfo['pix'];
+        $qrcode = $paymentInfo['qrcode'];
+        $dataPedido = $paymentInfo['data_pedido'];
+		$_ct= new Zend_Date(strtotime($dataPedido));
+        $additionalInfo = $block->getAdditionalInformation();
+?>
+	<p><strong><?php echo $additionalInfo['method_title'] ?></strong></p>
+	<p style="font-size:11px"><img src="<?php echo $paymentInfo['qrcode'];?>"><br>QR Code expira as 23:59 do dia <?php echo $_ct->toString('d/M/Y');?></p>
+	<p><button onclick="navigator.clipboard.writeText('<?php echo $pix ?>').then(alert('Copiado!'))" >PIX Copia e Cola</button></p>
+
+<?php endif;?>
+	<!--<table class="data-table admin__table-secondary">
+        <tr><th>PIX</th><td style="word-break: break-word;"><?php //echo $pix; ?></td></tr>
+        <tr><th>QRCode</th><td><img width="160" src="<?php //echo $qrcode ?>"/></td></tr>
+	</table>-->
