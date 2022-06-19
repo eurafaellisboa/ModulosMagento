@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="aitoc_extensions" translate="label" sortOrder="999998" class="aitoc-tab">
+            <label>Aitoc Extensions</label>
+        </tab>
+        <section id="aitoc_core" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label><![CDATA[Information &amp; Marketplace]]></label>
+            <tab>aitoc_extensions</tab>
+            <resource>Aitoc_Core::config</resource>
+            <group id="menu" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Aitoc Menu</label>
+                <field id="menu_enable" translate="label comment" type="select" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Aitoc Menu</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="notifications" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Notifications</label>
+                <field id="notice_enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Notifications</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes if you want get latest information about new or updated Aitoc extensions, discounts, atricles and etc.</comment>
+                </field>
+                <field id="notice_type" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>I'd like to be informed by Aitoc about:</label>
+                    <source_model>Aitoc\Core\Model\Config\Source\NoticeType</source_model>
+                    <comment>Select notice types that you want to receive notifications</comment>
+                    <depends>
+                        <field id="notice_enable">1</field>
+                    </depends>
+                </field>
+                <field id="frequency" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Update Frequency</label>
+                    <source_model>Aitoc\Core\Model\Config\Source\Frequency</source_model>
+                </field>
+                <field id="last_update" translate="label" type="label" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Last Update</label>
+                    <frontend_model>Aitoc\Core\Block\System\Config\Form\Field\Notification</frontend_model>
+                </field>
+            </group>
+            <group id="extensions" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Installed Extensions</label>
+                <frontend_model>Aitoc\Core\Block\InstalledExtensions</frontend_model>
+            </group>
+            <group id="store" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Aitoc Marketplace</label>
+                <frontend_model>Aitoc\Core\Block\Shopfeed</frontend_model>
+                <comment><![CDATA[
+                <iframe id="aitoc-shopfeed" src="https://www.aitoc.com/shopfeed/index/m2index" frameborder="0" scrolling="yes" width="100%" height="100%" style="min-height: 900px;"></iframe>
+                ]]></comment>
+            </group>
+        </section>
+    </system>
+</config>

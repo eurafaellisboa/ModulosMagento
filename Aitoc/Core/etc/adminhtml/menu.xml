@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Aitoc_Core::menu" title="Aitoc" module="Aitoc_Core" translate="title" sortOrder="81" resource="Aitoc_Core::menu"/>
+        <add id="Aitoc_Core::common" title="Configuration &amp; Promo" translate="title" module="Aitoc_Core" sortOrder="1498" parent="Aitoc_Core::menu" resource="Aitoc_Core::menu"/>
+        <add id="Aitoc_Core::extensions" title="Information &amp; Marketplace" module="Aitoc_Core" translate="title" sortOrder="1499" action="adminhtml/system_config/edit/section/aitoc_core" parent="Aitoc_Core::common" resource="Aitoc_Core::config"/>
+        <add id="Aitoc_Core::marketplace" title="🔥 More Aitoc Extensions" module="Aitoc_Core" translate="title" sortOrder="1500" action="aitcore/custom_market_url" parent="Aitoc_Core::common" resource="Aitoc_Core::marketplace"/>
+    </menu>
+</config>

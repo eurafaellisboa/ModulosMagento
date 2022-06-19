@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\AdminNotification\Block\ToolbarEntry">
+        <plugin name="Aitoc_Core::add-aitoc-logo-in-toolbar"
+                type="Aitoc\Core\Plugin\Notifications\AitocNotificationLogoAddInToolbar"/>
+    </type>
+    <type name="Magento\AdminNotification\Block\Grid\Renderer\Notice">
+        <plugin name="Aitoc_Core::add-aitoc-logo"
+                type="Aitoc\Core\Plugin\Notifications\AitocNotificationLogoAdd"/>
+    </type>
+    <type name="Magento\AdminNotification\Block\Grid\Renderer\Actions">
+        <plugin name="Aitoc_Core::add-disable-notifications"
+                type="Aitoc\Core\Plugin\Notifications\GridActions"/>
+
+    </type>
+    <type name="Magento\Backend\Model\Menu\Item">
+        <plugin name="Aitoc_Core:replaceMarketplaceUrl"
+                type="Aitoc\Core\Plugin\BackendMenu\Item" />
+    </type>
+    <type name="Magento\Backend\Model\Menu\Builder">
+        <plugin name="Aitoc_Core::aitocMenuBuilder" type="Aitoc\Core\Plugin\BackendMenu\Builder" />
+    </type>
+</config>
