@@ -1,0 +1,207 @@
+"Save and Continue Edit","Save and Continue Edit"
+Generate,Generate
+Copy,Copy
+"Category Map","Category Map"
+"Category Mapping","Category Mapping"
+"Conditions (don't add conditions if rule is applied to all products)","Conditions (don't add conditions if rule is applied to all products)"
+Conditions,Conditions
+"Product Filter","Product Filter"
+"Generate Config","Generate Config"
+"Execution Mode","Execution Mode"
+"Select <b>Cron</b> to generate the feed automatically. Select <b>Manual</b> to generate the feed manually","Select <b>Cron</b> to generate the feed automatically. Select <b>Manual</b> to generate the feed manually"
+Frequency,Frequency
+"How often the feed is generated","How often the feed is generated"
+"Cron Run Time","Cron Run Time"
+"Time zone UTC","Time zone UTC"
+"Delivery Config","Delivery Config"
+Delivery,Delivery
+Protocol,Protocol
+"Passive Mode","Passive Mode"
+"Host Name","Host Name"
+"It can be IP address or host name. You can add port at the end of host name. E.g: ftp.domain.com:22","It can be IP address or host name. You can add port at the end of host name. E.g: ftp.domain.com:22"
+"User Name","User Name"
+Password,Password
+"Directory Path","Directory Path"
+"Full path of a directory. E.g: /var/www/path/to/your-folder/","Full path of a directory. E.g: /var/www/path/to/your-folder/"
+"Test Connection","Test Connection"
+History,History
+"Generated File URL","Generated File URL"
+"Number of exported Products","Number of exported Products"
+"Generated On","Generated On"
+"General Information","General Information"
+Name,Name
+Status,Status
+"Store Views","Store Views"
+"File Name","File Name"
+General,General
+"Google Analytics","Google Analytics"
+"Campaign Source","Campaign Source"
+"The referrer: (e.g. google, newsletter). Required if use","The referrer: (e.g. google, newsletter). Required if use"
+"Campaign Medium","Campaign Medium"
+"Marketing medium: (e.g. cpc, banner, email)","Marketing medium: (e.g. cpc, banner, email)"
+"Campaign Name","Campaign Name"
+"Product, promo code, or slogan (e.g. spring_sale)","Product, promo code, or slogan (e.g. spring_sale)"
+"Campaign Term","Campaign Term"
+"Identify the paid keywords","Identify the paid keywords"
+"Campaign Content","Campaign Content"
+"Use to differentiate ads","Use to differentiate ads"
+ID,ID
+"Generation time","Generation time"
+Type,Type
+File,File
+"Success Message","Success Message"
+"Error Message","Error Message"
+"Product ID","Product ID"
+Sku,Sku
+Price,Price
+"Primary Attributes","Primary Attributes"
+"Price Tax Attributes","Price Tax Attributes"
+"Category Attributes","Category Attributes"
+"Image Attributes","Image Attributes"
+"Stock Attributes","Stock Attributes"
+"Other Attributes","Other Attributes"
+"Product Link","Product Link"
+"Final Price","Final Price"
+"Product Image Link","Product Image Link"
+"Product Category Path","Product Category Path"
+"Product Id","Product Id"
+"Product Mapping","Product Mapping"
+Templates,Templates
+"File Type","File Type"
+"Select a file type for the product feed","Select a file type for the product feed"
+"Default Template","Default Template"
+"Load Template","Load Template"
+"Select a template for the product feed","Select a template for the product feed"
+"Template Content","Template Content"
+"Field Separate","Field Separate"
+"Field Around By","Field Around By"
+"Include Field Header","Include Field Header"
+"Fields Map","Fields Map"
+Template,Template
+"FEED INFORMATION","FEED INFORMATION"
+Replace,Replace
+Search,Search
+"Replace First","Replace First"
+Slice,Slice
+From,From
+To,To
+Truncate,Truncate
+Count,Count
+"Append Last","Append Last"
+"Truncate Words","Truncate Words"
+Words,Words
+Lowercase,Lowercase
+Ceil,Ceil
+Uppercase,Uppercase
+Capitalize,Capitalize
+"Uppercase first character of each word ","Uppercase first character of each word "
+Append,Append
+Prepend,Prepend
+"At Least","At Least"
+"At Most","At Most"
+Date,Date
+"Date Format","Date Format"
+Default,Default
+"Divided By","Divided By"
+Plus,Plus
+Remove,Remove
+Join,Join
+"Join By","Join By"
+Minus,Minus
+Modulo,Modulo
+Times,Times
+Abs,Abs
+"Down Case","Down Case"
+Escape,Escape
+"Escape once","Escape once"
+Floor,Floor
+"Left Trim","Left Trim"
+"Replace new line to <br","Replace new line to <br"
+"Reverse Array","Reverse Array"
+"Right Trim","Right Trim"
+"Array Size","Array Size"
+"Array Sort","Array Sort"
+"Trim Text","Trim Text"
+"Strip Html Tags","Strip Html Tags"
+"Strip New Line","Strip New Line"
+"Unique Id Of Array","Unique Id Of Array"
+"Decode Url","Decode Url"
+"Encode Url","Encode Url"
+"If Empty","If Empty"
+"Manage Feeds","Manage Feeds"
+"Add New Feed","Add New Feed"
+"This feed no longer exists.","This feed no longer exists."
+Promotions,Promotions
+"We found updated rules that are not applied. Please click ""Apply Rules"" to update your catalog.","We found updated rules that are not applied. Please click ""Apply Rules"" to update your catalog."
+"Feed Logs","Feed Logs"
+"The Feed has been deleted.","The Feed has been deleted."
+"The Feed to delete was not found.","The Feed to delete was not found."
+Feed,Feed
+"Edit %1 feed","Edit %1 feed"
+"New Feed","New Feed"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the Feed.","Something went wrong while saving the Feed."
+"Something went wrong while deleting for %1.","Something went wrong while deleting for %1."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Something went wrong while generating and uploading %1 feed.","Something went wrong while generating and uploading %1 feed."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"Something went wrong while updating status for %1.","Something went wrong while updating status for %1."
+"The feed has been saved.","The feed has been saved."
+"Please enable Mageplaza_ProductFeed module","Please enable Mageplaza_ProductFeed module"
+"%1 feed has been generated successfully.","%1 feed has been generated successfully."
+"Something went wrong while generating %1 Feed. %2","Something went wrong while generating %1 Feed. %2"
+"%1 feed has been uploaded successfully","%1 feed has been uploaded successfully"
+"Something went wrong while uploading %1 Feed. %2","Something went wrong while uploading %1 Feed. %2"
+"%1 feed generated successful","%1 feed generated successful"
+"%1 feed generated fail","%1 feed generated fail"
+"%1 feed delivery successful","%1 feed delivery successful"
+"%1 feed delivery fail","%1 feed delivery fail"
+"Unable to open SFTP connection as %1@%2","Unable to open SFTP connection as %1@%2"
+"Unable to authenticate with server","Unable to authenticate with server"
+"Generate Successfully","Generate Successfully"
+"Generate Error","Generate Error"
+"Delivery Successfully","Delivery Successfully"
+"Delivery Error","Delivery Error"
+"All Store Views","All Store Views"
+"Preview Products","Preview Products"
+"--Please Select--","--Please Select--"
+"Column Name","Column Name"
+Value,Value
+Add,Add
+"Insert Variable","Insert Variable"
+Insert,Insert
+"Add Modifier","Add Modifier"
+"%store_name sent you a feed generate notify","%store_name sent you a feed generate notify"
+"Store Name: %store_name","Store Name: %store_name"
+"Store Code: %store_code","Store Code: %store_code"
+"Data Feed Activities","Data Feed Activities"
+"This is an automated email send from Mageplaza Product Feed and notice you that activities during generating product feeds","This is an automated email send from Mageplaza Product Feed and notice you that activities during generating product feeds"
+%mes,%mes
+"View Logs","View Logs"
+Loading...,Loading...
+Testing...,Testing...
+"Connection Success","Connection Success"
+"Connection Fail","Connection Fail"
+Attribute,Attribute
+Pattern,Pattern
+"Product Feed","Product Feed"
+Enable,Enable
+"Email Notification","Email Notification"
+"To avoid sending to spam box, you should install <a href=""https://www.mageplaza.com/magento-2-smtp/"" target=""_blank"">SMTP</a>","To avoid sending to spam box, you should install <a href=""https://www.mageplaza.com/magento-2-smtp/"" target=""_blank"">SMTP</a>"
+"Send To","Send To"
+"separate by commas (,)","separate by commas (,)"
+Events,Events
+Feeds,Feeds
+Message,Message
+Delete,Delete
+"Delete Feeds","Delete Feeds"
+"Are you sure you wan't to delete selected Feeds?","Are you sure you wan't to delete selected Feeds?"
+"Generate Feeds","Generate Feeds"
+"Are you sure you wan't to generate selected Feeds? It will take a few minutes","Are you sure you wan't to generate selected Feeds? It will take a few minutes"
+"Change status","Change status"
+Disable,Disable
+Store,Store
+"Latest File","Latest File"
+"Last Generated","Last Generated"
+"Created Date","Created Date"
+Edit,Edit

@@ -1,0 +1,111 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFeed
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+<?php
+/* @var $block \Magento\Backend\Block\Widget\Form\Renderer\Fieldset\Element */
+$element = $block->getElement();
+$note = $element->getNote() ? '<div class="note" style="text-align: right">' . $element->getNote() . '</div>' : '';
+$elementBeforeLabel = $element->getExtType() == 'checkbox' || $element->getExtType() == 'radio';
+$addOn = $element->getBeforeElementHtml() || $element->getAfterElementHtml();
+$fieldId = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+$fieldClass = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+$fieldClass .= ($elementBeforeLabel) ? ' choice' : '';
+$fieldClass .= ($addOn) ? ' with-addon' : '';
+$fieldClass .= ($element->getRequired()) ? ' _required' : '';
+$fieldClass .= ($note) ? ' with-note' : '';
+
+$fieldAttributes = $fieldId . ' class="' . $fieldClass . '" '
+    . $block->getUiId('form-field', $element->getId());
+$modifiersData = $block->getModifier() ? \Mageplaza\ProductFeed\Helper\Data::jsonEncode($block->getModifier()) : '{}';
+$fieldsMap = $block->getFieldsMap() ? $block->getFieldsMap() : '{}';
+?>
+
+<?php if (!$element->getNoDisplay()): ?>
+    <?php if ($element->getType() == 'hidden'): ?>
+        <?php echo $element->getElementHtml() ?>
+    <?php else: ?>
+        <div<?php echo $fieldAttributes ?>>
+            <?php if ($elementBeforeLabel): ?>
+                <?php echo $element->getElementHtml() ?>
+                <?php echo $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <?php echo $note ?>
+            <?php else: ?>
+                <?php echo $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <div class="admin__field-control control">
+                    <a id="insert-variable" class="btn"><?php echo __('Insert Variable') ?></a>
+                    <?php echo ($addOn) ? '<div class="addon">' . $element->getElementHtml() . '</div>' : $element->getElementHtml(); ?>
+                    <?php echo $block->getHintHtml() ?>
+                    <?php echo $note ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+<div id="insert-variable-popup" class="admin__scope-old">
+    <div class="accordion">
+        <div class="entry-edit form-inline">
+            <?php foreach ($block->getEavAttrCollection() as $id => $groupAttr): ?>
+                <div class="section-config">
+                    <div class="entry-edit-head admin__collapsible-block">
+                        <span id="pf_variable_<?= $id ?>-link" class="entry-edit-head-link"></span>
+                        <a id="pf_variable_<?= $id ?>-head" href="#pf_variable_<?= $id ?>-link" onclick="Fieldset.toggleCollapse('pf_variable_<?= $id ?>'); return false;"><?= $groupAttr['label'] ?></a>
+                    </div>
+                    <input id="smtp_provider_<?= $id ?>-state" type="hidden">
+                    <fieldset class="config admin__collapsible-block admin__scope-old" id="pf_variable_<?= $id ?>">
+                        <?php foreach ($groupAttr['values'] as $attr) : ?>
+                            <?php /** @var \Magento\Eav\Model\Entity\Attribute $attr */ ?>
+                            <div class="attr-code" id="<?php echo $attr->getAttributeId() ?>" code="<?php echo $attr->getAttributeCode() ?>">
+                                <div class="row">
+                                    <label class="attr-code-label"><?php echo $attr->getDefaultFrontendLabel() . " ({$attr->getAttributeCode()})"; ?></label>
+                                    <button class="insert"><?= __('Add') ?></button>
+                                    <button class="add-modifier"><?= __('Add Filter') ?></button>
+                                    <label class="liquid-variable">{{ <?php echo 'product.' . $attr->getAttributeCode() ?> }}</label>
+                                </div>
+                                <div class="row-modifier data-table">
+                                    <div class="modifier-group" code="<?php echo $attr->getAttributeCode() ?>"></div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </fieldset>
+                </div>
+                <script type="text/javascript">//<![CDATA[
+                    require(['prototype'], function () {
+                        Fieldset.applyCollapse('pf_variable_<?= $id ?>');
+                    });
+                    //]]>
+                </script>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Mageplaza_ProductFeed/js/feed/initTemplateTab":{
+                "url": "<?php echo $block->getUrl('mpproductfeed/managefeeds/loadtemplate', ['form_key' => $block->getFormKey()]) ?>",
+                "testConnectionUrl" : "<?php echo $block->getUrl('mpproductfeed/managefeeds/testconnection', ['form_key' => $block->getFormKey()]) ?>",
+                "fieldsMap": <?php echo $fieldsMap ?>,
+                "modifiersData": <?php echo $modifiersData ?>,
+                "defaultTemplate": <?php echo $block->getDefaultTemplate() ?>
+            }
+        }
+    }
+</script>
