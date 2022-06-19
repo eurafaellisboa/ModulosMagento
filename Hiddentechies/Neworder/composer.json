@@ -1,0 +1,18 @@
+{
+    "name": "hiddentechies/neworder",
+    "description": "New Order Notification for Magento 2 extension helps admin to start getting notifications regarding new order right away.",
+    "type": "magento2-module",
+    "version": "1.0.2",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Hiddentechies\\Neworder\\": ""
+        }
+    }
+}
