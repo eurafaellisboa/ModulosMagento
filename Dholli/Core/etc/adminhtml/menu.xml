@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Dholi_Core::Menu"
+		     title="dholi"
+		     module="Dholi_Core"
+		     sortOrder="9999"
+		     resource="Magento_Backend::content"/>
+	</menu>
+</config>
