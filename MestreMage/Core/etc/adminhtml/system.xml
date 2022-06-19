@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+<system>
+    <tab id="mestremage" translate="label" sortOrder="700"  class="mestre-magento-tab">
+        <label>Mestre magento</label>
+    </tab>
+     <section id="modulo_core_section" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Suporte/Central de Atendimento</label>
+            <tab>mestremage</tab>
+            <resource>MestreMage_Core::config</resource>
+            <group id="modulo_core_group" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Core</label>
+                <frontend_model>MestreMage\Core\Block\Adminhtml\System\Config\Extensions</frontend_model>
+            </group>
+        </section>
+</system>
+</config>
