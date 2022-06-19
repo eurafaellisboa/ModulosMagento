@@ -1,0 +1,41 @@
+<?php if($block->isActiv()):
+
+$scopeConfig = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\App\Config\ScopeConfigInterface');
+$mask_postcode = $scopeConfig->getValue('completaendereco/geral/mask_postcode', \Magento\Store\Model\ScopeInterface::SCOPE_STORES);
+?>
+
+
+<script>
+    var is_mask_postcode = '<?=$mask_postcode?>';
+    require(['jquery', 'jquery/ui'], function($){
+        $( document ).ready(function() {
+
+            var existCondition2 = setInterval(function () {
+                var postcod = $('input[name*="postcode"]');
+                if (postcod.length) {
+                    clearInterval(existCondition2);
+                    postcod.keyup(function () {
+                        $(this).val(mascaraCep($(this).val()));
+                    });
+                }
+            }, 100);
+
+
+
+            function mascaraCep(v){
+                if(is_mask_postcode != '1'){
+                    return v
+                }
+				if(v.length > 9 ){
+					return v.substring(0,9);
+				}
+                v=v.replace(/\D/g,"");
+                v=v.replace(/^(\d{5})(\d)/,"$1-$2");
+                return v
+            }
+
+        });
+    });
+
+</script>
+<?php endif; ?>

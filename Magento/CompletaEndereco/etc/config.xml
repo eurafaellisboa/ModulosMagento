@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <completaendereco>
+            <completa_endereco>
+                <enabled>0</enabled>
+                <completa_endereco_line1>
+                    <line_enabled>1</line_enabled>
+                    <line_label>Rua</line_label>
+                    <line_required>1</line_required>
+                    <line_validation_classes>max_text_length:255,min_text_length:1</line_validation_classes>
+                </completa_endereco_line1>
+                <completa_endereco_line2>
+                    <line_enabled>0</line_enabled>
+                    <line_label>Número</line_label>
+                    <line_required>0</line_required>
+                    <line_validation_classes>validate-number:1</line_validation_classes>
+                </completa_endereco_line2>
+                <completa_endereco_line3>
+                    <line_enabled>0</line_enabled>
+                    <line_label>Complemento</line_label>
+                    <line_required>0</line_required>
+                    <line_validation_classes>max_text_length:255,min_text_length:1</line_validation_classes>
+                </completa_endereco_line3>
+                <completa_endereco_line4>
+                    <line_enabled>0</line_enabled>
+                    <line_label>Bairro</line_label>
+                    <line_required>0</line_required>
+                    <line_validation_classes>max_text_length:255,min_text_length:1</line_validation_classes>
+                </completa_endereco_line4>
+            </completa_endereco>
+        </completaendereco>
+    </default>
+</config>

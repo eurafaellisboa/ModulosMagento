@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <system>
+        <tab id="digitaria" translate="label" sortOrder="700">
+            <label>Agência Digitaria</label>
+        </tab>
+        <section id="completaendereco" translate="label" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Completa Endereço</label>
+            <tab>digitaria</tab>
+            <resource>Magento_CompletaEndereco::config</resource>
+            <group id="geral" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="log" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log</label>
+                    <comment>Generated in directory [ROOT_MAGENTO]/var/log/</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_address_register" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mostrar campos de endereço</label>
+                    <comment>Adiciona os campos de endereço na pagina de cadastro de cliente</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>                
+                <field id="mask_postcode" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Formatação de CEP</label>
+                    <comment>Formata o campo de CEP para 00000-000 </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="completa_endereco" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="900" translate="label">
+                <label>Address Lines</label>
+                <group id="completa_endereco_line1" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="900" translate="label">
+                    <label>Line 1</label>
+                    <field id="line_label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                        <label>Line 1 Label</label>
+                    </field>
+                    <field id="line_required" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="5" translate="label" type="select">
+                        <label>Line 1 Required</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="line_validation_classes" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
+                        <label>Line 1 Validation</label>
+                    </field>
+                </group>
+                <group id="completa_endereco_line2" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="900" translate="label">
+                    <label>Line 2</label>
+                    <field id="line_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="5" translate="label" type="select">
+                        <label>enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="line_required" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                        <label>Line 2 Required</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="line_label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="15" translate="label" type="text">
+                        <label>Line 2 Label</label>
+                    </field>
+                    <field id="line_validation_classes" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+                        <label>Line 2 Validation</label>
+                    </field>
+                </group>
+                <group id="completa_endereco_line3" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="900" translate="label">
+                    <label>Line 3</label>
+                    <field id="line_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="5" translate="label" type="select">
+                        <label>enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="line_required" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                        <label>Line 3 Required</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="line_label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="15" translate="label" type="text">
+                        <label>Line 3 Label</label>
+                    </field>
+                    <field id="line_validation_classes" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+                        <label>Line 3 Validation</label>
+                    </field>
+                </group>
+                <group id="completa_endereco_line4" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="900" translate="label">
+                    <label>Line 4</label>
+                    <field id="line_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="5" translate="label" type="select">
+                        <label>enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="line_required" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                        <label>Line 4 Required</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="line_label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="15" translate="label" type="text">
+                        <label>Line 4 Label</label>
+                    </field>
+                    <field id="line_validation_classes" showInDefault="1" showInStore="1" showInWebsite="120" sortOrder="20" translate="label" type="text">
+                        <label>Line 4 Validation</label>
+                    </field>
+                </group>
+            </group>
+
+        </section>
+    </system>
+</config>

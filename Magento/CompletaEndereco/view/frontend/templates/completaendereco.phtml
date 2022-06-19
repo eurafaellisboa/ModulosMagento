@@ -1,0 +1,259 @@
+<?php
+/**
+ * @var $block \Magento\CompletaEndereco\Block\CompletaEndereco
+ */
+?>
+
+<?php if($block->isActiv()):
+
+	$scopeConfig = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\App\Config\ScopeConfigInterface');
+	$mask_postcode = $scopeConfig->getValue('completaendereco/geral/mask_postcode', \Magento\Store\Model\ScopeInterface::SCOPE_STORES);
+	?>
+	<style>
+		.field._required label.label:after {
+			content: '*';
+			color: #e02b27;
+			font-size: 1.2rem;
+			margin: 0 0 0 5px;
+		}
+	</style>
+
+	<script>
+		var is_mask_postcode = '<?=$mask_postcode?>';
+		var tipo_formulario = '';
+		require(['jquery', 'jquery/ui'], function($){
+						
+			$( document ).ready(function() {
+				var existCondition = setInterval(function() {
+					var postcod = $('.form-shipping-address [name*="postcode"]:nth-child(1)');
+
+					if(postcod.val()) {
+						pesquisacepIw3(postcod.val());
+					}
+
+					if (postcod.length) {
+						clearInterval(existCondition);
+						postcod.keyup(function(){
+							$(this).val(mascaraCep($(this).val()));
+						});
+
+						postcod.attr('inputmode','numeric');
+						postcod.on('input', function(){
+						if($(this).val().length >= (8 + parseInt(is_mask_postcode))){
+							$('.form-shipping-address [name*="country_id"]').val('BR');
+							tipo_formulario = '.form-shipping-address';
+							pesquisacepIw3(postcod.val());
+							console.log(postcod.val());
+
+							$('.form-shipping-address [name*="country_id"]').trigger('change');
+						}
+						});
+					}
+				}, 100);
+
+				var existCondition2 = setInterval(function() {
+					var postcod = $('.billing-address-form [name*="postcode"]:nth-child(1)');
+					if (postcod.length) {
+						clearInterval(existCondition2);
+						postcod.keyup(function(){
+							$(this).val(mascaraCep($(this).val()));
+						});
+						postcod.change(function(){
+							$('.billing-address-form [name*="country_id"]').val('BR');
+							tipo_formulario = '.billing-address-form';
+							pesquisacepIw3($(this).val());
+
+							console.log($(this).val());
+
+
+							$('.billing-address-form [name*="country_id"]').trigger('change');
+						});
+					}
+				}, 100);
+				
+				var Intervaltel = setInterval(function() {
+					var telephone = $('.form-shipping-address [name*="telephone"]:nth-child(1)');
+					var fax = $('.form-shipping-address [name*="fax"]:nth-child(1)');
+					if (telephone.length) {
+						clearInterval(Intervaltel);
+						telephone.keyup(function(){
+							$(this).val(mascaraTel($(this).val()));
+						});
+						fax.keyup(function(){
+							$(this).val(mascaraTel($(this).val()));
+						});
+					}
+				}, 1000);
+
+			});
+		});
+		function mascaraTel(v){
+			if(v.length > 15 ){
+				return v.substring(0,15);
+			}
+			v=v.replace(/\D/g,"");
+			v=v.replace(/^(\d{2})(\d)/g,"($1) $2");
+			v=v.replace(/(\d)(\d{4})$/,"$1-$2");
+			return v;
+		}
+
+		function mascaraCep(v){
+			if(is_mask_postcode != '1'){
+				return v
+			}
+
+			if(v.length > 9 ){
+				return v.substring(0,9);
+			}
+			v=v.replace(/\D/g,"");
+			v=v.replace(/^(\d{5})(\d)/,"$1-$2");
+			return v
+		}
+		function limpa_formulario_cep() {
+			jQuery(tipo_formulario+' [name*="street[0]"]').val("");
+			jQuery(tipo_formulario+' [name*="street[3]"]').val("");
+			jQuery(tipo_formulario+' [name*="city"]').val("");
+			jQuery(tipo_formulario+' [name*="region_id"]').val("");
+		}
+
+		function retornoApi(conteudo) {
+			if (!("erro" in conteudo)) {
+
+
+				jQuery(tipo_formulario+' [name*="street[0]"]').val(conteudo.logradouro);
+				jQuery(tipo_formulario+' [name*="street[3]"]').val(conteudo.bairro);
+				jQuery(tipo_formulario+' [name*="city"]').val(conteudo.localidade);
+				var region_id = jQuery(tipo_formulario+' [name*="region_id"]');
+
+				if(region_id.attr('type') == 'text'){
+					region_id.val(conteudo.localidade);
+				}else{
+					region_id.val(setUf(conteudo.uf));
+				}
+				jQuery(tipo_formulario+' [name*="street[0]"]').trigger('keyup');
+				jQuery(tipo_formulario+' [name*="street[3]"]').trigger('keyup');
+				jQuery(tipo_formulario+' [name*="city"]').trigger('keyup');
+				jQuery(tipo_formulario+' [name*="region_id"]').trigger('change');
+
+
+				var complemento = jQuery(tipo_formulario+' [name*="street[2]"]');
+				if(!complemento.val()){
+					!complemento.val('...');
+					!complemento.trigger('keyup');
+				}
+
+			}
+			else {
+				limpa_formulario_cep();
+//				alert("CEP não encontrado.");
+			}
+		}
+
+		function pesquisacepIw3(valor) {
+			var cep = valor.replace(/\D/g, '');
+			if (cep != "") {
+				var validacep = /^[0-9]{8}$/;
+				if(validacep.test(cep)) {
+					var script = document.createElement('script');
+					script.src = '//viacep.com.br/ws/'+ cep + '/json/?callback=retornoApi';
+					document.body.appendChild(script);
+
+				}
+				else {
+					limpa_formulario_cep();
+//					alert("Formato de CEP inválido.");
+				}
+			}
+			else {
+				limpa_formulario_cep();
+			}
+
+		};
+		function setUf(uf){
+
+			switch(uf) {
+				case "AC":
+					return "485";
+					break;
+				case "AL":
+					return "486";
+					break;
+				case "AP":
+					return "487";
+					break;
+				case "AM":
+					return "488";
+					break;
+				case "BA":
+					return "489";
+					break;
+				case "CE":
+					return "490";
+					break;
+				case "ES":
+					return "491";
+					break;
+				case "GO":
+					return "492";
+					break;
+				case "MA":
+					return "493";
+					break;
+				case "MT":
+					return "494";
+					break;
+				case "MS":
+					return "495";
+					break;
+				case "MG":
+					return "496";
+					break;
+				case "PA":
+					return "497";
+					break;
+				case "PB":
+					return "498";
+					break;
+				case "PR":
+					return "499";
+					break;
+				case "PE":
+					return "500";
+					break;
+				case "PI":
+					return "501";
+					break;
+				case "RJ":
+					return "502";
+					break;
+				case "RN":
+					return "503";
+					break;
+				case "RS":
+					return "504";
+					break;
+				case "RO":
+					return "505";
+					break;
+				case "RR":
+					return "506";
+					break;
+				case "SC":
+					return "507";
+					break;
+				case "SP":
+					return "508";
+					break;
+				case "SE":
+					return "509";
+					break;
+				case "TO":
+					return "510";
+					break;
+				case "DF":
+					return "511";
+					break;
+			}
+		}
+	</script>
+<?php endif; ?>
