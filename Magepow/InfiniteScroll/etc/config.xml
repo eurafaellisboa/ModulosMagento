@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magepow_infinitescroll>
+            <general>
+                <enabled>1</enabled>
+                <delay>600</delay>
+                <content>.main</content>
+                <pagination>.pages-items</pagination>
+                <next>.next</next>
+                <item>.product-item</item>
+                <loading_image/>
+                <loading_text><![CDATA[<em>Loading - please wait...</em>]]></loading_text>
+                <done_text><![CDATA[<em>You've reached the end of the item.</em>]]></done_text>
+                 <load_more>3</load_more>
+                <load_more_text>Load more items</load_more_text>
+            </general>
+        </magepow_infinitescroll>
+		
+		<dev>
+        <js>
+            <minify_exclude>
+                <magepowinfinitescroll>https://tetigio.com.br/pub/static/frontend/Mgs/molla/pt_BR/magepow/infinitescroll.min.js
+                </magepowinfinitescroll>
+            </minify_exclude>
+        </js>
+    </dev>
+    </default>
+</config>
