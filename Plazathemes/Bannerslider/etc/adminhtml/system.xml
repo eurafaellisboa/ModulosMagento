@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* Copyright © 2015 PlazaThemes.com. All rights reserved.
+
+* @author PlazaThemes Team <contact@plazathemes.com>
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <tab id="plaza" translate="label" sortOrder="100">
+            <label>Plazathemes</label>
+        </tab>
+        <section id="bannerslider" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Banner Slider</label>
+            <tab>plaza</tab>
+            <resource>Plazathemes_Bannerslider::config_bannerslider</resource>
+            <group id="general" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable_frontend" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <comment>Enable frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
