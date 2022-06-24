@@ -1,0 +1,33 @@
+{
+  "name": "mgs/brand",
+  "description": "MGS Brand",
+  "require": {
+		"php": "~5.6.0|7.0.2|~7.0.6",
+		"magento/framework": ">100.0",
+		"magento/module-eav": ">100.0",
+		"magento/module-catalog": ">100.0",
+		"magento/module-ui": ">100.0",
+		"magento/module-configurable-product": ">100.0",
+		"magento/module-bundle": ">100.0"
+	},
+  "type": "magento2-module",
+  "version": "2.0.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "extra": {
+    "map": [
+      [
+        "*",
+        "MGS/Brand"
+      ]
+    ]
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "MGS\\Brand\\": ""
+    }
+  }
+}

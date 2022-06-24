@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<page layout="tm_amp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<update handle="mgsamp_cms_page_view"/>
+	<body>
+		<referenceBlock name="amp.css.theme">
+			<block class="Magento\Framework\View\Element\Template" name="amp.css.homepage" template="MGS_Amp::Magento_Theme/head/css/amp_css_home.phtml"/>
+		</referenceBlock>
+		<referenceContainer name="amp.content">
+			<block class="MGS\Amp\Block\Page\AmpHome" name="amp.home.content" template="MGS_Amp::Magento_Theme/cms_home.phtml"/>
+		</referenceContainer>
+		
+		<referenceBlock name="cms_page" remove="true"/>
+	</body>
+</page>

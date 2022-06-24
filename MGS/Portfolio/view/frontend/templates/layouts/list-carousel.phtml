@@ -1,0 +1,97 @@
+<?php 
+	$portfolios = $block->getPortfolios();
+	$menu = $block->getMenu();
+	$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config'); 
+	$rtl = $themeSettingConfig->getStoreConfig('themesettings/general/rtl_theme') ? 'true' : 'false';
+?>
+<?php if($this->getRequest()->getParam('id')){
+	$checkParam = true;
+	$id_param = $this->getRequest()->getParam('id');
+}else{
+	$checkParam = false;
+}
+?>
+
+<?php if(count($menu)): ?>
+<div class="menu-portfolio mg-bottom-45 text-center">
+    <div class="product-tab-menu">
+       <ul id="tabs_categories_porfolio_carousel" class="menu-product-tabs">
+            <li <?php if(!$checkParam): ?>class="active"<?php endif ?>>
+				<a href="<?php echo $block->getUrl('portfolio'); ?>"><?php echo __('All'); ?></a>
+			</li>
+            
+                <?php foreach($menu as $_menu ): ?>
+                    <li <?php if($checkParam && $id_param == $_menu->getId()): ?>class="active"<?php endif ?>>
+						<a href="<?php echo $block->getUrl('portfolio/' . $_menu->getIdentifier()); ?>"><span><?php echo $_menu->getCategoryName(); ?></span></a>
+					</li>
+                <?php endforeach ?>
+        </ul>
+    </div>
+</div>
+<?php endif ?>
+<div class="portfolio-content">
+	<div class="portfolio-container portfolio-carousel">
+		<?php if(count($portfolios)>0): ?>
+			<div class="line portfolio-grid owl-carousel" id="portfolio-carousel">
+				<?php $i=0; foreach($portfolios as $portfolio): $i++; ?>
+					<div class="item item_all <?php echo $block->getFilterClass($portfolio) ?> port-thumbnail">
+						<?php $thumbnailUrl = $block->getThumbnailSrc($portfolio) ?>
+						<?php $portfolioUrl = $block->getPortfolioAddress($portfolio) ?>
+						<div class="portfolio-top-content">
+							<a class="port-thumbnail-image" style="background-image:url('<?php echo $thumbnailUrl; ?>');"><img src=" <?php echo $thumbnailUrl?>" alt="" class="img-fluid"/></a>
+						</div>
+						<!--
+						<div class="portfolio-bottom-content">
+							<div class="category-link"><?php echo $block->getCategoriesLink($portfolio)?></div>
+							<h4 class="port-title"><a href="<?php echo $portfolioUrl; ?>"><?php echo $portfolio->getName() ?></a></h4>
+						</div>
+						-->
+					</div>
+				<?php endforeach ?>
+			</div>
+			<script>
+				require([
+					'jquery',
+					'mgsowlcarousel'
+				], function($){				
+					$(document).ready(function(){
+						$("#portfolio-carousel").owlCarousel({
+							items: 1,
+							loop: true,
+							nav: true,
+							dots: false,
+							navText: ["<span></span>","<span></span>"],
+							autoplayTimeout: 5000,
+							rtl: <?= $rtl ?>,
+							autoplay: false,
+							autoplayHoverPause: true,
+							margin: 100,
+							autoHeight:false,
+							responsive:{
+								0:{
+									items: 1,
+									nav: false,
+									margin: 10
+								},
+								767:{
+									items: 1,
+									nav: false
+								},
+								992:{
+									items: 1,
+									nav: true						
+								},
+								1200:{
+									margin: 100						
+								}
+							}		
+						});
+					});
+				});		
+			</script>
+		<?php else: ?>
+			<div class="message warning"><?php echo __('There are no portfolios matching the selection.') ?></div>
+		<?php endif ?>
+	</div>
+</div>
+

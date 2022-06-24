@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$_category  = $block->getCurrentCategory();
+?>
+<div class="breadcrumbs">
+    <ul class="items">
+        <li class="item home">
+			<a href="<?php echo $this->getUrl() ?>" title="<?php echo __('Go to Home Page') ?>"><?php echo __('Home') ?></a>
+		</li>
+		<li class="item category<?php echo $_category->getId() ?>"><strong><?php echo $block->escapeHtml($_category->getName()) ?></strong></li>
+    </ul>
+</div>
+

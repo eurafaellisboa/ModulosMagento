@@ -1,0 +1,33 @@
+<?php $category = $this->getCurrentCategory() ?>
+<?php $themeSettingConfig = $this->getThemeSettingConfig() ?>
+<?php $_categories = $category->getChildrenCategories(); ?>
+<?php if(count($_categories)>0): ?>
+<div class="landing-parallax">
+	<ol class="list-subcate">
+		<?php $i =0; foreach ($_categories as $_category): ?>
+			<?php $_category = $block->getCategory($_category->getId()); ?>
+			<?php if ($_category->getIsActive()): ?>
+				<?php $i++; ?>
+				<li class="item" >
+					<div style="background-image: url('<?= $block->getImageUrl($_category->getFbuilderThumbnail()); ?>');" class="image-subcate">
+						<a class="image"  href="<?= $_category->getUrl() ?>" title="<?= $_category->getName() ?>">
+							<img src="<?= $block->getImageUrl($_category->getFbuilderThumbnail()); ?>" alt="<?= $_category->getName() ?>" />
+						</a>
+					</div>
+					<div class="info-subcate">
+						<h3 class="title">
+							<a href="<?= $_category->getUrl() ?>" title="<?= $_category->getName() ?>"><?= $_category->getName() ?></a>
+						</h3>
+						<span class="sub-title">
+							<?= __('%1 Products', $_category->getProductCount());?>
+						</span>
+						
+					</div>
+					
+				</li>
+				
+			<?php endif ?>
+		<?php endforeach ?>
+	</ol>
+</div>
+<?php endif ?>

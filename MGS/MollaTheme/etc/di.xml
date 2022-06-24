@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MGS\ThemeSettings\Helper\Config" type="MGS\MollaTheme\Helper\Config" />
+	<preference for="MGS\ThemeSettings\Helper\Image" type="MGS\MollaTheme\Helper\Image" />
+	<preference for="MGS\Mmegamenu\Block\Vertical" type="MGS\MollaTheme\Block\Vertical" />
+	<preference for="MGS\Mmegamenu\Controller\Adminhtml\Mmegamenu\Save" type="MGS\MollaTheme\Controller\Adminhtml\Mmegamenu\Save" />
+	<preference for="MGS\ThemeSettings\Model\Config\Source\Search" type="MGS\MollaTheme\Model\Config\Source\Search" />
+	<preference for="MGS\ThemeSettings\Model\Config\Source\Position" type="MGS\MollaTheme\Model\Config\Source\Position" />
+	<preference for="MGS\ThemeSettings\Model\Config\Source\Template" type="MGS\MollaTheme\Model\Config\Source\Template" />
+	<preference for="MGS\ExtraGallery\Model\Config\Source\Gallery" type="MGS\MollaTheme\Model\Config\Source\Gallery" />
+	<preference for="MGS\ThemeSettings\Helper\Generate" type="MGS\MollaTheme\Helper\Generate" />
+</config>

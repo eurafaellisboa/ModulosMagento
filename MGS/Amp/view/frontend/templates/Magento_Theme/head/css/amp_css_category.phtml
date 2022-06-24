@@ -1,0 +1,493 @@
+<?php $cssCategory = '
+.category-view-amp {
+	margin-bottom: 40px;
+}
+.category-view-amp .category-description {
+	margin-top: 20px;
+	border: 1px solid #eaeaea;
+	text-align: center;
+	padding: 15px;
+	border-radius: 5px;
+}
+.category-view-amp .category-cms {
+	margin-top: 20px;
+}
+.filter-count-label{display:none}
+'; ?>
+<?php
+// *
+// Pagination 
+// *****
+$_ampPagination = '';
+$cssCategory .= $_ampPagination;
+?>
+<?php
+// *
+// Toolbar 
+// *****
+$_ampToolbar = '
+.toolbar {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+}
+.toolbar .limiter {
+	display:none
+}
+
+.toolbar .toolbar-sorter {
+	border: 1px solid #d7d7d7;
+    padding: 5px 15px;
+    white-space: nowrap;
+    margin-left: auto;
+}
+.toolbar .toolbar-sorter .sorter-label {
+	font-size: 13px;
+	height: 30px;
+	line-height: 30px
+}
+
+.toolbar .sorter-label {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	height: 24px;
+	color: #878787;
+	font-size: 14px;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+}
+.toolbar .sorter-action:before {
+	content: "\f122";
+	font-family: "molla";
+    font-size: 16px;
+    vertical-align: inherit;
+	line-height: 1;
+}
+.toolbar .sorter-action.sort-desc:before {
+	content: "\f11f";
+}
+.toolbar .sorter-action span {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.toolbar .toolbar-amount,
+.toolbar .modes {
+	display: none;
+}
+.toolbar .sort-by-switcher{line-height:30px}
+.toolbar .sort-by-switcher:before {
+    content: "\f122";
+    font-family: "molla";
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: 1;
+}
+.toolbar .sort-by-switcher.sort-desc:before {
+    content: "\f11f";
+}
+.toolbar .sorter-position {
+	position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    margin: 20px 0 0;
+}
+.toolbar .sorter-position .sort-product {
+	display: block;
+    padding: 10px 14px;
+    border-bottom: 1px dotted #eaeaea;
+}
+';
+$cssCategory .= $_ampToolbar;
+?>
+<?php
+// *
+// Top Toolbar 
+// *****
+$_ampTopToolbar = '
+.catalog-top-toolbar {
+	margin-bottom: 20px;
+}
+.catalog-top-toolbar .toolbar .limiter,
+.catalog-top-toolbar .toolbar .pages {
+	display: none;
+}
+.catalog-top-toolbar .action-filter {
+	background: none;
+    border: none;
+    color: #333;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    margin-right: 30px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.catalog-top-toolbar .action-filter span:before {
+	font-family: "molla";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    content: "\f131";
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0px;
+}
+';
+$cssCategory .= $_ampTopToolbar;
+?>
+<?php
+// *
+// Bottom Toolbar 
+// *****
+$_ampBottomToolbar = '
+.bottom-toolbar {
+	margin-top: 30px;
+}
+.bottom-toolbar .action-filter,
+.bottom-toolbar .filter-placeholder,
+.bottom-toolbar .toolbar-sorter {
+	display: none;
+}
+.pages {
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+.pages .pagination {
+    margin: 0 auto;
+    display: table;
+}
+.pages .pagination .item {
+    padding: 0 12px;
+	float: left;
+}
+.pages .pagination .item a {
+    text-align: center;
+    line-height: 38px;
+    color: #5b5b5b;
+    display: block;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.pages .pagination .item.current a {
+    color: #ec0101;
+}
+.toolbar .pages {
+  display: block;
+}
+.toolbar .pages > .pages-label, 
+.pages .label {
+  display: none;
+}
+.toolbar .pages .pages-items {
+  font-weight: 400;
+      text-align: center;
+}
+.toolbar .pages .pages-items .item {
+  text-align: center;
+  display: inline-block;
+}
+.toolbar .pages .pages-items .item .page {
+  min-width: 30px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0 3px;
+  line-height: 40px;
+  color: #706f6c;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  display: inline-block;
+}
+.toolbar .pages .pages-items .item.current strong.page {
+  color: #c96;
+  background-color: transparent;
+  border-color: #ebebeb;
+}
+.toolbar .pages .pages-items .item .action {
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 70px;
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0 3px;
+  line-height: 40px;
+  color: #706f6c;
+  border: 1px solid transparent;
+  display: inline-block;
+}
+.toolbar .pages .pages-items .item .action:before {
+  display: none;
+}
+.toolbar .pages .pages-items .item .action:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  font-family: "molla";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+}
+.toolbar .pages .pages-items .item .action.next > span,
+.toolbar .pages .pages-items .item .action.previous > span {
+  clip: inherit;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  position: static;
+  width: auto;
+}
+.toolbar .pages .pages-items .item .action.next > span.label,
+.toolbar .pages .pages-items .item .action.previous > span.label {
+  display: none;
+}
+.toolbar .pages .pages-items .item .action.next {
+  margin-right: 0;
+  padding-right: 20px;
+}
+.toolbar .pages .pages-items .item .action.next:after {
+  content: "\f274";
+  right: 10px;
+}
+.toolbar .pages .pages-items .item .action.previous {
+  margin-left: 18px;
+  padding-left: 25px;
+  padding-right: 10px;
+}
+.toolbar .pages .pages-items .item .action.previous:after {
+  content: "\f273";
+  left: 5px;
+}
+.toolbar .pages .pages-items .item .action:hover {
+  border: 1px solid #ebebeb;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+';
+$cssCategory .= $_ampBottomToolbar;
+?>
+
+<?php
+// *
+// LayerNavigation
+// *****
+$_ampLayerNavigation = '
+.block-content.filter-content{
+	width:100%;
+	padding: 30px;
+}
+amp-sidebar.block.filter {
+	max-width: calc(100vw - 50px);
+	left: 0;
+	right: 0;
+	height: 100vh;
+	top: 0;
+	bottom: 50px;
+	background: #fff;
+}
+.block.filter .filter-title {
+	color: #565656;
+	font-size: 20px;
+	text-align: right;
+}
+.block.filter .filter-title .close-filter {
+    background-color: transparent;
+    border: none;
+    padding: 10px 15px 0;
+    font-size: 20px;
+}
+.block.filter .filter-title .close-filter:before {
+    content: "\f191";
+    font-family: molla;	
+}
+.filter-options > li {
+    margin: 0 0 50px;
+}
+
+.filter-options > li input[type="checkbox"] {
+	display: none;
+}
+.filter-options-title {
+	display: block;
+    font-size: 18px;
+    color: #333;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+}
+ul.filter-options > li {
+    padding-bottom: 20px;
+    padding-top: 18px;
+    margin: 0;
+    border-bottom: 1px solid #ebebeb;
+}
+.swatch-option-link-layered0,
+.swatch-option-link-layered3 {
+	display: inline-block;
+}
+.swatch-option-link-layered1,
+.swatch-option-link-layered2 {
+	display: inline-block;
+}
+a.swatch-option-link-layered {
+	color: #999;
+}
+.swatch-option-link-layered1 span.swatch-option-link-layered,
+.swatch-option-link-layered2 span.swatch-option-link-layered {
+	color: #222;
+}
+.swatch-option-link-layered0 .swatch-option-link-layered,
+.swatch-option-link-layered3 .swatch-option-link-layered {
+	border: 1px solid #eaeaea;
+    background-color: transparent;
+    color: #bbb;
+    font-size: 14px;
+    line-height: 30px;
+    min-width: 20px;
+    border-radius: 0;
+    padding: 0;
+    width: 38px;
+    height: 30px;
+	display: block;
+    text-align: center;
+	border-radius: 2px;
+}
+.swatch-option-link-layered0 span.swatch-option-link-layered,
+.swatch-option-link-layered3 span.swatch-option-link-layered {
+	border-color: #222;
+	color: #222;
+}
+.filter-options ul.items > .item {
+    font-size: 13px;
+    color: #333;
+    display: block;
+    margin-bottom: 0;
+	position: relative;
+}
+.filter-options ul.items > .item + .item {
+	margin-top: 10px;
+}
+
+.filter-options ul.items > .item > a {
+	color: #333;
+}
+.filter-options ul.items > .item > a .count {
+	position: absolute;
+    right: 10px;
+    top: 0;
+    min-width: 25px;
+    height: 20px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 13px;
+    border-radius: 6px;
+    color: #777;
+    background-color: #f8f8f8;
+    line-height: 20px;
+}
+.swatches-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 0 10px 0 0;
+	display: inline-block;
+}
+.swatches-option--label {
+	display: none;
+}
+.filter-current {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+.filter-current .block-subtitle {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: block;
+    color: #222;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin: 0 0 10px;
+}
+.filter-current .shoppingby-item {
+    margin-right: 20px;
+}
+.action.clear.filter-clear,
+.filter-current .shoppingby-item .state-item {
+    padding: 5px 8px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    color: #222;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    font-size: .875rem;
+    position: relative;
+	display: block;
+}
+.filter-current .shoppingby-item .filter-label {
+	font-weight: 600;
+}
+.filter-current .shoppingby-item .filter-label:after {
+	content: ":";
+}
+.filter-current .shoppingby-item .action.remove:after {
+	font-family: "Pe-icon-7-stroke";
+    font-size: 16px;
+    content: "\e681";
+}
+';
+$cssCategory .= $_ampLayerNavigation;
+?>
+
+<?php /* Custom Style from backend for category pages */ ?>
+<?php $helper = $this->helper('MGS\Amp\Helper\Config') ?>
+<?php if($customStyle = $helper->getStoreConfig('mgs_amp/custom_style/category_style')): ?>
+	<?php $cssCategory .= $customStyle; ?>
+<?php endif ?>
+
+<?= $cssCategory ?>
+
+

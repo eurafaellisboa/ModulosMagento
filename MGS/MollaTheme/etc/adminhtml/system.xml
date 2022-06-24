@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mgs" translate="label" sortOrder="888">
+            <label>Mage Solution</label>
+        </tab>
+        <section id="themesettings" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>MGS Theme Settings</label>
+            <tab>mgs</tab>
+            <resource>MGS_ThemeSettings::themesettings</resource>
+			<group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="heading_color_primary" translate="label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="65">
+                    <label><![CDATA[<span style="display:block; text-align:center">Color Primary</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="color_primary" translate="label comment" type="text" sortOrder="66" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Color Primary</label>
+					<frontend_model>MGS\Fbuilder\Block\Adminhtml\Fields\Color</frontend_model>
+				</field>
+			</group>
+			<group id="header" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="dark_menu_mobile" translate="label comment" type="select" sortOrder="785" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Dark Menu Mobile</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="category" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="product_hover_effect" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Products Hover Effect</label>
+					<source_model>MGS\MollaTheme\Model\Config\Source\Effect</source_model>
+				</field>
+			</group>
+			<group id="product_details" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="category" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Category</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="newsletter_popup" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="img_logo" translate="label comment" type="image" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Image Logo</label>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <backend_model>MGS\ThemeSettings\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">mgs/setting</base_url>
+				</field>
+			</group>
+		</section>
+		<section id="protabs" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+            <label>Product Tabs</label>
+            <tab>mgs</tab>
+            <resource>MGS_Protabs::config_protabs</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            	<field id="type" translate="label comment" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show as accordion</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="position" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show after product information</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="extended" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable extended</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="position">0</field>
+                    </depends>
+                </field>
+            </group>
+		</section>
+		
+		<section id="active_theme" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+			<label>Activate Theme</label>
+			<tab>mgs</tab>
+			<resource>MGS_MollaTheme::config_activetheme</resource>
+			<group id="activate" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+				<label>Activate Theme</label>
+
+				<field id="molla" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Molla Theme</label>
+					<comment><![CDATA[Purchase Code. <a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code-" target="_blank">How to get it ?</a>]]></comment>
+				</field>
+			</group>
+		</section>
+		
+		<section id="fbuilder">
+			<group id="export">
+				<field id="static_line_above" translate="label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none; width:80%"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="import_molla_static" translate="label" type="MGS\MollaTheme\Block\Adminhtml\System\ImportStatic" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Import Molla's Static Blocks]]></label>
+                </field>
+			</group>
+		</section>
+	</system>
+</config>

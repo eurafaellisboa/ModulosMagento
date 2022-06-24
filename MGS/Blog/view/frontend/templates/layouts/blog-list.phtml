@@ -1,0 +1,161 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getCollection();
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+$rtl = $themeSettingConfig->getStoreConfig('themesettings/general/rtl_theme') ? 'true' : 'false';
+?>
+
+<?php if (!count($collection)): ?>
+    <div class="message empty">
+        <div><?= __('Have no posts.') ?></div>
+    </div>
+<?php else: ?>
+    <div class="blog-list blog-post-item">
+		<div class="all-category">
+			<?php $categories = $block->getCategories(); ?>
+			<?php if (count($categories)): ?>
+				<div class="block block-blog-categories">
+					<ul class="block-content">
+						<li>
+							<a class="active" href="<?= $block->getUrl('blog'); ?>">
+								<?= __('All Categories') ?>
+							</a>
+						</li>
+						<?php foreach ($categories as $category): ?>
+							<li>
+								<a title="<?= $category->getTitle(); ?>"
+								   href="<?= $category->getCategoryUrl(); ?>">
+									<?= $category->getTitle(); ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+		</div>
+        <?php foreach ($collection as $post): ?>
+            <div class="blog-post">
+				<div class="post-images">
+                    <?php if ($helper->getGalleryImage($post)): ?>
+						<div class="gallery-image-carousel owl-carousel">
+							<?php foreach($helper->getGalleryImage($post) as $_img): ?>
+								<a class="post-thumbnail--image gallery_image" href="<?= $_img; ?>" 
+									style="background-image: url('<?= $_img; ?>')">
+									<img src="<?= $_img; ?>" alt="" class="img-fluid"/>
+								</a>
+							<?php endforeach ?>
+						</div>
+						<script type="text/javascript">
+							require([
+								'jquery',
+								'mgsowlcarousel'
+								], function($){			
+									$(document).ready(function(){
+										$(".gallery-image-carousel").owlCarousel({
+											items: 10,
+											loop: true,
+											nav: true,
+											dots: false,
+											autoplayTimeout: 5000,
+											rtl: <?= $rtl ?>,,
+											autoplay: true,
+											autoplayHoverPause: true,
+											margin: 0,
+											autoHeight:true,
+											responsive:{
+												0:{
+													items: 1
+												},
+												576:{
+													items: 1
+												},
+												767:{
+													items: 1
+												},
+												992:{
+													items: 1						
+												}
+											}
+										});
+									});  	
+								});		
+							
+							require([
+								'jquery',
+								'magnificPopup'
+							], function(jQuery){
+								(function($) {
+									$(document).ready(function() {
+										$('.gallery-image-carousel').magnificPopup({
+											delegate: '.owl-item:not(.cloned) a',
+											type: 'image',
+											tLoading: 'Loading image #%curr%...',
+											mainClass: 'mfp-img-gallery',
+											fixedContentPos: true,
+											gallery: {
+												enabled: true,
+												navigateByImgClick: true,
+												preload: [0,1]
+											},
+											image: {
+												tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+												titleSrc: function(item) {
+												return item.el.attr('title');
+												}
+											}
+										});
+									});
+								})(jQuery);
+							});
+						</script>
+						<?php else:?> 
+						<?php if($helper->getImageThumbnailPost($post) != ""): ?>
+							<div class="post-thumbnail">
+								<?php if($post->getThumbType() == "video" && $post->getVideoThumbId() != ""): ?>
+									<a class="post-thumbnail--image popup-video" href="<?= $helper->getVideoThumbUrl($post); ?>" title="<?= $post->getTitle(); ?>">
+										<img class="img-fluid" src="<?= $helper->getImageThumbnailPost($post); ?>" alt="<?= $post->getTitle(); ?>"/>
+									</a>
+									<div class="blog-list-video">
+										<?php if($post->getThumbType() == "video" && $post->getVideoThumbId() != ""): ?>
+											<a class="btn btn-primary popup-video" href="<?= $helper->getVideoThumbUrl($post); ?>"></a>
+										<?php endif ?>
+									</div>	
+								<?php else: ?>
+									<a class="post-thumbnail--image" href="<?= $post->getPostUrlWithNoCategory(); ?>" title="<?= $post->getTitle(); ?>">
+										<img class="img-fluid" src="<?= $helper->getImageThumbnailPost($post); ?>" alt="<?= $post->getTitle(); ?>"/>
+									</a>
+								<?php endif ?>
+							</div>
+						<?php endif ?>
+					<?php endif ?>
+				</div>
+				<div class="post-item-info">
+					<h2 class="post-title">
+						 <a class="post-title-link" title="<?= $post->getTitle(); ?>" href="<?= $post->getPostUrlWithNoCategory(); ?>"><?= $post->getTitle(); ?></a>
+					</h2>
+					<div class="post-metas">
+						<div class="meta-date">
+							<span class="color-theme"><?= $post->getUser(); ?></span>
+							<span class="color-date"><?= $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::MEDIUM, false); ?></span>
+						</div>
+					</div>
+					<?php if ($post->getShortContent()): ?>
+						<div class="post-content">
+							<div class="post-short-description">
+								<?= $post->getShortContent(); ?>
+							</div>
+						</div>
+					<?php endif; ?>
+					<div class="post-aux">
+						<a class="btn btn-default btn-readmore" href="<?= $post->getPostUrlWithNoCategory(); ?>"  ><?= __('Read more') ?></a>
+					</div>
+				</div>
+            </div>
+        <?php endforeach; ?>	
+		<div class="bottom-pagination text-center">
+			<div class="toolbar"><?= $block->getPagerHtml(); ?></div>
+		</div>
+    </div>
+    </script>
+<?php endif; ?>
+

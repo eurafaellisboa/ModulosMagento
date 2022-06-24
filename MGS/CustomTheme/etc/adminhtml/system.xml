@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="themesettings" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+			<group id="header" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="img_language" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Display Images Store Language</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			
+			</group>
+			<group id="catalog" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="hover_effect_mb" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Disable Hover Effect on tablet and mobile</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+            </group>
+			
+			<group id="page_title" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="page_title_heading" translate="label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70">
+                    <label><![CDATA[<span style="display:block; text-align:center">Categories Page</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="title_toolbar" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Move Title to Toolbar</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				
+				<field id="breadcrumb_category" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Disable Breadcrumbs</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				
+				<field id="breadcrumb_toolbar" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Move Breadcrumbs to Toolbar</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="breadcrumb_category">0</field>
+                    </depends>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

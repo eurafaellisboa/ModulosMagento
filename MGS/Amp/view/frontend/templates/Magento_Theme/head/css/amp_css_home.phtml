@@ -1,0 +1,5 @@
+<?php /* Custom Style from backend for home page */ ?>
+<?php $helper = $this->helper('MGS\Amp\Helper\Config') ?>
+<?php if($customStyle = $helper->getStoreConfig('mgs_amp/custom_style/home_style')): ?>
+	<?= $customStyle ?>
+<?php endif ?>

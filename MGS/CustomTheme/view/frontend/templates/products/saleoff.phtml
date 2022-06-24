@@ -1,0 +1,41 @@
+<?php $_productCollection = $this->getCollection() ?>
+<?php $themeHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+
+<div class="content-block sale-product-block">
+	<?php // Block Content  ?>
+	<?php if (count($_productCollection)): ?>
+		<?php $_imagehelper = $this->helper('Magento\Catalog\Helper\Image'); ?>
+		<?php $_helper = $this->helper('Magento\Catalog\Helper\Output'); ?>
+		
+		<?php $ratio = $this->getRatio(); ?>
+		<?php $useSlider = $this->getUseSlider(); ?>
+		
+
+		<div class="block widget mgs-products sale-products-grid products-grid">
+			<div class="items line row-4 row-tablet-3 row-mobile-2 ">
+				<?php $i=0; $j=0; foreach ($_productCollection as $_product): $i++; ?>
+
+				<div class="product product-item col">
+					<?php echo $this->getLayout()
+							->createBlock('MGS\Fbuilder\Block\Products\ProductItem')
+							->setProductId($_product->getId())
+							->setThemeHelper($themeHelper)
+							->setImageHelper($_imagehelper)
+							->setCatalogHelperOutput($_helper)
+							->setRatio($ratio)
+							->setTemplate('MGS_Fbuilder::products/grid_item.phtml')
+							->toHtml(); ?>
+									
+				</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+		<div class="bottom-pagination">
+			<div class="toolbar toolbar-products">
+				<?php echo $this->getPagerHtml() ?>
+			</div>
+		</div>
+	<?php else: ?>
+		<div role="alert" class="alert alert-warning"><?php echo __('There are no products matching the selection.') ?></div>
+	<?php endif ?>
+</div>

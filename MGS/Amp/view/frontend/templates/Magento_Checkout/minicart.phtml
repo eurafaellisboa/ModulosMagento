@@ -1,0 +1,67 @@
+<?php 
+	$helper = $this->helper('MGS\Amp\Helper\Config');
+	$width = $helper->getStoreConfig('mgs_amp/catalog/minicart_image_width');
+	$height = $helper->getStoreConfig('mgs_amp/catalog/minicart_image_height');
+?>
+<div class="minicart-wrapper">
+	<button on ="tap:ampminicart.refresh,minicart_sidebar.open,AMP.setState({activeSidebar: true})" class="action showcart">
+		<span class="counter-container">
+			<amp-list id = "amptotalcart" width = "auto" height = "20" layout = "fixed-height" src = "<?php echo $this->getUrl('amp_api/cart/items') ?>">
+				<template type="amp-mustache">
+					<span class="counter qty">{{total_number}}</span>
+				</template>
+			</amp-list>
+		</span>
+	</button>
+	  
+	<amp-sidebar id="minicart_sidebar" class="minicart-sidebar" layout="nodisplay" side="right">
+	  <div class="sidebar-title">
+		  <button on="tap:minicart_sidebar.close,AMP.setState({activeSidebar: false})"></button>
+	  </div>
+	  <amp-list id = "ampminicart" width = "auto" height = "700" layout = "fixed-height" src = "<?php echo $this->getUrl('amp_api/cart/items') ?>">
+	  
+      <template type="amp-mustache">
+		<div id="cart">
+			{{^is_empty}}
+			<div class="minicart-items-wrapper">
+				<ol class="minicart-items">
+					{{#cart_items}}
+						<li class="item product product-item">
+							<div class="product-item-details">
+								<h4>{{name}}</h4>
+								<span class="product-item-pricing">{{price}}</span>
+							</div>
+							<div class="product-item-photo">
+								<form id="form-cart-delete" method="POST" target="_top" action-xhr="<?php echo $this->getUrl('amp_api/cart/remove') ?>"
+									on="submit-success: ampminicart.refresh,amptotalcart.refresh" novalidate>
+									<input type="hidden" name="item_id" value="{{item_id}}"/> 
+									<button type="submit" class="btn-remove"></button>
+								</form>
+								<amp-img width = "<?php echo $width ?>" height = "<?php echo $height ?>" alt = "{{name}}" src = "{{image_url}}" layout="responsive"></amp-img>
+							</div>
+						</li>
+					{{/cart_items}}
+				</ol>
+			</div>
+			<div class="subtotal"><span class="label"><?php echo __('Total: ') ?> {{grand_total}}</span></div>
+			<div class="actions">
+				<div class="secondary">
+					<a class="action btn btn-default btn-full viewcart" href="<?php echo $this->getUrl('checkout/cart', ['_secure' => true]);?>">
+						<span><?php echo __('Go To Cart') ?></span>
+					</a>
+				</div>
+				<div class="primary">
+					<a class="action btn btn-primary btn-full checkout" href="<?php echo $this->getUrl('checkout', ['_secure' => true]);?>">
+						<span><?php echo __('Check Out') ?></span>
+					</a>
+				</div>
+			</div>
+			{{/is_empty}}
+		    {{^cart_items}}
+				<div class="empty">Your cart is empty!</div>
+		    {{/cart_items}}
+		</div>
+	  </template>
+      </amp-list>
+	</amp-sidebar>
+</div>

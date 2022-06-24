@@ -1,0 +1,34 @@
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $labels = explode(',', $this->getAccordionLabel()) ?>
+<?php $content =  explode(',', $this->getAccordionContent()) ?>
+<?php $blockId = rand() . time(); ?>
+<?php $class = '' ?>
+<?php if($this->getAccordionIcon()!=''): ?>
+	<?php $class .= ' accordion-title-'.$this->getAccordionIcon() ?>
+<?php endif ?>
+<?php if($this->getIconPosition()!=''): ?>
+	<?php $class .= ' accordion-icon-'.$this->getIconPosition() ?>
+<?php endif ?>
+
+
+	<div class="content-block accordion-block">
+		<?php if(count($labels)>0): ?>
+			<div id="fbuilder-accordion-<?php echo $blockId ?>" class="accordion mgs-accordion <?php echo $class ?>">
+				<amp-accordion disable-session-states animate class="accordion product-accordion">
+					<?php $i=0; foreach($labels as $key=>$label): $i++ ?>
+					
+						<section<?php if($i==1): ?> expanded<?php endif ?>>
+					
+							<h4 class="accordion-header" <?php if($i==1): ?> aria-expanded="true"<?php endif ?>><?php echo $builderHelper->decodeHtmlTag($label) ?></h4>
+							<div class="accordion-content">
+								<?php if(isset($content[$key])): ?><?php echo nl2br($builderHelper->decodeHtmlTag($content[$key])) ?><?php endif ?>
+							</div>
+							
+						</section>
+					<?php endforeach ?>
+				</amp-accordion>
+			</div>
+		<?php else: ?>
+			<div class="message info empty"><div><?php echo __('Have no accodion content to show.') ?></div></div>
+		<?php endif ?>
+	</div>

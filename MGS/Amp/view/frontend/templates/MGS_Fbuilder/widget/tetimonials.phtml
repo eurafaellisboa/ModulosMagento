@@ -1,0 +1,51 @@
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $testimonials = $this->getCollection() ?>
+<div class="content-block testimonial-block">
+	<?php if ($testimonials->getSize()>0): ?>
+		<?php $blockId = rand() . time(); ?>
+		<?php $useSlider = $this->getUseSlider(); ?>
+
+		<div class="block widget mgs-testimonial">
+			<div id="testimonial-<?php echo $blockId; ?>" class="items ">
+		
+			<?php if($useSlider): ?>
+				<amp-carousel class="testimonial-carousel" height="270" width="300" layout="responsive" type="slides" autoplay delay="5000">
+			<?php endif ?>
+		
+				<?php $i=0; $j=0; foreach ($testimonials as $_testimonial): $i++; ?>					
+					
+						<div class="testimonial-item">
+							<div class="testimonial-content">
+								<?php if(!$this->getHidePhoto()): ?>
+									<div class="author-thumbnail">							
+										<amp-img width="100" height="100" layout="responsive" alt="avatar" src="<?php echo $this->getAvatarUrl($_testimonial->getAvatar()) ?>"></amp-img>
+									</div>
+								<?php endif ?>
+								<div class="content">
+									<blockquote<?php if($this->getContentItalic()):?> class="font-italic"<?php endif ?>><?php echo $_testimonial->getContent() ?></blockquote>
+									<?php if(!$this->getHideName() || !$this->getHideInfo()): ?>
+										<div class="author-info">
+											<?php if(!$this->getHideName()): ?>
+												<div class="name"><?php echo $_testimonial->getName() ?></div>
+											<?php endif ?>
+											<?php if(!$this->getHideInfo() && ($_testimonial->getInformation()!='')): ?>
+												<div class="infomation"><?php echo $_testimonial->getInformation() ?></div>
+											<?php endif ?>
+										</div>
+									<?php endif ?>
+									
+								</div>
+							</div>
+						</div>
+					
+				<?php endforeach; ?>
+			<?php if($useSlider): ?>
+				</amp-carousel>
+			<?php endif ?>
+			</div>
+		</div>
+
+	<?php else: ?>
+		<div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find testimonial matching the selection.') ?></div></div>
+	<?php endif ?>
+</div>

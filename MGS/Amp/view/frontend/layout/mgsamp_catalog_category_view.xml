@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<page layout="tm_amp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="head.additional">
+			<block class="MGS\Amp\Block\Page\Head\AmpCategory" name="amp.metatags" template="MGS_Amp::Magento_Theme/head/amp_metatags.phtml"/>
+			<block class="MGS\Amp\Block\Page\Head\Json\Category" name="amp.json" template="MGS_Amp::Magento_Theme/head/amp_json.phtml"/>
+		</referenceBlock>
+		
+		<referenceBlock name="amp.css.theme">
+			<block class="Magento\Framework\View\Element\Template" name="amp.css.category" template="MGS_Amp::Magento_Theme/head/css/amp_css_category.phtml"/>
+		</referenceBlock>
+		
+		<referenceContainer name="amp.page.top">
+			<block class="Magento\Catalog\Block\Category\View" name="amp.breadcrumbs" template="MGS_Amp::Magento_Theme/html/breadcrumbs/category.phtml"/>
+		</referenceContainer>
+
+		<referenceContainer name="amp.content">
+			<container name="category.view.container" htmlTag="div" htmlClass="category-view-amp">
+                <block class="Magento\Catalog\Block\Category\View" name="amp.category.image" template="MGS_Amp::Magento_Catalog/category/image.phtml"/>
+                <block class="Magento\Catalog\Block\Category\View" name="amp.category.description" template="MGS_Amp::Magento_Catalog/category/description.phtml"/>
+                <block class="Magento\Catalog\Block\Category\View" name="amp.category.cms" template="MGS_Amp::Magento_Catalog/category/cms.phtml"/>
+            </container>
+			<block class="MGS\Amp\Block\Catalog\View" name="category.products" template="MGS_Amp::Magento_Catalog/category/products.phtml" after="amp.category-view">
+				<block class="Magento\Catalog\Block\Product\ListProduct" name="category.products.list" as="amp_product_list" template="MGS_Amp::Magento_Catalog/product/list.phtml">
+					<block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="amp_product_list_toolbar" template="MGS_Amp::Magento_Catalog/product/list/toolbar.phtml">
+						<block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+					</block>
+					<action method="setToolbarBlockName">
+						<argument name="name" xsi:type="string">amp_product_list_toolbar</argument>
+					</action>
+					<action method="setListOrders"/>
+					<action method="setListCollection"/>
+				</block>
+			</block>
+		</referenceContainer>
+	</body>
+</page>

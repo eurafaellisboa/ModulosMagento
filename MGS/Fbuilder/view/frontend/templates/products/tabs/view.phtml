@@ -1,0 +1,68 @@
+<?php $tabs = $this->getTabs() ?>
+<?php $labels = $this->getLabels() ?>
+
+<div class="content-block mgs-product-tab">
+	<?php $blockId = rand() . time(); ?>
+	<?php $useAjax = $this->getUseAjax(); ?>
+	<?php $items = $perRowDefault = $this->getPerrow(); ?>
+	<?php $perRowTablet = $this->getPerrowTablet(); ?>
+	<?php $perRowMobile = $this->getPerrowMobile(); ?>
+
+	<?php $extraClass = 'tab-'.$this->getTabStyle().' tab-align-'.$this->getTabAlign() ?>
+	<?php if($this->getTabFontBold()): ?>
+		<?php $extraClass .= ' tab-font-bold' ?>
+	<?php endif ?>
+	<?php if($this->getTabItalic()): ?>
+		<?php $extraClass .= ' tab-italic' ?>
+	<?php endif ?>
+	<?php if($this->getTabUppercase()): ?>
+		<?php $extraClass .= ' tab-uppercase' ?>
+	<?php endif ?>
+	
+	<div class="product data items mgs-tab <?php echo $extraClass?>" data-mage-init='{"tabs":{"openedState":"active"}}'>
+		<?php $k=0; foreach($tabs as $key=>$tab): $k++ ?>
+			<div class="data item title item<?php echo $k ?><?php if(count($tabs)==$k): ?> last-item<?php endif ?><?php if($useAjax && $k==1): ?> tab-title-ajax<?php endif ?>" data-role="collapsible" id="tab-label-<?php echo $tab.$blockId ?>">
+				<a class="data switch" tabindex="-1" data-toggle="switch" href="#<?php echo $tab.$blockId ?>" id="tab-label-<?php echo $tab.$blockId ?>-title"<?php if($useAjax): ?> onclick="getAjaxProductCollection('', '<?php echo $tab ?>', '<?php echo $this->getCategoryIds() ?>', '<?php echo $this->getLimit() ?>','<?php echo $blockId ?>', '<?php echo $this->getUseSlider() ?>', '<?php echo $perRowDefault ?>', '<?php echo $perRowTablet ?>', '<?php echo $perRowMobile ?>', '<?php echo $this->getNumberRow() ?>', '<?php echo $this->getSlideBy() ?>', '<?php echo $this->getHideName() ?>', '<?php echo $this->getHideReview() ?>', '<?php echo $this->getHidePrice() ?>', '<?php echo $this->getHideAddcart() ?>', '<?php echo $this->getHideAddwishlist() ?>', '<?php echo $this->getHideAddcompare() ?>','<?php echo $this->getAutoplay() ?>','<?php echo $this->getStopAuto() ?>','<?php echo $this->getNavigation() ?>','<?php echo $this->getPagination() ?>','<?php echo $this->getLoop() ?>', '<?php echo $this->getHideNav() ?>', '<?php echo $this->getNavTop()?>', '<?php echo $this->getNavigationPosition()?>', '<?php echo $this->getPaginationPosition()?>', '<?php echo $this->getRtl()?>', '<?php echo $this->getSlideMargin()?>',0, '')"<?php endif ?>>
+					<?php echo $labels[$key]; ?>
+				</a>
+			</div>
+			<div class="data item content" id="<?php echo $tab.$blockId ?>" data-role="content"<?php if($k!=1): ?> style="display:none"<?php endif ?>>
+				<?php 
+					switch ($tab){
+						case "mgs_new_products_tabs":
+							$blockClass = 'MGS\Fbuilder\Block\Products\NewProducts';
+							$type = 'new';
+							$attribute = NULL;
+							break;
+						case "mgs_sale_products_tabs":
+							$blockClass = 'MGS\Fbuilder\Block\Products\Sale';
+							$type = 'sale';
+							$attribute = NULL;
+							break;
+						case "mgs_rate_products_tabs":
+							$blockClass = 'MGS\Fbuilder\Block\Products\Rate';
+							$type = 'rate';
+							$attribute = NULL;
+							break;
+						default:
+							$blockClass = 'MGS\Fbuilder\Block\Products\Attributes';
+							$type = $attribute = $tab;
+							break;
+					}
+					
+					$html = $this->getLayout()
+						->createBlock($blockClass)
+						->setData($this->getData())
+						->setAttribute($attribute)
+						->setTabAttribute($attribute)
+						->setTabType($type)
+						->setTemplate('MGS_Fbuilder::products/tabs/items.phtml')
+						->toHtml();
+					if(!$useAjax){
+						echo $html;
+					}
+				?>
+			</div>
+		<?php endforeach ?>
+	</div>
+</div>

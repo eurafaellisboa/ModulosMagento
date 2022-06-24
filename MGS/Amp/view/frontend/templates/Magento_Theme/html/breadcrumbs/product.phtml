@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$_product  = $block->getProduct();
+?>
+<div class="breadcrumbs">
+    <ul class="items">
+        <li class="item home">
+			<a href="<?php echo $this->getUrl() ?>" title="<?php echo __('Go to Home Page') ?>"><?php echo __('Home') ?></a>
+		</li>
+		<li class="item product<?php echo $_product->getId() ?>"><strong><?php echo $block->escapeHtml($_product->getName()) ?></strong></li>
+    </ul>
+</div>
+

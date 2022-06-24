@@ -1,0 +1,16 @@
+<?php
+$helper = $this->helper('MGS\Guestwishlist\Helper\Data');
+/** @var $block \Magento\Wishlist\Block\Cart\Item\Renderer\Actions\MoveToWishlist */
+$item = $block->getItem();
+$dataPost = [
+    'action' => $block->getUrl('guestwishlist/index/fromcart'),
+    'data' => ['id' => $item->getId()]
+];
+?>
+<?php if ($helper->isAllowInCart() && $block->isProductVisibleInSiteVisibility()): ?>
+    <a href="#"
+       data-post='<?php /* @escapeNotVerified */ echo json_encode($dataPost); ?>'
+       class="action action-towishlist">
+        <span><?php /* @escapeNotVerified */ echo __('Move to Wishlist'); ?></span>
+    </a>
+<?php endif ?>

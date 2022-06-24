@@ -1,0 +1,35 @@
+<?php $megaMenu = $this->getMegamenuItems(); ?>
+<?php $helper = $this->helper('MGS\Mmegamenu\Helper\Data') ?>
+<?php if((count($megaMenu)>0) || $helper->getStoreConfig('megamenu/general/home')):?>
+<div class="navigation-megamenu">
+	<nav class="navigation">
+		<ul id="mainMenu" class="megamenu-mainmenu">
+			<?php if($helper->getStoreConfig('megamenu/general/home')): ?>
+				<li class="level0 mega-menu-item<?php if($this->isHomePage()): ?> active<?php endif ?>">
+					<a href="<?php echo $this->getUrl() ?>" class="level0">
+						<?php echo $helper->getStoreConfig('megamenu/general/hometext') ?>
+					</a>
+				</li>
+			<?php endif ?>
+			<?php if(count($megaMenu)>0): ?>
+				<?php $i=0; foreach($megaMenu as $item): $i++ ?>
+					<li class="<?php echo $this->getClass($item) ?>">
+						<?php echo $this->getMenuHtml($item) ?>
+					</li>
+				<?php endforeach ?>
+			<?php endif ?>
+		</ul>
+	</nav>
+</div>
+<script type="text/javascript">
+	require([
+		'jquery'
+	], function(jQuery){
+		(function($) {
+			$(".nav-responsive").click(function(){
+				$(".navigation").toggleClass('nav-active');
+			});
+		})(jQuery);
+	});
+</script>
+<?php endif ?>

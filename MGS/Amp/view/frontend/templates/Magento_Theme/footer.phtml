@@ -1,0 +1,46 @@
+<?php $_configHelper = $this->helper('MGS\Amp\Helper\Config'); ?>
+<?php $accordion = $_configHelper->getStoreConfig('mgs_amp/footer/accordion') ?>
+<?php $staticBlock1 = $_configHelper->getStoreConfig('mgs_amp/footer/static_block1') ?>
+<?php $staticBlock2 = $_configHelper->getStoreConfig('mgs_amp/footer/static_block2') ?>
+<?php $staticBlock3 = $_configHelper->getStoreConfig('mgs_amp/footer/static_block3') ?>
+<?php $staticBlock4 = $_configHelper->getStoreConfig('mgs_amp/footer/static_block4') ?>
+<footer class="footer">
+	<div class="middle-footer">
+		<div class="container">
+			<?php if($staticBlock1!=''): ?>
+				<div class="footer-block1">
+					<?= $_configHelper->convertHtmlForAmp($this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($staticBlock1)->toHtml()); ?>
+				</div>
+			<?php endif ?>
+			
+			<?php if($accordion): ?>
+				<amp-accordion disable-session-states animate class="accordion footer-accordion">
+			<?php endif ?>
+			
+			<?php for($i=2; $i<=4; $i++): ?>
+				<?php if($_configHelper->getStoreConfig('mgs_amp/footer/static_block'.$i) != ''): ?>
+					<?php if($accordion): ?>
+						<section>
+					<?php else: ?>
+						<div class="footer-block<?php echo $i ?>">
+					<?php endif ?>
+					
+						<?= $_configHelper->convertHtmlForAmp($this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($_configHelper->getStoreConfig('mgs_amp/footer/static_block'.$i))->toHtml()); ?>
+					<?php if($accordion): ?>
+						</section>
+					<?php else: ?>
+						</div>
+					<?php endif ?>
+				<?php endif ?>
+			<?php endfor ?>
+			<?php if($accordion): ?>
+				</amp-accordion>
+			<?php endif ?>
+		</div>
+	</div>
+	<div class="bottom-footer">
+		<div class="container">
+			<?= $block->getChildHtml('amp.copyright') ?>
+		</div>
+	</div>
+</footer>

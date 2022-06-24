@@ -1,0 +1,18 @@
+<div class="container-fluid">
+	<div class="conts-header">
+		<div class="left-header">
+			<div class="megamenu_action mobile">
+				<button class="megamenu_action_mb" on="tap:site_menu.open,AMP.setState({activeSidebar: true})" type="button">
+					<span class="icon-menu icon-bars"></span>
+				</button>
+			</div>
+			<div class="logo">
+				<?= $block->getChildHtml('amp.logo') ?>
+			</div>
+		</div>
+		<div class="mobile-item-col">
+			<?= $block->getChildHtml('amp.minicart') ?>
+			<?= $block->getChildHtml('amp.top.search') ?>
+		</div>
+	</div>
+</div>

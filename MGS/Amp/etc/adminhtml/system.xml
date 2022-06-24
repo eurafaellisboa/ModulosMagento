@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mgs" translate="label" sortOrder="68">
+            <label>Mage Solution</label>
+        </tab>
+        <section id="mgs_amp" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Accelerated Mobile Page</label>
+            <tab>mgs</tab>
+            <resource>MGS_Amp::config_mgs_amp</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="pages" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled AMP On</label>
+                    <source_model>MGS\Amp\Model\System\Config\Source\Page</source_model>
+                </field>
+				<field id="cms_home_mobile" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>CMS Page For AMP Home</label>
+					<source_model>Magento\Cms\Model\Config\Source\Page</source_model>
+				</field>
+				<!--field id="amp_mobile" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use AMP Content for Mobile</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field-->
+            </group>
+			
+			<group id="header" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header</label>
+                <field id="static_block" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static block Identifier</label>
+					<comment>Blank for disable</comment>
+                </field>
+			</group>
+			
+			<group id="footer" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer</label>
+				<field id="accordion" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use Accordion</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="static_block1" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>First static block Identifier</label>
+					<comment>Blank for disable</comment>
+                </field>
+				<field id="static_block2" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Second static block Identifier</label>
+					<comment>Blank for disable</comment>
+                </field>
+				<field id="static_block3" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Third static block Identifier</label>
+					<comment>Blank for disable</comment>
+                </field>
+				<field id="static_block4" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fourth static block Identifier</label>
+					<comment>Blank for disable</comment>
+                </field>
+			</group>
+			
+			<group id="catalog" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Image Dimention</label>
+				<field id="general" translate="label" sortOrder="1" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">General</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="product_image_width" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product image width</label>
+					<validate>required-entry validate-number</validate>
+                </field>
+				<field id="product_image_height" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product image height</label>
+					<validate>required-entry validate-number</validate>
+                </field>
+				<field id="general_line" translate="label" sortOrder="21" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="details" translate="label" sortOrder="22" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">Product Details</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="details_image_width" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product image width</label>
+					<validate>required-entry validate-number</validate>
+                </field>
+				<field id="details_image_height" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product image height</label>
+					<validate>required-entry validate-number</validate>
+                </field>
+				<field id="details_line" translate="label" sortOrder="41" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="minicart" translate="label" sortOrder="42" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">Mini Cart</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="minicart_image_width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product image width</label>
+					<validate>required-entry validate-number</validate>
+                </field>
+				<field id="minicart_image_height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product image height</label>
+					<validate>required-entry validate-number</validate>
+                </field>
+            </group>
+			
+			<group id="custom_style" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom style</label>
+				<field id="default_font" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Font Family</label>
+					<frontend_model>MGS\ThemeSettings\Block\Adminhtml\Fields\Fonts</frontend_model>
+					<source_model>MGS\ThemeSettings\Model\Config\Source\Fonts</source_model>
+				</field>
+				<field id="default_font_size" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Font Size</label>
+					<comment>eg: 12px</comment>
+				</field>
+				
+				<field id="all_line" translate="label" sortOrder="21" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="allpage" translate="label" sortOrder="22" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">Custom Style for all pages</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="allpage_style" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Style</label>
+				</field>
+				
+				<field id="home_line" translate="label" sortOrder="31" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="homepage" translate="label" sortOrder="32" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">Custom Style for home page</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="home_style" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Style</label>
+				</field>
+				
+				<field id="cms_line" translate="label" sortOrder="41" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="cmspage" translate="label" sortOrder="42" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">Custom Style for cms pages</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="cms_style" translate="label comment" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Style</label>
+				</field>
+				
+				<field id="category_line" translate="label" sortOrder="51" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="categorypage" translate="label" sortOrder="52" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">Custom Style for category pages</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="category_style" translate="label comment" type="textarea" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Style</label>
+				</field>
+				
+				<field id="product_line" translate="label" sortOrder="61" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<hr style="border:1px solid #ddd; border-bottom:none"/>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="productpage" translate="label" sortOrder="62" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label><![CDATA[<span style="margin-right:80px; display:block; text-align:center">Custom Style for product pages</span>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				
+				<field id="product_style" translate="label comment" type="textarea" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Style</label>
+				</field>
+            </group>
+        </section>
+    </system>
+</config>

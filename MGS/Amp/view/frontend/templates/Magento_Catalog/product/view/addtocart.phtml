@@ -1,0 +1,53 @@
+<?php
+    /** @var $block \Magento\Catalog\Block\Product\View */
+    $_product = $block->getProduct();
+?>
+
+<div class="form-productAddToCart-error-message snackbar-msg">
+	<div submit-error="">
+		<template type="amp-mustache">
+			<p class="msg error">{{error}}</p>
+		</template>
+	</div>
+</div>
+<amp-lightbox id="lightboxMessage<?php echo $_product->getId() ?>" layout="nodisplay" class="product-alert">
+	<div class="lightbox" role="button" tabindex="0" on="tap:lightboxMessage<?php echo $_product->getId() ?>.close">
+		<div submit-success>
+			<template type="amp-mustache">
+				{{^error}}
+				<div class="message success">
+					{{success}}
+				</div>
+				{{/error}}
+				{{^success}}
+				<div class="message error">
+					{{error}}
+				</div>
+				{{/success}}
+				
+			</template>
+		</div>
+	</div>
+</amp-lightbox>
+<?php if ($_product->isSaleable()): ?>
+	<div class="box-tocart">
+		<?php if ($block->shouldRenderQuantity()): ?>
+			<div class="field qty">
+				<input type="number"
+				   name="qty"
+				   id="qty"
+				   maxlength="12"
+				   value="<?= $block->getProductDefaultQty() * 1 ?>"
+				   title="<?= __('Qty') ?>" class="input-text qty"
+				   />
+			   </div>
+		<?php endif; ?>
+		<div class="actions">
+			<button on="tap:AMP.setState({prampGlobal: {form: {productId: '<?= $_product->getId() ?>'}}}),product_addtocart_form.submit" 
+					class="button btn-cart" 
+					[class]="(prampGlobal.form.productId == <?= $_product->getId() ?>) ? 'button btn-cart loading' : 'button btn-cart'">
+						<?= __('Add to Cart') ?>
+			</button>
+		</div>
+	</div>
+<?php endif; ?>

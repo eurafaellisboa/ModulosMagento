@@ -1,0 +1,17 @@
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+<?php if ($block->canShowBlock()): ?>
+	<?php $swatchesHelper = $this->helper('MGS\Amp\Helper\Swatches'); ?>
+	<?php foreach ($block->getFilters() as $key => $filter): ?>
+		<?php if ($filter->getItemsCount() && $filter->hasAttributeModel()): ?>
+			<?php if ($swatchesHelper->isSwatchAttribute($filter->getAttributeModel())): ?>
+				<?= $this->getLayout()->createBlock('Magento\Swatches\Block\LayeredNavigation\RenderLayered')->setAmptype('amp_css')->setSwatchFilter($filter)->toHtml(); ?>
+			<?php endif ?>
+		<?php endif; ?>
+	<?php endforeach; ?>
+<?php endif; ?>

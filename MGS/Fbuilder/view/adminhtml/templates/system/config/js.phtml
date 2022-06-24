@@ -1,0 +1,72 @@
+<script type="text/javascript">
+	require([
+		'jquery'
+	], function(jQuery){
+		(function($) {
+			$.fn.mColorPicker.defaults.imageFolder="<?php echo $this->getViewFileUrl('MGS_Fbuilder::images') ?>/";
+		})(jQuery);
+	});
+	
+	function exportPage(url){
+		require([
+			'jquery'
+		], function(jQuery){
+			(function($) {
+				if($('#fbuilder_export_page_id').length){
+					var page_id = $('#fbuilder_export_page_id').val();
+					if(page_id!=''){
+						$('#fbuilder_export_page_id').removeClass('required-entry');
+						$('#fbuilder_export_page_id').removeClass('mage-error');
+						url += '?page_id='+page_id;
+						setLocation(url);
+						return;
+					}else{
+						$('#fbuilder_export_page_id').addClass('required-entry mage-error');
+					}
+				}
+			})(jQuery);
+		});
+	}
+	
+	function importPage(url){
+		require([
+			'jquery'
+		], function(jQuery){
+			(function($) {
+				if($('#fbuilder_import_page_id').length){
+					var page_id = $('#fbuilder_import_page_id').val();
+					if(page_id!=''){
+						$('#import-text').hide();
+						$('#wait-text').show();
+						$('#fbuilder_import_page_id').removeClass('required-entry');
+						$('#fbuilder_import_page_id').removeClass('mage-error');
+						
+						var formData = new FormData();
+						formData.append('file', $('#fbuilder_import_file')[0].files[0]);
+						console.log(formData);
+						$.ajax({
+							url:url+'?page_id='+page_id+'&form_key='+FORM_KEY,
+							type: "POST",
+							data: formData,
+							contentType: false,
+							cache: false,
+							processData:false,
+							success: function(data){
+								var result = jQuery.parseJSON(data);
+								if(result.result=='success'){
+									location.reload();
+								}else{
+									alert(result.result);
+								}
+							}
+						});
+						
+						return;
+					}else{
+						$('#fbuilder_import_page_id').addClass('required-entry mage-error');
+					}
+				}
+			})(jQuery);
+		});
+	}
+</script>

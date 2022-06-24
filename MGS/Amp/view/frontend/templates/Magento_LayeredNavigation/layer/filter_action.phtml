@@ -1,0 +1,10 @@
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+<?php if ($block->canShowBlock()): ?>
+	<button on="tap:catalog_filter.open,AMP.setState({activeSidebar: true})" class="action-filter"><span>Filter</span></button>
+<?php endif; ?>

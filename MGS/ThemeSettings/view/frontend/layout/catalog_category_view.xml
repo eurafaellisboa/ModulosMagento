@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="script.sharethis" template="MGS_ThemeSettings::html/sharethis/script.phtml" ifconfig="themesettings/sharethis/share_category"/>
+        </referenceBlock>
+		
+		<referenceContainer name="columns.top">
+            <container name="themesetting.sharethis" htmlTag="div" htmlClass="share-this-container">
+                <block class="Magento\Framework\View\Element\Template" name="sharethis.html" template="MGS_ThemeSettings::html/sharethis/html.phtml" ifconfig="themesettings/sharethis/share_category"/>
+            </container>
+        </referenceContainer>
+		
+        <referenceContainer name="content">
+			
+		</referenceContainer>
+		<referenceContainer name="page.bottom.container">
+
+		</referenceContainer>
+
+		<referenceBlock name="category.products">
+			<action method="setTemplate">
+				<argument name="template" xsi:type="string">MGS_ThemeSettings::category/products.phtml</argument>
+			</action>
+		</referenceBlock>
+		<referenceBlock name="category.image" remove="true"/>
+    </body>
+</page>

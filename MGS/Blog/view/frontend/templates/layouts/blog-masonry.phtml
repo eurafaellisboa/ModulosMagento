@@ -1,0 +1,164 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getCollection();
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+$rtl = $themeSettingConfig->getStoreConfig('themesettings/general/rtl_theme') ? 'true' : 'false';
+?>
+
+<?php if (!count($collection)): ?>
+    <div class="message empty">
+        <div><?= __('Have no posts.') ?></div>
+    </div>
+<?php else: ?>
+    <div class="blog-masonry blog-post-item">
+        <?php foreach ($collection as $post): ?>
+            <div class="blog-post-masonry col-des-4 col-tb-6 col-mb-12">
+            	<div class="masonry-content-post">
+            		<div class="post-images">
+	                    <?php if ($helper->getGalleryImage($post)): ?>
+							<div class="gallery-image-carousel owl-carousel">
+								<?php foreach($helper->getGalleryImage($post) as $_img): ?>
+									<a class="post-thumbnail--image gallery_image" href="<?= $_img; ?>" 
+										style="background-image: url('<?= $_img; ?>')">
+										<img src="<?= $_img; ?>" alt="" class="img-fluid"/>
+									</a>
+								<?php endforeach ?>
+							</div>
+							<script type="text/javascript">
+								require([
+									'jquery',
+									'mgsowlcarousel'
+									], function($){			
+										$(document).ready(function(){
+											$(".gallery-image-carousel").owlCarousel({
+												items: 10,
+												loop: true,
+												nav: false,
+												dots: true,
+												autoplayTimeout: 5000,
+												autoplay: true,
+												autoplayHoverPause: true,
+												margin: 0,
+												autoHeight:true,
+												responsive:{
+													0:{
+														items: 1
+													},
+													576:{
+														items: 1
+													},
+													767:{
+														items: 1
+													},
+													992:{
+														items: 1						
+													}
+												}
+											});
+										});  	
+									});		
+								
+								require([
+									'jquery',
+									'magnificPopup'
+								], function(jQuery){
+									(function($) {
+										$(document).ready(function() {
+											$('.gallery-image-carousel').magnificPopup({
+												delegate: '.owl-item:not(.cloned) a',
+												type: 'image',
+												tLoading: 'Loading image #%curr%...',
+												mainClass: 'mfp-img-gallery',
+												fixedContentPos: true,
+												gallery: {
+													enabled: true,
+													navigateByImgClick: true,
+													preload: [0,1]
+												},
+												image: {
+													tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+													titleSrc: function(item) {
+													return item.el.attr('title');
+													}
+												}
+											});
+										});
+									})(jQuery);
+								});
+							</script>
+							<?php else:?> 
+							<?php if($helper->getImageThumbnailPost($post) != ""): ?>
+								<div class="post-thumbnail">
+									<?php if($post->getThumbType() == "video" && $post->getVideoThumbId() != ""): ?>
+										<a class="post-thumbnail--image popup-video" href="<?= $helper->getVideoThumbUrl($post); ?>" title="<?= $post->getTitle(); ?>">
+											<img class="img-fluid" src="<?= $helper->getImageThumbnailPost($post); ?>" alt="<?= $post->getTitle(); ?>"/>
+										</a>
+										<div class="blog-list-video">
+											<?php if($post->getThumbType() == "video" && $post->getVideoThumbId() != ""): ?>
+												<a class="popup-video" href="<?= $helper->getVideoThumbUrl($post); ?>"><i class="icon icon-play32"></i></a>
+											<?php endif ?>
+										</div>
+										<div class="post-create-date">
+	                                        <?= __('<span>%1</span><br><span class="date"> %2</span>', date('d', strtotime($post->getCreatedAt())), date('M', strtotime($post->getCreatedAt()))) ?>
+	                                    </div>
+<!-- 										</div> -->
+									<?php else: ?>
+										<a class="post-thumbnail--image" href="<?= $post->getPostUrlWithNoCategory(); ?>" title="<?= $post->getTitle(); ?>">
+											<img class="img-fluid" src="<?= $helper->getImageThumbnailPost($post); ?>" alt="<?= $post->getTitle(); ?>"/>
+										</a>
+									<?php endif ?>
+								</div>
+							<?php endif ?>
+						<?php endif ?>
+						<div class="post-create-date">
+                            <?= __('<span>%1</span></br><span class="date"> %2</span>', date('d', strtotime($post->getCreatedAt())), date('M', strtotime($post->getCreatedAt()))) ?>
+                        </div>
+					</div>
+					<div class="post-item-info">
+						<div class="short-detail">
+	                        <div class="post-user"><span><?= $post->getUser(); ?></span></div>
+							<div class="title">
+								<h5><a href="<?= $post->getPostUrlWithNoCategory(); ?>" title="<?= $post->getTitle(); ?>"><?= $post->getTitle() ?> </a></h5>
+							</div>
+						</div>
+					</div>
+            	</div>		
+            </div>
+        <?php endforeach; ?>		
+    </div>
+    <div class="bottom-pagination text-center">
+		<div class="toolbar"><?= $block->getPagerHtml(); ?></div>
+	</div>
+    </script>
+<?php endif; ?>
+
+<script type="text/javascript">
+	requirejs([ 
+		'require', 
+		'jquery', 
+		'mgsmasonry',
+		'mgsvisible'
+	], function( require, $, Masonry) {
+		require( [ 'bridget' ], function( jQueryBridget ) {
+			jQueryBridget( 'masonry', Masonry, $ );
+			$('.blog-masonry').masonry({
+				itemSelector: '.blog-post-masonry',
+				columnWidth: '.blog-post-masonry',
+				horizontalOrder: true
+			});
+			
+			setTimeout(function(){ $('.blog-masonry').addClass('masonry-done'); }, 500);
+		});
+		
+		$(window).scroll(function(){
+			$(".blog-masonry > .blog-post-masonry").each(function(){
+				if($(this).visible(true,true,'vertical')) {
+					$(this).addClass('enable');
+				}else {
+					$(this).removeClass('enable');
+				}
+			});
+		});
+	});
+</script>
+

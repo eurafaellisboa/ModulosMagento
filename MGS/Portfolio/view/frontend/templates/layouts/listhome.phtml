@@ -1,0 +1,115 @@
+<?php 
+	$portfolios = $block->getPortfolios();
+	$test = $block->getCategoriesNew();
+	$menu = $block->getMenu();
+	$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config'); 
+	$rtl = $themeSettingConfig->getStoreConfig('themesettings/general/rtl_theme') ? 'true' : 'false';
+	
+			
+
+?>
+<?php if($this->getRequest()->getParam('id')){
+	$checkParam = true;
+	$id_param = $this->getRequest()->getParam('id');
+}else{
+	$checkParam = false;
+}
+
+$_links = $test;
+foreach ($_links as $object) {
+	//echo '<pre>';
+    //var_dump($object->debug());
+	//echo '</pre>';
+	$array = [$object['category_id']];
+				$numbers = array_unique($array); 
+				rsort($numbers); 
+				//echo 'Highest is -'.$numbers[0];
+}
+?>
+
+<div class="portfolio-content">
+	<div class="portfolio-container portfolio-carousel">
+		<?php if(count($portfolios)>0): 
+
+		?>
+			<div class="line portfolio-grid owl-carousel" id="portfolio-carousel">
+				<?php $starter = 0;$i=0; foreach($portfolios as $portfolio): $i++;?>
+					<?php 
+				$Cliente = $portfolio->getClient();
+		
+				
+				$array = [$block->getCategoryId($portfolio)];
+				$numbers = array_unique($array); 
+				rsort($numbers); 
+				//echo 'Highest is -'.$numbers[0];
+				
+				if ($Cliente == "Home"): 
+				
+				//echo $block->getCategoryId($portfolio);
+
+				?>
+					<div class="item item_all <?php echo $block->getFilterClass($portfolio) ?> port-thumbnail">
+						<?php $thumbnailUrl = $block->getThumbnailSrc($portfolio) ?>
+						<?php $portfolioUrl = $block->getPortfolioAddress($portfolio) ?>
+						<div class="portfolio-top-content">
+							<a class="port-thumbnail-image" style="background-image:url('<?php echo $thumbnailUrl; ?>');" href="portfolio/<?php echo $block->getCategoriesLinkNew($portfolio); ?>"><img src=" <?php echo $thumbnailUrl?>" alt="" class="img-fluid" /></a>
+						</div>
+						
+						<!--
+						<div class="portfolio-bottom-content">
+							<div class="category-link"><?php echo $block->getCategoriesLink($portfolio); ?></div>
+							<h4 class="port-title"><a href="<?php echo $block->getCategoriesLink($portfolio); ?>"><?php echo $portfolio->getName() ?></a></h4>
+						</div>
+						-->
+						
+					</div>
+				<?php endif;?>
+				<?php endforeach ?>
+			</div>
+			<script>
+				require([
+					'jquery',
+					'mgsowlcarousel'
+				], function($){				
+					$(document).ready(function(){
+						$("#portfolio-carousel").owlCarousel({
+							items: 5,
+							loop: true,
+							nav: true,
+							dots: false,
+							navText: ["<span></span>","<span></span>"],
+							autoplayTimeout: 5000,
+							//rtl: <?= $rtl ?>,
+							autoplay: true,
+							autoplayHoverPause: true,
+							margin: 100,
+							autoHeight:false,
+							responsive:{
+								0:{
+									items: 1,
+									nav: false,
+									margin: 10
+								},
+								767:{
+									items: 3,
+									nav: false
+								},
+								992:{
+									items: 5,
+									nav: true						
+								},
+								1200:{
+									margin: 100						
+								}
+							}		
+						});
+					});
+				});		
+			</script>
+		
+		<?php else: ?>
+			<div class="message warning"><?php echo __('There are no portfolios matching the selection.') ?></div>
+		<?php endif ?>
+	</div>
+</div>
+

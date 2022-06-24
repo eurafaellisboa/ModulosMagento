@@ -1,0 +1,92 @@
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\ListProduct
+ */
+?>
+<?php
+    $_productCollection = $block->getLoadedProductCollection();
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
+    $image = 'amp_category_page_grid';
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+?>
+<?php $themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config'); ?>
+<?php $themeHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $_configAmpHelper = $this->helper('MGS\Amp\Helper\Configurable'); ?>
+<?php if (!$_productCollection->count()): ?>
+    <div class="message info empty"><div><?= __('We can\'t find products matching the selection.') ?></div></div>
+<?php else: ?>
+    <div class="catalog-top-toolbar">
+        <?= $block->getToolbarHtml() ?>
+        <?= $block->getAdditionalHtml() ?>        
+    </div>
+
+    <div class="products wrapper grid products-grid">
+        <ol class="products list items product-items">
+            <?php foreach ($_productCollection as $_product): ?>
+                <li class="item product product-item">
+					<div class="product-item-info">
+						<?php echo $themeSettingConfig->getProductLabel($_product); ?>
+						<a href="<?= $_product->getProductUrl() ?>?amp=1" class="product photo product-item-photo">
+							<?= $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->setProduct($_product)->setTemplate('MGS_Amp::Magento_Catalog/product/image.phtml')->toHtml(); ?>
+						</a>
+						<div class="product details product-item-details">
+							<?php $_productNameStripped = $block->stripTags($_product->getName(), null, true); ?>
+							<strong class="product name product-item-name">
+								<a class="product-item-link"
+								   href="<?= $_product->getProductUrl() ?>?amp=1">
+									<?= $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+								</a>
+							</strong>
+							
+							<?= $block->getProductPrice($_product) ?>
+							
+							<div class="product actions product-item-actions">
+								<?php if($_product->isSaleable() && (($_product->getTypeId()=='simple' && !$_product->getTypeInstance()->hasOptions($_product)) || ($_product->getTypeId()=='configurable'))): ?>
+									<div class="product-add-form">
+										<form custom-validation-reporting="show-all-on-submit" action-xhr="<?php /* @escapeNotVerified */ echo str_replace('http:', '',$block->getUrl('amp_api/cart/add')) ?>" method="post"
+											  id="product_addtocart_form<?php echo $_product->getId() ?>"
+											  on="submit-success:ampminicart.refresh,amptotalcart.refresh,lightboxMessage<?php echo $_product->getId() ?>">
+											<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+											<?php echo $_configAmpHelper->getAmpJsonOption($_product, '') ?>
+
+											<amp-lightbox id="lightboxMessage<?php echo $_product->getId() ?>" layout="nodisplay" class="product-alert">
+												<div class="lightbox" role="button" tabindex="0" on="tap:lightboxMessage<?php echo $_product->getId() ?>.close">
+													<div submit-success>
+														<template type="amp-mustache">
+															{{^error}}
+															<div class="message success">
+																{{success}}
+															</div>
+															{{/error}}
+															{{^success}}
+															<div class="message error">
+																{{error}}
+															</div>
+															{{/success}}
+															
+														</template>
+													</div>
+												</div>
+											</amp-lightbox>
+											  
+											<button class="button btn-cart action tocart" type="submit"><span><?= __('Add to Cart'); ?></span></button>
+										</form>
+									</div>
+								<?php else: ?>
+									<div class="actions-primary">
+										<a href="<?= $_product->getProductUrl() ?>" class="action tocart"><span><?= __('View Detail'); ?></span></a>
+									</div>
+								<?php endif ?>
+							</div>
+						</div>
+					</div>
+               </li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+    <div class="bottom-toolbar">
+        <?= $block->getToolbarHtml() ?>
+    </div>
+<?php endif; ?>

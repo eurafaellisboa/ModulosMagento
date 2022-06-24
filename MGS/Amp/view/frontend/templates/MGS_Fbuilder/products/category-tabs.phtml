@@ -1,0 +1,100 @@
+<?php 
+	use MGS\AjaxCart\Helper\Data;
+?>
+<?php $attribute = NULL ?>
+<?php if($this->getData('attribute')!=''): ?>
+	<?php $attribute = $this->getData('attribute') ?>
+<?php endif ?>
+<?php $categories = $this->getCategoryByIds() ?>
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $blockType = $this->getData('block_type'); ?>
+<?php $template = 'MGS_Amp::MGS_Fbuilder/products/grid_item.phtml'; ?>
+<?php $themeHelper = $this->helper('MGS\Amp\Helper\Setting'); ?>
+<?php 
+$mode = $this->getMode(); 
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+$rtl = $themeSettingConfig->getStoreConfig('themesettings/general/rtl_theme') ? 'true' : 'false';
+$masonryLayout = $mode == 'masonry.phtml' ? true : false;
+?>
+
+<?php if($blockType=='deals'): ?>
+	<?php $template = 'MGS_Amp::MGS_Fbuilder/products/deals/grid_item.phtml'; ?>
+<?php endif ?>
+<?php if($masonryLayout): ?>
+	<?php $template = 'MGS_Amp::MGS_Fbuilder/products/masonry_item.phtml'; ?>
+<?php endif ?>
+
+<div class="content-block <?php if($masonryLayout): ?> masonry<?php endif ?> mgs-product-tab <?= $blockType ?>-product-cat-block <?= $blockType ?>-product-cat-tab-block">
+	<?php if(count($categories)>0): ?>
+		<?php $blockId = rand() . time(); ?>
+		<?php $useSlider = $this->getUseSlider(); ?>
+		 
+		<?php $extraClass = 'tab-'.$this->getTabStyle().' tab-align-'.$this->getTabAlign() ?>
+		<?php if($this->getTabFontBold()): ?>
+			<?php $extraClass .= ' tab-font-bold' ?>
+		<?php endif ?>
+		<?php if($this->getTabItalic()): ?>
+			<?php $extraClass .= ' tab-italic' ?>
+		<?php endif ?>
+		<?php if($this->getTabUppercase()): ?>
+			<?php $extraClass .= ' tab-uppercase' ?>
+		<?php endif ?>
+	
+		<div class="product data items mgs-tab <?= $extraClass?>" >
+			<amp-accordion disable-session-states animate class="accordion product-accordion">
+				<?php $i=0; foreach($categories as $category): $i++ ?>
+					<section<?php if($i==1): ?> expanded<?php endif ?>>
+						<h3 class="accordion-header" <?php if($i==1): ?> aria-expanded="true"<?php endif ?>><?= $category->getName(); ?></h3>
+						<?php $_productCollection = $this->getProductCollection($category, $attribute); ?>
+						<?php if ($_productCollection->getSize()>0): ?>
+							<?php if($useSlider): ?>
+								<div class="clear-owl-carousel">
+									<amp-carousel class="product-carousel" <?php echo $themeHelper->getAmpCarouselSetting($this->getData()) ?>>
+										<?php $i=0; foreach ($_productCollection as $_product): $i++ ?>
+											<?php if($i % 2 == 1): ?>
+											<div class="products list product-items">
+											<?php endif ?>
+											<div class="product-item">
+												<?php echo $this->getLayout()
+														->createBlock('MGS\Fbuilder\Block\Products\ProductItem')
+														->setLoadProduct($_product)
+														->setBlockData($this->getData())
+														->setTemplate('MGS_Amp::MGS_Fbuilder/products/grid_item.phtml')
+														->toHtml(); ?>	
+
+											</div>
+											<?php if($i % 2 == 0 || $i == count($_productCollection)): ?>
+											</div>
+											<?php endif ?>
+										<?php endforeach; ?>
+									</amp-carousel>
+								</div>
+							<?php else: ?>
+								<div class="block widget products list product-items">
+									<div class="items">
+										<?php $i=0; $j=0; foreach ($_productCollection as $_product): $i++; ?>
+
+											<div class="product product-item">
+												<?php echo $this->getLayout()
+														->createBlock('MGS\Fbuilder\Block\Products\ProductItem')
+														->setLoadProduct($_product)
+														->setBlockData($this->getData())
+														->setTemplate('MGS_Amp::MGS_Fbuilder/products/grid_item.phtml')
+														->toHtml(); ?>	
+											</div>
+										<?php endforeach; ?>
+									</div>
+								</div>
+							<?php endif ?>
+						<?php endif ?>
+					</section>
+			
+			
+				<?php endforeach ?>
+			</amp-accordion>
+		</div>
+	<?php else: ?>
+		<div class="message info empty"><div><?= /* @escapeNotVerified */ __('There are no categories matching the selection.') ?></div></div>
+	<?php endif ?>
+</div>
+

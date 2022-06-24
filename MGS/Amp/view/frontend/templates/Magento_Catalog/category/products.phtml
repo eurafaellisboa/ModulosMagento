@@ -1,0 +1,14 @@
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+
+$this->getCurrentCategory()->setData('is_anchor', true);
+?>
+
+<?php if (!$block->isContentMode()): ?>
+    <?php echo $block->getChildHtml('amp_product_list'); ?>
+<?php endif; ?>
+

@@ -1,0 +1,67 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+?>
+<?php
+$cartSummary = $block->getCartSummary();
+$cartSummaryText = $cartSummary == 1 ? __('item') : __('items');
+?>
+<script>
+	function setLocation(url) {
+		window.location.href = url;
+	}
+</script>
+<div class="ajax_cart-popup popup__columns">
+	<?php echo $block->getChildHtml('product_image') ?>
+	<div class="ajax_header">
+		<span><?php echo __('1 Item added to your cart'); ?></span>
+		<div class="action-close popup__action-close"><span class="pe-7s-close"></span></div>
+	</div>
+	<div class="popup__column">
+		<div class="popup__table">
+			<div class="popup__table-col">
+				<div class="popup__column--result">
+					<div class="product-confirm-detail">
+						<div class="product-confirm-name"><?php echo $this->getProductName() ?></div>
+						<div class="product-confirm-qty"><span class="title"><?php echo __('Quantity') ?></span><span class="value"><?php echo $this->getProductQty() ?></span></div>
+						<div class="product-confirm-subtotal"><span class="title"><?php echo $block->escapeHtml(__('Cart Subtotal')) ?></span><span class="value"><?php /* @noEscape */ echo $block->getCartSubtotal() ?></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ajax_footer">
+		<div class="actions">
+			<button type="button" class="btn btn-primary popup__action-close btn-close"><?= __('Continue Shopping'); ?></a>
+				<?php if ($block->getIsCart()) : ?>
+					<button class="btn btn-default" type="button" onclick="setLocation('<?= $block->getUrl('checkout/cart') ?>');"><?= $block->escapeHtml(__('Sacola')) ?></button>
+				<?php endif ?>
+		</div>
+	</div>
+	<script>
+		require(["jquery"], function($) {
+			jQuery(document).ready(function() {
+				jQuery('.popup__action-close').click(function() {
+					jQuery('.success-ajax--popup .action-close').trigger('click');
+				});
+
+				jQuery('.popup__result-view-cart').click(function() {
+					var url_cart_update = '<?php echo $this->getUrl('ajaxcart/index/updatecart') ?>';
+					jQuery.ajax({
+						url: url_cart_update,
+						method: "POST"
+					});
+					window.location.href = jQuery(this).attr('data-href');
+				})
+				jQuery('.popup__action-redirect--checkout').click(function() {
+					var url_cart_update = '<?php echo $this->getUrl('ajaxcart/index/updatecart') ?>';
+					jQuery.ajax({
+						url: url_cart_update,
+						method: "POST"
+					});
+					window.location.href = jQuery(this).attr('data-href');
+				})
+			});
+
+		});
+	</script>
+</div>

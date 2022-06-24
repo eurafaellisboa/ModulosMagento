@@ -1,0 +1,4 @@
+<?php $_ampHelper = $this->helper('MGS\Amp\Helper\Config'); ?>
+<div class="bottom-static">
+	<?php echo $_ampHelper->convertHtmlForAmp($this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('mpanel_product_detail_bottom_block')->toHtml()) ?>
+</div>

@@ -1,0 +1,55 @@
+<?php $cssMenuSidebar = '
+    .site_menu[side=left] {
+        width: 100%;
+    }
+    .amp-menu {
+        clear: both;
+    }
+    .amp-menu h6,
+    .amp-menu a {
+        padding: 10px;
+        display: block;
+        border-right: none;
+        border-left: none;
+        position: relative;
+    }
+    .amp-menu ul h6,
+    .amp-menu ul a:first-child {
+        border-top: none;
+    }
+    .amp-menu ul.level0 h6,
+    .amp-menu ul.level0 a{
+        padding-left: 20px;
+    }
+    .amp-menu ul.level1 h6,
+    .amp-menu ul.level1 a{
+        padding-left: 40px;
+    }
+    .amp-menu ul.level2 h6,
+    .amp-menu ul.level2 a{
+        padding-left: 45px;
+    }
+    .amp-menu ul.level3 h6,
+    .amp-menu ul.level3 a{
+        padding-left: 55px;
+    }
+    .amp-menu h6:after {
+        content: "+";
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 41px;
+        height: 41px;
+        line-height: 41px;
+        text-align: center;
+        top: 0;
+    }
+    .amp-menu h6[aria-expanded="true"]:after {
+        content: "-";
+    }
+
+';
+?>
+<?= $cssMenuSidebar ?>
+
+

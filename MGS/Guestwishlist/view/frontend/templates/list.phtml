@@ -1,0 +1,92 @@
+<?php
+$helper = $this->helper('MGS\Guestwishlist\Helper\Data');
+if($this->getWishlistParam()){
+	$items = $helper->getWishlistItemCollection(NULL,$this->getWishlistParam());
+}else {
+	$items = $helper->getWishlistItemCollection();
+}
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+
+$image = 'wishlist_thumbnail';
+?>
+
+<div id="guest_wishlist_list" class="guest_wishlist_list products wrapper wishlist grid products-grid">
+    <?php $iterator = 1; ?>
+    <?php if (count($items)): ?>
+		<form class="form-wishlist-items" id="wishlist-view-form" action="<?= $this->getUrl('guestwishlist/index/updateall'); ?>" method="post" novalidate="novalidate">
+			<input type="hidden" id="guest_status" name="guest_status" value="1">
+            <ol class="product-items row row-wrapper row-4">
+                <?php foreach ($items as $item): ?>
+                    <?php
+                    $_product = $item['product'];
+                    $productUrl = $_product->getUrlModel()->getUrl($_product, []);
+                    ?>
+                    <li class="product-wishlist-items item product product-item  col">
+						
+						<div class="product-item-info" data-container="product-grid">
+							<div class="product-item-image">
+								<?php $productImage = $_imagehelper->init($_product, $image)->getUrl(); ?>
+								<a href="<?= $block->escapeUrl($productUrl) ?>" class="product photo product-item-photo" style="background-image: url(<?= $productImage ?>)" tabindex="-1">
+									<img style="position: static;" src="<?= $productImage ?>" alt="<?= $block->stripTags($_product->getName(), null, true); ?>" class="img-fluid product-image-photo"/>
+								</a>
+								<button class="action remove" href="javascript:void(0);" data-action="remove-from-wishlist" data-url='<?= $helper->getDeleteItemParams($item, $_product, $block->stripTags($_product->getName(), null, true)) ?>'><span class="ti-trash"></span></button>
+							</div>
+							<div class="product details product-item-details">
+								<h5 class="product name product-item-name">
+									<a class="product-item-link" href="<?= $block->escapeUrl($productUrl) ?>"><?= $block->stripTags($_product->getName(), null, true); ?></a>
+								</h5>	
+								<div class="product-buy_info">
+									<div class="price-box price-configured_price">
+										<p class="price-as-configured">
+											<span class="price-container price-configured_price tax weee">
+												<span data-price-type="finalPrice" class="price-wrapper ">
+													<span class="price"><?= $helper->formatPrice($_product->getFinalPrice()) ?></span>
+												</span>
+											</span>
+										</p>
+									</div>
+									<div class="box-tocart">
+										<div class="qty">
+											<div class="control">
+												<button type="button"  class="minus"></button>
+												<input type="number" data-role="qty" id="qty[<?= $_product->getId() ?>]" class="input-text qty" data-validate="{'required-number':true,'validate-greater-than-zero':true}" name="qty[<?= $_product->getId() ?>]" value="<?= $item['qty'] ?>">
+												<button type="button"  class="plus"></button>
+											</div>
+										</div>
+										<?php if ($_product->isSaleable()): ?>
+											<div class="product-item-actions">
+												<div class="actions-primary">
+													<button type="button" data-role="tocart" data-post='<?= $item['data_post'] ?>' title="<?= __('Add to Cart') ?>" data-item-id="<?= $item['item_id'] ?>" class="action primary">
+														<?= __('Add to Cart') ?>
+													</button>
+												</div>
+											</div>
+										<?php endif ?>
+									</div>
+									<input type="hidden" id="item_id[<?= $_product->getId() ?>]" class="input-text qty" name="item_id[<?= $_product->getId() ?>]" value="<?= $item['item_id'] ?>">
+									
+									<textarea id="product-item-comment-<?= $_product->getId() ?>" placeholder="Comment" name="description[<?= $_product->getId() ?>]" title="Comment" class="product-item-comment"><?= $item['description'] ?></textarea>
+									
+								</div>
+							</div>
+							<?php if (isset($item['wishlist_options'])): ?>
+								<div class="product-item-tooltip">
+									<?= $item['wishlist_options']; ?>
+								</div>
+							<?php endif; ?>
+						</div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+			<div class="actions-toolbar">
+				<button id="update_all_wishlist" type="submit" title="Update Wish List" class="action update">
+					<span>Update Wish List</span>
+				</button>
+			</div>
+		</form>
+    <?php else: ?>
+        <div class="message info empty">
+            <span><?= $block->escapeHtml(__('This Wish List has no Items')) ?></span>
+        </div>
+    <?php endif; ?>
+</div>

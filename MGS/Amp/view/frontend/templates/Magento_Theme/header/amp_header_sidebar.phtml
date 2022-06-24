@@ -1,0 +1,10 @@
+<?php
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+$blockEnable = explode(",",$themeSettingConfig->getStoreConfig('themesettings/header/elements'));
+?>
+<amp-sidebar id="site_menu" class="site_menu" layout="nodisplay" side="left">
+	<button on='tap:site_menu.close' class="close-menu-site"><span class="icon-close"></span></button>
+    <?= $block->getChildHtml('amp.catalog.topnav') ?>
+</amp-sidebar>
+
+<button on='tap:site_menu.close,catalog_filter.close,minicart_sidebar.close,AMP.setState({activeSidebar: false})' class="close-menu-site close-sidebar"></button>

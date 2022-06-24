@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /* @var $block \Magento\Catalog\Block\Product\View\Options\Type\Text */ ?>
+<?php
+$_option = $block->getOption();
+$class = ($_option->getIsRequire()) ? ' required' : '';
+?>
+
+<div class="field<?php if ($_option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_AREA) {
+    echo ' textarea';
+} ?><?= /* @escapeNotVerified */ $class ?>">
+    <label class="label" for="options_<?= /* @escapeNotVerified */ $_option->getId() ?>_text">
+        <span><?= $block->escapeHtml($_option->getTitle()) ?></span>
+        <?= /* @escapeNotVerified */ $block->getFormattedPrice() ?>
+    </label>
+
+    <div class="control">
+        <?php if ($_option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_FIELD): ?>
+            <input type="text" id="options_<?= /* @escapeNotVerified */ $_option->getId() ?>_text" class="input-text product-custom-option" name="options[<?= /* @escapeNotVerified */ $_option->getId() ?>]" value="<?= $block->escapeHtml($block->getDefaultValue()) ?>"<?php if($_option->getMaxCharacters()): ?> maxlength="<?php echo $_option->getMaxCharacters() ?>"<?php endif ?><?php if($_option->getIsRequire()): ?> required=""<?php endif ?> />
+        <?php elseif ($_option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_AREA): ?>
+            
+            <textarea id="options_<?= /* @escapeNotVerified */ $_option->getId() ?>_text"
+                      class="product-custom-option" 
+                      name="options[<?= /* @escapeNotVerified */ $_option->getId() ?>]" 
+                      rows="5"
+                      cols="25"<?php if($_option->getMaxCharacters()): ?> maxlength="<?php echo $_option->getMaxCharacters() ?>"<?php endif ?> <?php if($_option->getIsRequire()): ?> required=""<?php endif ?>><?= $block->escapeHtml($block->getDefaultValue()) ?></textarea>
+        <?php endif; ?>
+        <?php if ($_option->getMaxCharacters()): ?>
+            <p class="note note_<?= /* @escapeNotVerified */ $_option->getId() ?>">
+                <?= /* @escapeNotVerified */ __('Maximum %1 characters', $_option->getMaxCharacters()) ?>
+                <span class="character-counter no-display"></span>
+            </p>
+        <?php endif; ?>
+    </div>
+
+</div>

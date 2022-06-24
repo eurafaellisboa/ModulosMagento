@@ -1,0 +1,97 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$post = $block->getCurrentPost();
+?>
+<?php if ($this->getConfig('comment_settings/enabled')): ?>
+    <div class="post-comments">
+		<?php if($post->getCommentCount() > 0): ?>
+			<div class="title-comment-content text-center">
+				<span class="title-cmt"><?= __('Comments') ?></span>
+			</div>
+		<?php endif ?>
+        <?= $block->getChildHtml('post_view_comment_list'); ?>
+        <?php if ($this->getConfig('comment_settings/login_required')): ?>
+            <?php if ($helper->checkLoggedIn()): ?>
+                <form class="form post-comment"
+                      action="<?= $this->getUrl('blog/post/comment'); ?>"
+                      id="post-comment-form"
+                      method="post"
+                      data-hasrequired="<?= __('* Required Fields') ?>"
+                      data-mage-init='{"validation":{}}'>
+                    <fieldset class="fieldset">
+                        <div class="title-leave-content text-center">
+							<span class="title-cmt"><?= __('Leave A Reply');?></span>
+						</div>
+						<div class="content-comment">
+							<div class="mg-bottom-30 comment required">
+								<div class="control">
+									<textarea placeholder="<?= __('Comment') ?> *" name="content" id="content" title="<?= __('Content') ?>" class="input-text form-control" cols="5" rows="4" data-validate="{required:true}"></textarea>
+								</div>
+							</div>
+							<div class="mg-bottom-30 name required">
+								<div class="control">
+									<input name="name" id="name" placeholder="<?= __('Name') ?> *" title="<?= __('Name') ?>" value="<?= $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+								</div>
+							</div>
+							<div class="mg-bottom-30 email required">
+								<div class="control">
+									<input name="email" id="email" placeholder="<?= __('Email') ?> *" title="<?= __('Email') ?>" value="<?= $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+								</div>
+							</div>
+						</div>
+                    </fieldset>
+                    <input type="hidden" name="post_id" value="<?= $post->getId(); ?>"/>
+                    <div class="actions-toolbar mg-top-5">
+                        <div class="primary">
+                            <button type="submit" title="<?= __('Submit Comment') ?>" class="action submit btn btn-primary">
+                                <span><?= __('Submit Comment') ?></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            <?php else: ?>
+				<div class="message warning">
+					<div><?= __('You must be logged in to post a comment.'); ?>&nbsp;<a href="<?= $this->getUrl('customer/account/login'); ?>"><?= __('Click here'); ?></a> <?= __('to log in'); ?></div>
+				</div>
+            <?php endif; ?>
+        <?php else: ?>
+            <form class="form post-comment"
+                  action="<?= $this->getUrl('blog/post/comment'); ?>"
+                  id="post-comment-form"
+                  method="post"
+                  data-hasrequired="<?= __('* Required Fields') ?>"
+                  data-mage-init='{"validation":{}}'>
+                <fieldset class="fieldset">
+					<div class="title-leave-content text-center">
+						<span class="title-cmt"><?= __('Leave a reply');?></span>
+					</div>
+					<div class="content-comment">
+						<div class="mg-bottom-30 comment required">
+							<div class="control">
+								<textarea placeholder="<?= __('Comment') ?> *" name="content" id="content" title="<?= __('Content') ?>" class="input-text form-control" cols="5" rows="4" data-validate="{required:true}"></textarea>
+							</div>
+						</div>
+						<div class="mg-bottom-30 name required">
+							<div class="control">
+								<input name="name" id="name" placeholder="<?= __('Name') ?> *" title="<?= __('Name') ?>" value="<?= $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+							</div>
+						</div>
+						<div class="mg-bottom-30 email required">
+							<div class="control">
+								<input name="email" id="email" placeholder="<?= __('Email') ?> *" title="<?= __('Email') ?>" value="<?= $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+							</div>
+						</div>
+					</div>
+                </fieldset>
+                <input type="hidden" name="post_id" value="<?= $post->getId(); ?>"/>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button type="submit" title="<?= __('Submit Comment') ?>" class="action submit btn btn-primary">
+                            <span><?= __('Submit Comment') ?></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

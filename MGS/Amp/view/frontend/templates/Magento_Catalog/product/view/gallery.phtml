@@ -1,0 +1,38 @@
+<?php
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+
+
+$_product = $block->getProduct();
+$gallery = $_product->getMediaGalleryImages();
+?>
+<?php $imageHelper = $this->helper('Magento\Catalog\Helper\Image') ?>
+<?php $ampHelper = $this->helper('MGS\Amp\Helper\Config'); ?>
+<?php $width = $ampHelper->getStoreConfig('mgs_amp/catalog/details_image_width'); ?>
+<?php $height = $ampHelper->getStoreConfig('mgs_amp/catalog/details_image_height'); ?>
+<div class="product-gallery">
+	<amp-carousel width="<?php echo $width ?>" height="<?php echo $height ?>" layout="responsive" type="slides" controls class="fadeIn">
+	<?php foreach($gallery as $_image): ?>
+		<?php 
+			$src = $imageHelper->init($_product,'ampproduct_page_image_large')
+				->setImageFile($_image->getFile())
+				->resize($width,$height)
+				->getUrl();
+		?>
+
+		<?php if($_image->getMediaType() == 'external-video'): ?>
+			<?php $_videoUrl = $_image->getVideoUrl(); ?>
+			<div class="gallery-item">
+				<amp-youtube data-videoid="_aghWPzkB7M" layout="responsive" width="<?php echo $width ?>" height="<?php echo $height ?>"></amp-youtube>
+			</div>
+		<?php else: ?>
+			<div class="gallery-item">
+				<amp-img src="<?= $src ?>" width="<?php echo $width ?>" height="<?php echo $height ?>" layout="responsive" role="button" tabindex="0" lightbox></amp-img>
+			</div>
+		<?php endif ?>
+	<?php endforeach ?>
+	</amp-carousel>
+</div>

@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_category  = $block->getCurrentCategory();
+?>
+<?php if ($_imgUrl = $_category->getImageUrl()): ?>
+	<?php list($width, $height, $type, $attr) = getimagesize($_imgUrl); ?>
+	<div class="category-image">
+		<amp-img layout="responsive" src="<?= $_imgUrl ?>" width="<?= $width ?>" height="<?= $height ?>" alt="<?= $block->escapeHtml($_category->getName()) ?>"></amp-img>
+	</div>
+<?php endif ?>

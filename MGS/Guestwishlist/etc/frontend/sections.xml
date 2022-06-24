@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <action name="guestwishlist/index/add">
+        <section name="guest_wishlist"/>
+    </action>
+    <action name="guestwishlist/index/index">
+        <section name="guest_wishlist"/>
+        <section name="cart"/>
+    </action>
+    <action name="guestwishlist/index/remove">
+        <section name="guest_wishlist"/>
+    </action>
+    <action name="guestwishlist/index/fromcart">
+        <section name="guest_wishlist"/>
+    </action>
+    <action name="guestwishlist/index/all">
+        <section name="guest_wishlist"/>
+    </action>
+</config>

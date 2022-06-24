@@ -1,0 +1,128 @@
+<?php $blockData = $this->getBlockData() ?>
+<?php $_productCollection = $this->getProductCollection($blockData['category_id'], $blockData['attribute_type']); ?>
+<?php if ($_productCollection->getSize()>0): ?>
+	<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+	<?php $items = $perRowDefault = $blockData['perrow']; ?>
+	<?php $perRowTablet = $blockData['perrow_tablet']; ?>
+	<?php $perRowMobile = $blockData['perrow_mobile']; ?>
+	
+	<?php if($blockData['use_slider'] && $blockData['number_row'] && $blockData['number_row']>1): ?>
+		<?php $slideMultiRow = true; ?>
+		<?php $slideBy = 1 ?>
+		<?php $columnCount = $perRowDefault * $blockData['number_row']; ?>
+	<?php else: ?>
+		<?php $slideBy = $blockData['slide_by'] ?>
+		<?php $slideMultiRow = false; ?>
+	<?php endif ?>
+		
+	<?php if($blockData['use_slider']): ?>
+		<?php $autoPlay = $blockData['autoplay'] ? 'true' : 'false'; ?>
+		<?php $stopAuto = $blockData['stop_auto'] ? 'true' : 'false'; ?>
+		<?php $nav = $blockData['navigation'] ? 'true' : 'false'; ?>
+		<?php $dot = $blockData['pagination'] ? 'true' : 'false'; ?>
+		<?php $loop = $blockData['loop'] ? 'true' : 'false'; ?>
+		<?php $slideBy = $blockData['slide_by'] ? $blockData['slide_by'] : 1; ?>
+	
+		<?php 
+			$settingMode = 'multiple'; 
+			$navPosition = $blockData['navigation_position'];
+
+			$navType = $builderHelper->getStoreConfig('fbuilder/'.$settingMode.'_slider/navigation');
+			if($navType=='image'){
+				$nextIcon = $builderHelper->getStoreConfig('fbuilder/'.$settingMode.'_slider/next_image');
+				$prevIcon = $builderHelper->getStoreConfig('fbuilder/'.$settingMode.'_slider/prev_image');
+				$navHtml = '["<span><img src=\''.$builderHelper->getMediaUrl().'mgs/fbuilder/slider/'.$prevIcon.'\'/></span>", "<span><img src=\''.$builderHelper->getMediaUrl().'mgs/fbuilder/slider/'.$nextIcon.'\'/></span>"]';
+			}else{
+				$nextIcon = $builderHelper->getStoreConfig('fbuilder/'.$settingMode.'_slider/next_font_class');
+				$prevIcon = $builderHelper->getStoreConfig('fbuilder/'.$settingMode.'_slider/prev_font_class');
+				$navHtml = '["<span><em class=\''.$prevIcon.'\'></em></span>", "<span><em class=\''.$nextIcon.'\'></em></span>"]';
+			}
+		?>
+	<?php endif ?>
+	
+	<div class="block widget mgs-products <?php echo $blockData['block_type'] ?>-products-grid products-grid product-items">
+		<div id="<?php echo $blockData['block_type'].$blockData['category_id'] ?>-products<?php echo $blockData['block_id']; ?>" 
+			class="items<?php if($blockData['use_slider']): ?> owl-carousel mgs-owl-carousel mgs-carousel-<?php echo $settingMode ?> nav-type-<?php echo $navType ?> nav-position-<?php echo $navPosition ?> <?php if($blockData['hide_nav'] && ((($items==1) && ($navPosition!='middle-outside')) || (($items>1) && ($navPosition=='middle-inside')))): ?> autohide-nav<?php endif ?> dot-position-<?php echo $blockData['pagination_position'] ?><?php else: ?> line row-<?php echo $perRowDefault ?> row-tablet-<?php echo $perRowTablet ?> row-mobile-<?php echo $perRowMobile ?><?php endif ?>">
+			<?php $i=0; $j=0; foreach ($_productCollection as $_product): $i++; ?>
+				
+				<?php if($slideMultiRow): ?>
+					<?php if ($j++ % $columnCount == 0): ?>
+					<div class="line">
+					<?php endif ?>
+				<?php endif ?>
+				
+						<div class="product product-item<?php if($slideMultiRow || (!isset($blockData['number_row']) || (isset($blockData['number_row']) && $blockData['number_row']==''))): ?> col<?php endif ?>">
+							<?php echo $this->getLayout()
+								->createBlock('MGS\Fbuilder\Block\Products\ProductItem')
+								->setLoadProduct($_product)
+								->setBlockData($blockData)
+								->setTemplate('MGS_Fbuilder::products/grid_item.phtml')
+								->toHtml(); ?>
+											
+						</div>
+						
+				<?php if($slideMultiRow): ?>
+					<?php if ($j % $columnCount == 0 || $j == count($_productCollection)): ?>
+					</div>
+					<?php endif ?>
+				<?php endif ?>
+				
+			<?php endforeach; ?>
+		</div>
+		<?php if($blockData['use_catlink']): ?>
+			<div class="tab-cate-link">
+				<a href="<?= $blockData['cat_link']; ?>" title="<?= __('Discover More'); ?>" class="action default">
+					<span><?= __('Discover More'); ?></span>
+				</a>
+			</div>
+		<?php endif ?>
+	</div>
+	
+	<?php if($blockData['use_slider']): ?>
+								
+		<script type="text/javascript">
+			require([
+				'jquery',
+				'mgsowlcarousel'
+			], function ($) {
+				$('#<?php echo $blockData['block_type'].$blockData['category_id'] ?>-products<?php echo $blockData['block_id'] ?>').owlCarousel({
+					<?php if($slideMultiRow): ?>
+						items: 1,
+					<?php else: ?>
+						items: <?php echo $perRowDefault; ?>,
+					<?php endif ?>
+					autoplay: <?php echo $autoPlay ?>,
+					autoplayHoverPause: <?php echo $stopAuto ?>,
+					nav: <?php echo $nav ?>,
+					dots: <?php echo $dot ?>,
+					slideBy: <?php echo $slideBy ?>,
+					loop: <?php echo $loop; ?>,
+					<?php if(!$slideMultiRow):?>margin: <?php echo $blockData['slide_margin'] ?>,<?php endif ?>
+					<?php if($navPosition=='top-left' || $navPosition=='top-right'): ?>
+						onInitialized: function(){
+							$("#<?php echo $blockData['block_type'].$blockData['category_id'] ?>-products<?php echo $blockData['block_id'] ?> .owl-nav").attr('style', 'top:<?php echo $blockData['nav_top'] ?>px');
+						},
+					<?php endif ?>
+					<?php if(!$slideMultiRow): ?>
+					responsive:{
+						0:{
+							items:<?php echo $perRowMobile; ?>,
+							nav: false,
+						},
+						571:{
+							items:<?php echo $perRowTablet; ?>
+						},
+						1200:{
+							items:<?php echo $perRowDefault; ?>
+						}
+					},
+					<?php endif ?>
+					navText: <?php echo $navHtml ?>,
+					autoHeight:true
+				});
+			});
+		</script>
+	<?php endif ?>
+<?php else: ?>
+	<div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find products matching the selection.') ?></div></div>
+<?php endif ?>

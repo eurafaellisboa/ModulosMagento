@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mgs_amp>
+			<header>
+				<static_block>header_custom_static_block_1</static_block>
+			</header>
+			<footer>
+				<static_block1>footer-block-about</static_block1>
+				<static_block2>footer-2-block-useful-link</static_block2>
+				<static_block3>footer-1-customer-service</static_block3>
+				<static_block4>footer-1-block-my-account</static_block4>
+			</footer>
+			<catalog>
+				<product_image_width>190</product_image_width>
+				<product_image_height>253</product_image_height>
+				<details_image_width>450</details_image_width>
+				<details_image_height>600</details_image_height>
+				<minicart_image_width>90</minicart_image_width>
+				<minicart_image_height>120</minicart_image_height>
+			</catalog>
+		</mgs_amp>
+    </default>
+</config>
+

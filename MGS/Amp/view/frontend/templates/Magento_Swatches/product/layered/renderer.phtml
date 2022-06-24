@@ -1,0 +1,53 @@
+<?php
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $swatchData = $block->getSwatchData(); ?>
+
+<?php if($block->getAmptype() && $block->getAmptype() == 'amp_css'): ?>
+	<?php $swatchStyle = ''; ?>
+	<?php foreach ($swatchData['options'] as $option => $label): ?>
+		<?php if (isset($swatchData['swatches'][$option]['type'])): ?>
+			<?php if($swatchData['swatches'][$option]['type'] == 1): ?>
+				<?php $swatchStyle .= '.swatches-option'.$option.' {background-color: '.$swatchData['swatches'][$option]['value'].'}'; ?>
+			<?php elseif($swatchData['swatches'][$option]['type'] == 2): ?>
+				<?php $swatchImagePath = $block->getSwatchPath('swatch_image', $swatchData['swatches'][$option]['value']); ?>
+				<?php if($swatchImagePath) : ?>
+					<?php $swatchStyle .= '.swatches-option'.$option.' {background-image: url('.$swatchImagePath.');}'; ?>
+				<?php endif ?>
+			<?php endif ?>
+		<?php endif ?>
+	<?php endforeach ?>
+
+	<?= $swatchStyle ?>
+<?php else: ?>
+	<div class="swatch-attribute swatch-layered <?php echo $swatchData['attribute_code'] ?>">
+		<ul class="swatch-attribute-options clearfix">
+			<?php foreach ($swatchData['options'] as $option => $label): ?>
+				<li <?php if (isset($swatchData['swatches'][$option]['type'])): ?>class="swatch-option-link-layered<?= $swatchData['swatches'][$option]['type'] ?>"<?php endif ?>>
+					<a href="<?php echo $label['link'] ?>" class="swatch-option-link-layered">
+						<?php if (isset($swatchData['swatches'][$option]['type'])): ?>
+							<?php if($swatchData['swatches'][$option]['type'] == 0): ?>
+								<span class="swatches-option--label"><?= $label['label'] ?></span>
+							<?php elseif($swatchData['swatches'][$option]['type'] == 1): ?>
+								<span class="swatches-thumb swatches-option<?= $option ?>"></span>
+								<span class="swatches-option--label"><?= $label['label'] ?></span>
+							<?php elseif($swatchData['swatches'][$option]['type'] == 2): ?>
+								<?php $swatchImagePath = $block->getSwatchPath('swatch_image', $swatchData['swatches'][$option]['value']); ?>
+									<?php if($swatchImagePath) : ?>
+										<span class="swatches-thumb swatches-option<?= $option ?>"></span>
+									<?php endif ?>
+									<span class="swatches-option--label"><?= $label['label'] ?></span>
+							<?php elseif($swatchData['swatches'][$option]['type'] == 3): ?>
+								<div class="swatch-option <?= $label['custom_style'] ?>" data-option-type="3" data-option-id="<?php echo $option ?>" data-option-label="<?php echo $label['label'] ?>">
+									<?= $label['label'] ?>
+								</div>
+							<?php endif ?>
+						<?php endif ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+<?php endif ?>

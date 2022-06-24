@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php if ($_description = $block->getCurrentCategory()->getDescription()): ?>
+	<?php $_configHelper = $this->helper('MGS\Amp\Helper\Config'); ?>
+	<?php $_categoryDescription = $this->helper('Magento\Catalog\Helper\Output')->categoryAttribute($block->getCurrentCategory(), $_description, 'description'); ?>
+    <div class="category-description">
+        <?= $_configHelper->convertHtmlForAmp($_categoryDescription); ?>
+    </div>
+<?php endif; ?>

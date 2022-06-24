@@ -1,0 +1,55 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Category list template
+ *
+ * @var $block \MGS\InstantSearch\Block\SearchResult\ListCategory
+ */
+?>
+<?php
+$_categoryCollection = $block->getLoadedCategoryCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$limit = $block->getPositionLimit();
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+$perRowDefault = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row');
+$perRowTablet = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row_tablet');
+$perRowMobile = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row_mobile');
+?>
+<div class="category-result">
+	<div class="block block-title">
+		<h4><?= __('Categories') ?></h4>
+	</div>
+	<?php if (!$_categoryCollection->count()): ?>
+		<div class="wrapper message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find categories matching the selection.') ?></div></div>
+	<?php else: ?>
+		<?php
+			$viewMode = 'grid';
+		?>
+		<div class="categories wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> categories-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
+			<?php $iterator = 1; ?>
+			<ol class="line categories list items category-items row-<?=$perRowDefault; ?> row-tablet-<?=$perRowTablet; ?> row-mobile-<?=$perRowMobile; ?>">
+				<?php /** @var $_category \Magento\Catalog\Model\Category */ ?>
+				<?php foreach ($_categoryCollection as $_category): ?>
+					<?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item col  category category-item">' : '</li><li class="item col category category-item">' ?>
+						<div class="category-item-info" data-container="category-grid">
+							<div class="category details category-item-details">
+								<strong class="category name category-item-name">
+									<a class="category-item-link"
+									   href="<?php /* @escapeNotVerified */ echo $_category->getUrl() ?>">
+										<?php /* @escapeNotVerified */ echo $_helper->categoryAttribute($_category, $_category->getName(), 'name'); ?>
+									</a>
+								</strong>
+							</div>
+						</div>
+					<?=($iterator == count($_categoryCollection)+1) ? '</li>' : '' ?>
+				<?php endforeach; ?>
+			</ol>
+		</div>
+	<?php endif; ?>
+	
+</div>

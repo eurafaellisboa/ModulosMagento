@@ -1,0 +1,75 @@
+<?php $attribute = NULL ?>
+<?php if($this->getData('attribute')!=''): ?>
+	<?php $attribute = $this->getData('attribute') ?>
+<?php endif ?>
+<?php $_productCollection = $this->getProductByCategories($this->getCategoryIds(), $attribute) ?>
+<?php $blockType = $this->getData('block_type'); ?>
+<?php $template = 'MGS_Amp::MGS_Fbuilder/products/grid_item.phtml'; ?>
+
+<div class="content-block <?= $blockType ?>-product-cat-block">
+	<?php // Block Content  ?>
+	<?php if ($_productCollection->getSize()>0): ?>
+		<?php $useSlider = $this->getUseSlider(); ?>
+		
+		<?php if($useSlider): ?>
+		<div class="clear-owl-carousel">
+		<amp-carousel class="product-carousel" height="270" width="300" layout="responsive" type="slides" autoplay delay="5000">
+			<?php $i=0; foreach ($_productCollection as $_product): $i++ ?>
+				<?php
+					$_productName = $block->escapeHtml($_product->getName());
+					$_productUrl = $block->getProductUrl($_product);
+					$_productImage = $block->getImage($_product, 'amp_category_page_grid')->setCustomAttributes('layout="responsive"')->setTemplate('MGS_Amp::catalog/product/image.phtml');
+				?>
+				<?php if($i % 2 == 1): ?>
+				<div class="products list product-items">
+				<?php endif ?>
+				<div class="product-item">
+					<?= $this->getLayout()
+							->createBlock('MGS\Fbuilder\Block\Products\ProductItem')
+							->setLoadProduct($_product)
+							->setBlockData($this->getData())
+							->setTemplate($template)
+							->toHtml(); ?>
+				</div>
+				<?php if($i % 2 == 0 || $i == count($_productCollection)): ?>
+				</div>
+				<?php endif ?>
+			<?php endforeach; ?>
+		</amp-carousel>
+		</div>
+		<?php else: ?>
+		<div class="products wrapper grid products-grid">
+			<ol class="products list items product-items">
+				<?php foreach ($_productCollection as $_product): ?>
+					<li class="item product product-item">
+						<div class="product-item-info">
+							<a href="<?= $_product->getProductUrl() ?>" class="product photo product-item-photo">
+								<?= $block->getImage($_product, $image)->setCustomAttributes('layout="responsive"')->setTemplate('MGS_Amp::Magento_Catalog/product/image.phtml')->toHtml(); ?>
+							</a>
+							<div class="product details product-item-details">
+								<?php $_productNameStripped = $block->stripTags($_product->getName(), null, true); ?>
+								<strong class="product name product-item-name">
+									<a class="product-item-link"
+									   href="<?= $_product->getProductUrl() ?>">
+										<?= $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+									</a>
+								</strong>
+								
+								<?= $block->getReviewsSummaryHtml($_product, $templateType); ?>
+								
+								<?= $block->getProductPrice($_product) ?>
+								
+								<div class="product actions product-item-actions">
+									<a href="<?= $_product->getProductUrl() ?>" class="action tocart"><span><?= __('View Detail') ?></span></a>
+								</div>
+							</div>
+						</div>
+				   </li>
+				<?php endforeach; ?>
+			</ol>
+		</div>
+		<?php endif ?>
+	<?php else: ?>
+		<div class="message info empty"><div><?=  __('We can\'t find products matching the selection.') ?></div></div>
+	<?php endif ?>
+</div>

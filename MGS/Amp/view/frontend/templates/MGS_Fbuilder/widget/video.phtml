@@ -1,0 +1,38 @@
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $videoEmbedUrl = $this->getUrlEmbed($this->getVideoUrl()); ?>
+<?php $blockId = rand() . time(); ?>
+<?php $videoType = $this->identifyService($this->getVideoUrl()); ?>
+<?php $helperAmp = $this->helper('MGS\Amp\Helper\Setting');  ?>
+<div class="content-block video-block">
+	<?php if($this->getData('fbuilder_title') != "" || $this->getData('fbuilder_note') != ""): ?>
+		<div class="content-heading">
+			<?php if($this->getData('fbuilder_title')): ?>
+				<h3 class="title"><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_title')) ?></h3>
+			<?php endif ?>
+		</div>
+		<?php if($this->getData('fbuilder_note')): ?>
+			<div class="block-note"><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_note')) ?></div>
+		<?php endif ?>
+	<?php endif ?>
+	<?php if($videoEmbedUrl!=''): ?>
+		
+			<div class="mgs-video <?php echo $videoType ?>-video<?php if($this->getHideControl()): ?> video-hide-controls<?php endif ?><?php if($this->getFullWidth()): ?> video-fullwidth<?php endif ?>">
+				
+					<div class="wrapper">
+						<?php $videoID = ''; ?>
+						<?php if(($videoType=='vimeo')): ?>
+							<?php $videoID = $helperAmp-> getVimeoVideoId($this->getVideoUrl()); ?>
+							<amp-vimeo data-videoid="<?= $videoID ?>" layout="responsive" width="3" height="2" ></amp-vimeo>
+						<?php else: ?>
+							<?php $videoID = $helperAmp-> getYouTubeVideoId($this->getVideoUrl()); ?>
+							
+							<amp-youtube data-videoid="<?= $videoID ?>" layout="responsive"  width="3" height="2" ></amp-youtube>
+						<?php endif ?>
+						
+					</div>
+			</div>
+
+	<?php else: ?>
+		<div class="message info empty"><div><?php echo __('Have no video to show.') ?></div></div>
+	<?php endif ?>
+</div>

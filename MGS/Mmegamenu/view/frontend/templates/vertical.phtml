@@ -1,0 +1,11 @@
+<?php $megaMenu = $this->getMegamenuItems(); ?>
+<?php $helper = $this->helper('MGS\Mmegamenu\Helper\Data') ?>
+<?php if ($megaMenu->getSize() > 0): ?>
+    <ul id="vertical-menu-<?php echo $this->getMenuId() ?>" class="vertical-menu nav nav-pills nav-main <?php echo $this->getCustomClass(); ?>">
+		<?php foreach ($megaMenu as $item): ?>
+			<li class="<?php echo $this->getClass($item) ?>">
+				<?php echo $helper->generateContentFilter($item->getSubContent()); ?>
+			</li>
+		<?php endforeach ?>
+    </ul>
+<?php endif ?>

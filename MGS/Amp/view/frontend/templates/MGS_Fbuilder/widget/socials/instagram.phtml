@@ -1,0 +1,83 @@
+<?php $images = $this->getWidgetInstagramData() ?>
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+
+<div class="content-block instagram-block">
+	<?php if(count($images)>0): ?>
+		<div class="instagram-images">
+			<?php 
+				$blockId = rand() . time();
+				$useSlider = $this->getUseSlider();
+			?>
+			<?php if($useSlider): ?>
+				<amp-carousel class="instagram-carousel" height="180" width="300" layout="responsive" type="slides"<?php if($this->getAutoplay()): ?> autoplay delay="5000"<?php endif ?><?php if($this->getLoop()): ?> loop<?php endif ?><?php if($this->getNavigation()): ?> controls<?php endif ?>>
+					<?php $width=$height=$i=0; foreach ($images as $image): $i++ ?>
+						<?php if($i % 2 == 1): ?>
+						<div class="items line">
+						<?php endif ?>
+							<div class="instagram-item">
+								<?php if($this->getLink()): ?>
+									<a href="<?php echo $image['link'] ?>" target="_blank">
+								<?php endif ?>
+									<?php 
+										try{
+											list($width, $height, $type, $attr) = getimagesize(str_replace('https://','http://',$image['src']));
+										}catch(Exception $e){}
+									?>
+									<amp-img width="<?php echo $width ?>" height="<?php echo $height ?>" layout="responsive" alt="" src="<?php echo $image['src'] ?>"></amp-img>
+									
+								<?php if($this->getLink()): ?>
+									</a>
+								<?php endif ?>
+							
+								<?php if($this->getLike() || $this->getComment()): ?>
+									<span class="social-count">
+										<?php if($this->getLike()): ?>
+											<span class="like-count"><span class="fa fa-heart-o"></span><span class="number"><?php echo $image['like'] ?></span></span>
+										<?php endif ?>
+										
+										<?php if($this->getComment()): ?>
+											<span class="comment-count"><span class="fa fa-comments-o"></span><span class="number"><?php echo $image['comment'] ?></span></span>
+										<?php endif ?>
+									</span>
+								<?php endif ?>
+							</div>
+						<?php if($i % 2 == 0 || $i == count($images)): ?>
+						</div>
+						<?php endif ?>
+					<?php endforeach; ?>
+				</amp-carousel>
+			<?php else: ?>
+				<div class="items line">
+					<?php foreach ($images as $image): ?>
+						<div class="instagram-item col-sm-6">
+							<?php if($this->getLink()): ?>
+								<a href="<?php echo $image['link'] ?>" target="_blank">
+							<?php endif ?>
+
+								<amp-img width="300" height="300" layout="responsive" alt="" src="<?php echo $image['src'] ?>"></amp-img>
+								
+							<?php if($this->getLink()): ?>
+								</a>
+							<?php endif ?>
+						
+							<?php if($this->getLike() || $this->getComment()): ?>
+								<span class="social-count">
+									<?php if($this->getLike()): ?>
+										<span class="like-count"><span class="fa fa-heart-o"></span><span class="number"><?php echo $image['like'] ?></span></span>
+									<?php endif ?>
+									
+									<?php if($this->getComment()): ?>
+										<span class="comment-count"><span class="fa fa-comments-o"></span><span class="number"><?php echo $image['comment'] ?></span></span>
+									<?php endif ?>
+								</span>
+							<?php endif ?>
+						</div>
+					<?php endforeach ?>
+				</div>
+			<?php endif ?>
+			</div>
+		
+	<?php else: ?>
+		<div class="message info empty"><div><?php echo __('Can not get Instagram data or your instagram account have not any images.') ?></div></div>
+	<?php endif ?>
+</div>

@@ -1,0 +1,5 @@
+<link  rel="stylesheet" type="text/css" media="all" href="<?php echo $this->getMediaUrl() ?>mgs/fbuilder/css/blocks.min.css" />
+<link  rel="stylesheet" type="text/css" media="all" href="<?php echo $this->getMediaUrl() ?>mgs/fbuilder/css/<?php echo $this->getStoreId() ?>/fbuilder_config.min.css" />
+<?php if($this->isCustomize()): ?>
+	<style type="text/css" id="themesetting_customize_temp"><?php echo $this->getStyleInline() ?></style>
+<?php endif ?>

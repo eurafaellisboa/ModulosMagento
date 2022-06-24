@@ -1,0 +1,248 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$post = $block->getCurrentPost();
+$collection = $block->getCollection();
+$showAction = $this->getConfig('general_settings/show_action');
+$categoryId = (int)$this->getRequest()->getParam('category_id', false);
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config'); 
+$rtl = $themeSettingConfig->getStoreConfig('themesettings/general/rtl_theme') ? 'true' : 'false';
+?>
+<div class="blog-view blog-post-item">
+	<div class="post-item">
+		<div class="view-category">
+			<div class="meta-name">
+				<?php $categoryItem = $block->getParentCategories($post->getPostId()); ?>
+				<?php if($categoryItem): ?>
+					<span class="category-links entry-meta">
+						<?php $i=0; foreach ($categoryItem as $category): $i++; ?>
+							<?php if($i > 1): ?><span>, </span><?php endif ?><a href="<?= $category->getCategoryUrl(); ?>"><?= $category->getTitle(); ?></a>
+						<?php endforeach ?>
+					</span>
+				<?php endif ?>
+			</div>
+		</div>
+		<h1 class="post-title">
+			 <a class="post-title-link" title="<?= $post->getTitle(); ?>" href="<?= $post->getPostUrlWithNoCategory(); ?>"><?= $post->getTitle(); ?></a>
+		</h1>
+		<?php if ($post->getContent()): ?>
+			<div class="post-content">
+				<div class="post-metas">
+					<div class="meta-author ">
+						<span class="color-theme"><?= __('Author:')?></span>
+						<span>
+							<?= __('%1', $post->getUser()); ?>
+						</span>
+					</div>
+					<div class="meta-date">
+						<span class="color-theme"><?= __('Published in:')?></span>
+						<span>
+							<?= __('%1', $block->formatDate($post->getUpdatedAt(), \IntlDateFormatter::MEDIUM, false)); ?>
+						</span>
+					</div>
+				</div>
+				<div class="post-short-description">
+					<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
+					<?= $objectManager->get('\Magento\Cms\Model\Template\FilterProvider')->getBlockFilter()->filter($post->getShortContent()); ?>
+				</div>
+			</div>
+		<?php endif; ?>
+		
+		<div class="post-images">
+			<?php if ($helper->getGalleryImage($post)): ?>
+				<div class="gallery-image-carousel owl-carousel">
+					<?php foreach($helper->getGalleryImage($post) as $_img): ?>
+						<a class="gallery_image" href="<?= $_img; ?>" 
+							style="background-image: url('<?= $_img; ?>')">
+							<img src="<?= $_img; ?>" alt="" class="img-fluid"/>
+						</a>
+					<?php endforeach ?>
+				</div>
+				<script type="text/javascript">
+					require([
+						'jquery',
+						'mgsowlcarousel'
+						], function($){			
+							$(document).ready(function(){
+								$(".gallery-image-carousel").owlCarousel({
+									items: 10,
+									loop: true,
+									nav: false,
+									dots: false,
+									autoplayTimeout: 5000,
+									rtl: <?= $rtl ?>,
+									autoplay: true,
+									autoplayHoverPause: true,
+									margin: 0,
+									autoHeight:true,
+									responsive:{
+										0:{
+											items: 1
+										},
+										576:{
+											items: 1
+										},
+										767:{
+											items: 1
+										},
+										992:{
+											items: 1						
+										}
+									}
+								});
+							});  	
+						});		
+					
+					require([
+						'jquery',
+						'magnificPopup'
+					], function(jQuery){
+						(function($) {
+							$(document).ready(function() {
+								$('.gallery-image-carousel').magnificPopup({
+									delegate: '.owl-item:not(.cloned) a',
+									type: 'image',
+									tLoading: 'Loading image #%curr%...',
+									mainClass: 'mfp-img-gallery',
+									fixedContentPos: true,
+									gallery: {
+										enabled: true,
+										navigateByImgClick: true,
+										preload: [0,1]
+									},
+									image: {
+										tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+										titleSrc: function(item) {
+										return item.el.attr('title');
+										}
+									}
+								});
+							});
+						})(jQuery);
+					});
+				</script>
+				<?php else: ?>
+				<?php if($helper->getImagePost($post) != ""): ?>
+					<div class="post-thumbnail">
+						<?php if($post->getImageType() == "video" && $post->getVideoBigId() != ""): ?>
+							<a class="post-thumbnail--image popup-video" href="<?= $helper->getVideoThumbUrl($post); ?>" title="<?= $post->getTitle(); ?>">
+								<img class="img-fluid" src="<?= $helper->getImagePost($post); ?>" alt="<?= $post->getTitle(); ?>"/>
+							</a>
+							<div class="blog-list-video">
+								<?php if($post->getImageType() == "video" && $post->getVideoBigId() != ""): ?>
+									<a class="btn btn-primary popup-video" href="<?= $helper->getVideoThumbUrl($post); ?>"></a>
+								<?php endif ?>
+							</div>
+							<?php else: ?>
+								<a class="post-thumbnail--image" href="<?= $post->getPostUrlWithNoCategory(); ?>" title="<?= $post->getTitle(); ?>">
+									<img class="img-fluid" src="<?= $helper->getImagePost($post); ?>" alt="<?= $post->getTitle(); ?>"/>
+								</a>
+						<?php endif ?>
+					</div>
+				<?php endif ?>
+			<?php endif ?>
+		</div>
+	</div>	
+    <div class="content-description">
+		<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
+		<?= $objectManager->get('\Magento\Cms\Model\Template\FilterProvider')->getBlockFilter()->filter($post->getContent()); ?>
+	</div>
+	<div class="share-info">
+		<div class="view-tags">
+			<?php $tags = $block->getTags(); ?>
+            <?php if (count($tags)): ?>
+                <div class="block block-blog-tags">
+                    <div class="block-title">
+                        <span class="text-color"><?= __('Tags: ') ?></span>
+                    </div>
+                    <div class="block-content">
+						<ul class="tag-cloud">
+							<?php foreach ($tags as $tag => $count): ?>
+								<li>
+									<a title="<?= $tag; ?>" href="<?= $helper->getTagUrl($tag); ?>"><?= $tag; ?></a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+                    </div>
+                </div>
+            <?php endif; ?>
+		</div>
+		<div class="sharethis">
+			<span class="text-color"><?= __('Share on ')?></span><span><?= $block->getChildHtml('sharethis.html');?></span>
+		</div>
+	</div>
+	<?php if($showAction): ?>
+		<div class="post-actions">
+			<?php $prevPost = $this->getPrevPost($post->getId()); ?>
+			<?php if($post->getId() != $prevPost['id']): ?>
+				<div class="prev-action action"><a href="<?= $prevPost['url']; ?>"><?= __('Previous'); ?></a></div>
+			<?php endif ?>
+			<?php $nextPost = $this->getNextPost($post->getId()); ?>
+				<?php if($post->getId() != $nextPost['id']): ?>
+				<div class="next-action action"><a href="<?= $nextPost['url']; ?>"><?= __('Next'); ?></a></h4></div>
+			<?php endif ?>
+		</div>
+	<?php endif ?>
+	<?php $relatedPosts = $block->getRelatedPosts($post->getId()); ?>
+	<?php if($relatedPosts): ?>
+	<div class="related-post-list blog-grid ">
+		<div class="related-title text-center">
+			<h2 class="title"><?= __('You may also like')?></h2>
+		</div>
+		<div class="clear-padding-owl">
+			<div class="item related-images line owl-carousel">
+				<?php foreach($relatedPosts as $_post): ?>
+					<div class="post-images">
+						<div class="post-thumbnail pd-left-15 pd-right-15">
+							<a class="post-thumbnail--image full-width" href="<?= $_post->getPostUrlWithNoCategory(); ?>" style="background-image:url('<?= $helper->getImageThumbnailPost($_post); ?>');" title="<?= $_post->getTitle(); ?>">
+								<img class="img-fluid" src="<?= $helper->getImageThumbnailPost($_post); ?>" alt="<?= $_post->getTitle(); ?>"/>
+							</a>
+						</div>
+						<div class="post-metas">
+							<a class="link-item" href="<?= $_post->getPostUrlWithNoCategory(); ?>" title="<?= $_post->getTitle(); ?>"><?= $_post->getTitle(); ?></a>
+							<div class="meta-date">
+								<span class="color-theme"><?= $_post->getUser(); ?></span>
+								<span class="color-date"><?= $block->formatDate($_post->getCreatedAt(), \IntlDateFormatter::MEDIUM, false); ?></span>
+							</div>
+						</div>
+						<script type="text/javascript">
+							require([
+								'jquery',
+								'mgsowlcarousel'
+								], function($){			
+									$(document).ready(function(){
+										$(".related-images").owlCarousel({
+											items: 10,
+											loop: false,
+											nav: false,
+											dots: false,
+											autoplayTimeout: 5000,
+											rtl: <?= $rtl ?>,
+											autoplay:true,
+											autoplayHoverPause: true,
+											margin: 0,
+											responsive:{
+												0:{
+													items: 1
+												},
+												576:{
+													items: 1
+												},
+												767:{
+													items: 2
+												},
+												992:{
+													items: 2						
+												}
+											}
+										});
+									});  	
+								});		
+						</script>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	</div>
+	<?php endif ?>
+	<?= $block->getChildHtml('post_view_comment'); ?>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page layout="tm_amp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="head.additional">
+			<block class="MGS\Amp\Block\Page\Head\AmpCms" name="amp.metatags" template="MGS_Amp::Magento_Theme/head/amp_metatags.phtml"/>
+			<block class="MGS\Amp\Block\Page\Head\Json\Cms" name="amp.json" template="MGS_Amp::Magento_Theme/head/amp_json.phtml"/>
+		</referenceBlock>
+		<referenceBlock name="amp.css.theme">
+			<block class="Magento\Framework\View\Element\Template" name="amp.css.cmspage" template="MGS_Amp::Magento_Theme/head/css/amp_css_cmspage.phtml"/>
+		</referenceBlock>
+		<referenceContainer name="amp.content">
+			<block class="MGS\Amp\Block\Page\AmpCmsPage" name="amp.home.content" template="MGS_Amp::Magento_Theme/cms_home.phtml"/>
+		</referenceContainer>
+		
+		<referenceBlock name="cms_page" remove="true"/>
+	</body>
+</page>

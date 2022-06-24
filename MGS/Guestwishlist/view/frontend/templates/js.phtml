@@ -1,0 +1,20 @@
+<?php
+$helper = $this->helper('MGS\Guestwishlist\Helper\Data');
+?>
+<script>
+    window.guestWishlist = {
+        addUrl:'<?php echo $block->getUrl('guestwishlist/index/add') ?>',
+        isActive: <?php echo $helper->isModuleEnable() ? 'true' : 'false' ?>,
+        currentUrl: '<?php echo $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]); ?>',
+		updateUrl: '<?php echo $this->getUrl('guestwishlist/index/updateall'); ?>',
+    };
+</script>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "mgs/ajaxwishlist"    : <?php echo $helper->getAjaxWishlistInitOptions(); ?>
+    }
+}
+
+</script>

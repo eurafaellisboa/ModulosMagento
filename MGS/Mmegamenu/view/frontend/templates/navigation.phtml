@@ -1,0 +1,27 @@
+<?php $megaMenu = $this->getMegamenuItems(); ?>
+<?php $megaMenuContent = $this->getMegamenuItemsContent(); ?>
+<?php $helper = $this->helper('MGS\Mmegamenu\Helper\Data') ?>
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $menuSize = $megaMenu->getSize() ?>
+<?php if($menuSize>0 || $helper->getStoreConfig('megamenu/general/home')):?>
+	<nav class="navigation mgs-megamenu--main" role="navigation">
+        <ul class="nav nav-main nav-main-menu">
+            <?php if($helper->getStoreConfig('megamenu/general/home')): ?>
+                <li class="mega-menu-item level0">
+                    <a href="<?php echo $this->getUrl() ?>" class="level0">
+                        <?php echo $helper->getStoreConfig('megamenu/general/hometext') ?>
+                    </a>
+                </li>
+            <?php endif ?>
+            <?php if($menuSize>0): ?>
+                <?php $i=0; foreach($megaMenu as $item): $i++ ?>
+                    <li class="<?php echo $this->getClass($item) ?>">
+						<?php if(isset($megaMenuContent['id-'.$item->getMegamenuId()])): ?>
+							<?php echo $helper->generateContentFilter($megaMenuContent['id-'.$item->getMegamenuId()]->getHtml()); ?>
+						<?php endif ?>
+                    </li>
+                <?php endforeach ?>
+            <?php endif ?>
+        </ul>
+	</nav>
+<?php endif ?>

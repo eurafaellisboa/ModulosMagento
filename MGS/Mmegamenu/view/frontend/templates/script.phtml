@@ -1,0 +1,14 @@
+<script type="text/javascript">
+	function toggleEl(el, elId){
+		require([
+			'jquery',
+		], function($){
+            $(el).toggleClass('active');
+            if(elId != ''){
+                $('#'+elId).toggleClass('active').slideToggle();
+            }else{
+                $(el).parent().parent().find('> ul').toggleClass('active').slideToggle();
+            }
+		});
+	}
+</script>

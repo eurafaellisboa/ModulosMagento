@@ -1,0 +1,10 @@
+<?php $megaMenu = $this->getMegamenuItems(); ?>
+<?php if(count($megaMenu)>0):?>
+	<ul id="horizontal-menu-<?php echo $this->getMenuId()?>" class="horizontal-menu nav nav-pills nav-main">
+		<?php $i=0; foreach($megaMenu as $item): $i++ ?>
+			<li class="<?php echo $this->getClass($item) ?>">
+				<?php echo $this->getMenuHtml($item) ?>
+			</li>
+		<?php endforeach ?>
+	</ul>
+<?php endif ?>

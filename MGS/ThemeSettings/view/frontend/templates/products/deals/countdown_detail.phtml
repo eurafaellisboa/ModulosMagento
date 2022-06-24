@@ -1,0 +1,24 @@
+<?php $id = $this->getProduct() ?>
+<?php $now = date('m/d/y h:i:s A',strtotime($this->getTimeNow())) ?>
+<?php $endTime = str_replace(' 00:00:00','',$this->getSpecialToDate()) ?>
+
+<div class="deal-timer">
+	<div id="deal-timer-<?= $id; ?>" class="countdown"></div>
+	<div class="time-note">
+		<span class="days"><?= __('Days') ?></span>
+		<span class="hours"><?= __('Hours') ?></span>
+		<span class="mins"><?= __('Mins') ?></span>
+		<span class='secs'><?= __('Secs') ?></span>
+	</div>
+</div>
+<script type="text/javascript">
+	var dthen<?= $id; ?> = new Date("<?= Date("m/d/y", strtotime($endTime)).' 11:59:59 PM'; ?>");
+	start = "<?= $now; ?>";
+	start_date = Date.parse(start);
+	var dnow<?= $id; ?> = new Date(start_date);
+	ddiff = new Date((dthen<?= $id; ?>)-(dnow<?= $id; ?>));
+	gsecs<?= $id; ?> = Math.floor(ddiff.valueOf()/1000);
+
+	var iid<?= $id; ?> = "deal-timer-<?= $id; ?>";
+	CountBack(gsecs<?= $id; ?>,"deal-timer-<?= $id; ?>", <?= $id; ?>);
+</script>

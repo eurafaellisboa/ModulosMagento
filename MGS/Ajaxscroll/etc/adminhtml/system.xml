@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="ajaxscroll" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Catalog Ajax Scroll</label>
+            <tab>mgs</tab>
+            <resource>MGS_Ajaxscroll::config_ajaxscroll</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Is Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				
+				<field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Loading Image</label>
+					<backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+					<upload_dir config="system/filesystem/media" scope_info="1">ajaxscroll</upload_dir>
+					<base_url type="media" scope_info="1">ajaxscroll</base_url>
+					<comment><![CDATA[Allowed file types: jpeg, gif, png.]]></comment>
+				</field>
+            </group>
+        </section>
+    </system>
+</config>

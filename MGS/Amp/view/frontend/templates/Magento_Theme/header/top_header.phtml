@@ -1,0 +1,7 @@
+<?php $helper = $this->helper('MGS\Amp\Helper\Config') ?>
+<?php $staticBlock = $helper->getStoreConfig('mgs_amp/header/static_block') ?>
+<?php if($staticBlock!=''): ?>
+	<div class="container-fluid">
+		<?php echo $helper->convertHtmlForAmp($this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($staticBlock)->toHtml()) ?>
+	</div>
+<?php endif ?>

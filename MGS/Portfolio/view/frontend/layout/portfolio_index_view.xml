@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		<referenceBlock name="breadcrumbs" remove="true"/>
+		<referenceBlock name="page.main.title" remove="true"/>
+		<referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="script.sharethis" template="MGS_ThemeSettings::html/sharethis/script.phtml" ifconfig="themesettings/sharethis/share_portfolio"/>
+        </referenceBlock>
+		<referenceContainer name="content">
+			<block class="MGS\Portfolio\Block\Portfolio" name="portfolio.view" template="MGS_Portfolio::view.phtml">
+				<block class="Magento\Framework\View\Element\Template" name="sharethis.html" template="MGS_ThemeSettings::html/sharethis/html.phtml" ifconfig="themesettings/sharethis/share_portfolio"/>
+			</block>
+		</referenceContainer>
+    </body>
+</page>

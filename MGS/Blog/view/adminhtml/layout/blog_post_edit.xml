@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <head>
+        <css src="MGS_Blog::css/style.css" />
+    </head>
+    <body>
+        <referenceContainer name="left">
+            <block class="MGS\Blog\Block\Adminhtml\Post\Edit\Tabs" name="post_edit_tabs">
+                <block class="MGS\Blog\Block\Adminhtml\Post\Edit\Tab\Main" name="post_edit_tab_main"/>
+                <block class="MGS\Blog\Block\Adminhtml\Post\Edit\Tab\Meta" name="post_edit_tab_meta"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">post_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">meta_section</argument>
+                    <argument name="block" xsi:type="string">post_edit_tab_meta</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="MGS\Blog\Block\Adminhtml\Post\Edit" name="post_edit"/>
+			<block class="MGS\Blog\Block\PostItem" name="multiple_image" after="-" template="MGS_Blog::multiple_image.phtml"/>
+			<block class="Magento\Framework\View\Element\Template" name="form_script" after="-" template="MGS_Blog::js/add_custom_js.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

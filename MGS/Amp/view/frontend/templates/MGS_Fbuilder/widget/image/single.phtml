@@ -1,0 +1,22 @@
+<?php $image = $this->getImage() ?>
+<div class="content-block mgs-image-block">
+	<?php if($image!=''): ?>
+		<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+		<?php if($builderHelper->isFileExist('images', $image)): ?>
+			<div class="image-content<?php if($this->getEffect()!=''): ?> mgs-effect-<?php echo $this->getEffect() ?><?php endif ?>">
+				<span class="span-container<?php if($this->getBoxShadown()): ?> mgs-box-shadow<?php endif ?>">
+
+					<amp-img class="photo image" layout="responsive" src="<?php echo $builderHelper->getImageUrl('images', $image) ?>"  width="3" height="2" alt="images">
+					</amp-img>
+				</span>
+			</div>
+		<?php else: ?>
+			<div class="message info empty"><div><?php echo __('File is not exist on server.') ?></div></div>
+		<?php endif ?>
+	<?php else: ?>
+		<div class="message info empty"><div><?php echo __('Have no image to display.') ?></div></div>
+	<?php endif ?>
+</div>
+
+
+

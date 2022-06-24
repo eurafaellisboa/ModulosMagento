@@ -1,0 +1,28 @@
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')): ?>
+    <div class="product info detailed">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items">
+            <amp-accordion disable-session-states id="accordion product-data-tabs">
+                <?php sort($detailedInfoGroup) ?>
+                <?php foreach ($detailedInfoGroup as $key => $name):?>
+					<?php $i = $key; ?>
+                    <?php
+                        $html = $layout->renderElement($name);
+                        if (!trim($html)) {
+                            continue;
+                        }
+                        $alias = $layout->getElementAlias($name);
+                        $label = $block->getChildData($alias, 'title');
+                        $alias = str_replace('.', '-', $alias);
+                    ?>
+                    <section <?php if($i == 0): ?>expanded<?php endif ?> id="section-<?php echo $alias; ?>">
+                        <header class="accordion-header"><?php echo $label; ?></header>
+                        <div class="accordion-content" id="<?php echo $alias; ?>">
+                            <?php echo $html; ?>
+                        </div>
+                    </section>
+                <?php endforeach;?>
+            </amp-accordion>
+        </div>
+    </div>
+<?php endif; ?>

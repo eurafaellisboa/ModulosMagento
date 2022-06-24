@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="guest_wishlist" xsi:type="string">MGS\Guestwishlist\CustomerData\Wishlist</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\Wishlist\Block\Link" type="MGS\Guestwishlist\Block\Link" />
+</config>

@@ -1,0 +1,5 @@
+<?php if ($title = $block->escapeHtml($block->getProduct()->getName())): ?>
+<div class="page-title-wrapper">
+    <h1 class="page-title" <?php if ($block->getId()): ?> id="<?php echo $block->getId();?>" <?php endif; ?>><?php echo $title ?></h1>
+</div>
+<?php endif; ?>

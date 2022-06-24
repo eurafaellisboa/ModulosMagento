@@ -1,0 +1,19 @@
+<?php
+/* @var $block MGS\AjaxCart\Block\Ui\Product\Image */
+?>
+<?php $product = $block->getProductImage() ?>
+<?php if($product != ""): ?>
+    <?php $_imagehelper = $this->helper('Magento\Catalog\Helper\Image'); ?>
+    <?php $image = 'category_page_grid'; ?>
+    <?php 
+	$size = array(
+		'width' => 300,
+		'height' => 300,
+	);
+	?>
+    <div class="popup__image-wrapper">
+        <?php $productImage = $_imagehelper->init($product, $image)->resize($size['width'], $size['height'])->getUrl(); ?>
+        <img class="img-fluid" alt="" src="<?php echo $productImage; ?>" />
+    </div>
+<?php endif ?>
+

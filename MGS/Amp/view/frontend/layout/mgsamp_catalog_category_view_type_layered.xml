@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page layout="tm_amp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="amp_product_list_toolbar">
+			<block class="Magento\LayeredNavigation\Block\Navigation\Category" name="amp.catalog.nav.action" template="MGS_Amp::Magento_LayeredNavigation/layer/filter_action.phtml"/>
+		</referenceBlock>
+		<referenceContainer name="root">
+			<block class="MGS\Amp\Block\Catalog\Layer\Navigation\Category" name="amp.catalog.leftnav" before="amp.sitesetting" template="MGS_Amp::Magento_LayeredNavigation/layer/view.phtml">
+				<block class="Magento\LayeredNavigation\Block\Navigation\State" name="amp.catalog.navigation.state" as="ampstate" template="MGS_Amp::Magento_LayeredNavigation/layer/state.phtml"/>
+				<block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer" as="render" template="MGS_Amp::Magento_LayeredNavigation/layer/filter.phtml"/>
+			</block>
+		</referenceContainer>
+		<referenceBlock name="amp.css.theme">
+			<block class="MGS\Amp\Block\Catalog\Layer\Navigation\Category" name="amp.css.catalog.leftnav" template="MGS_Amp::Magento_LayeredNavigation/css/layer/view.phtml"/>
+		</referenceBlock>
+	</body>
+</page>

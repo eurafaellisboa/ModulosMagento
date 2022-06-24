@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<page layout="tm_amp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		<referenceBlock name="head.additional">
+			<block class="MGS\Amp\Block\Page\Head\AmpProduct" name="amp.metatags" template="MGS_Amp::Magento_Theme/head/amp_metatags.phtml"/>
+			<block class="MGS\Amp\Block\Page\Head\Json\Product" name="amp.json" template="MGS_Amp::Magento_Theme/head/amp_json.phtml"/>
+		</referenceBlock>
+
+		
+		<referenceBlock name="amp.css.theme">
+			<block class="Magento\Framework\View\Element\Template" name="amp.css.category" template="MGS_Amp::Magento_Theme/head/css/amp_css_product.phtml"/>
+		</referenceBlock>
+		
+		<referenceBlock name="amp.javascript">
+			<action method="addJs">
+				<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js</argument>
+				<argument name="type" xsi:type="string">amp-lightbox-gallery</argument>
+			</action>
+			
+			
+		</referenceBlock>
+		
+		<referenceContainer name="amp.page.top">
+			<block class="Magento\Catalog\Block\Product\View" name="amp.breadcrumbs" template="MGS_Amp::Magento_Theme/html/breadcrumbs/product.phtml"/>
+		</referenceContainer>
+		
+		<referenceContainer name="amp.content">
+			<container name="amp.product.info.media" htmlTag="div" htmlClass="product media"  before="-">
+                <block class="Magento\Catalog\Block\Product\View\Gallery" name="amp.product.info.media.image" template="MGS_Amp::Magento_Catalog/product/view/gallery.phtml"/>
+            </container>
+			
+			
+			<container name="amp.product.info.main" htmlTag="div" htmlClass="product-info-main" after="amp.product.info.media">
+				<block class="Magento\Catalog\Block\Product\View" name="amp.page.main.title" template="MGS_Amp::Magento_Catalog/product/view/name.phtml" before="-"/>
+			
+				<block class="Magento\Catalog\Block\Product\View" name="amp.product.info.review" template="Magento_Catalog::product/view/review.phtml" after="amp.page.main.title"/>
+				<block class="Magento\Catalog\Pricing\Render" name="amp.product.price.final">
+					<arguments>
+						<argument name="price_render" xsi:type="string">product.price.render.default</argument>
+						<argument name="price_type_code" xsi:type="string">final_price</argument>
+						<argument name="zone" xsi:type="string">item_view</argument>
+					</arguments>
+				</block>
+				
+				<block class="Magento\Catalog\Block\Product\View\Description" name="amp.product.info.overview" template="MGS_Amp::Magento_Catalog/product/view/attribute.phtml" after="amp.product.price.final">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getShortDescription</argument>
+                        <argument name="at_code" xsi:type="string">short_description</argument>
+                        <argument name="css_class" xsi:type="string">overview</argument>
+                        <argument name="at_label" translate="true" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Overview</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+                    </arguments>
+                </block>
+				
+				<block class="Magento\Catalog\Block\Product\View" name="amp.product.info" template="MGS_Amp::Magento_Catalog/product/view/form.phtml" after="amp.product.info.overview">
+					<container name="amp.product.info.form.content" as="amp_product_info_form_content">
+						<block class="Magento\Catalog\Block\Product\View" name="amp.product.info.addtocart" template="MGS_Amp::Magento_Catalog/product/view/addtocart.phtml"/>
+					</container>
+					
+					<block class="Magento\Framework\View\Element\Template" name="amp.product.info.form.options" as="amp_options_container">
+                        <block class="Magento\Catalog\Block\Product\View" name="amp.product.info.options.wrapper" as="amp_product_options_wrapper" template="Magento_Catalog::product/view/options/wrapper.phtml">
+                            <block class="Magento\Catalog\Block\Product\View\Options" name="product.info.options" as="product_options" template="MGS_Amp::Magento_Catalog/product/view/options.phtml">
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\DefaultType" name="product.info.options.default" as="default" template="Magento_Catalog::product/view/options/type/default.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\Text" name="product.info.options.text" as="text" template="MGS_Amp::Magento_Catalog/product/view/options/type/text.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\File" name="product.info.options.file" as="file" template="MGS_Amp::Magento_Catalog/product/view/options/type/file.phtml"/>
+                                <block class="MGS\Amp\Block\Catalog\Product\View\Options\Type\Select" name="product.info.options.select" as="select" template="MGS_Amp::Magento_Catalog/product/view/options/type/select.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\Date" name="product.info.options.date" as="date" template="MGS_Amp::Magento_Catalog/product/view/options/type/date.phtml"/>
+                            </block>
+                        </block>
+                        <block class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="Magento_Catalog::product/view/options/wrapper/bottom.phtml">
+                            <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart.additional" as="product.info.addtocart" template="MGS_Amp::Magento_Catalog/product/view/addtocart.phtml"/>
+                        </block>
+                    </block>
+				</block>
+				
+				<container name="product.sub.infomation" htmlTag="div" htmlClass="product-sub-infomation" after="amp.product.info">
+					<block class="Magento\Catalog\Block\Product\View" name="amp.product.info.type" template="MGS_Amp::Magento_Catalog/product/view/type/default.phtml" />
+					
+					<block class="Magento\Catalog\Block\Product\View\Description" name="amp.product.info.sku" template="MGS_Amp::Magento_Catalog/product/view/attribute.phtml" after="amp.product.info.type">
+						<arguments>
+							<argument name="at_call" xsi:type="string">getSku</argument>
+							<argument name="at_code" xsi:type="string">sku</argument>
+							<argument name="css_class" xsi:type="string">sku</argument>
+							<argument name="at_label" xsi:type="string">default</argument>
+							<argument name="add_attribute" xsi:type="string">itemprop="sku"</argument>
+						</arguments>
+					</block>
+					
+					<block class="MGS\Brand\Block\Product\Brand" name="amp.product.brand.name" template="MGS_Brand::brand/product/product_brand_name.phtml"/>
+				</container>
+				
+				
+			</container>
+			 <container name="amp.product.details.tabs" htmlTag="div" htmlClass="amp-product-details-tabs" after="amp.product.details">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="amp.product.info.details" template="MGS_Amp::MGS_Protabs/product/view/details.phtml" after="amp.product.info.description">
+					<block class="Magento\Catalog\Block\Product\View\Description" name="product.info.description" as="description" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+						<arguments>
+							<argument name="at_call" xsi:type="string">getDescription</argument>
+							<argument name="at_code" xsi:type="string">description</argument>
+							<argument name="css_class" xsi:type="string">description</argument>
+							<argument name="at_label" xsi:type="string">none</argument>
+							<argument name="title" translate="true" xsi:type="string">Details</argument>
+						</arguments>
+					</block>
+					<block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes" template="Magento_Catalog::product/view/attributes.phtml">
+						<arguments>
+							<argument translate="true" name="title" xsi:type="string">More Information</argument>
+						</arguments>
+					</block>
+					
+					<block class="Magento\Review\Block\Product\Review" name="reviews.tab" template="MGS_Amp::Magento_Review/review.phtml">
+						<block class="Magento\Review\Block\Product\View\ListView" name="amp.product.reviews.list" template="MGS_Amp::Magento_Review/product/view/list.phtml" before="-"/>
+					</block>
+                </block>
+            </container>
+            <container name="amp.product.items.block" htmlTag="div" htmlClass="amp-product-items-block" after="amp.product.details.tabs">
+                <referenceBlock name="catalog.product.related" remove="true"/>
+                <block class="Magento\Catalog\Block\Product\ProductList\Related" name="amp.catalog.product.related" template="MGS_Amp::Magento_Catalog/product/list/items.phtml" before="-">
+                    <arguments>
+                        <argument name="type" xsi:type="string">related</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Catalog\Block\Product\ProductList\Upsell" name="amp.product.info.upsell" template="MGS_Amp::Magento_Catalog/product/list/items.phtml" after="amp.catalog.product.related">
+                    <arguments>
+                        <argument name="type" xsi:type="string">upsell</argument>
+                    </arguments>
+                </block>
+
+            </container>
+		</referenceContainer>
+		
+		<referenceBlock name="page.main.title" remove="true"/>
+    </body>
+</page>

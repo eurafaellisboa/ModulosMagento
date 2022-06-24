@@ -1,0 +1,12 @@
+<?php /** @var \Magento\Catalog\Model\Product $product */ ?>
+<?php $product = $block->getProduct(); ?>
+
+<?php if ($product): ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {  
+                "mgsAjaxCartStockOption" : <?php echo $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($block->getProductChildData($product->getId())); ?>
+            }
+        }
+    </script>
+<?php endif; ?>

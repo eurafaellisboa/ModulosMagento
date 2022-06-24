@@ -1,0 +1,26 @@
+<?php $image = $this->getImage() ?>
+<?php $afterImage = $this->getAfterImage() ?>
+<div class="content-block mgs-image-block multiple-image">
+	<?php if($image!='' && $afterImage!=''): ?>
+		<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+		<?php if($builderHelper->isFileExist('images', $image) && $builderHelper->isFileExist('images', $afterImage)): ?>
+			<?php $blockId = rand() . time(); ?>
+			<div class="image-content <?php echo $this->getMultipleEffect() ?>">
+				<span class="span-container<?php if($this->getBoxShadown()): ?> mgs-box-shadow<?php endif ?>" id="before-after<?php echo $blockId ?>">
+					 <amp-img class="photo image before-image" layout="responsive" src="<?php echo $builderHelper->getImageUrl('images', $image) ?>"  width="3" height="2" alt="images">
+					</amp-img>
+					
+					<amp-img class="photo image after-image" layout="responsive" src="<?php echo $builderHelper->getImageUrl('images', $afterImage) ?>"  width="3" height="2" alt="images">
+					</amp-img>
+				</span>
+			</div>
+		<?php else: ?>
+			<div class="message info empty"><div><?php echo __('File is not exist on server.') ?></div></div>
+		<?php endif ?>
+	<?php else: ?>
+		<div class="message info empty"><div><?php echo __('Have no image to display.') ?></div></div>
+	<?php endif ?>
+</div>
+
+
+

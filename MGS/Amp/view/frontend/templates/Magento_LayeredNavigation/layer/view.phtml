@@ -1,0 +1,30 @@
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+<?php if ($block->canShowBlock()): ?>
+    <amp-sidebar id="catalog_filter" class="block filter" side="left" layout="nodisplay">
+		<?= $block->getChildHtml('ampstate'); ?>
+        <div class="block-title filter-title">
+            <button class="close-filter" on="tap:catalog_filter.close"></button>
+        </div>
+        <div class="block-content filter-content">
+            <ul class="filter-options">
+                <?php foreach ($block->getFilters() as $key => $filter): ?>
+                    <?php if ($filter->getItemsCount()): ?>
+						<?php $attributeModel = $filter->getAttributeModel(); ?>
+						<li>
+							<label for="filter-item-<?php echo $key ?>" class="filter-options-title">
+								<?php echo $block->escapeHtml(__($filter->getName())) ?>
+							</label>
+							<?php echo $block->getChildBlock('render')->render($filter); ?>
+						</li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </amp-sidebar>
+<?php endif; ?>

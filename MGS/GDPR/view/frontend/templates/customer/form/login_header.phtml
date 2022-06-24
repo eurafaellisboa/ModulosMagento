@@ -1,0 +1,12 @@
+<?php $helper = $this->helper('MGS\GDPR\Helper\Data') ?>
+<?php $active = $helper->getStoreConfig('gdpr/login/active') ?>
+<?php if($active): ?>
+<?php $label = $helper->getStoreConfig('gdpr/login/label') ?>
+	<div style="display: none;" class="field choice mgs-gdpr-checkbox">
+		<input checked name="login[accept_gdpr]" value="1" id="accept_gdpr_header" class="checkbox" type="checkbox" data-validate="{required:true}"/>
+		<label for="accept_gdpr_header" class="label"><span><?= $label ?></span></label>
+	</div>
+<?php endif ?>
+<a class="remind" href="<?php echo $block->getUrl('customer/account/forgotpassword'); ?>" style="font-size: 12px;">
+	<span>Esqueceu sua senha?</span>
+</a>

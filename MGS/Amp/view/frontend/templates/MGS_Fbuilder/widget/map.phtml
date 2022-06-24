@@ -1,0 +1,49 @@
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $blockId = rand() . time(); ?>
+<?php $height = '450px'; ?>
+<?php $apiKey = $builderHelper->getStoreConfig('fbuilder/social/google_api_key') ?>
+<?php if($this->getMapHeight()!=''): ?>
+	<?php $height = $this->getMapHeight().'px'; ?>
+<?php endif ?>
+
+<?php $scrollwheel = $this->getWheel() ? 'true' : 'false'; ?>
+<?php $navigationControl = $this->getNavigation() ? 'true' : 'false'; ?>
+<?php $mapTypeControl = $this->getTypeControl() ? 'true' : 'false'; ?>
+<?php $scaleControl = $this->getScale() ? 'true' : 'false'; ?>
+<?php $draggable = $this->getDraggable() ? 'true' : 'false'; ?>
+
+
+<div class="content-block map-block">
+	<div class="mgs-map">
+		<div class="map-container">
+			<div id="map<?php echo $blockId ?>" style="height:<?php echo $height?>; overflow:hidden"></div>
+			<?php if($this->getAddressBox()): ?>
+				<div class="map-info">
+					<?php if($this->getData('fbuilder_address_title')): ?>
+					<h3 class="no-margin-top"><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_address_title')) ?></h3>
+					<?php endif ?>
+					<div class="map-detail-info">
+						<ul>
+							<?php if($this->getData('fbuilder_line_one')): ?>
+								<li><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_line_one')) ?></li>
+							<?php endif ?>
+							<?php if($this->getData('fbuilder_line_two')): ?>
+								<li><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_line_two')) ?></li>
+							<?php endif ?>
+							<?php if($this->getData('fbuilder_line_three')): ?>
+								<li><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_line_three')) ?></li>
+							<?php endif ?>
+							<?php if($this->getData('fbuilder_line_four')): ?>
+								<li><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_line_four')) ?></li>
+							<?php endif ?>
+							<?php if($this->getData('fbuilder_line_five')): ?>
+								<li><?php echo $builderHelper->decodeHtmlTag($this->getData('fbuilder_line_five')) ?></li>
+							<?php endif ?>
+						</ul>
+					</div>
+				</div>
+			<?php endif ?>
+		</div>
+		
+	</div>
+</div>

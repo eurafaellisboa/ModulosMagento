@@ -1,0 +1,21 @@
+<?php 
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$activeKey = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('active_theme/activate/molla');
+	
+?>
+<?php if($activeKey=='' && !$this->helper('MGS\MollaTheme\Helper\Config')->isLocalhost()): ?>
+	<?php $url = $objectManager->get('Magento\Backend\Model\UrlInterface')->getUrl("adminhtml/system_config/edit/section/active_theme"); ?>
+	<div class="admin__data-grid-outer-wrap">
+		<div class="message-system">
+			<div class="message-system-inner">
+				<div class="message-system-collapsible" style="display:block">
+					<ul class="message-system-list" style="margin-bottom:0; border:none">
+						<li>
+							<div class="message message-error"><span style="position:relative; top:5px">Please <a href="<?php echo $url ?>">activate</a> for Molla theme.</span></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif ?>

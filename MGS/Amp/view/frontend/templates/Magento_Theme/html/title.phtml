@@ -1,0 +1,14 @@
+<?php
+$title = '';
+if (trim($block->getPageHeading())) {
+    $title = '<span>' . $block->escapeHtml($block->getPageHeading()) . '</span>';
+}
+?>
+<?php if ($title): ?>
+<div class="page-title-wrapper">
+    <h1 class="page-title" <?php if ($block->getId()): ?> id="<?php echo $block->getId();?>" <?php endif; ?>>
+        <?php echo $title ?>
+    </h1>
+    <?php echo $block->getChildHtml(); ?>
+</div>
+<?php endif; ?>

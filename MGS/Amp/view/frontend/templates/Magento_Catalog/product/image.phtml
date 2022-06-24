@@ -1,0 +1,16 @@
+<?php $_product = $this->getProduct() ?>
+<?php $imageHelper = $this->helper('Magento\Catalog\Helper\Image') ?>
+<?php $ampHelper = $this->helper('MGS\Amp\Helper\Config'); ?>
+<?php $width = $ampHelper->getStoreConfig('mgs_amp/catalog/product_image_width'); ?>
+<?php $height = $ampHelper->getStoreConfig('mgs_amp/catalog/product_image_height'); ?>
+
+<?php
+	$src = $imageHelper->init($_product,'amp_category_page_grid')
+		->setImageFile($_product->getFile())
+		->resize($width,$height)
+		->getUrl();
+?>
+<?php if ($src && $width && $height) : ?>
+	<amp-img class="photo image" layout="responsive" src="<?php echo $src ?>" [src]="imageUrl<?php echo $_product->getId()?> ? imageUrl<?php echo $_product->getId()?> : '<?php echo $src ?>'" width="<?php echo $width ?>" height="<?php echo $height ?>" alt="<?php echo $block->stripTags($_product->getName(), null, true); ?>">
+	</amp-img>
+<?php endif; ?>

@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php /* @var $block \Magento\Catalog\Block\Product\View\Options\Type\Date */ ?>
+<?php $_option = $block->getOption() ?>
+<?php $_optionId = $_option->getId() ?>
+<?php $class = ($_option->getIsRequire()) ? ' required' : ''; ?>
+<div class="field date<?= /* @escapeNotVerified */ $class ?>">
+    <fieldset class="fieldset fieldset-product-options-inner<?= /* @escapeNotVerified */ $class ?>">
+        <label class="label">
+            <span><?= $block->escapeHtml($_option->getTitle()) ?></span>
+            <?= /* @escapeNotVerified */ $block->getFormattedPrice() ?>
+        </label>
+        <div class="control">
+            <?php if ($_option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_DATE_TIME
+                || $_option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_DATE): ?>
+
+                <div class="date-option <?php echo $_option->getType() ?>"><?= $block->getDateHtml() ?></div>
+
+            <?php endif; ?>
+
+            <?php if ($_option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_DATE_TIME
+                || $_option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_TIME): ?>
+                <div class="time-option"><?= str_replace(':','',$block->getTimeHtml()) ?></div>
+            <?php endif; ?>
+
+            <?php if ($_option->getIsRequire()): ?>
+                <input type="hidden" name="validate_datetime_<?= $_optionId ?>" class="validate-datetime-<?= $_optionId ?>" value="" required />
+            <?php else: ?>
+                <input type="hidden" name="validate_datetime_<?= $_optionId ?>" class="validate-datetime-<?= $_optionId ?>" value=""/>
+            <?php endif; ?>
+           
+        </div>
+    </fieldset>
+
+</div>

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<remove src="mage/calendar.css"/>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+		<attribute name="prefix" value="" />
+	</head>
+	<body>
+		<referenceBlock name="require.js" remove="true"/>
+		<block class="Magento\Framework\View\Element\Template" name="head.additional" as="head.additional" template="Magento_Theme::html/container.phtml">
+			<block class="Magento\Framework\View\Element\Template" name="amp.css" as="amp.css" template="MGS_Amp::Magento_Theme/head/amp_css.phtml">
+				<block class="Magento\Framework\View\Element\Template" name="amp.css.theme" as="amp.css.theme" template="MGS_Amp::Magento_Theme/head/css/amp_css_theme.phtml" before="-"/>
+			</block>
+			<block class="MGS\Amp\Block\Page\Head\AmpJavascript" name="amp.javascript" as="amp.javascript">
+				
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-lightbox-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-lightbox</argument>
+				</action>
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-form-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-form</argument>
+				</action>
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-accordion-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-accordion</argument>
+				</action>
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-sidebar-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-sidebar</argument>
+				</action>
+
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-carousel-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-carousel</argument>
+				</action>
+				
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-list-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-list</argument>
+				</action>
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-mustache-0.2.js</argument>
+					<argument name="type" xsi:type="string">amp-mustache</argument>
+					<argument name="element" xsi:type="string">template</argument>
+				</action>
+				
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-selector-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-selector</argument>
+				</action>
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-bind-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-bind</argument>
+				</action>
+				
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-user-notification-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-user-notification</argument>
+				</action>
+				
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-analytics-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-analytics</argument>
+				</action>
+				
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-youtube-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-youtube</argument>
+				</action>
+				
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-vimeo-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-vimeo</argument>
+				</action>
+				<action method="addJs">
+					<argument name="src" xsi:type="string">https://cdn.ampproject.org/v0/amp-iframe-0.1.js</argument>
+					<argument name="type" xsi:type="string">amp-iframe</argument>
+				</action>
+			</block>
+		</block>
+	</body>
+</page>

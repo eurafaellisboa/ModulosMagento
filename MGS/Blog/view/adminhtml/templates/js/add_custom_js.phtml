@@ -1,0 +1,48 @@
+<script>
+	require(["jquery"], function($){
+		$( document ).ready(function() {
+			if($("#post_general_thumb_type").val() == "image"){
+				$("#post_general_video_thumb_type").parents(".admin__field").hide();
+				$("#post_general_video_thumb_id").parents(".admin__field").hide();
+			}else{
+				$("#post_general_video_thumb_type").parents(".admin__field").show();
+				$("#post_general_video_thumb_id").parents(".admin__field").show();
+			}
+			
+			$("#post_general_thumb_type").on("change", function(){
+				var val = $(this).val();
+				if(val == "image"){
+					$("#post_general_video_thumb_type").parents(".admin__field").hide();
+					$("#post_general_video_thumb_id").parents(".admin__field").hide();
+				}else{
+					$("#post_general_video_thumb_type").parents(".admin__field").show();
+					$("#post_general_video_thumb_id").parents(".admin__field").show();
+				}
+			}).change();
+			
+			
+			if($("#post_general_image_type").val() == "image"){
+				$("#post_general_image").parents(".admin__field").show();
+				$("#post_general_video_big_type").parents(".admin__field").hide();
+				$("#post_general_video_big_id").parents(".admin__field").hide();
+			}else{
+				$("#post_general_image").parents(".admin__field").hide();
+				$("#post_general_video_big_type").parents(".admin__field").show();
+				$("#post_general_video_big_id").parents(".admin__field").show();
+			}
+			
+			$("#post_general_image_type").on("change", function(){
+				var val = $(this).val();
+				if(val == "image"){
+					$("#post_general_image").parents(".admin__field").show();
+					$("#post_general_video_big_type").parents(".admin__field").hide();
+					$("#post_general_video_big_id").parents(".admin__field").hide();
+				}else{
+					$("#post_general_image").parents(".admin__field").hide();
+					$("#post_general_video_big_type").parents(".admin__field").show();
+					$("#post_general_video_big_id").parents(".admin__field").show();
+				}
+			}).change();
+		});
+	});
+</script>

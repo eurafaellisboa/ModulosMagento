@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="portfolio" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+            <class>separator-top</class>
+            <label>Portfolio</label>
+            <tab>mgs</tab>
+            <resource>MGS_Portfolio::config_portfolio</resource>
+            <group id="general_settings" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="0">
+                <label>General Settings</label>
+				<field id="portfolio_show" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>Portfolio Layout</label>
+                    <source_model>MGS\Portfolio\Model\System\Config\Show</source_model>
+                </field>
+            </group>
+        </section>
+		<section id="themesettings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+			<group id="sharethis" translate="label" type="text" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="share_portfolio" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled Share This On Portfolio Detail</label>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+    </system>
+</config>

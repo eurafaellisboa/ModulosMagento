@@ -1,0 +1,47 @@
+<?php $blockData = $this->getBlockData() ?>
+<?php $_productCollection = $this->getProductCollection($blockData['category_id'], $blockData['attribute_type']); ?>
+<?php if ($_productCollection->getSize()>0): ?>
+	<?php
+		$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+	
+	?>
+	<?php if($blockData['use_slider'] && $blockData['number_row'] && $blockData['number_row']>1): ?>
+		<?php $slideMultiRow = true; ?>
+		<?php $slideBy = 1 ?>
+		<?php $columnCount = $perRowDefault * $blockData['number_row']; ?>
+	<?php else: ?>
+		<?php $slideBy = $blockData['slide_by'] ?>
+		<?php $slideMultiRow = false; ?>
+	<?php endif ?>	
+	
+	<div class="block products list items widget mgs-products <?= $blockData['block_type'] ?>-products-grid products-grid product-items">
+		<div id="<?= $blockData['block_type'].$blockData['category_id'] ?>-products<?= $blockData['block_id']; ?>" class="items">
+				<?php if($blockData['use_slider']): ?>
+					<amp-carousel class="product-carousel" height="270" width="300" layout="responsive" type="slides" autoplay delay="5000">
+				<?php endif ?>
+				<?php $i=0; $j=0; foreach ($_productCollection as $_product): $i++; ?>
+						<div class="product product-item<?php if($slideMultiRow || (!isset($blockData['number_row']) || (isset($blockData['number_row']) && $blockData['number_row']==''))): ?> col<?php endif ?>">
+							<?= $this->getLayout()
+								->createBlock('MGS\Fbuilder\Block\Products\ProductItem')
+								->setLoadProduct($_product)
+								->setBlockData($blockData)
+								->setTemplate('MGS_Amp::MGS_Fbuilder/products/grid_item.phtml')
+								->toHtml(); ?>
+						</div>
+				<?php endforeach; ?>
+			<?php if($blockData['use_slider']): ?>	
+			</amp-carousel>	
+			<?php endif ?>
+		</div>
+		<?php if($blockData['use_catlink']): ?>
+			<div class="tab-cate-link">
+				<a href="<?= $blockData['cat_link']; ?>" title="<?= __('Discover More'); ?>" class="action primary btn-round">
+					<span><?= __('Discover More'); ?></span>
+				</a>
+			</div>
+		<?php endif ?>
+	</div>
+		
+<?php else: ?>
+	<div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find products matching the selection.') ?></div></div>
+<?php endif ?>

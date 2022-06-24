@@ -1,0 +1,36 @@
+<?php $panelHelper = $this->helper('MGS\Fbuilder\Helper\Data') ?>
+<main class="preview-container">
+	<form>
+		<div class="left-panel left-panel-collapsible">
+			<div class="left-panel-content first-left" id="left-panel-container" style="opacity:0.5">
+				<?php echo $this->getCustomizeSetting() ?>
+			</div>
+			<div class="panel-action">
+				<div class="action">
+					<div class="label"><?php echo __('Save for: ') ?></div>
+					<div class="buttons">
+						<button type="button" onclick="setLocation('<?php echo $this->getUrl('mgsthemesetting/theme/savesetting') ?>')"><span><?php echo __('Store View') ?></span></button>
+						<button type="button" onclick="setLocation('<?php echo $this->getUrl('mgsthemesetting/theme/savesetting',['scope'=>'default']) ?>')"><span><?php echo __('Default Config') ?></span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="preview">
+		<div class="theme">
+			<iframe id="theme-customize" scrolling="yes" sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-modals" tabindex="-1" src="<?php echo $this->getUrlDecode() ?>"></iframe>
+		</div>
+	</div>
+</main>
+<div id="frame-progress">
+	<div class="loading-progress mgs-progressbar">
+		<div class="progressbar" style="height:3px;">
+			<div class="progress animation" aria-valuenow="100" style="background-color: rgb(0, 158, 167);width: 100%;"></div>
+		</div>
+	</div>
+</div>
+<script>
+	function setLocation(url) {
+		window.location.href = url;
+	}
+</script>

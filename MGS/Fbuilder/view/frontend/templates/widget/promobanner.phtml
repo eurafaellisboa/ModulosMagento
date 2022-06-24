@@ -1,0 +1,38 @@
+<?php $bannerImageUrl = $this->getImageUrl() ?>
+<?php if($bannerImageUrl!=''): ?>
+	<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+	<?php
+		$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+		$lazyLoad = $themeSettingConfig->getStoreConfig('themesettings/general/lazy_load');
+	?>
+	<div class="content-block promobanner-block">
+		<div class="mgs-promobanner promobanner <?= $this->getEffect() ?>" <?php if($this->getUrl()!=''): ?>onclick="location.href='<?= $this->getBannerUrl() ?>'"<?php endif ?>>
+			
+			<?php if($lazyLoad): ?>
+				<a class="parent_lazy" href="<?= $this->getBannerUrl() ?>">
+					<img alt="" src="<?= $themeSettingConfig->getImageLazyLoad() ?>" data-src="<?= $bannerImageUrl ?>" class="banner-image lazy"/>
+				</a>
+			<?php else: ?>
+				<a href="<?= $this->getBannerUrl() ?>">
+					<img alt="" src="<?= $bannerImageUrl ?>" class="banner-image"/>
+				</a>
+			<?php endif ?>
+			
+			
+			<?php if(($this->getFbuilderTextContent() != '') || ($this->getFbuilderButtonText() != '')): ?>
+				<div class="text<?php if($this->getTextAlign()!=''): ?> <?= $this->getTextAlign() ?><?php endif ?>">
+					<?php if($this->getFbuilderTextContent() != ''): ?>
+						<div class="banner-text"><?= $builderHelper->decodeHtmlTag($this->getFbuilderTextContent()) ?></div>
+					<?php endif ?>
+					<?php if($this->getFbuilderButtonText() != ''): ?>
+						<span class="banner-button">
+							<button <?php if($this->getUrl()!=''): ?>onclick="location.href='<?= $this->getBannerUrl() ?>'"<?php endif ?> class="btn action primary btn-promo-banner"><span><?= $builderHelper->decodeHtmlTag($this->getFbuilderButtonText()) ?></span></button>
+						</span>
+					<?php endif ?>
+				</div>
+			<?php endif ?>
+		</div>
+	</div>
+<?php else: ?>
+	<div class="message info empty"><div><?= __('Have no banner to show.') ?></div></div>
+<?php endif ?>

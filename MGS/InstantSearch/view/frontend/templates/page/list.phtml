@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Cms page list template
+ *
+ * @var $block \MGS\InstantSearch\Block\SearchResult\ListPage
+ */
+?>
+<?php
+$_pageCollection = $block->getLoadedPageCollection();
+$_helper = $this->helper('MGS\InstantSearch\Helper\Data');
+$limit = $block->getPositionLimit();
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+$perRowDefault = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row');
+$perRowTablet = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row_tablet');
+$perRowMobile = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row_mobile');
+?>
+<div class="pages-result">
+	<div class="block block-title">
+		<h4><?= __('Cms Pages') ?></h4>
+		<?php if($_pageCollection->count() && $_pageCollection->getSize() > $limit): ?>
+			<div class="view-more">
+				<a href="<?php /* @escapeNotVerified */ echo $block->getResultUrl() ?>"><?php /* @escapeNotVerified */ echo $block->getViewMoreLabel() ?></a>
+			</div>
+		<?php endif; ?>
+	</div>
+	<?php if (!$_pageCollection->count()): ?>
+		<div class="wrapper message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find cms pages matching the selection.') ?></div></div>
+	<?php else: ?>
+		<?php
+			$viewMode = 'grid';
+		?>
+		<div class="pages wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> pages-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
+			<?php $iterator = 1; ?>
+			<div class="top-toolbar"><?= $block->getToolbarHtml() ?></div>
+			<ol class="line pages-list-items page-items row-<?=$perRowDefault; ?> row-tablet-<?=$perRowTablet; ?> row-mobile-<?=$perRowMobile; ?>">
+				<?php /** @var $_page \Magento\Cms\Model\Page */ ?>
+				<?php foreach ($_pageCollection as $_page): ?>
+					<?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item col " >' : '</li><li class="item col ">' ?>
+						<div class="page-item-info" data-container="page-grid">
+							<div class="page details page-item-details">
+								<strong class="page title page-item-title">
+									<a class="page-item-link"
+									   href="<?php /* @escapeNotVerified */ echo $_helper->getUrl($_page->getIdentifier()) ?>">
+										<?php /* @escapeNotVerified */ echo $_page->getTitle(); ?>
+									</a>
+								</strong>
+							</div>
+						</div>
+					<?=($iterator == count($_pageCollection)+1) ? '</li>' : '' ?>
+				<?php endforeach; ?>
+			</ol>
+			<div class="bottom-toolbar"><?= $block->getToolbarHtml() ?></div>
+		</div>
+	<?php endif; ?>
+</div>

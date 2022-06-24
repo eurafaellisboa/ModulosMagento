@@ -1,0 +1,25 @@
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar as Toolbar;
+?>
+<div class="field limiter">
+    <label class="label" for="limiter">
+        <span><?php echo __('Show') ?></span>
+    </label>
+    <div class="control">
+        <div id="limiter" class="limiter-options">
+            <?php foreach ($block->getAvailableLimit() as $_key => $_limit): ?>
+                <?php if ($this->isLimitCurrent($_limit)) : ?>
+                    <?php echo $_limit ?>
+                <?php else : ?>
+                    <a href="<?php echo $block->getPagerUrl(array(Toolbar::LIMIT_PARAM_NAME => $_key)) ?>"><?php echo $_limit ?></a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <span class="limiter-text"><?php echo __('per page') ?></span>
+</div>

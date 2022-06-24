@@ -1,0 +1,112 @@
+.message.global.cookie.mgs-gdpr-cookie-notice{
+	bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 3;
+	margin: 0;
+	display: block;
+	z-index:10;
+	padding:20px;
+	background-color: rgba(255,255,255,0.9);
+}
+.mgs-gdpr-cookie-notice.message.global h3{margin-top:0}
+.mgs-gdpr-cookie-notice.gdpr-box-shadow{
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+	box-shadow:0px 0px 20px 0px rgba(0,0,0,0.4);
+}
+.mgs-gdpr-cookie-notice.text-align-center{
+	text-align:center;
+}
+.mgs-gdpr-cookie-notice.text-align-left{
+	text-align:left;
+}
+.mgs-gdpr-cookie-notice.text-align-right{
+	text-align:right;
+}
+.message.global.cookie.mgs-gdpr-cookie-notice .notice-cookie-content {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.message.global.cookie.mgs-gdpr-cookie-notice .notice-cookie-content > a{
+    display: block;
+	text-decoration: underline;
+	color: #222;
+}
+.message.global.cookie.mgs-gdpr-cookie-notice .notice-cookie-content > a:hover{
+	color: #f68872;
+}
+
+.message.global.cookie.mgs-gdpr-cookie-notice #btn-cookie-allow {
+    font-size: 14px;
+    line-height: 1;
+    padding: 10px 25px;
+}
+.message.global.cookie.mgs-gdpr-cookie-notice .notice-cookie-title {
+    font-weight: 600;
+}
+
+.privacy-policy.cms-content h2 {
+    margin: 10px 0 20px;
+    font-weight: 400;
+	font-size: 30px;
+}
+.modal-mgs-gdpr .modal-header {
+	padding: 0 !important;
+}
+.modal-mgs-gdpr .modal-content {
+	padding: 50px !important;
+	
+}
+.modal-mgs-gdpr .modal-header .action-close {
+    padding: 10px 25px;
+}
+.modal-mgs-gdpr .modal-header .action-close:before {
+    transform: scale(1.5);	
+}
+.modal-mgs-gdpr .modal-header .mgs-gdpr-popup {
+    padding-bottom: 30px;
+}
+.privacy-policy.cms-content .message {
+	margin-bottom: 30px;
+	
+}
+.privacy-policy.cms-content .message span {
+	font-size: 15px;
+}
+.privacy-policy.cms-content .message span:before {
+	top: 50%;
+}
+.cms-privacy-policy-cookie-restriction-mode .page-wrapper > .breadcrumbs {
+	width: auto;
+}
+.cms-privacy-policy-cookie-restriction-mode .breadcrumbs {
+    padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 0;
+}
+.cms-privacy-policy-cookie-restriction-mode .breadcrumbs .items .item a, 
+.cms-privacy-policy-cookie-restriction-mode .breadcrumbs .items .item strong  {
+	font-size: 14px;
+}
+.cms-privacy-policy-cookie-restriction-mode .breadcrumbs .items .item:not(:last-child)::after {
+	vertical-align: middle;	
+}
+.cms-privacy-policy-cookie-restriction-mode .page-title-wrapper .page-title {
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+.cms-enable-cookies .breadcrumbs {
+    padding: 30px 0;
+}
+.cms-enable-cookies .page-title-wrapper h1.page-title {
+    display: block;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.cms-enable-cookies .enable-cookies.cms-content {
+    text-align: center;
+}
+
+

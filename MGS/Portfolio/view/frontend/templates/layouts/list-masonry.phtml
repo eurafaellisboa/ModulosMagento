@@ -1,0 +1,49 @@
+<?php $portfolios = $this->getCurrentPortfolios(); ?>
+<div class="portfolio-content">
+	<div class="portfolio-container portfolio-masonry">
+		<?php if(count($portfolios)>0): ?>
+			<div class="line">
+				<?php $i=0; foreach($portfolios as $portfolio): $i++; ?>
+					<div class="item-thumbnail col-des-3 col-tb-4 col-mb-6">
+						<?php $thumbnailUrl = $block->getThumbnailSrc($portfolio) ?>
+						<?php $portfolioUrl = $block->getPortfolioAddress($portfolio) ?>
+						<div class="portfolio-inner">
+							<a href="<?php echo $portfolioUrl; ?>" class="port-link">
+								<i class="icon-arrow-right"></i>
+							</a>
+							<div class="portfolio-top">
+								<a class="thumbnail-image" href="<?php echo $portfolioUrl; ?>"><img src=" <?php echo $thumbnailUrl;?>" alt="" class="img-fluid"/></a>
+							</div>
+							<div class="portfolio-bottom">
+								<h4 class="port-title"><a href="<?php echo $portfolioUrl; ?>"><?php echo $portfolio->getName() ?></a></h4>
+								<div class="category-link"><?php echo $block->getCategoriesLink($portfolio);?></div>
+							</div>
+						</div>
+					</div>
+				<?php endforeach ?>
+			</div>
+		<?php else: ?>
+			<p class="note-msg"><?php echo __('There are no portfolios matching the selection.') ?></p>
+		<?php endif ?>
+	</div>
+</div>
+<script type="text/javascript">
+    requirejs([ 
+        'require', 
+        'jquery', 
+        'mgsisotope' 
+    ], function( require, $, Isotope ) {
+        require( [ 'bridget' ], function( jQueryBridget ) {
+            jQueryBridget( 'isotope', Isotope, $ );
+            $(document).ready(function() {
+                var container = $('.portfolio-masonry').isotope({
+                    itemSelector: '.item-thumbnail',
+                    percentPosition: true,
+                    masonry: {
+                        columnWidth: '.item-thumbnail'
+                    }
+                });
+            });     
+        });
+    });
+</script>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<page layout="tm_amp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<update handle="mgsamp_default_head_blocks"/>
+	<referenceBlock name="amp.css.theme">
+		<block class="Magento\Framework\View\Element\Template" name="amp.css.menu.sidebar" template="MGS_Amp::Magento_Theme/head/css/amp_css_menu_sidebar.phtml"/>
+	</referenceBlock>
+	<referenceContainer name="root">
+		<block class="Magento\Framework\View\Element\Template" name="amp.sitesetting" template="MGS_Amp::Magento_Theme/header/amp_header_sidebar.phtml">
+			<block class="MGS\Amp\Block\Html\Topmenu" name="amp.catalog.topnav" template="MGS_Amp::Magento_Theme/html/topmenu.phtml" before="-"/>
+			<block class="Magento\Framework\View\Element\Template" name="amp.store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+				<arguments>
+					<argument name="title" translate="true" xsi:type="string">Menu</argument>
+				</arguments>
+			</block>
+		</block>
+	</referenceContainer>
+	
+	<referenceContainer name="amp.header.container">
+		<container name="amp.top.panel" htmlClass="top-header-content" htmlTag="div">
+			<block class="Magento\Framework\View\Element\Template" name="amp.header.topheader" template="MGS_Amp::Magento_Theme/header/top_header.phtml"/>
+		</container>
+		<block class="Magento\Framework\View\Element\Template" name="amp.header" as="amp.header" template="MGS_Amp::Magento_Theme/header.phtml">
+			<block class="MGS\Amp\Block\Html\Header\Logo" name="amp.logo">
+				<arguments>
+					<argument name="logo_img_width" xsi:type="number">105</argument>
+					<argument name="logo_img_height" xsi:type="number">25</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Template" name="amp.top.search" template="MGS_Amp::Magento_Search/amp_form_search.phtml" />
+			<block class="Magento\Framework\View\Element\Template" name="amp.minicart" template="MGS_Amp::Magento_Checkout/minicart.phtml" />
+		</block>
+	</referenceContainer>
+	
+	<referenceContainer name="amp.columns.top">
+		<block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="MGS_Amp::Magento_Theme/html/title.phtml" before="-"/>
+	</referenceContainer>
+		
+	<referenceContainer name="amp.page.bottom.container">
+		<container name="amp.footer.container">
+			<block class="Magento\Framework\View\Element\Template" name="amp.footer" as="amp.footer" template="MGS_Amp::Magento_Theme/footer.phtml">
+				<block class="Magento\Theme\Block\Html\Footer" name="amp.copyright" template="Magento_Theme::html/copyright.phtml"/>
+			</block>
+		</container>
+	</referenceContainer>
+	<referenceBlock name="mgs.quickview.js" remove="true"/>
+	<referenceBlock name="mgs.quickview.initialize" remove="true"/>
+	<referenceBlock name="frontend-storage-manager" remove="true"/>
+		<referenceContainer name="page.wrapper">
+		<referenceBlock name="page.main.title" remove="true"/>
+		<referenceBlock name="breadcrumbs" remove="true"/>
+	</referenceContainer>
+</page>

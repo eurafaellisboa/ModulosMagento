@@ -1,0 +1,69 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Blog list template
+ *
+ * @var $block \MGS\InstantSearch\Block\SearchResult\ListBlog
+ */
+?>
+<?php
+$_postCollection = $block->getLoadedPostCollection();
+$limit = $block->getPositionLimit();
+$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+$perRowDefault = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row');
+$perRowTablet = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row_tablet');
+$perRowMobile = $themeSettingConfig->getStoreConfig('instantsearch/general/per_row_mobile');
+?>
+<div class="blog-result">
+<div class="block block-title title-blog">
+	<h4><?= __('Blogs') ?></h4>
+	<?php if($_postCollection->count() && $_postCollection->getSize() > $limit): ?>
+        <div class="view-more">
+            <a href="<?php /* @escapeNotVerified */ echo $block->getResultUrl() ?>"><?php /* @escapeNotVerified */ echo $block->getViewMoreLabel() ?></a>
+        </div>
+    <?php endif; ?>
+</div>
+<?php if (!$_postCollection->count()): ?>
+	<div class="wrapper message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find posts matching the selection.') ?></div></div>
+<?php else: ?>
+	<?php
+        $viewMode = 'grid';
+        $image = 'category_page_grid';
+        $showDescription = true;
+        //$imageSize = $block->getImageSize($image);
+        //print_r($imageSize);
+    ?>
+	<div class="posts wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> blog-<?php /* @escapeNotVerified */ echo $viewMode; ?> ">
+		<?php $iterator = 1; ?>
+		<ol class="line row-<?=$perRowDefault; ?> row-tablet-<?=$perRowTablet; ?> row-mobile-<?=$perRowMobile; ?>">
+			<?php /** @var $_post \MGS\Blog\Model\Post */ ?>
+			<?php foreach ($_postCollection as $_post): ?>
+				<?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item col">' : '</li><li class="item col">' ?>
+					
+						<?php // Post Image ?>
+						<div class="post-images">
+							<div class="post-thumbnail">
+								<a class="post-thumbnail--image" style="background-image:url('<?= $block->getImageThumbnailPost($_post); ?>');" href="<?= $_post->getPostUrlWithNoCategory(); ?>" title="<?= $_post->getTitle(); ?>">
+									<img class="img-fluid" src="<?= $block->getImageThumbnailPost($_post); ?>" alt="<?= $_post->getTitle(); ?>"/>
+								</a>
+							</div>
+						</div>
+						<div class="post-metas">
+							<a class="link-item" href="<?= $_post->getPostUrlWithNoCategory(); ?>" title="<?= $_post->getTitle(); ?>"><?= $_post->getTitle() ?> </a>
+							<div class="meta-date">
+								<span class="color-theme"><?= $_post->getUser(); ?></span>
+								<span class="color-date"><?= $block->formatDate($_post->getCreatedAt(), \IntlDateFormatter::MEDIUM, false); ?></span>
+							</div>
+						</div>		
+					
+				<?=($iterator == count($_postCollection)+1) ? '</li>' : '' ?>
+			<?php endforeach; ?>
+		</ol>
+	</div>
+<?php endif; ?>
+</div>

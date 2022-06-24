@@ -1,0 +1,39 @@
+<?php $attribute = $this->getTabAttribute() ?>
+<?php $data = $this->getData() ?>
+<?php $_productCollection = $this->getProductByCategories($data['category_ids'], $attribute) ?>
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $template = 'MGS_Amp::MGS_Fbuilder/products/grid_item.phtml'; ?>
+<?php $blockType = $this->getTabType() ?>
+<?php $themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');?>
+
+<?php if (isset($_productCollection) && $_productCollection->getSize()>0): ?>
+	<?php $blockId = rand() . time(); ?>
+	<?php $useSlider = $this->getUseSlider(); ?>
+	<?php $items = $perRowDefault = $this->getPerrow(); ?>
+	
+	<div class="block widget mgs-products <?php echo $blockType ?>-products-grid products-grid product-items ">
+		<div id="<?php echo $blockType ?>-products<?php echo $blockId; ?>" class="items line ">
+			<?php if($useSlider): ?>
+				<amp-carousel class="product-carousel" height="270" width="300" layout="responsive" type="slides" autoplay delay="5000">
+			<?php endif ?>
+				<?php $i=0; $j=0; foreach ($_productCollection as $_product): $i++; ?>
+					 
+					<div class="product product-item  col-tb-12" >
+						<?php echo $this->getLayout()
+							->createBlock('MGS\Fbuilder\Block\Products\ProductItem')
+							->setLoadProduct($_product)
+							->setBlockData($this->getData())
+							->setTemplate($template)
+							->toHtml(); ?>
+										
+					</div>
+							
+				<?php endforeach; ?>
+			<?php if($useSlider): ?>
+			</amp-carousel>
+			<?php endif ?>
+		</div>
+	</div>
+<?php else: ?>
+	<div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find products matching the selection.') ?></div></div>
+<?php endif ?>

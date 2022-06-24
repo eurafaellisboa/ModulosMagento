@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Page\Config">
+        <plugin name="AMP_Page_Config_Plugin" type="MGS\Amp\Plugin\Framework\View\Page\ConfigPlugin"/>
+    </type>
+
+	<type name="Magento\Swatches\Block\LayeredNavigation\RenderLayered">
+        <plugin name="AMP_Swatch_Render_Layer" type="MGS\Amp\Plugin\Swatches\FilterRenderer" sortOrder="10" />
+    </type>
+	<type name="MGS\Ajaxlayernavigation\Block\Navigation\RenderLayered">
+        <plugin name="AMP_Swatch_Render_Layer" type="MGS\Amp\Plugin\Ajaxlayernavigation\FilterRenderer" sortOrder="10" />
+    </type>
+	<virtualType name="MGS\Amp\Block\Catalog\Layer\Navigation\Category" type="MGS\Amp\Block\Catalog\Layer\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">categoryFilterList</argument>
+        </arguments>
+    </virtualType>
+	<type name="Magento\Framework\App\Config">
+        <plugin name="MGS_Amp_After_GetConfig" type="MGS\Amp\Plugin\App\ConfigPlugin" sortOrder="2"/>
+    </type>
+	<type name="Magento\Review\Block\Form">
+        <plugin name="AMP_Review_Form" type="MGS\Amp\Plugin\Review\Form" sortOrder="10" />
+    </type>
+</config>

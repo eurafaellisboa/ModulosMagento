@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="mgs-themesettings">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">MGS Theme Settings</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">110</item>
+            </item>
+        </argument>
+		
+		<field name="mgs_template">
+            <argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">MGS\ThemeSettings\Model\Product\Attribute\Source\Template</item>
+                <item name="config" xsi:type="array">
+					<item name="label" xsi:type="string" translate="true">Template</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </field>
+		
+		<field name="mgs_image_dimention">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="label" xsi:type="string" translate="true">Product Image Dimention (Main Image)</item>
+                    <item name="placeholder" xsi:type="string" translate="true">WidthxHeight. Ex: 240x300</item>
+                </item>
+            </argument>
+        </field>
+		
+		<field name="mgs_image_dimention_more_view">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="label" xsi:type="string" translate="true">Product Image Dimention (More View)</item>
+                    <item name="placeholder" xsi:type="string" translate="true">WidthxHeight. Ex: 88x110</item>
+                </item>
+            </argument>
+        </field>
+		
+		<field name="mgs_j360">
+            <argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">Magento\Eav\Model\Entity\Attribute\Source\Boolean</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">360 Degrees Image View</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

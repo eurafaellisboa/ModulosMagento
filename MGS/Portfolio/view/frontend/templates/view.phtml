@@ -1,0 +1,107 @@
+<?php $portfolio = $this->getPortfolio(); ?>
+<?php $portfolioHelper = $this->helper('MGS\Portfolio\Helper\Data'); ?>
+<?php 
+	$portfolios = $this->getCurrentPortfolios();
+?>
+<div class="portfolio-view">
+	<h1 class="title"><?php echo $portfolio->getName();?></h1>
+</div>
+
+<div class="frame">
+	<div class="line portfolio-details">
+		<div class="col-des-12 col-mb-12 col-12">
+			<div class="portfolio-image">
+				<?php $galleryArray = $this->getBaseImage($portfolio); ?>
+				<?php if($galleryArray): ?>
+					<?php foreach($galleryArray as $_img): ?>
+						<img id="base_img" src="<?php echo $_img; ?>" alt="" class="img-fluid"/>
+						<?php break; ?>
+					<?php endforeach ?>
+					<div class="row">
+						<div id="portfolio_galley_carousel" class="owl-carousel portfolio_galley_carousel">
+							<?php $i=0; foreach($galleryArray as $_img): $i++; ?>
+								<?php if($i == 1): ?>
+									<a class="gallery_thumb active" href="javascript:void(0);" data-imgchange="<?php echo $_img; ?>"><img src="<?php echo $_img; ?>" alt="" class="img-fluid"/></a>
+								<?php else: ?>
+									<a class="gallery_thumb" href="javascript:void(0);" data-imgchange="<?php echo $_img; ?>"><img src="<?php echo $_img; ?>" alt="" class="img-fluid"/></a>
+								<?php endif ?>
+							<?php endforeach ?>
+						</div>
+					</div>
+					<script type="text/javascript">
+						require([
+							'jquery',
+							'mgsowlcarousel'
+						], function(jQuery){
+							(function($) {
+								$("#portfolio_galley_carousel").owlCarousel({
+									items: 5,
+									nav: true,
+									dots: false,
+									autoplay: false,
+									rtl: RTL,
+									navText: ["<i class='fa fa-arrow-left'></i>","<i class='fa fa-arrow-right'></i>"],
+									responsive:{
+										0 : {items: 2},
+										480 : {items: 2},
+										768 : {items: 3},
+										980 : {items: 5}
+									}
+								});
+								$(document).ready(function(){
+									$("#portfolio_galley_carousel .gallery_thumb").click(function(){
+										var imgUrl = $(this).data('imgchange');
+										var images = $('#base_img').attr('src');
+										if(imgUrl != images){
+											$("#base_img").attr('src',imgUrl);
+											$("#portfolio_galley_carousel .gallery_thumb.active").removeClass('active');
+											$(this).addClass("active");
+										}
+										return false;
+									});
+								});
+							})(jQuery);
+							
+						});
+					</script>
+				<?php endif ?>
+			</div>
+		</div>
+		<div class="portfolio-view-content col-des-10 col-mb-12 col-12">
+			<div class="portfolio-info">
+				<div class="portfolio-datetime">
+					<div class="date">
+						<?php $date = $portfolio->getPortfolioDate() ?>
+						<?php if($date != ''): ?>
+							<span><?php echo date('F d, Y', strtotime($date))?></span>
+						<?php endif ?>
+					</div>
+					<div class="category">
+						<?php $categoryLinks = $this->getCategoriesLink($portfolio) ?>
+						<?php if($categoryLinks != ''): ?>
+							<span><?php echo $categoryLinks ?></span>
+						<?php endif ?>
+					</div>
+				</div>
+				<div class="sharethis">
+					<span class="text-color"><?php echo __('Share:')?></span><span><?php echo $block->getChildHtml('sharethis.html');?></span>
+				</div>
+			</div>
+			<div class="description margin-bottom30">
+				<?php echo $portfolioHelper->generateContentFilter($portfolio->getDescription()) ?>
+			</div>
+			<div class="nav-links">
+				<div class="nav nav-previous">
+					<a href="#" rel="prev"><i class="icon-arrow-left"></i><span>Prev</span></a>
+				</div>
+				<a class="portfolio-link" href="#"> <i class="icon_grid"></i> </a>
+				<div class="nav nav-next">
+					<a href="#" rel="next"><span>Next</span><i class="icon-arrow-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

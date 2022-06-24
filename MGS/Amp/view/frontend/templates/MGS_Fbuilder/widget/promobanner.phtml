@@ -1,0 +1,19 @@
+<?php $bannerImageUrl = $this->getImageUrl() ?>
+<?php if($bannerImageUrl!=''): ?>
+	<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+	<?php list($width, $height, $type, $attr) = getimagesize(str_replace('https://','http://',$bannerImageUrl)); ?>
+	<div class="mgs-promobanner">
+		<a class=" promobanner" href="<?= $this->getBannerUrl() ?>">
+			<amp-img width="<?= $width ?>" height="<?= $height ?>" layout="responsive" alt="" src="<?= $bannerImageUrl ?>"></amp-img>
+		</a>
+		<?php if(($this->getFbuilderTextContent() != "") || ($this->getFbuilderButtonText() != "")): ?>
+			<div class="text<?php if($this->getTextAlign()!=""): ?> <?= $this->getTextAlign() ?><?php endif ?>">
+				<?php if($this->getFbuilderTextContent() != ""): ?>
+					<div class="banner-text"><?= $builderHelper->decodeHtmlTag($this->getFbuilderTextContent()) ?></div>
+				<?php endif ?>
+			</div>
+		<?php endif ?>
+	</div>
+<?php else: ?>
+	<div class="message info empty"><div><?= __('Have no banner to show.') ?></div></div>
+<?php endif ?>

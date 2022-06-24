@@ -1,0 +1,24 @@
+<script type="text/javascript">
+	require([
+		"jquery"
+	], function(jQuery){
+		(function($) {
+			$(document).ready(function () {
+				if($('.pin__type').length){
+					$('.lookbook-container .pin__type').hover(function(){
+						$('.lookbook-container .pin__image').toggleClass('pm-mask');
+					});
+					
+					$('.lookbook-container .pin__type').click(function(){
+						$('.lookbook-container .pin__type').removeClass('pin__opened');
+						$(this).toggleClass('pin__opened');
+					});
+					
+					$('.lookbook-image').click(function(){
+						$('.lookbook-container .pin__type').removeClass('pin__opened');
+					});
+				}
+			});
+		})(jQuery);
+	});
+</script>

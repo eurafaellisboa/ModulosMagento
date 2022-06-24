@@ -1,0 +1,93 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getCollection();
+$showThumbnail = $this->getConfig('general_settings/show_thumbnail');
+if ($this->getConfig('general_settings/thumbnail_width') != '') {
+    $width = $this->getConfig('general_settings/thumbnail_width');
+} else {
+    $width = 240;
+}
+if ($this->getConfig('general_settings/thumbnail_height') != '') {
+    $height = $this->getConfig('general_settings/thumbnail_height');
+} else {
+    $height = 180;
+}
+$categoryId = (int)$this->getRequest()->getParam('category_id', false);
+?>
+<?php if (!count($collection)): ?>
+    <div class="message empty">
+        <div><?php echo __('Have no posts.') ?></div>
+    </div>
+<?php else: ?>
+    <div class="blog-list">
+        <?php foreach ($collection as $post): ?>
+            <div class="blog-post post-item-info">
+                <h2 class="post-title">
+                     <a class="post-title-link" title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo $post->getTitle(); ?></a>
+                </h2>
+                <div class="entry-metas">
+                    <span class="entry-author entry-meta">
+                        <?php echo __('%1', $post->getUser()); ?>
+                    </span>
+                    <span class="entry-meta">
+                        <?php echo __('%1', $block->formatDate($post->getUpdatedAt(), \IntlDateFormatter::MEDIUM, false)); ?>
+					</span>
+                    <?php $categoryItem = $block->getParentCategory($post->getPostId()); ?>
+                    <?php if($categoryItem): ?>
+                        <span class="category-links entry-meta">
+                            <?php $i=0; foreach ($categoryItem as $category): $i++; ?>
+                                <?php if($i > 1): ?><span>, </span><?php endif ?><a href="<?php echo $block->getCategoryUrl($category->getUrlKey()); ?>"><?php echo $category->getTitle(); ?></a>
+                            <?php endforeach ?>
+                        </span>
+                    <?php endif ?>
+                </div>
+				<div class="post-image">
+                    <?php if($helper->getImageThumbnailPost($post) != ""): ?>
+                        <div class="post-thumbnail">
+                            <?php if($post->getThumbType() == "video" && $post->getVideoThumbId() != ""): ?>
+                                <a class="popup-video" href="<?php echo $helper->getVideoThumbUrl($post); ?>" title="<?php echo $post->getTitle(); ?>">
+                                    <img class="img-fluid" src="<?php echo $helper->getImageThumbnailPost($post); ?>" alt="<?php echo $post->getTitle(); ?>"/>
+                                </a>
+                            <?php else: ?>
+                                <a href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>">
+                                    <img class="img-fluid" src="<?php echo $helper->getImageThumbnailPost($post); ?>" alt="<?php echo $post->getTitle(); ?>"/>
+                                </a>
+                            <?php endif ?>
+                        </div>
+                    <?php endif ?>
+				</div>
+				
+				<?php if ($post->getShortContent()): ?>
+					<div class="post-content">
+						<div class="post-short-description">
+							<?php echo $post->getShortContent(); ?>
+						</div>
+					</div>
+				<?php endif; ?>
+				
+            </div>
+        <?php endforeach; ?>
+    </div>
+	<div class="bottom-pagination">
+		<div class="toolbar"><?php echo $block->getPagerHtml(); ?></div>
+	</div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'magnificPopup'
+        ], function(jQuery){
+            (function($) {
+                $(document).ready(function() {
+                    $('.popup-video').magnificPopup({
+                        disableOn: 700,
+                        type: 'iframe',
+                        mainClass: 'mfp-img-gallery',
+                        removalDelay: 160,
+                        preloader: false,
+                        fixedContentPos: false
+                    });
+                });
+            })(jQuery);
+        });
+    </script>
+<?php endif; ?>

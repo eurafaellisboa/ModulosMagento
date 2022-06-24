@@ -1,0 +1,49 @@
+<?php $builderHelper = $this->helper('MGS\Fbuilder\Helper\Data'); ?>
+<?php $portfolios = $this->getPortfolios() ?>
+<div class="content-block portfolio-block">
+	<?php if ($portfolios->getSize()>0): ?>
+		<?php $blockId = rand() . time(); ?>
+		<?php $useSlider = $this->getUseSlider(); ?>
+		
+		<div class="block widget mgs-portfolio">
+			<div id="portfolio-<?php echo $blockId; ?>" class="items">
+				<?php if($useSlider): ?>
+					<amp-carousel class="portfolio-carousel" height="270" width="300" layout="responsive" type="slides" autoplay delay="5000">
+				<?php endif ?>
+				<?php $i=0; $j=0; foreach ($portfolios as $_portfolio): $i++; ?>
+					
+						<div class="portfolio-item">
+
+							<div class="thumbnail">
+								<a href="<?php echo $this->getPortfolioAddress($_portfolio); ?>" title="<?php echo strip_tags($_portfolio->getName()) ?>"> 
+									<amp-img width="100" height="100" layout="responsive" alt="<?php echo strip_tags($_portfolio->getName()) ?>" src="<?php echo $this->getThumbnailSrc($_portfolio) ?>"></amp-img>
+								</a>
+								
+							</div>
+
+							<div class="portfolio-item-detail">
+								<div class="portfolio-content">
+									<h5 class="title-portfolio">
+										<a href="<?php echo $this->getPortfolioAddress($_portfolio); ?>" title="<?php echo strip_tags($_portfolio->getName()); ?>"><?php echo $_portfolio->getName() ?></a>
+									</h5>
+									<?php if(!$this->getHideCategories()): ?>
+										<div class="portfolio-categories">
+											<?php echo $this->getCategoriesLink($_portfolio) ?>
+										</div>
+									<?php endif ?>
+								</div>
+								
+							</div>
+						</div>
+					
+				<?php endforeach; ?>
+				<?php if($useSlider): ?>
+					</amp-carousel>
+				<?php endif ?>
+			</div>
+		</div>
+		
+	<?php else: ?>
+		<div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find portfolio matching the selection.') ?></div></div>
+	<?php endif ?>
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="MGS_ThemeSettings::css/customize.css"/>
+		<script src="MGS_Fbuilder::js/mColorPicker.js"/>
+		<script src="MGS_ThemeSettings::js/customize.js"/>
+    </head>
+    <body>
+		<referenceBlock name="ajax_cart_sidebar" remove="true"/>
+		<referenceBlock name="page.main.title" remove="true"/>
+		<referenceContainer name="content">
+			<block class="MGS\ThemeSettings\Block\Customize\Edit" name="themesetting.customize" template="MGS_ThemeSettings::customize/frame.phtml"/>
+		</referenceContainer>
+	</body>
+</page>
