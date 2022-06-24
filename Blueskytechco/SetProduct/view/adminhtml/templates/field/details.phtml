@@ -1,0 +1,247 @@
+<form id="lookbook-edit-form" action="<?= $block->getUrl('addproductsset/productset/save');?>" method="post" enctype="multipart/form-data">
+	<?= /* @escapeNotVerified */ $block->getEntityId() ?>
+	<input name="form_key" type="hidden" value="<?= /* @escapeNotVerified */ $block->getFormKey() ?>" />
+	<input name="width" type="hidden" value="<?= /* @escapeNotVerified */ $block->getWidth() ?>" />
+	<input name="height" type="hidden" value="<?= /* @escapeNotVerified */ $block->getHeight() ?>" />
+	<div class="row container-manager-lookbook">
+		<div class="col-4 left-manager-lookbook">
+			<fieldset class="fieldset admin__fieldset fieldset-wide panel-control-general-options">
+				 <legend class="admin__legend legend">
+	                <span><?= __('General');?></span>
+	            </legend>
+	            <div class="lookbook_admin_field name">
+	            	<label class="lookbook_admin_label">
+	            		<span><?= __('Name');?></span>
+	            		<span class="required">*</span>
+	            	</label>
+	            	<div class="lookbook_admin_control">
+	            		<input name="name" data-validate="{required:true}" type="text" value="<?= /* @escapeNotVerified */ $block->getName() ?>" class="input-text">
+	            	</div>
+	            </div>
+	            <div class="lookbook_admin_field">
+	            	<label class="lookbook_admin_label">
+	            		<span><?= __('Image');?></span>
+	            	</label>
+	            	<div class="lookbook_admin_control upload-image-container">
+	            		<input id="banner_image" name="banner_image" type="file" accept="image/*" class="input-image-upload">
+	            		<div class="fake-select-image-conntainer">
+	            			<div class="button-select-image"><?= /* @escapeNotVerified */ $block->getBannerImage() ? __('Change Image') : __('Select Image'); ?></div>
+	            			<div class="selected-preview-image-name"><?= /* @escapeNotVerified */ $block->getBannerImage() ?></div>
+	            		</div>
+	            	</div>
+	            </div>
+				<div class="lookbook-title">
+					<div class="lookbook_admin_field">
+						<label class="lookbook_admin_label">
+							<span><?= __('Title');?></span>
+						</label>
+						<div class="lookbook_admin_control">
+							<input name="title" type="text" value="<?= /* @escapeNotVerified */ $block->getTitle() ?>" class="input-text">
+						</div>
+					</div>
+					<div class="lookbook_admin_field">
+						<label class="lookbook_admin_label">
+							<span><?= __('Title Link');?></span>
+						</label>
+						<div class="lookbook_admin_control">
+							<input name="title_link" type="text" value="<?= /* @escapeNotVerified */ $block->getTitleLink() ?>" class="input-text">
+						</div>
+					</div>
+				</div>
+	            <div class="lookbook_admin_field">
+	            	<label class="lookbook_admin_label">
+	            		<span><?= __('Button Style');?></span>
+	            	</label>
+	            	<div class="lookbook_admin_control">
+	            		<select class="input-select select-options-button-style" name="button_style">
+	            			<?= /* @escapeNotVerified */ $block->getButtonStyle() ?>
+	            		</select>
+	            	</div>
+	            </div>
+	            <div class="container-lookbook-add-products">
+	            	<button type="button" title="<?= __('Add Product');?>" id="button-add-products-click"><?= __('Add Product');?></button>
+	            </div>
+	            <div class="container-lookbook-append-products">
+	            	<ul><?= /* @escapeNotVerified */ $block->getListProducts() ?></ul>
+	            </div>
+			</fieldset>
+		</div>
+		<div class="col-8 right-manager-lookbook">
+	        <div class="lookbook-live-preview">
+	        	<div class="add-lookbook-image">
+		        	<img src="<?= /* @escapeNotVerified */ $block->getBannerImageSrc() ?>">
+		        </div>
+		        <?= /* @escapeNotVerified */ $block->getPin() ?>
+	        </div>
+	        <div class="add-lookbook-title">
+	        	<?= /* @escapeNotVerified */ $block->getTitleLinkHtml() ?>
+	        </div>
+		</div>
+	</div>
+</form>
+<script>
+	require(["jquery","jquery-ui-modules/draggable", "Blueskytechco_SetProduct/js/select2", "mage/mage"], function ($) {
+		var dataForm = $('#lookbook-edit-form');
+   		dataForm.mage('validation', {});
+		var length_pin = $('.lookbook-live-preview div.lookbook-icon').length;
+		if(length_pin > 0){
+			$('.lookbook-live-preview div.lookbook-icon').each(function(){
+				var item_key = $(this).data('pin');
+			  	commonFunctionLookbook(item_key);
+			});
+		}
+		function formatRepo (repo) {
+			if (repo.loading) {
+				return repo.sku;
+			}
+
+			var $container = $(
+			    "<div class='select2-result-products'>" +
+			      "<div class='select2-result-products-img'><img src='" + repo.thumbnail + "' /></div>" +
+			      "<div class='select2-result-products-meta'>" +
+			        "<div class='select2-result-products-name'>"+ repo.name +"</div>" +
+			        "<div class='select2-result-products-sku'>"+ repo.sku +"</div>" +
+			      "</div>" +
+			    "</div>"
+			);
+			return $container;
+		}
+
+		function commonFunctionLookbook(item_key) {
+		 	$('#pin_'+item_key).draggable({
+				containment: ".lookbook-live-preview",
+				scroll: false,
+				drag: function(){
+					var offset = $(this).position();
+					var xPos = offset.left;
+					var yPos = offset.top;
+					var width_cotainer = $(".add-lookbook-image").width();
+					var height_cotainer = $(".add-lookbook-image").height();
+					var left = xPos/width_cotainer*100;
+					var top = yPos/height_cotainer*100;
+					$('#lookbook_'+item_key).find(".pin-top").val(top);
+					$('#lookbook_'+item_key).find(".pin-left").val(left);
+				}
+			});
+
+		 	$('#lookbook_'+item_key+' .js-data-products-ajax').select2({
+			  	ajax: {
+			    	url: '<?= $block->getUrl('addproductsset/productset/productslist');?>',
+			    	dataType: 'json',
+			    	delay: 250,
+			    	data: function (params) {
+						return {
+							q: params.term,
+							page: params.page
+						};
+				    },
+				    processResults: function (data, params) {
+				    	params.page = params.page || 1;
+				    	return {
+					        results: data.items,
+					        pagination: {
+					          more: (params.page * 10) < data.total_count
+					        }
+					    };
+				    }
+			  	},
+			  	placeholder: "<?= __('Search Product');?>",
+	  			minimumInputLength: 1,
+	  			templateResult: formatRepo,
+	  			templateSelection: formatRepoSelection
+			});
+		}
+
+		function formatRepoSelection (repo) {
+		  return repo.sku || repo.text;
+		}
+
+		$('body').addClass('lookbook-page-edit-admin');
+
+		$("#banner_image").change(function() {
+			readURL(this);
+		});
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					var file_upload = input.files[0];
+					$(".add-lookbook-image").html("<img src="+e.target.result+" />");
+					$(".button-select-image").text("<?= __('Change Image');?>");
+					$(".selected-preview-image-name").text(file_upload.name);
+					var ini_image = new Image();
+					ini_image.src = e.target.result;
+					ini_image.onload = function () {
+					    var height_org = this.height;
+					    var width_org = this.width;
+					    $("input[name='width']").val(width_org);
+					    $("input[name='height']").val(height_org);
+					};
+				}
+				reader.readAsDataURL(input.files[0]);
+				var length_item = $('.container-lookbook-append-products ul li').length;
+				if(length_item > 0){
+					$('.container-lookbook-append-products ul li').each(function(){
+					  	var data_id = $(this).data("id");
+					  	var left_po = $(this).find('.pin-left').val();
+					  	var top_po = $(this).find('.pin-top').val();
+					  	$('#pin_'+data_id).css('top',top_po+'%');
+					  	$('#pin_'+data_id).css('left',left_po+'%');
+					});
+				}
+			}
+		}
+
+		$(document).on("click","#click-save-lookbook",function(){
+			$('#lookbook-edit-form').submit();
+        });
+
+		$(document).on("click","#button-add-products-click",function(){
+			var item_key = new Date().getTime();
+			var type_style = $('.select-options-button-style').val();
+			item_key = item_key + 10;
+			var length_item = $('.container-lookbook-append-products ul li').length;
+			length_item ++;
+			var rand_postions = Math.floor(Math.random() * 100);
+			var pin_tem = '<div data-pin="'+item_key+'" class="lookbook-icon '+type_style+'" id="pin_'+item_key+'" style="top: 5%; left: '+rand_postions+'%;"><a href="#" rel="nofollow" class="pin-icon-product"><span class="pin-content-product">'+length_item+'</span></a></div>';
+            var template = '<li id="lookbook_'+item_key+'" data-id="'+item_key+'"><div class="div-container-select-product"><select class="js-data-products-ajax" name="products['+item_key+'][product_id]"></select></div><div class="div-container-add-label"><input name="products['+item_key+'][label]" value="'+length_item+'" type="text" class="input-text icon-label-keyup-event" placeholder="<?= __('Add a lable');?>"></div><div class="div-container-del-product"><button type="button" title="<?= __('Delete Product');?>" class="delete-product-lookbook"><i class="fas fa-trash"></i></button><input name="products['+item_key+'][top]" class="pin-top" type="hidden" value="5" /><input name="products['+item_key+'][left]" class="pin-left" type="hidden" value="'+rand_postions+'" /></div></li>';
+        	$('.container-lookbook-append-products ul').append(template);
+        	$('.lookbook-live-preview').append(pin_tem);
+        	commonFunctionLookbook(item_key);
+        });
+
+		$(document).on("click",".delete-product-lookbook",function(){
+			var data_id = $(this).closest("li").data('id');
+            $('#pin_'+data_id).remove();
+            $(this).closest("li").remove();
+        });
+
+        $(document).on("click",".pin-icon-product",function(){
+			return false;
+        });
+
+        $(document).on("keyup",".icon-label-keyup-event",function(){
+        	var label_content = $(this).val();
+            var data_id = $(this).closest("li").data('id');
+            $('#pin_'+data_id).find('.pin-content-product').html(label_content);
+        });
+
+        $(".select-options-button-style").change(function(){
+			var type_style = $(this).val();
+		    $(".lookbook-icon").removeClass('dark');
+		    $(".lookbook-icon").removeClass('light');
+		    $(".lookbook-icon").addClass(type_style);
+		});
+
+		$("input[name='title']").blur(function(){
+			var title_look = $(this).val();
+		    $(".add-lookbook-title a").text(title_look);
+		});
+		$("input[name='title']").keyup(function () {
+			var title_look = $(this).val();
+		    $(".add-lookbook-title a").text(title_look);
+		});
+		var distance = $('.right-manager-lookbook').offset().top;
+	});
+</script>

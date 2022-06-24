@@ -1,0 +1,18 @@
+{
+    "name": "blueskytechco/module-rokanbase",
+    "description": "N/A",
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Blueskytechco\\RokanBase\\": ""
+        }
+    },
+    "version": "2.3.2"
+}

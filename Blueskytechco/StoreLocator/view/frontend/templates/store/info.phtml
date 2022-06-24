@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © 2019 Blueskytechco. All rights reserved. 
+ */
+
+$locations = $block->getStoreViewLocator();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface'); 
+$currentStore = $storeManager->getStore();
+$mediaUrl = $currentStore->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+?>
+<div id="store_list_view">
+	<div class="location" name="leftLocation"> 
+		<?php 
+			if($locations->getImageStore()){ 
+				$image = $mediaUrl.json_decode($locations->getImageStore());
+			}else{
+				$image = $block->getViewFileUrl('Blueskytechco_StoreLocator::images/shop.jpg');
+			}
+		?>
+		<div class="map-directions">
+			<a href="https://www.google.com/maps/@<?php echo $locations->getLat(); ?>,<?php echo $locations->getLng(); ?>,15z" target="_blank"><i class="fa fa-map-o"></i><?php echo __('Get Directions') ?></a>
+		</div>
+		<div class="image">
+			<img src="<?php echo $image ?>"/>
+		</div>
+		<div class="location-information">
+			<div><h2><?php echo $this->escapeHtml($locations->getName()); ?><h2></div>
+			<?php if (trim($locations->getCity())) { ?>
+				<div><?php echo __('City') ?>: <?php echo $this->escapeHtml($locations->getCity()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getPostcode())) { ?>
+				<div><?php echo __('Zip') ?>: <?php echo $this->escapeHtml($locations->getPostcode()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getCountry())) { ?>
+				<div><?php echo __('Country') ?>: <?php echo $this->escapeHtml($locations->getCountry()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getAddress())) { ?>
+				<div><?php echo __('Address') ?>: <?php echo $this->escapeHtml($locations->getAddress()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getPhone())) { ?>
+				<div><?php echo __('Phone') ?>: <?php echo $this->escapeHtml($locations->getPhone()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getEmail())) { ?>
+				<div><?php echo __('Email') ?>: <?php echo $this->escapeHtml($locations->getEmail()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getFax())) { ?>
+				<div><?php echo __('Fax') ?>: <?php echo $this->escapeHtml($locations->getFax()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getWebsite())) { ?>
+				<div><?php echo __('Website') ?>: <?php echo $this->escapeHtml($locations->getWebsite()); ?></div>
+			<?php }?>
+			<?php if (trim($locations->getDes())) { ?>
+				<div><?php echo __('Description') ?>: <?php echo $this->escapeHtml($locations->getDes()); ?></div>
+			<?php }?>
+		</div>
+		<?php $time_today = $block->getTimeStoreLocator($locations->getStoreId()) ?>
+		<div class="today_time">
+			<?= __('Opening Hours:')?> 
+			<?php if($time_today['today'] == 0){?><?php echo __('Closed') ?><?php }else{ ?><?php if($time_today['time_today']->from->hours < 10){echo '0'.$time_today['time_today']->from->hours;} ?> : <?php if($time_today['time_today']->from->minutes < 10){echo '0'.$time_today['time_today']->from->minutes;} ?> AM - <?php if($time_today['time_today']->to->hours < 10){echo '0'.$time_today['time_today']->to->hours;} ?> : <?php if($time_today['time_today']->to->minutes < 10){echo '0'.$time_today['time_today']->to->minutes;} ?> PM <?php }?>
+			<div class="locator_arrow"></div>
+		</div>
+		<div class="all_today_time" style="display:none;">
+			<?php echo $block->getAllTimeStoreLocator($locations->getStoreId()); ?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,279 @@
+// Product
+// Copyright by Blueskytechco
+// ________________________________________
+// Product variable
+
+// Product name
+@product-name-link__color: @heading__color__base;
+@product-name-link__color__active: @product-name-link__color;
+@product-name-link__color__hover: @theme__color__primary;
+@product-name-link__color__visited: @product-name-link__color;
+@product-name-link-line-height: 1.4;
+
+@product-name-link__text-decoration: none;
+@product-name-link__text-decoration__active: @link__hover__text-decoration;
+@product-name-link__text-decoration__hover: @link__hover__text-decoration;
+@product-name-link__text-decoration__visited: @link__hover__text-decoration;
+
+@product-name-font-weight: 500;
+
+// Rate
+
+@rating-icon__content: "\f005";
+@rating-icon__font: "Font Awesome 5 Free";
+@rating-icon__font-size: 1.2rem;
+@rating-icon__letter-spacing: 0;
+@rating-icon__color: #e6e6e6;
+@rating-icon__active__color: #fdbc00;
+@rate_result-width: 7.1rem;
+@rate_result-font-weight: bold;
+
+@product-reviews-summary-margin: 6px 0;
+@product_rate-display: block; // Bluesky Custom variable
+@reviews-actions-display: none; // Bluesky Custom variable
+
+// Swatch option
+@swatch_attribute_options-margin:  0.7rem 0 0;
+// color swatch
+@swatch_option_color-border: false;
+@swatch_option_color-border-radius: 50%;
+@swatch_option_color-width: 1.6rem;
+@swatch_option_color-height: 1.6rem;
+@swatch_option_color-margin: 0 8px 6px 0;
+
+// Size swatch
+@swatch_option_size-width: false;
+@swatch_option_size-height: false;
+@swatch_option_size-border: false;
+@swatch_option_size-margin: 0 3px 0 0;
+@swatch_option_size-border-radius: false;
+
+// Extend product variable
+
+@product_action_top-position: 1rem;
+@product_action_right-position: false;
+@product_action_bottom-position: false;
+@product_action_left-position: 1rem;
+
+@product_action-width: 3rem;
+@product_action-height: 3rem;
+@product_action-background: false;
+@product_action-border-radius: false;
+
+@product_action_icon-color: @color-white;
+@product_action_icon-font-size: 1.6rem;
+@product_action_icon-font-family: @_icon_custom_font;
+@product_action_icon-font-weight: false;
+
+@product_action_icon-wishlist: "\e805";
+@product_action_icon-compare: "\f021";
+@product_action_icon-quickview: "\e904";
+@product_action_icon-addtocart: "\e903";
+
+// Product action width height mixin
+.lib-product-action-box(
+  @_product_action-width: @product_action-width,
+  @_product_action-height: @product_action-height,
+  @_product_action-background: @product_action-background,
+  @_product_action-border-radius: @product_action-border-radius
+){
+    .lib-css(width, @_product_action-width);
+    .lib-css(height, @_product_action-height);
+    .lib-css(background, @_product_action-background);
+    .lib-css(border-radius, @_product_action-border-radius);
+}
+
+// Product action add cart, compare, wishlist icon
+.lib-product-icon-action(
+  @_product_action-content: '',
+  @_product_action-font-size: @product_action_icon-font-size,
+  @_product_action_color: @product_action_icon-color,
+  @_product_action_icon-font-family: @product_action_icon-font-family,
+  @_product_action_icon-font-weight: @product_action_icon-font-weight,
+){
+  .lib-css(content, @_product_action-content);
+  .lib-css(color, @_product_action_color);
+  .lib-css(font-size, @_product_action-font-size);
+  .lib-css(font-family, @_product_action_icon-font-family);
+  .lib-css(font-weight, @_product_action_icon-font-weight);
+  line-height: 1;
+  overflow: visible;
+  .transition();
+}
+
+// Product price
+@product-price__muted__color: @color-gray40;
+
+@product_price-margin: false;
+@product_price-font-size: false;
+@product_price-font-weight: 400;
+
+@price_color: #696969;
+@old_price_font: 1.4rem;
+@old-price_color: #878787;
+@special_price_color: #ec0101;
+
+// Sale new label
+@product_label-size: 1rem;
+@product_label_desktop-size: 1.4rem;
+// Sale
+@sale_label_bg: @theme__color__primary;
+@sale_label_color: @heading__color__base;
+
+// New
+@new_label_bg: #65af39;
+@new_label_color: @color-white;
+
+// Space
+@product_item_image-margin-bottom: 1rem;
+@product_grid_space_vertical: 3rem;
+
+//  _____________________________________________
+// Product hover effect Mixin
+
+.product_item_hover-effect(
+  @_product_item_hover-effect: @product_item_hover-effect,
+) when (@_product_item_hover-effect = zoom) {
+    .product-image-wrapper img:only-child,
+    .products-image-hover{
+        .lib-css(transition, @product_item_hover-transition-effect);
+    }
+    .products-image-hover{
+        
+        opacity: 0;
+    }
+    .product_item_images{
+        &:hover{
+            .products-image-hover,
+            .product-image-wrapper img:only-child{
+                @transform: scale(@product_item_hover-zoom-value);
+                .lib-css(transform, @transform, 1);
+                opacity: 1;
+                .lib-css(transition, @product_item_hover-transition-effect);
+            }
+        }
+    }
+}
+.product_item_hover-effect(
+	@_product_item_hover-effect: @product_item_hover-effect,
+) when (@_product_item_hover-effect = overlay) {
+    .product-image-wrapper{
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+            background-color: transparent;
+            .lib-css(transition, @product_item_hover_overlay-transition, 1);
+        }
+    }
+    .product_item_images{
+        &:hover{
+            .product-image-wrapper{
+                &::before{
+                .lib-css(background-color, @product_item_hover_overlay-background);
+                }
+            }
+        }
+    }
+}
+.product_item_hover-effect(
+	@_product_item_hover-effect: @product_item_hover-effect,
+) when (@_product_item_hover-effect = zoom-overlay) {
+    .product-image-wrapper{
+        position: relative;
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            opacity: 0;
+            .lib-css(background-color, @product_item_hover_overlay-background);
+            .lib-css(transition, @product_item_hover_overlay-transition, 1);
+        }
+    }
+    .product-image-wrapper img:only-child,
+    .products-image-hover{
+        .lib-css(transition, @product_item_hover-transition-effect);
+    }
+    .product_item_images{
+        &:hover{
+            .product-image-wrapper img:only-child,
+            .products-image-hover{
+                @transform: scale(@product_item_hover-zoom-value);
+                .lib-css(transform, @transform, 1);
+                opacity: 1;
+                .lib-css(transition, @product_item_hover-transition-effect);
+            }
+            .product-image-wrapper,
+            .products-image-hover{
+                &::before{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.product_item_hover-effect(
+    @_product_item_hover-effect: @product_item_hover-effect,
+) when (
+    @_product_item_hover-effect = box-effect) {
+    .product-image-wrapper{
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            @transition: all 0.5s linear;
+            z-index: 2;
+            .lib-css(transition, @product_item_hover-transition-effect);
+        }
+
+        &:hover {
+            &:before {
+                width: 0;
+            }
+
+            &:after {
+                height: 0;
+            }
+
+            &:before,
+            &:after {
+                background-color: fade(@color-white, 15%);
+            }
+        }
+    }
+}
+
+// Product name link mixin
+.abs-product-link {
+    .lib-css(font-weight, @product-name-font-weight);
+    > a {
+        .lib-link(
+            @_link-color: @product-name-link__color,
+            @_link-text-decoration: @product-name-link__text-decoration,
+            @_link-color-visited: @product-name-link__color__visited,
+            @_link-text-decoration-visited: @product-name-link__text-decoration__visited,
+            @_link-color-hover: @product-name-link__color__hover,
+            @_link-text-decoration-hover: @product-name-link__text-decoration__hover,
+            @_link-color-active: @product-name-link__color__active,
+            @_link-text-decoration-active: @product-name-link__text-decoration__active
+        );
+    }
+}
+

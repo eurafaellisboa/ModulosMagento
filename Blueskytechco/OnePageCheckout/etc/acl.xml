@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Blueskytechco_OnePageCheckout::onepagecheckout_config" title="One Page Checkout" />
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Blueskytechco_RokanBase::rokanbase">
+                    <resource id="Blueskytechco_OnePageCheckout::onepagecheckout" title="One Page Checkout" translate="title" sortOrder="20">
+                        <resource id="Blueskytechco_OnePageCheckout::onepagecheckout_menu_config" title="Configuration" translate="title" sortOrder="10" />
+                        <resource id="Blueskytechco_OnePageCheckout::onepagecheckout_sorting_fields" title="Sorting Fields" translate="title" sortOrder="20" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

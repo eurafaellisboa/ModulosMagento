@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <quickview_product>
+             <general>
+                <enabled><![CDATA[1]]></enabled>
+                <label><![CDATA[Quick View]]></label>
+                <position><![CDATA[append]]></position>
+                <class_position><![CDATA[.product-item-actions_middle]]></class_position>
+                <nav><![CDATA[dots]]></nav>
+                <navdir><![CDATA[left]]></navdir>
+              </general>
+        </quickview_product>
+    </default>
+</config>

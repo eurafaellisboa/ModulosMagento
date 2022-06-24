@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <searchsuite>
+            <search>
+                <enable><![CDATA[1]]></enable>
+                <type><![CDATA[canvas]]></type>
+                <limit><![CDATA[5]]></limit>
+                <quick_search><![CDATA[women, men, shirt]]></quick_search>
+              </search>
+              <product>
+                <enable_image><![CDATA[1]]></enable_image>
+                <enable_price><![CDATA[1]]></enable_price>
+                <enable_short_description><![CDATA[0]]></enable_short_description>
+                <enable_reviews_rating><![CDATA[0]]></enable_reviews_rating>
+              </product>
+              <search_category>
+                <enable_search_category><![CDATA[1]]></enable_search_category>
+                <show_category><![CDATA[list]]></show_category>
+              </search_category>
+              <product_suggestion>
+                <enable><![CDATA[1]]></enable>
+                <text_suggestion><![CDATA[Need some inspiration?]]></text_suggestion>
+                <category><![CDATA[5]]></category>
+              </product_suggestion>
+        </searchsuite>
+    </default>
+</config>

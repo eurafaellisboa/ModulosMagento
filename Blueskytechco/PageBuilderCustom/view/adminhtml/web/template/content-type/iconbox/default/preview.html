@@ -1,0 +1,42 @@
+<div class="pagebuilder-content-type pagebuilder-iconbox type-nested" event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <render args="getOptions().template"></render>
+    <div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+        <div class="elementor-icon-box-wrapper">
+            <div class="elementor-icon-box-icon" ko-style="data.iconfontsize.style" attr="data.iconfontsize.attributes">
+                <ifnot args="data.link.attributes().href">
+                    <ifnot args="data.iconhtml.html">
+                        <span><i class="fas fa-star"></i></span>
+                    </ifnot>
+                    <if args="data.iconhtml.html">
+                        <span html="data.iconhtml.html" attr="data.iconhtml.attributes"></span>
+                    </if>
+                </ifnot>
+                <if args="data.link.attributes().href">
+                    <ifnot args="data.iconhtml.html">
+                        <a if="data.link.attributes().href" attr="data.link.attributes" ko-style="data.link.style" css="data.link.css">
+                            <span><i class="fas fa-star"></i></span>
+                        </a>
+                    </ifnot>
+                    <if args="data.iconhtml.html">
+                        <a if="data.link.attributes().href" attr="data.link.attributes" ko-style="data.link.style" css="data.link.css">
+                            <span html="data.iconhtml.html" attr="data.iconhtml.attributes"></span>
+                        </a>
+                    </if>
+                </if>
+            </div>
+            <div class="elementor-icon-box-content">
+                <ifnot args="data.link.attributes().href">
+                    <h3 class="elementor-icon-box-title" if="data.title.html" html="data.title.html" attr="data.title.attributes"></h3>
+                </ifnot>
+                <if args="data.link.attributes().href">
+                    <h3 class="elementor-icon-box-title" if="data.title.html">
+                        <a if="data.link.attributes().href" attr="data.link.attributes" ko-style="data.link.style" css="data.link.css">
+                            <span html="data.title.html" attr="data.title.attributes"></span>
+                        </a>
+                    </h3>
+                </if>
+                <div class="elementor-icon-box-description" if="data.short_description.html" html="data.short_description.html" attr="data.short_description.attributes"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+/** @var $configProvider \Magento\Search\ViewModel\ConfigProvider */
+$helper = $this->helper('Magento\Search\Helper\Data');
+$configProvider = $block->getData('configProvider');
+$helpersearch = $this->helper('Blueskytechco\SearchSuite\Helper\Data');
+$search = $helpersearch->getConfigData('searchsuite/search/enable');
+$search_type = $helpersearch->getConfigData('searchsuite/search/type')?
+	$helpersearch->getConfigData('searchsuite/search/type'):
+	'defaut';
+$class_type = ' search_type_'.$search_type;
+$quick_search = $helpersearch->getConfigData('searchsuite/search/quick_search');
+
+$enableSearchByCat = $helpersearch->getConfigData('searchsuite/search_category/enable_search_category');
+$show_category = $helpersearch->getConfigData('searchsuite/search_category/show_category');
+$enable_suggest_product = $helpersearch->getSuggestProductUrl()?'true':'false';
+$type_categories = ($enableSearchByCat && $search_type == 'popup')?' type-'.$show_category.'-categories':'';
+?>
+<?php if ($search): ?>
+<div class="block block-quick-search block-search<?= $class_type ?>">
+    <div class="block block-content">
+		<div class="dropdown">
+			<?php if($search_type !== 'defaut'): ?>
+			<div class="dropdown-toggle">
+				<a class="top-search" href="javascript:void(0);">
+					<i class="icon-search"></i>
+					<span class="text"><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+				</a>
+			</div>
+			<?php endif; ?>
+			<div id="search-form">
+				<?php if($search_type == 'popup' || $search_type == 'canvas'){ ?>
+				<div class="mini_search_header">
+					<h3 class="widget-title"><?= $block->escapeHtml(__('Search Our Site')) ?></h3>
+					<button class="button-close"></button>
+				</div>
+				<?php } ?>
+				<form class="form minisearch" id="search_mini_form" action="<?= $block->escapeUrl($helper->getResultUrl()) ?>" method="get">
+					<div class="form-minisearch-search-product"> 
+						<div class="form-minisearch"> 	
+							<div class="search-form<?= $block->escapeHtmlAttr($type_categories) ?>"> 
+								<?php if($enableSearchByCat){ ?>
+									<?php if($show_category ==  'list' && $search_type == 'popup'){ ?>
+									<div class="field-by-cat-search">
+										<ul class="items-list">
+											<li class="cat-item selected"><a href="javascript:void(0)" data-slug=""><?php echo __('Todas as Categorias'); ?></a></li>
+											<?php $categories = $block->getCategories(); 
+											foreach($categories as $cat)
+											{
+												if(isset($_GET['cat']) && $_GET['cat'] == $cat->getId()){
+													echo '<li class="cat-item selected-cat"><a data-id="'.$cat->getId().'" href="javascript:void(0)">'.$cat->getName().'</a></li>';
+												}
+												else{
+													echo '<li class="cat-item"><a data-id="'.$cat->getId().'" href="javascript:void(0)">'.$cat->getName().'</a></li>';
+												}
+											}
+											?>
+										</ul>	
+										<input type="hidden" name="choose_category" id="choose_category" class="search-cat-field" value="">
+									</div>
+									<?php } else { ?>
+									<div class="field-by-cat-search search-category-dropdown hidden-xs">    
+										<select name="cat" id="choose_category">
+												<option value=""><?php echo __('All Categories'); ?></option>
+											<?php $categories = $block->getCategories(); 
+											foreach($categories as $cat)
+											{
+												if(isset($_GET['cat']) && $_GET['cat'] == $cat->getId()){
+													echo '<option value="'.$cat->getId().'" selected="selected">'.$cat->getName().'</option>';
+												}
+												else{
+													echo '<option value="'.$cat->getId().'">'.$cat->getName().'</option>';
+												}
+											}
+											?>
+											</select>
+									</div>
+									<?php } ?>
+								<?php } ?>
+								<div class="field search">
+									<label class="label" for="search" data-role="minisearch-label">
+										<span><?= $block->escapeHtml(__('Search')) ?></span>
+									</label>
+									<div class="control">
+										<input id="search"
+												type="text"
+												name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
+												value="<?= /* @noEscape */ $helper->getEscapedQueryText() ?>"
+												placeholder="<?= $block->escapeHtmlAttr(__('Search entire store here...')) ?>"
+												class="input-text"
+												maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>"
+												role="combobox"
+												aria-haspopup="false"
+												aria-autocomplete="both"
+												autocomplete="off"
+												aria-expanded="false"/>
+											<div class="search-clear hidden" title="<?= $block->escapeHtml(__('Clear Field')) ?>"><?= $block->escapeHtml(__('Clear Field')) ?></div>
+									</div>
+									<div class="actions">
+										<button type="submit"
+											title="<?= $block->escapeHtml(__('Search')) ?>"
+											class="action search"
+											aria-label="Search"
+										>
+											<span><?= $block->escapeHtml(__('Search')) ?></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php if ($quick_search): ?>
+						<div class="quick-search">
+							<p class="quick-search-title"><?= $block->escapeHtml(__('Quick search:')) ?></p>
+							<ul class="quick-search-list">
+								<?php
+								$quick_search_array = explode(",",$quick_search);
+								foreach($quick_search_array as $key => $quick){ ?>
+								<?php $comma = ($key < (count($quick_search_array) - 1))?',':''; ?>
+								<li><a href="<?php echo $this->getUrl('catalogsearch/result').'?q='.str_replace(' ','+',strtolower(trim($quick))).''; ?>"><?= $block->escapeHtml(trim($quick)) ?></a><?= $block->escapeHtml($comma) ?></li>
+								<?php } ?>
+							</ul>
+						</div>
+						<?php endif; ?>	
+					</div>
+					<div class="auto-complete-result" data-bind="scope: 'searchsuite_autocomplete_form'">
+						<!-- ko template: getTemplate() --><!-- /ko -->
+					</div>
+				</form>
+			</div>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".block-quick-search": {
+            "Blueskytechco_SearchSuite/js/searchsuite": {
+				"typeSearch": "<?php echo $search_type ?>"
+            }
+        }
+    }
+</script>
+<?php if ($configProvider->isSuggestionsAllowed()):?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "searchsuite_autocomplete_form": {
+                    "component": "Blueskytechco_SearchSuite/js/autocomplete"
+                },
+                "autocompleteBindEvents": {
+                    "component": "Blueskytechco_SearchSuite/js/action/bindEvents",
+                    "config": {
+                        "searchFormSelector": "#search_mini_form",
+                        "searchButtonSelector": "#minisearch button.search",
+                        "inputSelector": ".minisearch .search input[type=\"text\"]",
+						"inputSelectorCate": "#choose_category",
+						"searchClear": ".search-clear",
+						"getMinQueryLength": "<?= $block->escapeHtmlAttr($helper->getMinQueryLength()) ?>", 
+                        "searchDelay": "<?php echo $block->escapeHtml($block->getSearchDelay()) ?>",
+						"suggestProduct": "<?php echo $enable_suggest_product ?>",
+						"typeSearch": "<?php echo $search_type ?>",
+						"urlSuggestProduct": "<?= $block->escapeUrl($helpersearch->getSuggestProductUrl())?>"
+                    }
+                },
+                "autocompleteDataProvider": {
+                    "component": "Blueskytechco_SearchSuite/js/action/dataProvider",
+					"config": {
+                        "url": "<?= $block->escapeUrl($helper->getSuggestUrl())?>"
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+<?php endif;?>
+<?php endif;?>

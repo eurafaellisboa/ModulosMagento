@@ -1,0 +1,12 @@
+<div data-bind="attr: data.main.attributes, style: data.main.style, css: data.main.css">
+   <if args="data.title.html">
+        <div class="header-static-menu">
+            <h4 class="elementor-static-menu-title" if="data.title.html" html="data.title.html" attr="data.title.attributes">
+                <a href="#" class="static-menu-click more-action"></a>
+            </h4>
+        </div>
+    </if>
+    <div class="elementor-content-static-menu">
+        <render args="masterTemplate"></render>
+    </div>
+</div>

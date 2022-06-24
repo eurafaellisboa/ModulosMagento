@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+    <widget id="widget_pricecountdown_list" class="Blueskytechco\PriceCountdown\Block\Widget\PriceCountdown" is_email_compatible="true" placeholder_image="Magento_CatalogWidget::images/products_list.png" ttl="86400">
+        <label translate="true">PriceCountdown</label> 
+		<description translate="true">List PriceCountdown Settings</description>  
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true" sort_order="0">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="short_description" xsi:type="text" required="false" visible="true" sort_order="10">
+                <label translate="true">Short Description</label>
+            </parameter>
+            <parameter name="product_ids" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Product ids</label>
+            </parameter>
+            <parameter name="type_name" xsi:type="text"  visible="true" sort_order="92" >
+                <label translate="true">Appearance</label>
+            </parameter>
+             <parameter name="margin_item" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Margin</label>
+            </parameter>
+            <parameter name="space_between_item" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Space Between Item</label>
+            </parameter>
+            <parameter name="col_xxl" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Columns Extra extra large</label>
+            </parameter>
+            <parameter name="col_xl" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Columns Extra large</label>
+            </parameter>
+            <parameter name="col_lg" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Columns Large</label>
+            </parameter>
+            <parameter name="col_md" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Columns Medium</label>
+            </parameter>
+            <parameter name="col_sm" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Columns Small</label>
+            </parameter>
+            <parameter name="col_xs" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Columns Extra small</label>
+            </parameter>
+            <parameter name="desgin" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Desgin</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

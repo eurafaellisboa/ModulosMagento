@@ -1,0 +1,28 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php 
+$_product = $block->getProduct();
+$view_model = $block->getViewModel();
+$_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$brandValue = $_product->getData('brand');
+$swatchHelper = $_objectManager->get("Magento\Swatches\Helper\Data");
+$swatchData = $swatchHelper->getSwatchesByOptionsId([$brandValue]);
+$swatchHelperMedia = $_objectManager->get("Magento\Swatches\Helper\Media");
+$thumbImage = '';
+if($brandValue && isset($swatchData[$brandValue]['value'])) {
+    $thumbImage =  $swatchHelperMedia->getSwatchAttributeImage('swatch_thumb', $swatchData[$brandValue]['value']);
+    $value = $_product->getResource()->getAttribute('brand')->getFrontend()->getValue($_product);
+}
+?>
+<?php if ($view_model->getParamsProductBrand()) { ?>
+    <?php if ($thumbImage) { ?>
+        <div class="brand">
+            <img src="<?= $thumbImage; ?>" alt="<?= $value ?>" />
+        </div>
+    <?php }?>
+<?php }?>

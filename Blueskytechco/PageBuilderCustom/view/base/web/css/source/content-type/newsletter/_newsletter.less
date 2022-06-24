@@ -1,0 +1,378 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+//  Variables
+// ________________________________________
+@bls_newsletter-input-font-size: 1.3rem;
+@bls_newsletter-input-height: 40px;
+@bls_newsletter-input-margin: false;
+
+& when (@media-common =true) {
+    .elementor-newsletter-wrapper{
+        .form-subscribe {
+            border: 1px solid @text__color;
+            .lib-css(border-radius, @button__border-radius);
+            padding: 2px;
+            .flex(
+                @_flex-wrap: nowrap;
+            );
+            justify-content: space-between;
+            .field-newsletter{
+                flex: 1;
+            }
+        }
+        input{
+            .lib-css(height, @bls_newsletter-input-height);
+            .lib-css(margin, @bls_newsletter-input-margin);
+            .lib-css(font-size, @bls_newsletter-input-font-size);
+            border: 0;
+            .lib-css(border-radius, @button__border-radius);
+            background-color: transparent;
+        }
+        button{
+            .lib-css(border-radius, @button__border-radius);
+            .dark_button;
+            height: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+    // Style 2
+    .style_2 {
+        .elementor-newsletter-wrapper{
+            .form-subscribe{
+                padding: 0;
+                border-radius: 0;
+                input, button{
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+    .larger{
+        .elementor-newsletter-wrapper{
+            .form-subscribe{
+                border-color: #eee;
+                input{
+                    height: 58px;
+                    padding-left: 15px;
+                    .lib-font-size(16);
+                    color: #000;
+                }
+                button{
+                    min-height: 58px;
+                }
+            }
+            @media only screen and (max-width: (@screen__xs - 1)) {
+                .form-subscribe {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+
+                    input {
+                        text-align: center;
+                    }
+                    .actions-subscribe{
+                        button{
+                            width: 100%;
+                        }
+                    }
+                    >div {
+                        width: 100%;
+                    }
+
+                }
+            }
+        }
+        &.newl_des_4{
+            .elementor-newsletter-wrapper{
+                .form-subscribe{
+                    border-color: #ddd;
+                    button {
+                        min-width: 200px;
+                        text-transform: uppercase;
+                        letter-spacing: .17em;
+                    }
+                }
+                
+            }
+        }
+    }
+    .color_white{
+        .elementor-newsletter-wrapper{
+            .form-subscribe{
+                border: 0;
+                
+                .field-newsletter{
+                    margin-right: 10px;;
+                }
+                ::-webkit-input-placeholder { /* Edge */
+                color: @color-white;
+                }
+                
+                :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: @color-white;
+                }
+                
+                ::placeholder {
+                color: @color-white;
+                }
+                input{
+                    color: @color-white;
+                    border: 1px solid @color-white;
+                    margin-right: 2px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+    // .newsletter-style2
+    .newsletter-style2 {
+        .elementor-newsletter-wrapper {
+            .form-subscribe {
+                border: 0;
+                border-radius: 0;
+                padding: 0;
+                grid-gap: 10px;
+
+            }
+
+            .field-newsletter {
+                flex: 1;
+
+                input {
+                    height: 50px;
+                    border: 1px solid #878787;
+                    border-radius: 0;
+                }
+            }
+
+            .actions-subscribe {
+                button {
+                    height: 50px;
+                    min-width: 200px;
+                    border-radius: 0;
+                }
+            }
+
+            @media only screen and (max-width: (@screen__xs - 1)) {
+                .form-subscribe {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+
+                    input {
+                        text-align: center;
+                    }
+                    .actions-subscribe{
+                        button{
+                            width: 100%;
+                        }
+                    }
+                    >div {
+                        width: 100%;
+                    }
+
+                }
+            }
+        }
+    }
+    .newsletter-style3 {
+        .elementor-newsletter-wrapper {
+            max-width: 525px;
+            margin: auto;
+
+            .form-subscribe {
+                border-radius: 0;
+                border-color: #222222;
+            }
+
+            input {
+                height: 50px;
+                color: #222;
+
+                &::placeholder {
+                    color: #222;
+                }
+
+                &::-webkit-input-placeholder {
+                    color: #222;
+                }
+
+                &:focus::-webkit-input-placeholder {
+                    color: transparent;
+                }
+
+                /* Mozilla Firefox 4 to 18 */
+                &:-moz-placeholder {
+                    color: #222;
+                }
+
+                &:focus:-moz-placeholder {
+                    color: #222;
+                }
+
+                /* Mozilla Firefox 19+ */
+                &::-moz-placeholder {
+                    color: #222;
+                }
+
+                &:focus::-moz-placeholder {
+                    color: #222;
+                }
+
+                /* Internet Explorer 10+ */
+                &:-ms-input-placeholder {
+                    color: #222;
+                }
+
+                &:focus:-ms-input-placeholder {
+                    color: transparent;
+                }
+            }
+
+            button {
+                border-radius: 0;
+                height: 50px;
+                min-width: 200px;
+                font-size: 1.6rem;
+
+                &::after {
+                    font-family: 'Line Awesome Free';
+                    font-weight: 900;
+                    content: "\f061";
+                    display: inline-block;
+                    margin-left: 5px;
+                    font-size: 16px;
+                    color: currentColor;
+                }
+            }
+            @media only screen and (max-width: (@screen__xs - 1)) {
+                .form-subscribe {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+
+                    input {
+                        text-align: center;
+                    }
+                    .actions-subscribe{
+                        button{
+                            width: 100%;
+                        }
+                    }
+                    
+                    >div {
+                        width: 100%;
+                    }
+
+                }
+            }
+        }
+    }
+    .h-55{
+        .elementor-newsletter-wrapper{
+            max-width: 530px;
+            margin: auto;
+            .form-subscribe{
+                border-color: #222;
+            }
+            input{
+                height: 50px;
+                &::placeholder {
+                    color: #222;
+                }
+
+                &::-webkit-input-placeholder {
+                    color: #222;
+                }
+
+                &:focus::-webkit-input-placeholder {
+                    color: transparent;
+                }
+
+                /* Mozilla Firefox 4 to 18 */
+                &:-moz-placeholder {
+                    color: #222;
+                }
+
+                &:focus:-moz-placeholder {
+                    color: #222;
+                }
+
+                /* Mozilla Firefox 19+ */
+                &::-moz-placeholder {
+                    color: #222;
+                }
+
+                &:focus::-moz-placeholder {
+                    color: #222;
+                }
+
+                /* Internet Explorer 10+ */
+                &:-ms-input-placeholder {
+                    color: #222;
+                }
+
+                &:focus:-ms-input-placeholder {
+                    color: transparent;
+                }
+            }
+            button{
+                min-width: 200px;
+            }
+            @media only screen and (max-width: (@screen__xs - 1)) {
+                .form-subscribe {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    border: 0;
+                    input {
+                        text-align: center;
+                        margin-bottom: 10px;
+                        border: 1px solid var(--heading__color__base);
+                    }
+                    .actions-subscribe{
+                        button{
+                            width: 100%;
+                            min-height: 50px;
+                        }
+                    }
+                    
+                    >div {
+                        width: 100%;
+                    }
+
+                }
+            }
+        }
+    }
+    .footer-container{
+        &.layout-5{
+            .elementor-newsletter-wrapper{
+                .form-subscribe{
+                    border-radius: 0;
+                    border: 0;
+                }
+                .field-newsletter{
+                    input{
+                        border: 1px solid @text__color;
+                        border-radius: 0;
+                    }
+                }
+                .actions-subscribe{
+                    button{
+                        border-radius: 0;
+                        border: 0;
+                        background-color: @theme__color__primary;
+                    }
+                }
+            }
+        }
+    }
+}

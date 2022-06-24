@@ -1,0 +1,231 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+// Variables
+// Title faqs
+@faq_title-font-size: 1.4rem;
+@faq_title-font-weight: 400;
+@faq_title-font-style: false;
+@faq_title-color: false;
+@faq_title-letter-spacing: false;
+@faq_title-background-color: false;
+@faq_title-text-transform: false;
+@faq_title-padding: 2.2rem 7rem 2.2rem 3rem;
+@faq_title-margin: 0;
+
+.lib-faq-title(@_faq_title-font-size: @faq_title-font-size;
+    @_faq_title-font-weight: @faq_title-font-weight;
+    @_faq_title-font-style: @faq_title-font-style;
+    @_faq_title-color: @faq_title-color;
+    @_faq_title-letter-spacing: @faq_title-letter-spacing;
+    @_faq_title-background-color: @faq_title-background-color;
+    @_faq_title-text-transform: @faq_title-text-transform;
+    @_faq_title-padding: @faq_title-padding;
+    @_faq_title-margin: @faq_title-margin;
+
+) {
+    .lib-css(font-size, @_faq_title-font-size);
+    .lib-css(font-weight, @_faq_title-font-weight);
+    .lib-css(font-style, @_faq_title-font-style);
+    .lib-css(color, @_faq_title-color);
+    .lib-css(letter-spacing, @_faq_title-letter-spacing);
+    .lib-css(background-color, @_faq_title-background-color);
+    .lib-css(padding, @_faq_title-padding);
+    .lib-css(margin, @_faq_title-margin);
+    .transition();
+}
+
+// Title faqs active
+@faq_title_active-color: @color-white;
+@faq_title_active-background-color: @theme__color__primary;
+
+.lib-faq-active-title(@_faq_title_active-color: @faq_title_active-color,
+    @_faq_title_active-background-color: @faq_title_active-background-color) {
+    .lib-css(color, @_faq_title_active-color);
+    .lib-css(background-color, @_faq_title_active-background-color);
+}
+
+// Toggle size
+@faq_toggle_width: 4rem;
+@faq_toggle_height: 4rem;
+@faq_toggle_border-radius: 50%;
+@faq_toggle_background: @color-white;
+@faq_toggle__content-background: @faq_title_active-background-color;
+
+.lib-faq-toggle(@_faq_toggle_width: @faq_toggle_width;
+    @_faq_toggle_height: @faq_toggle_height;
+    @_faq_toggle_border-radius: @faq_toggle_border-radius;
+    @_faq_toggle_background: @faq_toggle_background;
+
+) {
+    .lib-css(width, @_faq_toggle_width);
+    .lib-css(height, @_faq_toggle_height);
+    .lib-css(border-radius, @_faq_toggle_border-radius);
+    .lib-css(background-color, @_faq_toggle_background);
+}
+
+// Content faqs
+@faq_content-font-size: 1.4rem;
+@faq_content-font-weight: false;
+@faq_content-font-style: false;
+@faq_content-color: false;
+@faq_content-letter-spacing: false;
+@faq_content-background-color: false;
+@faq_content-text-transform: false;
+@faq_content-padding: 2rem 3rem;
+@faq_content-margin: 0;
+
+.lib-faq-content(@_faq_content-font-size: @faq_content-font-size;
+    @_faq_content-font-weight: @faq_content-font-weight;
+    @_faq_content-font-style: @faq_content-font-style;
+    @_faq_content-color: @faq_content-color;
+    @_faq_content-letter-spacing: @faq_content-letter-spacing;
+    @_faq_content-background-color: @faq_content-background-color;
+    @_faq_content-text-transform: @faq_content-text-transform;
+    @_faq_content-padding: @faq_content-padding;
+    @_faq_content-margin: @faq_content-margin;
+
+) {
+    .lib-css(font-size, @_faq_content-font-size);
+    .lib-css(font-weight, @_faq_content-font-weight);
+    .lib-css(font-style, @_faq_content-font-style);
+    .lib-css(color, @_faq_content-color);
+    .lib-css(letter-spacing, @_faq_content-letter-spacing);
+    .lib-css(background-color, @_faq_content-background-color);
+    .lib-css(padding, @_faq_content-padding);
+    .lib-css(margin, @_faq_content-margin);
+}
+
+// FAQ spacing between items
+@faq_item-margin: 0 0 1rem;
+.lib-faq-margin-item(@_faq_item-margin: @faq_item-margin;
+
+) {
+    .lib-css(margin, @_faq_item-margin);
+}
+
+& when (@media-common =true) {
+    .ul-list-faqs {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        li {
+            .lib-faq-margin-item();
+        }
+    }
+
+    .pagebuilder-faq-item {
+
+        .pagebuilder-image-empty-preview,
+        &:not(.clicked_faq)>.data-content-faqs {
+            display: none;
+        }
+
+    }
+
+    .data-header-faqs {
+        position: relative;
+        overflow: hidden;
+
+        .faq-title {
+            color: inherit;
+            .lib-faq-title();
+        }
+
+        .click-toggle-faqs {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 30px;
+            left: 0;
+            text-align: right;
+            .flex();
+            justify-content: flex-end;
+            align-items: center;
+            span {
+                .lib-faq-toggle();
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                .bls_icon-dropdown();
+            }
+        }
+    }
+
+    .faq-active {
+        .click-toggle-faqs {
+            span {
+                .bls_icon-dropdown-active();
+            }
+        }
+
+        [data-element="question"] {
+            .lib-faq-active-title();
+        }
+    }
+
+    .data-content-faqs {
+        .lib-faq-content();
+        border: 1px solid @border-color__base;
+        border-top: 0;
+    }
+    .bg_grey{
+        .data-header-faqs {
+            .faq-title{
+                background-color: #f6f6f8;
+                color: @darkcolor;
+                padding: 1.2rem 4rem 1.2rem 3rem;
+            }
+            .click-toggle-faqs{
+                right: 0;
+                span{
+                    border-radius: 0;
+                    background-color: @darkcolor;
+                    &::before, 
+                    &:after{
+                        background-color: @color-white;
+                    }
+                    &:after{
+                        width: 2px;
+                    }
+                    &::before{
+                        height: 2px;
+                    }
+                }
+            }
+        }
+    }
+    .ul-list-faqs{
+        li.faq-style2{
+            max-width: 770px;
+            margin: 0 auto 10px;
+            
+            .faq-title{
+                background: #fff;
+            }
+            .click-toggle-faqs{
+                span{
+                    background: @theme__color__primary;
+                    color: #fff;
+                }
+            }
+            .data-content-faqs{
+                background: #fff;
+            }
+            .faq-active {
+                [data-element="question"] {
+                    .lib-faq-active-title();
+                }
+                .click-toggle-faqs{
+                    span{
+                        color: @theme__color__primary;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+}

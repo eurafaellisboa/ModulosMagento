@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Blueskytechco_QuickviewProduct::css/magnific-popup.css" />
+    </head>
+    <body>
+        <referenceContainer name="before.body.end">
+            <block name="blueskytechco.quickview.wrapper" template="Blueskytechco_QuickviewProduct::quickview_wrapper.phtml" ifconfig="quickview_product/general/enabled" >
+                <arguments>
+					<argument name="view_model" xsi:type="object">Blueskytechco\QuickviewProduct\ViewModel\QuickView</argument>
+				</arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

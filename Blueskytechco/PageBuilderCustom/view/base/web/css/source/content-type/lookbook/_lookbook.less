@@ -1,0 +1,341 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+//  Variables
+// ________________________________________
+@lookbook-icon-width: 30px;
+@lookbook-icon-height: 30px;
+@lookbook-icon-border: 2px solid #000;
+@lookbook-item-title-display: none;
+@-webkit-keyframes ripple{
+    0%{
+       opacity: 1;
+         -webkit-transform:scale(0.5);
+         transform:scale(0.5)
+     }
+     100%{
+        opacity: 0;
+         -webkit-transform:scale(1);
+         transform:scale(1)
+     }
+ }
+ @keyframes ripple{
+     0%{
+       opacity: 1;
+         -webkit-transform:scale(0.5);
+         transform:scale(0.5)
+     }
+     100%{
+         opacity: 0;
+         -webkit-transform:scale(1);
+         transform:scale(1)
+     }
+ }
+ .loading-lookbook(){
+    content: '';
+    background: #fff;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    border-radius: 50%;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    @animation: ripple 2s infinite;
+    .lib-css(animation, @animation, 1);
+ }
+
+//  _____________________________________________
+// Bls Lookbook gobal style
+& when (@media-common =true) {
+    .widget-lookbook-wrapper{
+        .elementor-lookbook-item{
+            padding: 0;
+        }
+        .slick-slide{
+            >div{
+                line-height: 0;
+            }
+        }
+    }
+    .elementor-lookbook-item{
+        .lookbook-item-preview{
+            position: relative;
+            overflow: hidden;
+            
+        }
+        .lookbook-item-title{
+            margin: 1rem 0 2rem;
+            .lib-css(display, @lookbook-item-title-display);
+        }
+    }
+    .lookbook-icon{
+        position: absolute;
+        > a{
+            cursor: pointer;
+            text-align: center;
+            z-index: 10;
+            padding: 0;
+            backface-visibility: hidden;
+            font-size: 14px;
+            text-shadow: none;
+            font-weight: 600;
+            opacity: 1;
+            span{
+                .lib-css(min-width, @lookbook-icon-width);
+                .lib-css(min-height, @lookbook-icon-height);
+                .lib-css(border, @lookbook-icon-border);
+                border-color: @color-white;
+                border-radius: 50%;
+                display: block;
+                background-color: @color-white;
+                color: @heading__color__base;
+                position: relative;
+                z-index: 2;
+                @transition: transform .2s ease-out,opacify .2s ease-out;
+                .lib-css(transition, @transition, 1);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            &::after{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -9px;
+                margin-left: -9px;
+                opacity: 0;
+                -webkit-transition: opacity .2s;
+                transition: opacity .2s;
+                content: "";
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                border: 1px solid rgba(0,0,0,.3);
+                border-left-color: #000;
+                border-radius: 50%;
+                vertical-align: middle;
+                z-index: 11;
+                @animation: spin 0.4s infinite linear;
+                .lib-css(animation, @animation, @_prefix: 1);
+            }
+            &::before{
+                .loading-lookbook();
+            }
+            
+        }
+        &.dark{ 
+            @lookbook-icon-border: 2px solid @color-white;
+            > a{
+                span{
+                    background-color: @heading__color__base;
+                    color: @color-white;
+                    .lib-css(border, @lookbook-icon-border );
+                }
+                &::after{
+                    border-left-color: @color-white;   
+                }   
+            }
+        }
+    }
+    .pin-icon-style2{
+        .lookbook-icon{
+            > a{
+                span{
+                    background: #65affa;
+                    border-color: #65affa;
+                    color: #fff;               
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+    // Custom style for kalles
+    .home-lookbook{
+        .lookbook-icon > a span{
+            background: #f0807f;
+            border-color: #f0807f;
+            color: @color-white;
+        }
+
+        .slick-list{
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            .slick-slide{
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+    }
+}
+
+//  _____________________________________________
+// Bls Carousel gobal style
+& when (@media-common =true) {
+    .widget-lookbook-slider{
+        .slick-slide{
+            > div{
+                line-height: 0;
+                > div{
+                    line-height: initial;
+                }
+            }
+           > div{
+               &:last-child{
+                   margin-bottom: 0;
+               }
+           }
+        }
+        
+    }
+    .widget-lookbook-wrapper{
+        .slick-dots{
+            position: absolute;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            bottom: 12px;
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .widget-lookbook-mansoy{
+        .widget-lookbook-wrapper{
+            .elementor-lookbook-item.col-lg-3:nth-child(3){
+                flex: 0 0 auto;
+                width: 50%;
+            }
+        }
+    }
+}
+
+//
+// popup lookboox images
+//  _____________________________________________
+& when (@media-common =true) {
+    .blueskytechco_quickview-product-shortview{
+        .page-main{
+            padding: 0;
+            background: #fff;
+        }
+    }
+    body.product-short-magnific-popup{
+        .mfp-content{
+            max-width: 315px !important;
+            .mfp-iframe-scaler{
+                padding-top: 145%;
+            }
+        }
+        .mfp-container.mfp-iframe-holder{
+            .mfp-close{
+                top: -4px;
+                right: -3px;
+                &::after{
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+    .short-product-info-main {
+        padding: 25px;
+        border-radius: 2px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            .elementor-image-short-product {
+                >a {
+                    .short-products-view-hover {
+                        opacity: 1;
+                        -webkit-transform: scale(1.09);
+                        transform: scale(1.09);
+                    }
+                }
+            }
+        }
+
+        .elementor-image-short-product {
+            position: relative;
+            overflow: hidden;
+
+            >a {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    @transition: all 1s cubic-bezier(.19, 1, .22, 1) 0s;
+                    .lib-css(transition, @transition, 1);
+                }
+
+                .short-products-view-hover {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                    opacity: 0;
+                    @transition: opacity .5s ease,
+                    transform 2s cubic-bezier(0, 0, .44, 1.18);
+                    .lib-css(transition, @transition, 1);
+                }
+
+            }
+        }
+        .container-product-name{
+            margin: 20px 0 5px;
+            text-align: center;
+            .page-title{
+                font-size: 1.5rem;
+               
+                margin: 0;
+                a{
+                    color: @heading__color__base;
+                }
+            }
+        }
+        .short-product-info-price{
+            text-align: center;
+            .price-box {
+                display: inline-flex;
+                align-items: center;
+                grid-gap: 0 10px;
+                .lib-css(color, @price_color);
+
+                .price-label {
+                    display: none;
+                }
+
+                .special-price {
+                    .lib-css(color, @special_price_color);
+                }
+
+            }
+        }
+    }
+}
+@media only screen and (max-width: (@screen__s - 1)) {
+    .product-short-magnific-popup{
+        .mfp-container.mfp-iframe-holder{
+            .mfp-content{
+                height: auto;
+            }
+        }
+    }  
+}

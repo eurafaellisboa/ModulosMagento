@@ -1,0 +1,151 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+@bls_static-menu--margin: 0 0 12.5px;
+
+@bls_elementor-static-menu-title--font-size: 1.6rem;
+@bls_elementor-static-menu-title--color: @heading__color__base;
+@bls_elementor-static-menu-title--text-transform: capitalize;
+@bls_elementor-static-menu-title-font-weight: 500;
+@bls_elementor-static-menu-title-margin: 0 0 3rem;
+@bls_elementor-static-menu-content-margin: 3rem 0 0;
+@footer-title-color: @bls_elementor-static-menu-title--color;
+// Variables
+& when (@media-common = true) {
+    [data-content-type="staticmenu-item"] > {
+        > *{
+            .lib-css(margin, @bls_static-menu--margin);
+            display: inline-block;
+        }
+        style{
+            display: none;
+        }
+    }
+    .header-static-menu{
+        .flex(
+            @_flex-wrap: nowrap;
+        );
+        align-items: center;
+        justify-content: space-between;
+        .lib-css(color, @bls_elementor-static-menu-title--color);
+        position: relative;
+    }
+    footer {
+        [data-content-type="heading"]{
+            .lib-css(margin, @bls_elementor-static-menu-title-margin);
+        }
+        .elementor-static-menu-title{
+            .lib-css(color, @footer-title-color);
+        }
+        .static-menu-click{
+            &:after,
+            &:before{
+                .lib-css(background, @footer-title-color);
+            }
+        }
+    }
+    // Static menu title
+    footer [data-content-type="heading"],
+    .elementor-static-menu-title{
+        .lib-css(font-size, @bls_elementor-static-menu-title--font-size);
+        .lib-css(color, @bls_elementor-static-menu-title--color);
+        .lib-css(font-weight, @bls_elementor-static-menu-title-font-weight);
+        .lib-css(text-transform, @bls_elementor-static-menu-title--text-transform);
+    }
+    .elementor-static-menu-title{
+        margin: 0;
+    }
+    .static-menu-click{
+        color: inherit;
+        .bls_icon-dropdown();
+        display: block;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        @transform: translateY(-50%);
+        .lib-css(transform, @transform, 1);
+        z-index: 1;
+        &.less-action{
+            .bls_icon-dropdown-active();
+        }
+
+        &:before,
+        &:after {
+            .lib-css(background-color, @bls_elementor-static-menu-title--color);
+        }
+    }
+    .elementor-content-static-menu,
+    .staticmenu-container{
+        a{
+            &:not(:hover){
+                color: @text__color;
+            }
+        }
+    }
+    .header-static-menu + .elementor-content-static-menu{
+        display: none;
+        .lib-css(margin, @bls_elementor-static-menu-content-margin);
+    }
+
+    // hozital menu
+    .hozital-menu{
+        [data-content-type="staticmenu-item"],
+        &.staticmenu-container > *{
+            margin: 0;
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .static-menu-click{
+        display: none;
+    }
+    .header-static-menu + .elementor-content-static-menu{
+        display: block;
+    }
+}
+& when (@media-common = true) {
+    // footer layout-6
+    .footer-container{
+        &.layout-6{
+            @bls_elementor-static-menu-title--color: #fff;
+           .lib-css(color, @bls_elementor-static-menu-title--color);
+            .header-static-menu{
+                .lib-css(color, @bls_elementor-static-menu-title--color);
+            }
+            footer [data-content-type="heading"],
+            .elementor-static-menu-title{
+                .lib-css(color, @bls_elementor-static-menu-title--color);
+            }
+            .elementor-icon-box-description,
+            .elementor-content-static-menu,
+            .staticmenu-container{
+                a{
+                    &:not(:hover){
+                        .lib-css(color, @bls_elementor-static-menu-title--color);
+                    }
+                }
+            }
+            ul.social-link li a{
+                .lib-css(color, @bls_elementor-static-menu-title--color);
+            }
+            .elementor-newsletter-wrapper {
+                .field-newsletter input{
+                    .lib-css(color, @bls_elementor-static-menu-title--color);
+                    border-color: @bls_elementor-static-menu-title--color;
+                }
+                button{
+                    font-weight: normal;
+                }
+            }
+            .static-menu-click:before,
+            .static-menu-click:after{
+                .lib-css(background-color, @bls_elementor-static-menu-title--color);
+            }
+        }
+    }
+}

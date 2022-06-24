@@ -1,0 +1,17 @@
+<div class="actions-toolbar">
+    <div class="primary">
+        <button class="action primary checkout btn-placeorder"
+                type="submit"
+                data-bind="
+                enable: isPlaceOrderActionAllowed(),
+                click: placeOrder,
+                attr: {
+                    title: placeOrderLabel()
+                },
+                css: {disabled: !isPlaceOrderActionAllowed()},
+                fadeVisible: isVisible
+                " disabled>
+            <span data-bind="text: placeOrderLabel()"></span>
+        </button>
+    </div>
+</div>

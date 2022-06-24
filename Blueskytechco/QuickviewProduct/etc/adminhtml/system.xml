@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="quickview_product" translate="label" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>QuickView</label>
+            <tab>catalog</tab>
+            <resource>Blueskytechco_QuickviewProduct::config_quickview</resource>
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General Options</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable QuickView</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="label" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Label item</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="position" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1" >
+                    <label>Action Append Icon Quickview</label>
+                    <source_model>Blueskytechco\QuickviewProduct\Model\Config\Action\Position</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="class_position" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="1" >
+                    <label>Data or Class Insert</label>
+                    <comment>Ex: [data-role=add-to-links] or .towishlist or .tocompare</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="nav" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1" >
+                    <label>Variation of thumbnails in navigation.</label>
+                    <source_model>Blueskytechco\QuickviewProduct\Model\Config\Action\Gallery</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="navdir" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1" >
+                    <label>Sliding direction of thumbnails.</label>
+                    <source_model>Blueskytechco\QuickviewProduct\Model\Config\Action\Thumbnails</source_model>
+                    <depends>
+                        <field id="nav">thumbs</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

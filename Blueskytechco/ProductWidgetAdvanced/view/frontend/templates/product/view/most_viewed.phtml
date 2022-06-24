@@ -1,0 +1,23 @@
+<?php 
+$_product = $block->getProduct();
+?>
+<script>
+    require([
+        'jquery',
+        'mage/mage'
+    ], function ($) {
+        'use strict';
+
+        $( document ).ready(function() {
+		    $.ajax({
+				method: "POST",
+				url: "<?php  echo $block->getUrl('productwidgetadvanced/product/mostviewed'); ?>",
+				data: { product_id: "<?= $_product->getId();?>"},
+				dataType: "json"
+		    })
+		    .done(function( msg ) {
+
+		    });
+		});
+    });
+</script>

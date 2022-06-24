@@ -1,0 +1,296 @@
+
+// Store Locator
+& when (@media-common = true) {
+	#locator_filter{
+		.column_left{
+			.block-content{
+				padding: 15px 15px;
+				margin-bottom: 20px;
+				background: #f8f8f8;
+				width: 100%;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+				border: 1px solid @border-color__base;
+				#current-address{
+					flex: 1;
+				}
+				input{
+					border-bottom-right-radius: 0px;
+    				border-bottom-left-radius: 0px;
+				}
+				.button{
+					.lib-css(border-radius, 0 @form-element-input__border-radius @form-element-input__border-radius 0);
+				}
+			}
+			.location-information{
+				h2{
+					.lib-font-size(18);
+				}
+			}
+			.center{
+				overflow: auto;
+				height: 90vh;
+				max-height: 700px;
+				#store_list{
+					.list{
+						display: flex;
+						margin-bottom: 15px;
+						overflow: auto;
+						font-size: 14px;
+						background: #f6f6f6;
+						cursor: pointer;
+						flex-wrap: wrap;
+						border: 1px solid @border-color__base;
+						.image{
+							flex: 0 0 40%;
+							max-width: 150px;
+							margin: 15px;
+						}
+						.location-information{
+							flex: 1;
+							margin: 15px;
+							margin-left: 0;
+							h2{
+								margin-bottom: 0.5rem;
+							    font-size: 1.6rem;
+							}
+							div {
+								a{
+									font-weight: 500;
+									font-size: 1.8rem;
+									margin-bottom: 20px;
+								}
+							}
+							.view-detail{
+								a{
+									font-size: @font-size__base;
+									border-bottom: 1px solid;
+									&:not(:hover){
+										color: @heading__color__base;
+									}
+								}
+							}
+						}
+						.today_time{
+							width: 100%;
+							position: relative;
+							display: -webkit-flex;
+							display: -ms-flexbox;
+							display: flex;
+							-webkit-box-pack: justify;
+							-ms-flex-pack: justify;
+							align-items:center;
+							margin-top: 5px;
+							padding: 5px 15px 5px 15px;
+							background: #dfdfdf;
+							&:before{
+								content: "\f017";
+								font-family: "Font Awesome 5 Free";
+								margin-right: 10px;
+							}
+							.locator_arrow{
+								margin-left: auto;
+								&:before{
+									content: '\e622';
+									display: inline-block;
+									font-family: 'icons-blank-theme';
+									font-size: 30px;
+									line-height: 1;
+									vertical-align: top;
+									margin-left: 0;
+								}
+							}
+						}
+						.all_today_time{
+							width: 100%;
+							position: relative;
+							display: -webkit-flex;
+							display: -ms-flexbox;
+							display: flex;
+							-webkit-box-pack: justify;
+							-ms-flex-pack: justify;
+							margin-top: 10px;
+							padding: 15px;
+							background: #dfdfdf;
+						    flex-direction: column;
+							> div{
+								padding: 3px 0;
+							    text-transform: capitalize;
+							}
+							.active{
+								font-weight: 500;
+								color: @theme__color__primary;
+							}
+						}
+					}
+					
+				}
+			}
+			.bstlocator_input{
+				button{
+					border-radius: 0;
+				}
+			}
+		}
+		.column_right{
+			#bst-map-load{
+				button{
+					background: #fff !important;
+					color: inherit !important;
+					border-color: inherit !important;
+				}
+			}
+			.gm-style-iw-d{
+				h2{
+					margin-bottom: 0;
+				}
+			}
+			.locator-title{
+				.lib-font-size(16);
+				
+				text-transform: uppercase;
+				a{
+					color: @darkcolor;
+				}
+			}
+		}
+	}
+	#locator_filter-store{
+		.column_right{
+			#bst-map-view{
+				button{
+					background: #fff !important;
+					color: inherit !important;
+					border-color: inherit !important;
+				}
+			}
+		}
+		.column_left{
+			#store_list_view{
+				.today_time{
+					width: 100%;
+					position: relative;
+					display: -webkit-flex;
+					display: -ms-flexbox;
+					display: flex;
+					-webkit-box-pack: justify;
+					-ms-flex-pack: justify;
+					align-items:center;
+					margin-top: 5px;
+					padding: 5px 15px 5px 15px;
+					background: #dfdfdf;
+					cursor:pointer;
+					&:before{
+						content: "\f017";
+						font-family: "Font Awesome 5 Free";
+						margin-right: 10px;
+					}
+					.locator_arrow{
+						margin-left: auto;
+						&:before{
+							content: '\e622';
+							display: inline-block;
+							font-family: 'icons-blank-theme';
+							font-size: 30px;
+							line-height: 1;
+							vertical-align: top;
+							margin-left: 0;
+						}
+					}
+				}
+				.all_today_time{
+					width: 100%;
+					position: relative;
+					display: -webkit-flex;
+					display: -ms-flexbox;
+					display: flex;
+					-webkit-box-pack: justify;
+					-ms-flex-pack: justify;
+					margin-top: 10px;
+					padding: 15px;
+					background: #dfdfdf;
+					flex-direction: column;
+					> div{
+						padding: 3px 0;
+					    text-transform: capitalize;
+					}
+					.active{
+						font-weight: 500;
+					}
+				}
+				.location-information{
+					flex: 1;
+					margin: 15px;
+					margin-left: 0;
+					div {
+						a{
+							font-weight: 500;
+							font-size: 1.8rem;
+							margin-bottom: 20px;
+						}
+					}
+				}
+				.map-directions{
+					margin: 0 0 10px;
+					a{
+						.lib-button();
+						display: inline-flex;
+						align-items:center;
+						i{
+							margin-right: 5px;
+						}
+					}
+				}
+
+			}
+		}
+	}
+	.gm-style .gm-style-iw-c{
+		.gm-style-iw-d{
+			div{
+				.store{
+					display: flex;
+					.image{
+						flex:0 0 40%;
+						max-width:100px;
+						img{
+							max-width: 100%;
+						}
+					}
+					.info{
+						padding-left: 15px;
+						p{
+							margin: 0 0 5px;
+						}
+					}
+				}
+				div{
+				    margin: 10px 0;
+				}
+			}
+		}
+	}
+	.gmnoprint{
+		.gm-svpc{
+			img{
+				max-width: inherit;
+				max-height: inherit;
+			}
+		}
+	}
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	#locator_filter,#locator_filter-store{
+	    flex-direction: column;
+		.column_left,.column_right{
+			width: 100% !important;
+		}
+		.column_right{
+			order: -1;
+			padding: 0 0 30px !important;
+		}
+	}
+}
+
+

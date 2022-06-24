@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Blueskytechco\OnePageCheckout\Api\UpdateItemManagementInterface"
+                type="Blueskytechco\OnePageCheckout\Model\UpdateItemManagement"/>
+    <preference for="Blueskytechco\OnePageCheckout\Api\GuestUpdateItemManagementInterface"
+                type="Blueskytechco\OnePageCheckout\Model\GuestUpdateItemManagement"/>
+    <preference for="Blueskytechco\OnePageCheckout\Api\Data\UpdateItemDetailsInterface"
+                type="Blueskytechco\OnePageCheckout\Model\UpdateItemDetails"/>
+    <type name="Magento\Checkout\Api\PaymentInformationManagementInterface">
+        <plugin name="blueskytechco_opc_additional_data" type="Blueskytechco\OnePageCheckout\Plugin\Checkout\Model\CustomerAdditionalData"/>
+    </type>
+    <type name="Magento\Checkout\Api\GuestPaymentInformationManagementInterface">
+        <plugin name="blueskytechco_opc_guest_additional_data"
+                type="Blueskytechco\OnePageCheckout\Plugin\Checkout\Model\GuestAdditionalData"/>
+    </type>
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="customer_shipping_date" xsi:type="string">sales_order.customer_shipping_date</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Eav\Model\Attribute\Data\AbstractData">
+        <plugin name="rkopc_bypass_validate" type="Blueskytechco\OnePageCheckout\Model\Plugin\Eav\Model\Attribute\AbstractData"/>
+    </type>
+    <type name="Magento\Customer\Model\Attribute\Data\Postcode">
+        <plugin name="rkopc_bypass_validate_postcode" type="Blueskytechco\OnePageCheckout\Model\Plugin\Eav\Model\Attribute\Postcode"/>
+    </type>
+    <type name="Magento\Customer\Model\Address\Validator\General">
+        <plugin name="rkopc_validate_general_required" type="Blueskytechco\OnePageCheckout\Plugin\Customer\Model\Address\Validator\General"/>
+    </type>
+    <type name="Magento\Customer\Model\Address">
+        <plugin name="setShouldIgnoreValidation" type="Blueskytechco\OnePageCheckout\Model\Plugin\Customer\Address"/>
+    </type>
+</config>

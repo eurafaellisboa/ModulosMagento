@@ -1,0 +1,33 @@
+<?php
+/**
+ * Horizontal menu for store
+ *
+ * @var $viewModel \Blueskytechco\MenuBuilder\ViewModel\MenuBuilder
+ */
+?>
+<?php
+    $view_model = $viewModel;
+    $id_menu = $block->getData('menus_select');
+if ($view_model->getWidgetMenuHtml($id_menu)) {
+    ?>
+<div class="widget-menu-container">
+    <?php if ($block->getData('title')) {?>
+        <h3 class="title-menu-dropdown">
+            <span class="icon icon-align-left"></span>
+            <?= $block->escapeHtml($block->getData('title'));?>
+        </h3>
+    <?php } ?>
+    <nav class="widget-menu-html">
+        <ul class="widget-menu-list menu">
+            <?= $view_model->getWidgetMenuHtml($id_menu) ?>
+        </ul>
+    </nav>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".widget-menu-container": {
+            "Blueskytechco_MenuBuilder/js/components/widget_menu": {}
+        }
+    }
+</script>
+<?php } ?>

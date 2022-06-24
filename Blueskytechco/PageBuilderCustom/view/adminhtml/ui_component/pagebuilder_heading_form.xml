@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="general">
+        <field name="viewtype" sortOrder="1" formElement="select" component="Magento_PageBuilder/js/form/element/condition-options">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Mode</label>
+                <elementTmpl>Magento_PageBuilder/form/element/visual-select</elementTmpl>
+                <exports>
+                    <link name="weditorVisible">${$.parentName}.heading_text_editer:visible</link>
+                    <link name="defaultVisible">${$.parentName}.heading_text:visible</link>
+                </exports>
+                <dataScope>viewtype</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="0" xsi:type="array">
+                                <item name="size" xsi:type="string">small</item>
+                                <item name="value" xsi:type="string">default</item>
+                                <item name="title" xsi:type="string" translate="true">Default</item>
+                            </option>
+                            <option name="1" xsi:type="array">
+                                <item name="size" xsi:type="string">small</item>
+                                <item name="value" xsi:type="string">weditor</item>
+                                <item name="title" xsi:type="string" translate="true">WYSIWYG Editor</item>
+                            </option>
+                        </options>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="heading_text_editer" sortOrder="100" formElement="wysiwyg" template="ui/form/field">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="pagebuilder_button" xsi:type="boolean">false</item>
+                        <item name="is_pagebuilder_enabled" xsi:type="boolean">false</item>
+                        <item name="toggle_button" xsi:type="boolean">false</item>
+                        <item name="height" xsi:type="string">150px</item>
+                        <item name="add_variables" xsi:type="boolean">false</item>
+                        <item name="add_widgets" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Heading Text</label>
+                <dataScope>heading_text_editer</dataScope>
+                <validation>
+                    <rule name="validate-no-url" xsi:type="boolean">true</rule>
+                    <rule name="validate-no-widget" xsi:type="boolean">true</rule>
+                </validation>
+                <visible>false</visible>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

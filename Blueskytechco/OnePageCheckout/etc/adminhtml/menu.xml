@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_OnePageCheckout::onepagecheckout_menu_config" title="One Page Checkout" module="Blueskytechco_OnePageCheckout" sortOrder="100" parent="Blueskytechco_RokanBase::rokanbase_setting" resource="Blueskytechco_OnePageCheckout::onepagecheckout_menu_config" action="adminhtml/system_config/edit/section/onepagecheckout" />
+    </menu>
+</config>

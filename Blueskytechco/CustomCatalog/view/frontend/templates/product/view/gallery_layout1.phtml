@@ -1,0 +1,134 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $viewModel \Blueskytechco\CustomCatalog\ViewModel\Catalog
+ */
+?>
+<?php
+    $gallery_images = $block->getGalleryImages();
+    $options = json_decode($block->getGalleryOptions()->getOptionsJson(), true);
+    $width  = (isset($options['width']) && $options['width'])?$options['width']:'';
+    $height  = (isset($options['height']) && $options['height'])?$options['height']:'';
+	$_product = $block->getProduct();
+    $view_model = $block->getViewModel();
+    $zoom = $view_model->getActionZoom();
+    $gallery_type = $view_model->getGalleryType();
+    $thumb = $view_model->getThumbImage();
+    $image_helper = $view_model->getImageHelper();
+    $add_class = '';
+    $zoom_action = false;
+    $zoom_type = 1;
+    $_helperThemeoption = $this->helper('Blueskytechco\Themeoption\Helper\Product');
+
+    $thumb_class = $thumb?$thumb:"left";
+    $col_thumb = true;
+    $vertical_thumb = "true";
+    $show_item = 6;
+    
+    if ($zoom) {
+        switch ($zoom) {
+            case "1":
+                $zoom_action = true;
+                $zoom_type = 1;
+                break;
+            case "2":
+                $zoom_action = true;
+                $zoom_type = 2;
+                break;
+            case "3":
+                $zoom_action = true;
+                $zoom_type = 3;
+                break;
+        }
+    }
+    if ($zoom_action) {
+        $add_class = ' img_action_zoom';
+    }
+
+    switch ($thumb) {
+        case "left":
+            $thumb_class = "left";
+            break;
+        case "right":
+            $thumb_class = "right";
+            break;
+        case "bottom":
+            $thumb_class = "bottom";
+            $vertical_thumb = "false";
+            $show_item = 4;
+            break;
+        case "none":
+            $thumb_class = "none";
+            $col_thumb = false;
+            break;
+    }
+    if ($col_thumb) {
+        $col_thumb = " col_thumb";
+    }
+?>
+<div class="thumb_<?= $block->escapeHtmlAttr($thumb_class) ?>">
+    <div class="col-lg<?= $block->escapeHtmlAttr($col_thumb) ?>">
+        <div id="gallery-images" class="gallery-images p-thumb slick-slider<?= $block->escapeHtml($add_class); ?>" 
+            data-slick='{"slidesToShow": 1,"slidesToScroll": 1,"rows": 1,"infinite": true, "fade": true,"autoplay": false,"autoplaySpeed": false,"arrows": true,"dots": false}'
+            data-zoom="<?= $block->escapeHtmlAttr($zoom_type); ?>" data-gallery-type="<?= $block->escapeHtmlAttr($gallery_type); ?>"
+            >
+            <?php foreach($gallery_images as $image): ?>
+                <?php if ($image->getData('video_url') && $view_model->getVideoUrl($image->getData('video_url'))) { ?>
+                <div style="width: 100%;" class="product-image gallery-video" style="padding-top: <?= ($height/$width*100) ?>%;">
+                    <iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="allowfullscreen" class="media-video"
+                        src="<?= $view_model->getVideoUrl($image->getData('video_url')) ?>"
+                        title="<?= $_product->getName() ?>" style="width: 100%;position: absolute;top: 0;bottom: 0;height: 100%;"></iframe>
+                </div>
+                <?php } else { ?>
+                <div style="width: 100%;" class="product-image">
+                    <div class="gallery-img" style="padding-bottom: <?= $height/$width*100 ?>%;" data-width="<?= $width ?>" data-height="<?= $height ?>"
+                        data-mdid="<?= $image->getValueId() ?>" data-src="<?= $image->getData('medium_image_url'); ?>"
+                        data-bgset="<?= $image->getData('medium_image_url'); ?>"
+                        >
+                        <img class="product-image-photo product-image lazyload" src="<?= $_helperThemeoption->getImageUrlLoading() ?>" data-src="<?= $image->getData('medium_image_url'); ?>" alt="<?= $_product->getName() ?>">
+                    </div>
+                </div>    
+                <?php } ?>
+            <?php endforeach; ?>
+            <?php if (!count($gallery_images)) { ?>
+                <div style="width: 100%;" class="product-image">
+                    <div class="gallery-img" style="padding-bottom: <?= $height/$width*100 ?>%;" data-width="<?= $width ?>" data-height="<?= $height ?>"
+                        data-src="<?= $image_helper->getDefaultPlaceholderUrl('image'); ?>"
+                        data-bgset="<?= $image_helper->getDefaultPlaceholderUrl('image'); ?>"
+                        >
+                        <img class="product-image-photo product-image lazyload" src="<?= $_helperThemeoption->getImageUrlLoading() ?>" data-src="<?= $image_helper->getDefaultPlaceholderUrl('image'); ?>"
+                            alt="<?= $_product->getName() ?>">
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+        <?php if ($gallery_type == 'mfp' || $gallery_type == 'pswp') { ?>
+        <div class="group_btns">
+            <button class="show_btn_pr_gallery my-tooltip-top">
+                <i class="las la-expand-arrows-alt"></i>
+                <span class="tt_txt tooltip-content no-wrap"><?= $block->escapeHtml(__('Click to enlarge')) ?></span>
+            </button>
+        </div>
+        <?php } ?>
+    </div>
+    <?php if ($col_thumb) { ?>
+    <div class="col-lg-auto col_nav nav_medium">
+        <div class="p-thumb-nav slick-slider" 
+            data-slick='{"slidesToShow": <?= $show_item ?>,"slidesToScroll": 1,"rows": 1,"autoplay": false,"infinite": false,"autoplaySpeed": false,"arrows": true,"vertical": <?= $vertical_thumb ?>,"dots": false}'
+            >
+            <?php foreach($gallery_images as $image): ?>
+                <div class="product-image">
+                    <div class="gallery-img" data-mdid="<?= $image->getValueId() ?>">
+                        <img class="product-image" src="<?= $image->getData('small_image_url'); ?>" alt="<?= $_product->getName() ?>">
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php } ?>
+    <?php if ($zoom_action) { ?>
+    <div class="dt_img_zoom pa t__0 r__0 dib"></div>
+    <?php } ?>
+</div>

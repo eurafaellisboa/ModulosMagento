@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Blueskytechco_OnePageCheckout::css/style.css"/>
+        <css src="Blueskytechco_OnePageCheckout::css/jquery-ui.min.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Blueskytechco\OnePageCheckout\Block\Adminhtml\Field\Tabs" name="admin.field.tabs" template="Blueskytechco_OnePageCheckout::field/tabs.phtml">
+                <block class="Blueskytechco\OnePageCheckout\Block\Adminhtml\Field\Address" name="admin.field.address"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

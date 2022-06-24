@@ -1,0 +1,835 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="activationcode" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Activation Purchase Code</label>
+            <tab>blueskytechco</tab>
+            <resource>Blueskytechco_Themeoption::activationcode</resource>
+            <group id="activation" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Activation Purchase Code</label>
+                <field id="purchasecode" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Purchase Code</label>
+                    <comment><![CDATA[<span style="color: red; font-weight: bold; font-style: italic;">This is not a valid purchase code. <a style="color: red; font-weight: bold; font-style: italic;" href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code" target="_blank">How to find your purchase code? You can click here </a> Or <a style="color: red; font-weight: bold; font-style: italic;" href="https://blueskytechco.com/verify-envato-purchase-code/" target="_blank">You can check purchase code here</a></span>]]></comment>
+                </field>
+                <field id="purchasecode_confirm" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Activation Purchase Code Confirm</label>
+                </field>
+            </group>
+        </section>
+        <section id="demoimporter" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Demo Importer</label>
+            <tab>blueskytechco</tab>
+            <resource>Blueskytechco_Themeoption::demoimporter</resource>
+            <group id="importerall" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>One Click Demo Import</label>
+                <frontend_model>Blueskytechco\Themeoption\Block\Adminhtml\System\Demoimport</frontend_model>
+            </group>
+        </section>
+        <section id="themesetting" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Theme Settings</label>
+            <tab>blueskytechco</tab>
+            <resource>Blueskytechco_Themeoption::themesetting</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="default_banner" translate="label" type="image" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Banner</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG. Gif</comment>
+                    <backend_model>Blueskytechco\Themeoption\Model\Config\DefaultBanner</backend_model>
+                    <base_url type="media" scope_info="1">blueskytechco/banner</base_url>
+                </field>
+                <field id="back_to_top_enabled" translate="label comment" type="select" sortOrder="50"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Back To Top</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+                <field id="lazy_javascript" translate="label comment" type="select" sortOrder="60"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Lazy JavaScript</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+            </group>
+            <group id="header" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header</label>
+                <field id="select_header_type" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Type</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Headertype</source_model>
+                </field>
+                <field id="sticky_enabled" translate="label comment" type="select" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sticky Header</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+                <field id="add_section_to_top_header" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Section To Top Header</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CmsBlocks</source_model>
+                </field>
+                <field id="enable_topbar" translate="label comment" type="select" sortOrder="40"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable TopBar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="disable_store_view_topbar" translate="label comment" type="select" sortOrder="40"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Store View on TopBar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="footer" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer</label>
+                <field id="select_footer_type" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Block</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CmsBlocks</source_model>
+                </field>
+                <field id="menu_mobile" translate="label comment" type="select" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Flex Menu Mobile</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="category" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category</label>
+                <field id="product_style" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Style</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\ProductStyle</source_model>
+                </field>
+                <field id="show_product_rating_stars" translate="label comment" type="select" sortOrder="40"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Rating Stars</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_product_price" translate="label comment" type="select" sortOrder="50"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Price</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_product_quickview" translate="label comment" type="select" sortOrder="60"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Quickview</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_product_compare" translate="label comment" type="select" sortOrder="70"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Compare</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_product_wishlist" translate="label comment" type="select" sortOrder="80"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Wishlist</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_product_add_to_cart" translate="label comment" type="select" sortOrder="90"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Add to Cart</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="page_layout" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Layout</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\PageLayout</source_model>
+                </field>
+                <field id="load_more_ajax" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Load More Ajax</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\EnableLoadMoreAjax</source_model>
+                </field>
+                <field id="enable_sub_cat" translate="label comment" type="select" sortOrder="120"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Sub Collection</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="product" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product</label>
+                <field id="image_heading" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Images</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="enable_hover_image" translate="label comment" type="select" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Alternative Product Image</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                    <comment>Show thumbnail image when mouse over in the product image area.</comment>
+                </field>
+                <field id="image_hover_effects" translate="label comment" type="select" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Hover Effects</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Settings\Product\Imagehovereffects</source_model>
+                    <comment>Effects when mouse over in the product image area.</comment>
+                </field>
+                <field id="main_image_width" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Image Width</label>
+                    <comment>Image size used for the main image on detail product pages.</comment>
+                </field>
+                <field id="small_image_width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Small Image Width</label>
+                    <comment>Image size used for products in the catalog, home page, cart page.</comment>
+                </field>
+                <field id="cropping" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Cropping</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\ThumbnailCropping</source_model>
+                    <comment><![CDATA[<span style="font-style: italic; color: red" id="fixed_change_cropping_type">Images will be cropped into a square</span>]]></comment>
+                </field>
+                <field id="cropping_width" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>W</label>
+                    <depends>
+                        <field id="cropping">custom</field>
+                    </depends>
+                </field>
+                <field id="cropping_height" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>H</label>
+                    <depends>
+                        <field id="cropping">custom</field>
+                    </depends>
+                </field>
+                <field id="label_heading" translate="label comment" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="show_new" translate="label comment" type="select" sortOrder="210"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label "New"</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+                <field id="show_new_text" translate="label comment" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label "New" Text</label>
+                    <depends>
+                        <field id="show_new">enable</field>
+                    </depends>
+                </field>
+                <field id="show_sale" translate="label comment" type="select" sortOrder="230"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label "Sale"</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+                <field id="sale_discount_percent" translate="label comment" type="select" sortOrder="240"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label "Sale" with Discount Percent</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_sale">enable</field>
+                    </depends>
+                </field>
+                <field id="show_sale_text" translate="label comment" type="text" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label "Sale" Text</label>
+                    <depends>
+                        <field id="show_sale">enable</field>
+                        <field id="sale_discount_percent">0</field>
+                    </depends>
+                </field>
+                <field id="detai_page_heading" translate="label comment" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Detail Page</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="product_page_layout" translate="label comment" type="select" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Layout</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\ProductPageLayout</source_model>
+                </field>
+                <field id="sticky_add_to_cart" translate="label comment" type="select" sortOrder="311"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sticky Add To Cart</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                    <comment>Show Sticky Add To Cart at Bottom.</comment>
+                </field>
+                <field id="display_thumbnails" translate="label comment" type="select" sortOrder="312" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Thumbnails</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\DisplayThumbnails</source_model>
+                </field>
+                <field id="images_zoom" translate="label comment" type="select" sortOrder="313" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Zoom</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\ZoomType</source_model>
+                </field>
+                <field id="enable_photoswipe_popup" translate="label comment" type="select" sortOrder="314"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable PhotoSwipe Popup</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+                <field id="enable_buy_now_button" translate="label comment" type="select" sortOrder="315"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Buy Now Button</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+                <field id="enable_product_sticky" translate="label comment" type="select" sortOrder="316"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Product sticky</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Statusfield</source_model>
+                </field>
+                <field id="display_custom_tabs" translate="label comment" type="select" sortOrder="319" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Tabs</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\DisplayTabs</source_model>
+                </field>
+                <field id="custom_tabs" translate="label" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Tabs</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\Adminhtml\Form\Field\CustomTabs</frontend_model>
+                    <backend_model>Blueskytechco\Themeoption\Model\Config\CustomTabs</backend_model>
+                </field>
+                <field id="disable_add_to_cart_related" translate="label comment" type="select" sortOrder="325"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Add To Cart Button on Related</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="carousel_settings" translate="label comment" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Related, Up-Sells, and Cross-Sells Carousel Settings</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="big_desktops" translate="label comment" type="select" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Big Desktops</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CarouselColumns</source_model>
+                    <comment><![CDATA[<span style="font-style: italic;">XX-Large devices (larger desktops, 1400px and up)</span>]]></comment>
+                </field>
+                <field id="desktops" translate="label comment" type="select" sortOrder="420" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Desktops</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CarouselColumns</source_model>
+                    <comment><![CDATA[<span style="font-style: italic;">X-Large devices (large desktops, 1200px and up)</span>]]></comment>
+                </field>
+                <field id="small_desktops" translate="label comment" type="select" sortOrder="430" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Small Desktops</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CarouselColumns</source_model>
+                    <comment><![CDATA[<span style="font-style: italic;">Large devices (desktops, 992px and up)</span>]]></comment>
+                </field>
+                <field id="tablet" translate="label comment" type="select" sortOrder="440" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tablet</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CarouselColumns</source_model>
+                    <comment><![CDATA[<span style="font-style: italic;">Medium devices (tablets, 768px and up)</span>]]></comment>
+                </field>
+                <field id="mobile" translate="label comment" type="select" sortOrder="450" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CarouselColumns</source_model>
+                    <comment><![CDATA[<span style="font-style: italic;">Small devices (landscape phones, 576px and up)</span>]]></comment>
+                </field>
+                <field id="small_mobile" translate="label comment" type="select" sortOrder="460" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Small Mobile</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CarouselColumns</source_model>
+                    <comment><![CDATA[<span style="font-style: italic;">X-Small devices (portrait phones, less than 576px)</span>]]></comment>
+                </field>
+            </group>
+            <group id="blog" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Blog</label>
+                <field id="page_layout" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Layout</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\BlogPageLayout</source_model>
+                </field>
+            </group>
+            <group id="newsletter" translate="label" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Newsletter Popup</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Newsletter</source_model>
+                </field>
+                <field id="cms_block" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CmsBlocks</source_model>
+                    <depends>
+                        <field id="enable" separator="|">1|2</field>
+                    </depends>
+                </field>
+                <field id="max_width" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Width</label>
+                    <depends>
+                        <field id="enable" separator="|">1|2</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="product_popup" translate="label" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Popup</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Newsletter</source_model>
+                    <comment><![CDATA[<span style="font-style: italic; color: red;">Product popup only shows when you turn off Newsletter Popup</span>]]></comment>
+                </field>
+                <field id="cms_block" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\CmsBlocks</source_model>
+                    <depends>
+                        <field id="enable" separator="|">1|2</field>
+                    </depends>
+                </field>
+                <field id="seconds_displayed" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Seconds Displayed</label>
+                    <depends>
+                        <field id="enable" separator="|">1|2</field>
+                    </depends>
+                </field>
+                <field id="max_width" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Width</label>
+                    <depends>
+                        <field id="enable" separator="|">1|2</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="fake_order" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Fake Order</label>
+                <field id="enable_f_o" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="seconds_displayed" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Seconds Displayed</label>
+                    <depends>
+                        <field id="enable_f_o">1</field>
+                    </depends>
+                </field>
+                <field id="seconds_hide" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Seconds Hide</label>
+                    <depends>
+                        <field id="enable_f_o">1</field>
+                    </depends>
+                </field>
+                <field id="messages" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Messages</label>
+                    <depends>
+                        <field id="enable_f_o">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+		<section id="themeoption" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Theme Design</label>
+            <tab>blueskytechco</tab>
+			<resource>Blueskytechco_Themeoption::themeoption</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="debug_mode" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Disable Debug Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="layout" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Width</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Layout</source_model>
+                </field>
+                <field id="icon_lazyload" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Icon LazyLoad</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG. Gif</comment>
+                    <backend_model>Blueskytechco\Themeoption\Model\Config\IconlazyLoad</backend_model>
+                    <base_url type="media" scope_info="1">blueskytechco/lazyload</base_url>
+                </field>
+                <field id="button_border_radius" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Border Radius</label>
+                    <comment><![CDATA[For example: 5px or 5%]]></comment>
+                </field>
+            </group>
+			<group id="font" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Fonts</label>
+                <field id="fetch_google_fonts" translate="label comment" type="button" sortOrder="10"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Fetch Google Fonts</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\Adminhtml\Button\FetchGoogleFonts</frontend_model>
+                    <comment><![CDATA[Fetch Google Fonts via API. It allows get data Google Fonts for the available font families. The REST API supplies data in the JSON format that includes the styles and scripts (called subsets in Google Fonts) in each family.]]></comment>
+                </field>
+				<field id="body_heading" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Font</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="font_family" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Font Family</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontfamily</source_model>
+                </field>
+				<field id="google_font_family" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Font Family - Google Fonts</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Googlefonts</source_model>
+                    <depends>
+                        <field id="font_family">google</field>
+                    </depends>
+                </field>
+				<field id="customize" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customize</label>
+                    <depends>
+                        <field id="font_family">google</field>
+                    </depends>
+					<comment><![CDATA[<p>For example: </p><p>ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900</p><p>Custom Fonts: <a id="themeoption_font_google_font_family_customize" href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a></p>]]></comment>
+                </field>
+                <field id="custom_font_family" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Body Custom Font</label>
+                    <depends>
+                        <field id="font_family">custom</field>
+                    </depends>
+                </field>
+				<field id="font_size" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Font Size</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontsize</source_model>
+                </field>
+				<field id="google_font_weight" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Font Weight</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontweight</source_model>
+                </field>
+                <field id="heading_heading" translate="label comment" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Font</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="heading_family" translate="label comment" type="select" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Font Family</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontfamilyheading</source_model>
+                </field>
+                <field id="google_heading_family" translate="label comment" type="select" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Font Family - Google Fonts</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Googlefonts</source_model>
+                    <depends>
+                        <field id="heading_family">google</field>
+                    </depends>
+                </field>
+                <field id="customize_heading_family" translate="label comment" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customize</label>
+                    <depends>
+                        <field id="heading_family">google</field>
+                    </depends>
+                    <comment><![CDATA[<p>For example: </p><p>ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900</p><p>Custom Fonts: <a id="themeoption_font_google_heading_family_customize" href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a></p>]]></comment>
+                </field>
+                <field id="custom_heading_family" translate="label comment" type="text" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Fonts</label>
+                    <depends>
+                        <field id="heading_family">custom</field>
+                    </depends>
+                </field>
+                <field id="heading_font_weight" translate="label comment" type="select" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Font Weight</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontweight</source_model>
+                    <depends>
+                        <field id="heading_family" separator="|">custom|google</field>
+                    </depends>
+                </field>
+                <field id="menu_heading" translate="label comment" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Font</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="menu_family" translate="label comment" type="select" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Font Family</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontfamilymenu</source_model>
+                </field>
+                <field id="google_menu_family" translate="label comment" type="select" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Font Family - Google Fonts</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Googlefonts</source_model>
+                    <depends>
+                        <field id="menu_family">google</field>
+                    </depends>
+                </field>
+                <field id="customize_menu_family" translate="label comment" type="text" sortOrder="330" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customize</label>
+                    <depends>
+                        <field id="menu_family">google</field>
+                    </depends>
+                   <comment><![CDATA[<p>For example: </p><p>ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900</p><p>Custom Fonts: <a id="themeoption_font_google_menu_family_customize" href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a></p>]]></comment>
+                </field>
+                <field id="custom_menu_family" translate="label comment" type="text" sortOrder="340" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Fonts</label>
+                    <depends>
+                        <field id="menu_family">custom</field>
+                    </depends>
+                </field>
+                <field id="menu_font_size" translate="label comment" type="select" sortOrder="345" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Font Size</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontsize</source_model>
+                    <depends>
+                        <field id="menu_family" separator="|">custom|google</field>
+                    </depends>
+                </field>
+                <field id="menu_font_weight" translate="label comment" type="select" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Font Weight</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontweight</source_model>
+                     <depends>
+                        <field id="menu_family" separator="|">custom|google</field>
+                    </depends>
+                </field>
+                <field id="other_heading" translate="label comment" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Other Font</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="other_family" translate="label comment" type="select" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Other Font Family</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Fontfamilymenu</source_model>
+                </field>
+                <field id="google_other_family" translate="label comment" type="select" sortOrder="520" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Other Font Family - Google Fonts</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Googlefonts</source_model>
+                    <depends>
+                        <field id="other_family">google</field>
+                    </depends>
+                </field>
+                <field id="customize_other_family" translate="label comment" type="text" sortOrder="530" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customize</label>
+                    <depends>
+                        <field id="other_family">google</field>
+                    </depends>
+                   <comment><![CDATA[<p>For example: </p><p>ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900</p><p>Custom Fonts: <a id="themeoption_font_google_other_family_customize" href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a></p>]]></comment>
+                </field>
+                <field id="custom_other_family" translate="label comment" type="text" sortOrder="540" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Fonts</label>
+                    <depends>
+                        <field id="other_family">custom</field>
+                    </depends>
+                </field>
+            </group>
+			<group id="colors" translate="label" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Colors</label>
+                <field id="theme_colors" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Theme Colors</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+				<field id="color_heading" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Basic Colors</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="base_color_custom" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="text_color" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="base_color_custom">1</field>
+                    </depends>
+                </field>
+				<field id="heading_color" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="base_color_custom">1</field>
+                    </depends>
+                </field>
+                <field id="link_color" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="base_color_custom">1</field>
+                    </depends>
+                </field>
+                <field id="link_hover_color" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link Hover Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="base_color_custom">1</field>
+                    </depends>
+                </field>
+				<field id="button_heading" translate="label comment" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Buttons Colors</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="button_color_custom" translate="label comment" type="select" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="button_text_color" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="button_color_custom">1</field>
+                    </depends>
+                </field>
+                <field id="button_bg_color" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="button_color_custom">1</field>
+                    </depends>
+                </field>     
+				<field id="button_hover_text_color" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Hover Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="button_color_custom">1</field>
+                    </depends>
+                </field>
+                <field id="button_hover_bg_color" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Hover Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="button_color_custom">1</field>
+                    </depends>
+                </field>
+			</group>
+			<group id="header" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header</label>
+				<field id="sticky_heading" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sticky Header</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="sticky_select_bg_color" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sticky Background Color</label>
+                    <source_model>Blueskytechco\Themeoption\Model\Config\Stickybg</source_model>
+					<depends>
+                        <field id="sticky_enabled">1</field>
+                    </depends>
+                </field>
+				<field id="sticky_bg_color_custom" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Sticky Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="sticky_select_bg_color">custom</field>
+						<field id="sticky_enabled">1</field>
+                    </depends>
+                </field>
+				<field id="header_heading" translate="label comment" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="header_custom" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Header</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="header_topbar_text_color" translate="label comment" type="text" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Topbar Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="header_custom">1</field>
+                    </depends>
+                </field>
+                <field id="header_topbar_background_color" translate="label comment" type="text" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Topbar Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="header_custom">1</field>
+                    </depends>
+                </field>
+                <field id="header_text_color" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="header_custom">1</field>
+                    </depends>
+                </field>
+				<field id="header_background_color" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="header_custom">1</field>
+                    </depends>
+                </field>
+				<field id="header_bg_image" translate="label" type="image" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Background Image</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG.</comment>
+                    <backend_model>Blueskytechco\Themeoption\Model\Config\Headerbackground</backend_model>
+					<base_url type="media" scope_info="1">blueskytechco/header_background</base_url>
+                    <depends>
+                        <field id="header_custom">1</field>
+                    </depends>
+                </field>
+                <field id="header_custom_style" translate="label comment" type="textarea" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style Background Image (CSS)</label>
+                    <comment><![CDATA[<p>For example:</p><p><em>background-repeat: no-repeat;<br/>background-size: cover;<br/>background-attachment: fixed;</em></p>]]></comment>
+                    <depends>
+                        <field id="header_custom">1</field>
+                    </depends>
+                </field>
+            </group>
+			<group id="footer" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer</label>
+                <field id="footer_custom" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Footer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="footer_text_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="footer_custom">1</field>
+                    </depends>
+                </field>
+			    <field id="footer_background_color" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="footer_custom">1</field>
+                    </depends>
+                </field>
+				<field id="footer_bg_image" translate="label" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Background Image</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG.</comment>
+                    <backend_model>Blueskytechco\Themeoption\Model\Config\Footerbackground</backend_model>
+					<base_url type="media" scope_info="1">blueskytechco/footer_background</base_url>
+                    <depends>
+                        <field id="footer_custom">1</field>
+                    </depends>
+                </field>
+                <field id="footer_custom_style" translate="label comment" type="textarea" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style Background Image (CSS)</label>
+                    <comment><![CDATA[<p>For example:</p><p><em>background-repeat: no-repeat;<br/>background-size: cover;<br/>background-attachment: fixed;</em></p>]]></comment>
+                    <depends>
+                        <field id="footer_custom">1</field>
+                    </depends>
+                </field>
+			</group>
+            <group id="magemenu" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Menu</label>
+                <field id="menu_custom" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="menu_text_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="menu_custom">1</field>
+                    </depends>
+                </field>
+                <field id="menu_background_color" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="menu_custom">1</field>
+                    </depends>
+                </field>
+                <field id="sub_menu_text_color" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Menu Text Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="menu_custom">1</field>
+                    </depends>
+                </field>
+                <field id="sub_menu_background_color" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Menu Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="menu_custom">1</field>
+                    </depends>
+                </field>
+            </group>
+			<group id="page" translate="label" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Page Wrapper</label>
+                <field id="page_wrapper_custom" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Page Wrapper</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="page_bgcolor" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="page_wrapper_custom">1</field>
+                    </depends>
+                </field>
+                <field id="page_bg_image" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG.</comment>
+                    <backend_model>Blueskytechco\Themeoption\Model\Config\Pagebackground</backend_model>
+                    <base_url type="media" scope_info="1">blueskytechco/page_background</base_url>
+                    <depends>
+                        <field id="page_wrapper_custom">1</field>
+                    </depends>
+                </field>
+                <field id="page_custom_style" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style Background Image (CSS)</label>
+                    <comment><![CDATA[<p>For example:</p><p><em>background-repeat: no-repeat;<br/>background-size: cover;<br/>background-attachment: fixed;</em></p>]]></comment>
+                    <depends>
+                        <field id="page_wrapper_custom">1</field>
+                    </depends>
+                </field>
+            </group>
+			<group id="main" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Main Content Container</label>
+                <field id="main_content_container_custom" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Main Content Container</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="main_bgcolor" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Color</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="main_content_container_custom">1</field>
+                    </depends>
+                </field>
+                <field id="main_bg_image" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG.</comment>
+                    <backend_model>Blueskytechco\Themeoption\Model\Config\Mainbackground</backend_model>
+					<base_url type="media" scope_info="1">blueskytechco/main_background</base_url>
+                    <depends>
+                        <field id="main_content_container_custom">1</field>
+                    </depends>
+                </field>
+                <field id="main_custom_style" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style Background Image (CSS)</label>
+                    <comment><![CDATA[<p>For example:</p><p><em>background-repeat: no-repeat;<br/>background-size: cover;<br/>background-attachment: fixed;</em></p>]]></comment>
+                    <depends>
+                        <field id="main_content_container_custom">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="customization" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Customization Style (CSS)</label>
+                <field id="editer_custom_style" translate="label comment" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style (CSS)</label>
+                    <frontend_model>Blueskytechco\Themeoption\Block\Adminhtml\System\Config\Form\Field\EditerCustomStyle</frontend_model>
+                </field>
+                <field id="custom_style" translate="label comment" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style (CSS)</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

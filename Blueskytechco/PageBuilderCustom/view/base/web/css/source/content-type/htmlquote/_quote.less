@@ -1,0 +1,80 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+// Variables
+
+@bls_quote-background: #f1f1f1;
+@bls_quote-border: false;
+@bls_quote-padding: 30px 25px 30px 60px;
+@bls_quote-margin: 20px 0;
+
+@bls_quote-font-size: false;
+@bls_quote-color: false;
+
+@bls_quote-font-family: false;
+@bls_quote-font-style: false;
+@bls_quote-font-weight: false;
+
+// Icon quote
+@bls_quote-icon: open-quote;
+@bls_quote-icon-font-size: 50px;
+@bls_quote-icon-color: false;
+@bls_quote-icon-font-style: false;
+@bls_quote-icon-font-weight: false;
+@bls_quote-icon-icon-margin: 0 15px 0;
+@bls_quote-icon-position: absolute;
+@bls_quote-icon-position-top: 20px;
+@bls_quote-icon-position-left: 5px;
+
+// Quote element
+@bls_quote-author-margin: 15px 0;
+@bls_quote-author-font-size: 14px;
+@bls_quote-author-font-weight: false;
+
+
+& when (@media-common =true) {
+    [data-content-type='htmlquote'] {
+        position: relative;
+        .lib-css(background, @bls_quote-background);
+        .lib-css(padding, @bls_quote-padding);
+        .lib-css(border, @bls_quote-border);
+        .lib-css(margin, @bls_quote-margin);
+        .lib-css(font-size, @bls_quote-font-size);
+        .lib-css(color, @bls_quote-color);
+        .lib-css(font-weight, @bls_quote-font-weight);
+        .lib-css(font-family, @bls_quote-font-family);
+        .lib-css(font-style, @bls_quote-font-style);
+
+        &:before {
+            .lib-css(content, @bls_quote-icon);
+            .lib-css(font-size, @bls_quote-icon-font-size);
+            .lib-css(font-weight, @bls_quote-icon-font-weight);
+            .lib-css(color, @bls_quote-icon-color);
+            .lib-css(font-style, @bls_quote-icon-font-style);
+            .lib-css(margin, @bls_quote-icon-icon-margin);
+            .lib-css(position, @bls_quote-icon-position);
+            .lib-css(left, @bls_quote-icon-position-left);
+            .lib-css(top, @bls_quote-icon-position-top);
+            display: block;
+            width: auto;
+            background: transparent;
+            text-shadow: none;
+            opacity: 1;
+            height: auto;
+            color: inherit;
+            visibility: visible;
+            line-height: 1;
+        }
+    }
+    .quote-author {
+        .lib-css(margin, @bls_quote-author-margin);
+        .lib-css(font-size, @bls_quote-author-font-size);
+        .lib-css(font-weight, @bls_quote-author-font-weight);
+    }
+    .quote-description{
+        p{
+            margin-bottom: 0;
+        }
+    }
+}

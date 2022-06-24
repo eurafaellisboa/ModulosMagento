@@ -1,0 +1,18 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/blueskytechco-opc/carts/mine/update-item-qty" method="POST">
+        <service class="Blueskytechco\OnePageCheckout\Api\UpdateItemManagementInterface" method="update"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/blueskytechco-opc/guest-carts/:cartId/update-item-qty" method="POST">
+        <service class="Blueskytechco\OnePageCheckout\Api\GuestUpdateItemManagementInterface" method="update"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

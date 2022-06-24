@@ -1,0 +1,25 @@
+//
+//  Responsive variables
+//  _____________________________________________
+
+@use-flex: true; // Use flexbox [true|false]
+@responsive: true; // Theme is responsive [true|false]
+
+@screen__xxs: 360px;
+@screen__xs: 576px;
+@screen__s: 768px;
+@screen__m: 992px;
+@screen__l: 1200px;
+@screen__xl: 1440px;
+
+//  Style groups for 'mobile' devices
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile'), (@media-target = 'all') {
+    @media only screen and (max-width: (@screen__l - 1)) {
+        .media-width('max', @screen__l);
+    }
+    @media all and (min-width: @screen__xs) {
+        .media-width('min', @screen__xs);
+    }
+}

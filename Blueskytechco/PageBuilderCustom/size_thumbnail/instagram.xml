@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+	<grid>
+		<common>
+			<img>
+				<width><![CDATA[300]]></width>
+				<height><![CDATA[300]]></height>
+			</img>
+		</common>
+	</grid>
+	<carousel>
+		<common>
+			<img>
+				<width><![CDATA[300]]></width>
+				<height><![CDATA[300]]></height>
+			</img>
+		</common>
+	</carousel>
+</root>

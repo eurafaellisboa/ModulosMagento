@@ -1,0 +1,22 @@
+<div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+    <div class="elementor-newsletter-wrapper">
+        <form class="form-subscribe" data-bind="attr: { action: getActionNewsletter() }" method="post">
+            <div class="field-newsletter">
+                <ifnot args="data.placeholder.attributes().placeholder">
+                    <input name="email" type="email" placeholder="Subscribe" required />
+                </ifnot>
+                <if args="data.placeholder.attributes().placeholder">
+                    <input name="email" type="email" attr="data.placeholder.attributes" required />
+                </if>
+            </div>
+            <div class="actions-subscribe">
+                <ifnot args="data.subscribe.html">
+                    <button type="submit">Subscribe</button>
+                </ifnot>
+                <if args="data.subscribe.html">
+                    <button type="submit" html="data.subscribe.html" attr="data.subscribe.attributes"></button>
+                </if>
+            </div>
+        </form>
+    </div>
+</div>

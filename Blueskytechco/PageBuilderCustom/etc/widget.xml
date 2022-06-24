@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="page_builder_blog_posts" class="Blueskytechco\PageBuilderCustom\Block\Widget\BlogPosts">
+        <label translate="true">Page Builder Blog Posts</label>
+        <description>Display blog posts</description>
+        <parameters>
+            <parameter name="title" xsi:type="text"  visible="true" sort_order="10" >
+                <label translate="true">Title</label>
+                <description translate="true">Please specify title you want to display on the frontend. You can leave it blank if necessary.</description>
+            </parameter>
+            <parameter name="short_description" xsi:type="text"  visible="true" sort_order="15" >
+                <label translate="true">Short description</label>
+                <description translate="true">Please specify description you want to display on the frontend. You can leave it blank if necessary.</description>
+            </parameter>
+            <parameter name="category_id" xsi:type="select" source_model="Magefan\Blog\Model\Config\Source\Category" visible="true" sort_order="30" >
+                <label translate="true">Posts Category</label>
+                <description translate="true">Leave blank to display posts from all categories.</description>
+            </parameter>
+            <parameter name="posts_tag" xsi:type="select" source_model="Magefan\Blog\Model\Config\Source\WidgetTag" visible="true" sort_order="40" >
+                <label translate="true">Posts Tag</label>
+                <description translate="true">Leave blank to display posts from all tags.</description>
+            </parameter>
+            <parameter name="posts_author" xsi:type="select" source_model="Magefan\Blog\Model\Config\Source\Author" visible="true" sort_order="50" >
+                <label translate="true">Posts Author</label>
+                <description translate="true">Leave blank to display posts from all authors.</description>
+            </parameter>
+            <parameter name="publish_date_from" xsi:type="text" visible="true" sort_order="60" >
+                <label translate="true">Posts Publish Date From</label>
+                <description translate="true">Leave blank or use date format YYYY-MM-DD.</description>
+            </parameter>
+            <parameter name="publish_date_to" xsi:type="text"  visible="true" sort_order="70" >
+                <label translate="true">Posts Publish Date To</label>
+                <description translate="true">Leave blank or use date format YYYY-MM-DD.</description>
+            </parameter>
+             <parameter name="sort_order" xsi:type="select" source_model="Blueskytechco\PageBuilderCustom\Model\BlogPosts\Source\SortOrder" visible="true" sort_order="80" >
+                <label translate="true">Posts Author</label>
+                <description translate="true">Leave blank to display posts from all authors.</description>
+            </parameter>
+            <parameter name="number_posts" xsi:type="text"  visible="true" sort_order="90" >
+                <label translate="true">Number of Posts</label>
+                <description translate="true">Please indicate number of recent posts you want to display. Leave blank to use predefined "Posts Per Page" value.</description>
+            </parameter>
+            <parameter name="type_name" xsi:type="text"  visible="true" sort_order="92" >
+                <label translate="true">Appearance</label>
+            </parameter>
+            <parameter name="template_id" xsi:type="text"  visible="true" sort_order="100" >
+                <label translate="true">Templates Grid/List</label>
+            </parameter>
+            <parameter name="template_carousel_id" xsi:type="text"  visible="true" sort_order="120" >
+                <label translate="true">Templates Carousel</label>
+            </parameter>
+            <parameter name="margin_item" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Margin</label>
+            </parameter>
+            <parameter name="space_between_item" xsi:type="text"  visible="true" sort_order="135" >
+                <label translate="true">Space between item</label>
+            </parameter>
+            <parameter name="image_hover_effects" xsi:type="text"  visible="true" sort_order="140" >
+                <label translate="true">Image hover effects</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="store_url_pagebuilder_link" class="Blueskytechco\PageBuilderCustom\Block\Widget\StoreUrl\Link">
+        <label translate="true">Store Url Link</label>
+        <description translate="true">Store Url Link</description>
+        <parameters>
+            <parameter name="id_path" xsi:type="text" visible="true">
+                <label translate="true">Link</label>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Text</label>
+                <description translate="true">If empty, the Page Title will be used</description>
+            </parameter>
+            <parameter name="title" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Title</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/link_href.phtml" selected="true">
+                        <label translate="true">Link Block Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Blueskytechco_RokanBase::rokanbase" title="Blueskytechco" translate="title" sortOrder="60">
+                    <resource id="Blueskytechco_StoreLocator::configuration" title="Store Locator" translate="title" sortOrder="510">
+                        <resource id="Blueskytechco_StoreLocator::stores" title="Manage Stores" translate="title" sortOrder="10" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

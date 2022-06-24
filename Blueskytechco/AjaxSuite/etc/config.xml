@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ajaxsuite>
+            <general>
+                <enabled><![CDATA[1]]></enabled>
+              </general>
+              <ajaxcompare>
+                <enabled><![CDATA[1]]></enabled>
+              </ajaxcompare>
+              <ajaxwishlist>
+                <enabled><![CDATA[1]]></enabled>
+                <title><![CDATA[My Wishlist]]></title>
+                <description><![CDATA[We love Magento]]></description>
+                <logo_pupup_login><![CDATA[default/logosmall.png]]></logo_pupup_login>
+                <bg_pupup_login><![CDATA[default/home-bg.jpg]]></bg_pupup_login>
+              </ajaxwishlist>
+              <ajaxcart>
+                <enabled><![CDATA[1]]></enabled>
+                <success_action><![CDATA[minicart]]></success_action>
+              </ajaxcart>
+        </ajaxsuite>
+    </default>
+</config>

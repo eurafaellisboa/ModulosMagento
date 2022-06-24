@@ -1,0 +1,47 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $viewModel \Blueskytechco\CustomCatalog\ViewModel\Catalog
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php 
+    $_product = $block->getProduct();
+    $view_model = $block->getViewModel();
+?>
+<?php
+$type = $_product->getTypeId();
+$toDate = time();
+$fromDate = $_product->getData('end_date_in_stock');
+if (strtotime($fromDate) >= $toDate && ($type == 'simple' || $type == 'virtual')) {
+	$qty = $view_model->getStockQty($_product->getId());
+    $sale_qty = $view_model->getProductSalableQuantity($_product);
+    if ($sale_qty && $sale_qty > 0) {
+        $percent = ($sale_qty / $qty) * 100;
+        if ($percent > 100) {
+            $percent = 100;
+        }
+    ?>
+    <div class="countdown-page-product-custom">
+        <div class="des-countdown-p-p-c"><p class="message"><i class="as las la-hourglass-half"></i><?= $block->escapeHtml('HURRY! ONLY') ?> <span class="count"><?= $block->escapeHtml($sale_qty) ?></span>  <?= $block->escapeHtml('LEFT IN STOCK.') ?></p></div>
+        <div class="progressbar-countdown-p-p-c"><div style="width: <?=$percent?>%;"></div></div>
+        <div id="countbox-p-p-c-container"></div>
+    </div>
+    <script type ="text/javascript">
+        require(["jquery","countdown"], function($){ 
+            $(document).ready(function(){
+                var $thisCountdown = $('#countbox-p-p-c-container'), finalDate = '<?= $fromDate ?>';
+                $thisCountdown.countdown(finalDate, function(event) {
+                    $thisCountdown.html(event.strftime(''
+                    + '<span class="countdown-days"><span class="countdown_ti">%-D</span> <span class="countdown_tx">days</span></span> '
+                    + '<span class="countdown-hours"><span class="countdown_ti">%H</span> <span class="countdown_tx">hours</span></span> '
+                    + '<span class="countdown-min"><span class="countdown_ti">%M</span> <span class="countdown_tx">mins</span></span> '
+                    + '<span class="countdown-sec"><span class="countdown_ti">%S</span> <span class="countdown_tx">secs</span></span>'));
+                });
+            });
+        });
+    </script> <?php
+    }
+} 
+?>

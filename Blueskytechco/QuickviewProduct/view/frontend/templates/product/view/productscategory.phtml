@@ -1,0 +1,17 @@
+<?php 
+$_helper = $this->helper('Blueskytechco\Themeoption\Helper\Product');
+$rootCategoryId = $_helper->getRootCategoryId();
+$product = $block->getProduct();
+$categories = $product->getCategoryIds(); /*will return category ids array*/
+echo '<label>'.__('Categories: ').'</label>';
+foreach($categories as $key=>$category){
+    $cat = $_helper->loadCategoryById($category);
+    if (!$cat->getIsActive() || $cat->getId() == $rootCategoryId) {
+        continue;
+    }
+    echo '<a href="'.$cat->getUrl().'">'.$cat->getName().'</a>';
+    if($key == 2){
+		break;
+	}
+}
+?>

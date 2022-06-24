@@ -1,0 +1,8 @@
+<?php
+	$product = $block->getProduct();
+	$helperData = $this->helper('Blueskytechco\SizeChart\Helper\Data');
+	$content = $helperData->getData($product);
+?>
+<div class="product-sizechart-content">
+	<?= $content ?>
+</div>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu> 
+        <add id="Blueskytechco_SizeChart::size_chart_gird" title="Guia de Tamanhos" module="Blueskytechco_SizeChart" sortOrder="10" parent="Blueskytechco_RokanBase::rokanbase_manage" action="sizechart/guide/index" resource="Blueskytechco_SizeChart::sizechart"/>
+    </menu>
+</config>
+ 

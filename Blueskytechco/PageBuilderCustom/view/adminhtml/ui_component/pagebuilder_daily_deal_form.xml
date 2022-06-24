@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd" extends="pagebuilder_base_form">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pagebuilder_daily_deal_form.pagebuilder_daily_deal_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Daily Deal</item>
+    </argument>
+    <settings>
+        <deps>
+            <dep>pagebuilder_daily_deal_form.pagebuilder_daily_deal_form_data_source</dep>
+        </deps>
+        <namespace>pagebuilder_daily_deal_form</namespace>
+    </settings>
+    <dataSource name="pagebuilder_daily_deal_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_PageBuilder/js/form/provider</item>
+            </item>
+        </argument>
+        <dataProvider name="pagebuilder_daily_deal_form_data_source" class="Magento\PageBuilder\Model\ContentType\DataProvider">
+            <settings>
+                <requestFieldName/>
+                <primaryFieldName/>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="appearance_fieldset" sortOrder="10" component="Magento_PageBuilder/js/form/element/dependent-fieldset">
+        <settings>
+            <label translate="true">Appearance</label>
+            <additionalClasses>
+                <class name="admin__fieldset-visual-select-large">true</class>
+            </additionalClasses>
+            <collapsible>false</collapsible>
+            <opened>true</opened>
+            <imports>
+                <link name="hideFieldset">${$.name}.appearance:options</link>
+                <link name="hideLabel">${$.name}.appearance:options</link>
+            </imports>
+        </settings>
+        <field name="appearance" formElement="select" sortOrder="10" component="Magento_PageBuilder/js/form/element/dependent-visual-select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">grid</item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                    <class name="admin__field-visual-select-container">true</class>
+                </additionalClasses>
+                <dataType>text</dataType>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <elementTmpl>Magento_PageBuilder/form/element/visual-select</elementTmpl>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="AppearanceSourceDailyDeal" />
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="category_id" component="Magento_Catalog/js/components/new-category" sortOrder="15" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">false</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <elementTmpl>ui/grid/filters/elements/ui-select</elementTmpl>
+                <label translate="true">Category</label>
+                <dataScope>category_id</dataScope>
+                <componentType>field</componentType>
+                <visible>true</visible>
+                <listens>
+                    <link name="${ $.namespace }.${ $.namespace }:responseData">setParsed</link>
+                </listens>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Catalog\Ui\Component\Product\Form\Categories\Options"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="number_products" sortOrder="18" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">8</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Number of Products</label>
+                <notice translate="true">Please indicate number of products you want to display. Leave blank if you want display all.</notice>
+            </settings>
+        </field>
+        <field name="hide_products" sortOrder="19" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">false</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Hide Products</label>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="string">false</map>
+                            <map name="true" xsi:type="string">true</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="title" sortOrder="20" formElement="input">
+            <settings>
+                <label translate="true">Title</label>
+                <notice translate="true">Please specify title you want to display on the frontend. You can leave it blank if necessary.</notice>
+            </settings>
+        </field>
+        <field name="short_description" sortOrder="30" formElement="wysiwyg" template="ui/form/field">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="pagebuilder_button" xsi:type="boolean">false</item>
+                        <item name="is_pagebuilder_enabled" xsi:type="boolean">false</item>
+                        <item name="toggle_button" xsi:type="boolean">false</item>
+                        <item name="height" xsi:type="string">150px</item>
+                        <item name="add_variables" xsi:type="boolean">false</item>
+                        <item name="add_widgets" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Short description</label>
+                <notice translate="true">Please specify short description you want to display on the frontend. You can leave it blank if necessary.</notice>
+                <dataScope>short_description</dataScope>
+                <validation>
+                    <rule name="validate-no-url" xsi:type="boolean">true</rule>
+                    <rule name="validate-no-widget" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+        <field name="daily_style" sortOrder="45" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">default</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Style</label>
+                <dataScope>daily_style</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\LayoutStyle\Options"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="space_between_item" sortOrder="50" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">30</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Space Between Item</label>
+                <dataScope>space_between_item</dataScope>
+                <notice translate="true">Space between Banners.</notice>
+                <addAfter translate="true">px</addAfter>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\Margin\Options"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+    <fieldset name="countdown" sortOrder="40">
+        <settings>
+            <label translate="true">Countdown</label>
+            <collapsible>true</collapsible>
+            <opened>true</opened>
+        </settings>
+        <field name="countdown_text" sortOrder="1" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">End in:</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Text</label>
+            </settings>
+        </field>
+        <field name="countdown_data" sortOrder="1" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">2022/06/20 23:59:59</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Data</label>
+                <notice translate="true">Countdown to the end sale date will be shown.( 2022/06/20 23:59:59 )</notice>
+            </settings>
+        </field>
+        <field name="desgin" sortOrder="10" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">dark</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Desgin</label>
+                <dataScope>desgin</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="0" xsi:type="array">
+                                <item name="value" xsi:type="string">dark</item>
+                                <item name="label" xsi:type="string" translate="true">Dark</item>
+                            </option>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">light</item>
+                                <item name="label" xsi:type="string" translate="true">Light</item>
+                            </option>
+                        </options>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="countdown_day" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">d</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Text Day</label>
+            </settings>
+        </field>
+        <field name="countdown_hour" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">h</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Text Hour</label>
+            </settings>
+        </field>
+        <field name="countdown_minute" sortOrder="40" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">m</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Text Minute</label>
+            </settings>
+        </field>
+        <field name="countdown_second" sortOrder="50" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">s</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Text Second</label>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="columns" sortOrder="50">
+        <settings>
+            <label translate="true">Columns</label>
+            <collapsible>true</collapsible>
+            <opened>true</opened>
+        </settings>
+        <field name="col_xxl" sortOrder="10" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">2</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Big Desktops</label>
+                <dataScope>col_xxl</dataScope>
+                <notice translate="true">XX-Large devices (larger desktops, 1400px and up)</notice>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\Columns\Breakpoints"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="col_xl" sortOrder="20" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">15</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Desktops</label>
+                <dataScope>col_xl</dataScope>
+                <notice translate="true">X-Large devices (large desktops, 1200px and up)</notice>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\Columns\Breakpoints"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="col_lg" sortOrder="30" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">3</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Small Desktops</label>
+                <dataScope>col_lg</dataScope>
+                <notice translate="true">Large devices (desktops, 992px and up)</notice>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\Columns\Breakpoints"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="col_md" sortOrder="40" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">4</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Tablet</label>
+                <dataScope>col_md</dataScope>
+                <notice translate="true">Medium devices (tablets, 768px and up)</notice>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\Columns\Breakpoints"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="col_sm" sortOrder="50" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">6</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Mobile</label>
+                <dataScope>col_sm</dataScope>
+                <notice translate="true">Small devices (landscape phones, 576px and up)</notice>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\Columns\Breakpoints"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="col_xs" sortOrder="60" formElement="select" component="Magento_PageBuilder/js/form/element/select-filtered-options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">6</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Small Mobile</label>
+                <dataScope>col_xs</dataScope>
+                <notice translate="true">X-Small devices (portrait phones, less than 576px)</notice>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Blueskytechco\PageBuilderCustom\Model\Config\Columns\Breakpoints"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

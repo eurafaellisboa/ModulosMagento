@@ -1,0 +1,36 @@
+<?php
+/**
+ * @var $block \Blueskytechco\AjaxSuite\Block\AjaxCart\Success
+ */
+$_product = $block->getProduct();
+$items = $block->getQuoteItem();
+?>
+<div class="wrapper-success">
+	<div class="pupup-suc-added-to-your-bag"><?php echo __('Added to your bag');?></div>
+    <div class="product-information">
+        <?php echo $block->getChildHtml('product_image'); ?>
+		<div class="product-infor">
+			<div class="product-name">
+				<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+					<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+					<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+				</svg>
+				<?php
+					if ($items) { ?>
+
+					<?php foreach($items as $item): ?>
+					<div class="pupup-suc-added-ajax-cart-product-name product-item-name"><a title="<?php echo $block->escapeHtml($item->getName());?>" href="<?php echo $_product->getProductUrl();?>"><?php echo $item->getName();?></a></div>
+					<div class="pupup-suc-added-ajax-cart-qty-price">
+						<div class="pupup-suc-added-ajax-cart-price"><?php echo $block->getFormatedPrice($item->getPrice()); ?></div>
+						<div class="pupup-suc-added-ajax-cart-qty"><?php echo __('Qty');?>: <?php echo $item->getQty(); ?></div>
+					</div>
+					<?php endforeach; ?>
+				<?php } ?>
+			</div>
+		</div>
+    </div>
+    <div class="ajaxsuite-buttons">
+        <button class="action primary" id="button_continue_shopping"><?= __('Continue Shopping'); ?></button>
+        <button class="action primary" onclick="window.location.href='<?php echo $this->getUrl('checkout/cart'); ?>';"><?= __('View Cart'); ?></button>
+    </div>
+</div>

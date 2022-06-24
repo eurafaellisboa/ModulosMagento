@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="instagramsection" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Instagram</label>
+            <tab>blueskytechco</tab>
+            <resource>Blueskytechco_Instagram::instagram_config</resource>
+            <group id="instagramgroup" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="active" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable module on frontend.</comment>
+                </field>
+                <field id="userid" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>User Id</label>
+                    <comment><![CDATA[set User Id]]></comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="accesstoken" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Token</label>
+                    <comment><![CDATA[set Instagram Access Token]]></comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="username" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <comment><![CDATA[set Instagram Username]]></comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="limit" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of Photos</label>
+                    <comment><![CDATA[Number of photos from Instagram API]]></comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="fetch_posts" translate="label comment" type="button" sortOrder="50"  showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Fetch Posts</label>
+                    <frontend_model>Blueskytechco\Instagram\Block\Adminhtml\Button\Fetchposts</frontend_model>
+                    <comment><![CDATA[Fetch Posts from Instagram API. Please enter User ID, Access Token, User Name Instagram > click Save Config before Submit]]></comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

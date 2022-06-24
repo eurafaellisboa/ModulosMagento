@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\PageBuilder\Model\Stage\RendererPool">
+        <arguments>
+            <argument name="renderers" xsi:type="array">
+                <item name="blog_posts" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="instagram" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="category_thumbnail_image" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="product_advanced" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="lookbook" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="productcountdowntimers" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="daily_deal" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+                <item name="testimonial" xsi:type="object">Magento\PageBuilder\Model\Stage\Renderer\WidgetDirective</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\PageBuilder\Model\WidgetInitializerConfig">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="blog_posts" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/blog-posts/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                </item>
+                <item name="instagram" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/instagram/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                </item>
+                <item name="category_thumbnail_image" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/category-thumbnail-image/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                </item>
+                <item name="product_advanced" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/product-advanced/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                </item>
+                <item name="gallery" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/gallery/appearance/default/widget</item>
+                        <item name="appearance" xsi:type="string">default</item>
+                    </item>
+                </item>
+                <item name="faq" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/faq/appearance/default/widget</item>
+                    </item>
+                </item>
+                <item name="lookbook" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/lookbook/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                    <item name="mansoy" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/lookbook/appearance/mansoy/widget</item>
+                        <item name="appearance" xsi:type="string">mansoy</item>
+                    </item>
+                </item>
+                <item name="productcountdowntimers" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/productcountdowntimers/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                    <item name="grid" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/productcountdowntimers/appearance/grid/widget</item>
+                        <item name="appearance" xsi:type="string">grid</item>
+                    </item>
+                </item>
+                <item name="daily_deal" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/daily_deal/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                    <item name="grid" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/daily_deal/appearance/grid/widget</item>
+                        <item name="appearance" xsi:type="string">grid</item>
+                    </item>
+                </item>
+                <item name="testimonial" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/testimonial/appearance/carousel/widget</item>
+                        <item name="appearance" xsi:type="string">carousel</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="DefaultWYSIWYGValidator" type="Magento\Framework\Validator\HTML\ConfigurableWYSIWYGValidator">
+        <arguments>
+            <argument name="allowedTags" xsi:type="array">
+                <item name="figcaption" xsi:type="string">figcaption</item>
+                <item name="form" xsi:type="string">form</item>
+                <item name="input" xsi:type="string">input</item>
+            </argument>
+            <argument name="allowedAttributes" xsi:type="array">
+                <item name="data-col-xxl" xsi:type="string">data-col-xxl</item>
+                <item name="data-col-xl" xsi:type="string">data-col-xl</item>
+                <item name="data-col-lg" xsi:type="string">data-col-lg</item>
+                <item name="data-col-md" xsi:type="string">data-col-md</item>
+                <item name="data-col-sm" xsi:type="string">data-col-sm</item>
+                <item name="data-col-xs" xsi:type="string">data-col-xs</item>
+                <item name="data-bgset" xsi:type="string">data-bgset</item>
+                <item name="data-width" xsi:type="string">data-width</item>
+                <item name="data-height" xsi:type="string">data-height</item>
+                <item name="data-layout-design" xsi:type="string">data-layout-design</item>
+                <item name="data-action-click" xsi:type="string">data-action-click</item>
+                <item name="data-space-between-item" xsi:type="string">data-space-between-item</item>
+                <item name="data-sizes" xsi:type="string">data-sizes</item>
+                <item name="data-template-id" xsi:type="string">data-template-id</item>
+                <item name="data-slick-rows" xsi:type="string">data-slick-rows</item>
+                <item name="data-countdown-text-day" xsi:type="string">data-countdown-text-day</item>
+                <item name="data-countdown-text-hour" xsi:type="string">data-countdown-text-hour</item>
+                <item name="data-countdown-text-minute" xsi:type="string">data-countdown-text-minute</item>
+                <item name="data-countdown-text-second" xsi:type="string">data-countdown-text-second</item>
+                <item name="data-image-box-position" xsi:type="string">data-image-box-position</item>
+                <item name="data-icon-box-position" xsi:type="string">data-icon-box-position</item>
+                <item name="data-icon-box-view" xsi:type="string">data-icon-box-view</item>
+                <item name="data-src" xsi:type="string">data-src</item>
+                <item name="data-heading-mode" xsi:type="string">data-heading-mode</item>
+                <item name="method" xsi:type="string">method</item>
+                <item name="action" xsi:type="string">action</item>
+                <item name="name" xsi:type="string">name</item>
+                <item name="type" xsi:type="string">type</item>
+                <item name="placeholder" xsi:type="string">placeholder</item>
+                <item name="data-image-hover-effects" xsi:type="string">data-image-hover-effects</item>
+                <item name="data-justify-content" xsi:type="string">data-justify-content</item>
+                <item name="data-layout" xsi:type="string">data-layout</item>
+                <item name="data-css-classes-custom" xsi:type="string">data-css-classes-custom</item>
+                <item name="data-daily-style" xsi:type="string">data-daily-style</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="pageBuilderProductAdvancedCollectionFactory" type="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Blueskytechco\PageBuilderCustom\Ui\DataProvider\Product\ProductAdvancedCollection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Blueskytechco\ProductWidgetAdvanced\Block\Widget\ProductAdvanced">
+        <arguments>
+            <argument name="productCollectionFactory" xsi:type="object">pageBuilderProductAdvancedCollectionFactory</argument>
+        </arguments>
+        <plugin name="pagebuilder_product_advanced_list" type="Blueskytechco\PageBuilderCustom\Plugin\Catalog\Block\Product\ProductsListPlugin" />
+    </type>
+    <type name="Magento\Framework\Data\Collection">
+        <plugin name="duplicate_entry_already_exists_bug" type="Blueskytechco\PageBuilderCustom\Plugin\Framework\Data\Collection" sortOrder="10"/>
+    </type>
+    <virtualType name="pageBuilderProductPriceCountdownCollectionFactory" type="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Blueskytechco\PageBuilderCustom\Ui\DataProvider\Product\ProductPriceCountdownCollection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Blueskytechco\PriceCountdown\Block\Widget\PriceCountdown">
+        <arguments>
+            <argument name="productCollectionFactory" xsi:type="object">pageBuilderProductPriceCountdownCollectionFactory</argument>
+        </arguments>
+        <plugin name="pagebuilder_product_price_countdown_list" type="Blueskytechco\PageBuilderCustom\Plugin\Catalog\Block\Product\PriceCountdown" />
+    </type>
+    <virtualType name="pageBuilderProductDailyDealCollectionFactory" type="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Blueskytechco\PageBuilderCustom\Ui\DataProvider\Product\ProductDailyDealCollection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Blueskytechco\DailyDeal\Block\Widget\DailyDeal">
+        <arguments>
+            <argument name="productCollectionFactory" xsi:type="object">pageBuilderProductDailyDealCollectionFactory</argument>
+        </arguments>
+        <plugin name="pagebuilder_product_daily_deal_list" type="Blueskytechco\PageBuilderCustom\Plugin\Catalog\Block\Product\DailyDeal" />
+    </type>
+</config>

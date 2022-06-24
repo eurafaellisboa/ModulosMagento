@@ -1,0 +1,37 @@
+.icon-pagebuilder-cbanner {
+    content: url('@{baseDir}Blueskytechco_PageBuilderCustom/css/images/content-type/cbanner/appearance/icon-pagebuilder-cbanner.svg');
+    width: 18px;
+    height: 18px;
+    margin-bottom: -1px;
+}
+[data-content-type='cbanner'] .pagebuilder-cbanner-placeholder, .pagebuilder-cbanner .pagebuilder-cbanner-placeholder {
+    align-items: center;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    min-height: 300px;
+}
+
+[data-content-type='cbanner'] .pagebuilder-cbanner-placeholder .placeholder-text, .pagebuilder-cbanner .pagebuilder-cbanner-placeholder .placeholder-text {
+    color: #aaa6a0;
+    font-size: 20px;
+    font-weight: lighter;
+}
+.pagebuilder-backend-container-cbanner{
+    .cbanner-container {
+        min-height: 140px;
+    }
+    &:hover {
+        .pagebuilder-options.pagebuilder-options-middle{
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+    }
+    [data-justify-content="flex-end"]{
+        .cbanner-container {
+            .flex();
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+    }
+}

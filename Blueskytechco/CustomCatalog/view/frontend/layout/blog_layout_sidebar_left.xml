@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="breadcrumbs" remove="true" />
+		<referenceBlock name="page.main.title" remove="true"/>  
+		<referenceContainer name="page.wrapper">
+			<container name="blog.featured.content" htmlTag="div" htmlClass="blog-featured" after="header.container">
+				<block class="Blueskytechco\CustomCatalog\Block\Featured" name="blog.featured" template="Blueskytechco_CustomCatalog::blog/featured.phtml">
+				</block>
+			</container>
+		</referenceContainer>	
+	</body>
+</page> 

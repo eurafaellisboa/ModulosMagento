@@ -1,0 +1,63 @@
+<?php
+/**
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php
+    $_product = $block->getProduct();
+?>
+<div class="product-askquestion-buttons">
+    <a href="#askquestion-popup" class="open-askquestion-popup"><?= $block->escapeHtml('Ask a Question') ?></a>
+</div>
+<div id="askquestion-popup" class="popup-content mfp-with-anim mfp-hide">
+    <form method="post" action="<?= $block->escapeUrl($this->getUrl('askquestion/index/save')) ?>" id="ContactFormAsk" accept-charset="UTF-8" class="contact-form" data-mage-init='{"validation": {}}'>
+        <input type="hidden" name="form_type" value="contact">
+        <input type="hidden" name="product_id" value="<?= $_product->getId()?>">
+        <h3 class="tc mg__0 mb__20"><?= $block->escapeHtml('Ask a Question') ?></h3>
+        <div class="field askquestion-field-customer-name required">
+            <label for="askquestion-customer-name" class="label"><span><?= $block->escapeHtml('Your Name (required)') ?></span></label>
+            <div class="control">
+                <input type="text" name="customer_name" id="askquestion-customer-name"
+                    class="input-text" data-validate="{required:true}" aria-required="true">
+            </div>
+        </div>
+        <div class="row gx-5">
+            <div class="field askquestion-field-customer-email required col-md-6 col-12">
+                <label for="askquestion-customer-email" class="label"><span><?= $block->escapeHtml('Your Email (required)') ?></span></label>
+                <div class="control">
+                    <input type="email" name="email" id="askquestion-customer-email"
+                        class="input-text" data-validate="{required:true, 'validate-email':true}" aria-required="true">
+                </div>
+            </div>
+            <div class="field askquestion-field-customer-phone required col-md-6 col-12">
+                <label for="notify_easkquestion-customer-phonemail" class="label"><span><?= $block->escapeHtml('Your Phone Number') ?></span></label>
+                <div class="control">
+                    <input type="tel" name="phone" id="askquestion-customer-phone"
+                        class="input-text" data-validate="{required:true}" pattern="[0-9\-]*" aria-required="true">
+                </div>
+            </div>
+        </div>
+        <div class="field askquestion-field-message required">
+            <label for="askquestion-message" class="label"><span><?= $block->escapeHtml('Your Message') ?></span></label>
+            <div class="control">
+                <textarea rows="10" id="askquestion-message" name="message" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="button bnt action"><span><?= $block->escapeHtml('Send') ?></span></button>
+    </form>
+</div>
+<script>
+    require(['jquery',
+        'Blueskytechco_QuickviewProduct/js/model/jquery.magnific-popup.min',
+		], function ($, magnificPopup) {
+		$( document ).ready(function() {
+            $('.open-askquestion-popup').magnificPopup({
+                type:'inline',
+                midClick: true,
+                removalDelay: 500,
+                mainClass: 'mfp-zoom-in'
+            });
+        });
+    });
+</script>

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="ajaxsuite" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>AjaxSuite</label>
+            <tab>catalog</tab>
+            <resource>Blueskytechco_AjaxSuite::config_ajaxsuite</resource>
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General Options</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable AjaxSuite</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="ajaxcart" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Ajax Cart</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="success_action" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Action after Add to cart Success</label>
+                    <source_model>Blueskytechco\AjaxSuite\Model\Config\Source\SuccessType</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="ajaxwishlist" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Ajax Wishlist</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+				<field id="description" translate="label" type="textarea" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description</label>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+				<field id="logo_pupup_login" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Login Popup Logo</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG.</comment>
+                    <backend_model>Blueskytechco\AjaxSuite\Model\Config\Logo</backend_model>
+                    <base_url type="media" scope_info="1">blueskytechco/pupuplogo</base_url>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+				<field id="bg_pupup_login" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image Popup</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG.</comment>
+                    <backend_model>Blueskytechco\AjaxSuite\Model\Config\Background</backend_model>
+                    <base_url type="media" scope_info="1">blueskytechco/pupupbg</base_url>
+					<depends>
+                        <field id="enabled">1</field>
+                    </depends> 
+                </field>
+            </group>
+            <group id="ajaxcompare" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Ajax Compare</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable AjaxSuite</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

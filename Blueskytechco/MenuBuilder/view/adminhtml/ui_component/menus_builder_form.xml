@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">menus_builder_form.menus_builder_form_data_source</item>
+            <item name="deps" xsi:type="string">menus_builder_form.menus_builder_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">menus_builder_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Blueskytechco\MenuBuilder\Block\Adminhtml\MenuBuilder\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Blueskytechco\MenuBuilder\Block\Adminhtml\MenuBuilder\Edit\DeleteButton</item>
+            <item name="save" xsi:type="string">Blueskytechco\MenuBuilder\Block\Adminhtml\MenuBuilder\Edit\SaveButton</item>
+            <item name="export" xsi:type="string">Blueskytechco\MenuBuilder\Block\Adminhtml\MenuBuilder\Edit\ExportButton</item>
+            <item name="flat" xsi:type="string">Blueskytechco\MenuBuilder\Block\Adminhtml\MenuBuilder\Edit\FlatDataButton</item>
+        </item>
+    </argument>
+    <dataSource name="menus_builder_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Blueskytechco\MenuBuilder\Model\MenuBuilderData\DataProvider</argument>
+            <argument name="name" xsi:type="string">menus_builder_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="menus/builder/save"/>
+                </item> 
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="opstion">
+		<argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Builder Menu</item>
+            </item>
+        </argument>
+        <field name="entity_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">opstion</item>
+                </item>
+            </argument>
+        </field>
+		<container name="nav_menu_header">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="sortOrder" xsi:type="number">10</item>
+				</item>
+			</argument>
+			<htmlContent name="html_nav_menu_header">
+				<argument name="block" xsi:type="object">Blueskytechco\MenuBuilder\Block\Adminhtml\Module\MenuHeader</argument>
+			</htmlContent>
+		</container>
+		<container name="nav_menu_content">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="sortOrder" xsi:type="number">20</item>
+				</item>
+			</argument>
+			<htmlContent name="html_nav_menu_content">
+				<argument name="block" xsi:type="object">Blueskytechco\MenuBuilder\Block\Adminhtml\Module\MenuContent</argument>
+			</htmlContent>
+		</container>
+    </fieldset>
+</form>

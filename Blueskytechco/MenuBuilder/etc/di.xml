@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="menus_builder_grid_data_source" xsi:type="string">menuBuilderGrid</item>
+            </argument>
+        </arguments>
+    </type>
+	<virtualType name="menuBuilderGrid" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">menu_builder</argument>
+            <argument name="resourceModel" xsi:type="string">Blueskytechco\MenuBuilder\Model\ResourceModel\MenuBuilder</argument>
+        </arguments>
+    </virtualType> 
+    <type name="Blueskytechco\MenuBuilder\Block\Widget\Menus">
+        <plugin name="widget_menu_builder_page" type="Blueskytechco\MenuBuilder\Plugin\AddViewModelMenusWidget" />
+    </type>
+</config>

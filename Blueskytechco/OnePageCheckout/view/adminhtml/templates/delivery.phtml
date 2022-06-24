@@ -1,0 +1,28 @@
+<div class="customer_shipping_delivery" style="display:none;">
+    <?php
+    $date = $block->getCustomerShippingDate();
+    if ($date && $date != '0000-00-00 00:00:00') :
+        ?>
+        <div id="shipping-delivery-date">
+            <br />
+            <strong><?= $block->escapeHtml(__('Customer Delivery Date:')) ?></strong>
+            <span><?= $block->formatDate($date, \IntlDateFormatter::MEDIUM); ?></span>
+        </div>
+    <?php endif; ?>
+    <?php if ($comment = $block->getCustomerShippingComments()) : ?>
+        <div id="shipping-delivery-comment">
+            <br />
+            <strong><?= $block->escapeHtml(__('Customer Delivery Comment:')) ?></strong>
+            <span><?php echo $comment; ?></span>
+        </div>
+    <?php endif; ?>
+</div>
+<?php if ($block->getActiveJs()) : ?>
+    <script type="text/x-magento-init">
+        {
+            "body": {
+                "Blueskytechco_OnePageCheckout/js/shippingdelivery": {}
+            }
+        }
+    </script>
+<?php endif; ?>

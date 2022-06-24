@@ -1,0 +1,83 @@
+.icon-pagebuilder-staticmenu {
+    content: url('@{baseDir}Blueskytechco_PageBuilderCustom/css/images/content-type/staticmenu/appearance/icon-pagebuilder-staticmenu.svg');
+    width: 18px;
+    height: 18px;
+    margin-bottom: -1px;
+}
+[data-content-type='staticmenu'] .pagebuilder-staticmenu-placeholder, .pagebuilder-staticmenu .pagebuilder-staticmenu-placeholder {
+    align-items: center;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    min-height: 300px;
+}
+
+[data-content-type='staticmenu'] .pagebuilder-staticmenu-placeholder .placeholder-text, .pagebuilder-staticmenu .pagebuilder-staticmenu-placeholder .placeholder-text {
+    color: #aaa6a0;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.staticmenu-container {
+    .pagebuilder-content-type-wrapper {
+        .pagebuilder-staticmenu-item{
+            position: relative;
+            display: inline-block;
+        }
+    }
+}
+
+.pagebuilder-content-type .pagebuilder-staticmenu-item .staticmenu-item-drag-handle {
+  height: 100%;
+  left: 1px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  visibility: hidden;
+  width: 14px;
+}
+.pagebuilder-content-type .pagebuilder-staticmenu-item .staticmenu-item-drag-handle.disabled:before {
+  color: #dddddd;
+  cursor: not-allowed;
+}
+.pagebuilder-content-type .pagebuilder-staticmenu-item .staticmenu-item-drag-handle.disabled:active:before {
+  cursor: not-allowed;
+}
+.pagebuilder-content-type .pagebuilder-staticmenu-item .staticmenu-item-drag-handle:before {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Admin Icons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  color: #7f7c7a;
+  content: '\e617';
+  cursor: move;
+  /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  display: block;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pagebuilder-content-type .pagebuilder-staticmenu-item .staticmenu-item-drag-handle:active:before {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.pagebuilder-content-type .pagebuilder-staticmenu-item .pagebuilder-staticmenu-primary .staticmenu-item-drag-handle:before {
+  color: #ffffff;
+  opacity: .7;
+}
+.pagebuilder-content-type .pagebuilder-staticmenu-item.focused .staticmenu-item-drag-handle {
+  opacity: 1;
+  visibility: visible;
+}
+.pagebuilder-content-type .pagebuilder-staticmenu-item.focused .pagebuilder-options {
+  opacity: 1;
+  visibility: visible;
+}

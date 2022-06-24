@@ -1,0 +1,113 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+// Variables
+// Image
+@bls_image-box-max-width: 35%;
+@bls_image-box-border-radius: false;
+
+@bls_image-box-top-margin: 0 0 20px;
+@bls_image-box-left-margin: 0 20px 0 0;
+@bls_image-box-right-margin: 0 0 0 20px;
+
+// Title
+
+@bls_image-box-title-font-size: 1.8rem;
+@bls_image-box-title-font-weight: false;
+@bls_image-box-title-text-transform: false;
+@bls_image-box-title-color: false;
+@bls_image-box-title-margin: 0 0 3px;
+
+.bls_image-box-title(
+    @_bls_image-box-title-font-size: @bls_image-box-title-font-size;
+    @_bls_image-box-title-font-weight: @bls_image-box-title-font-weight;
+    @_bls_image-box-title-text-transform: @bls_image-box-title-text-transform;
+    @_bls_image-box-title-color: @bls_image-box-title-color;
+    @_bls_image-box-title-margin: @bls_image-box-title-margin;
+){
+    .lib-css(font-size, @_bls_image-box-title-font-size);
+    .lib-css(font-weight, @_bls_image-box-title-font-weight);
+    .lib-css(text-transform, @_bls_image-box-title-text-transform);
+    .lib-css(color, @_bls_image-box-title-color);
+    .lib-css(margin, @_bls_image-box-title-margin)
+}
+
+// Bls Image box description
+
+@bls_image-box-des-font-size: false;
+@bls_image-box-des-font-weight: false;
+@bls_image-box-des-text-transform: false;
+@bls_image-box-des-color: false;
+@bls_image-box-des-margin: 0;
+
+.bls_image-box-des(
+    @_bls_image-box-des-font-size: @bls_image-box-des-font-size;
+    @_bls_image-box-des-font-weight: @bls_image-box-des-font-weight;
+    @_bls_image-box-des-text-transform: @bls_image-box-des-text-transform;
+    @_bls_image-box-des-color: @bls_image-box-des-color;
+    @_bls_image-box-des-margin: @bls_image-box-des-margin;
+){
+    .lib-css(font-size, @_bls_image-box-des-font-size);
+    .lib-css(font-weight, @_bls_image-box-des-font-weight);
+    .lib-css(text-transform, @_bls_image-box-des-text-transform);
+    .lib-css(color, @_bls_image-box-des-color);
+    .lib-css(margin, @_bls_image-box-des-margin)
+}
+// Bls Image box gobal style
+& when (@media-common =true) {
+    .elementor-image-box-wrapper{
+        .flex(
+            @_flex-wrap: nowrap;
+        );
+        .elementor-image-box-content{
+            flex: 1;
+        }
+    }
+    .elementor-image-box-img{
+        .lib-css(border-radius, @bls_image-box-border-radius);      
+    }
+    .elementor-image-box-title{
+        .bls_image-box-title();
+    }
+    .elementor-image-box-description{
+        .bls_image-box-des();
+    }
+
+    // Bls Image box top postion
+    [data-image-box-position="top"]{
+        .elementor-image-box-wrapper{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .elementor-image-box-img{
+            .lib-css(margin, @bls_image-box-top-margin);
+        }
+    }
+    // Bls Image box left postion
+    [data-image-box-position="left"]{
+        .elementor-image-box-img{
+            .lib-css(margin, @bls_image-box-left-margin);
+            .lib-css(max-width, @bls_image-box-max-width);
+        }
+    }
+    // Bls Image box right postion
+    [data-image-box-position="right"]{
+        .elementor-image-box-img{
+            order: 2;
+            .lib-css(margin, @bls_image-box-right-margin);
+            .lib-css(max-width, @bls_image-box-max-width);
+        }
+    }
+    // Extend styles
+    .body-font{
+        .elementor-image-box-title{
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 2px;
+            font-weight: 500;
+            .lib-css(font-family, @font-family-name__base);
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+$_product = $block->getProduct();
+?>
+<div class="product-name">
+    <div class="product-name">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        <?php
+        $success = __(
+            '<strong>%1</strong> <p class="greycolor">added to your wishlist.</p>',
+            $_product->getName()
+        );
+        echo $success ?></div>
+</div>
+<div class="ajaxsuite-buttons">
+    <button type="button" id="ajaxwishlist" class="action primary" onclick="window.location = '<?= $block->getUrl('wishlist')?>'"><span><?= __('View Wish List') ?></span></button>
+</div>
+

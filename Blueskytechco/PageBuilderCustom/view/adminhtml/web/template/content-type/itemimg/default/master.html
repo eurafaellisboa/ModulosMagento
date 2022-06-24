@@ -1,0 +1,18 @@
+<div attr="data.main.attributes" ko-style="Object.assign({}, data.main.style(), !data.desktop_image.attributes()['data-bgset'] ? {} : {borderStyle: 'none'})" css="getColClassItem()">
+    <figure>
+        <div class="pr oh middle center">
+            <if args="data.desktop_image.attributes()['data-bgset']">
+                <a attr="data.desktop_image.attributes()" class="item-img-click-event data-bgset-image-wrapper lazyload" data-sizes="auto" ko-style="'--aspect-ratio' : getAspectRatioMaster()"></a>
+            </if>
+            <ifnot args="data.desktop_image.attributes()['data-bgset']">
+                <a href="#" class="item-img-click-event data-bgset-image-wrapper lazyload" data-width="570" data-height="630" data-element="desktop_image" data-bgset="//placehold.jp/1aada3/fff/570x630.png?text=Image" data-sizes="auto" ko-style="'--aspect-ratio' : '0.904'"></a>
+            </ifnot>
+        </div>
+        <figcaption if="data.caption.html()"
+                    attr="data.caption.attributes"
+                    css="data.caption.css"
+                    html="data.caption.html"
+                    ko-style="data.caption.style">
+        </figcaption>
+    </figure>
+</div>

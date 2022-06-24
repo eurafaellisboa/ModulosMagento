@@ -1,0 +1,123 @@
+<?php 
+use Magento\Framework\App\Action\Action;
+if($this->getConfig('enable') && $this->getConfig('defaut_select') > 0){?>
+	<?php 
+		$_helper = $this->helper('Magento\Catalog\Helper\Output');
+		$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+	?>
+	<div class="rokan-setproduct">  
+		<?php			
+			$image = 'category_page_grid';
+			$pos = $block->getPositioned();
+			$imageUrl = $block->getBannerImage();
+			$data_rule = $block->getDataProductSet();
+			$show_image = $data_rule->getShowImage();
+			$show_price = $data_rule->getShowPrice();
+			$show_name = $data_rule->getShowName();
+			$data_product_rule = $data_rule->getProductData();
+			if($data_product_rule){
+				$product_data = json_decode($data_product_rule,true);
+			}
+			else{
+				$product_data = [];
+			}
+		?>
+		<div class="container">
+			<div class="rokan-product-heading rokan-onsale-heading rokan-title">
+				<h3 class="module-title"><span><?= $data_rule->getName() ?></span></h3>
+			</div>
+		</div> 
+		<div class="setproduct">
+			<img src="<?php echo $imageUrl ?>" alt="">
+			<?php  foreach ($product_data as $val) { ?>	
+				<?php  
+				$check_product = $block->checkSku($val['sku']);
+				if($check_product){ 
+					$_product = $block->loadProduct($val['sku']);
+					$addClass = ''; 
+					if(isset($val['display']) && $val['display'] && $val['display'] == 1){
+						$addClass = ' active'; 
+					}
+				?>				
+				<div class="product-item<?= $addClass ?>" style="<?= $val['css'] ?>">
+					<div class="product-icon"> 
+						<a class="view-detail" href="<?php echo $_product->getProductUrl() ?>"><span class="text"><?= $val['text'] ?></span><span class="loading"></span></a>
+					</div>
+					<?php if($show_image == 1 || $show_name == 1 || $show_price == 1){ ?>
+						<div class="product">
+							<?php if($show_image == 1){ ?>
+							<div class="product-item-image">
+								<?php
+								$productImage = $block->getImage($_product, $image);
+								if ($pos != null) {
+									$position = ' style="left:' . $productImage->getWidth() . 'px;'
+										. 'top:' . $productImage->getHeight() . 'px;"';
+								}
+								?>
+								<?php // Product Image ?>
+								<a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="photo product-item-photo" tabindex="-1">
+									<?php echo $productImage->toHtml(); ?>
+								</a>
+							</div>
+							<?php } ?>
+							<?php if($show_name == 1 || $show_price == 1){ ?>
+							<div class="product-item-info product-info">
+								<div class="product-top">
+									<?php if($show_name == 1){ ?>
+									<?php
+										$_productNameStripped = $block->stripTags($_product->getName(), null, true);
+									?>
+									<strong class="product name product-item-name product-name">
+										<a class="product-item-link"
+										   href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
+											<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+										</a>
+									</strong>
+									<div class="product-ratting">
+										<?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
+									</div>
+									<?php } ?>
+									
+									<?php if($show_price == 1){ ?>
+									<div class="product-price">
+										<?php /* @escapeNotVerified */ echo $this->helper('Blueskytechco\Themeoption\Helper\Data')->getPriceDisplayCustom($block->getProductPrice($_product)) ?>
+									</div>
+									<?php } ?>
+								</div>
+								<div class="view-details">
+									<a class="view-detail-link"
+									   href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
+										<?php /* @escapeNotVerified */ echo __('View Detail'); ?>
+									</a>
+								</div>
+							</div> 
+							<?php } ?>
+						</div>
+						
+					<?php } ?>
+				</div>
+				<?php } ?>	
+			<?php } ?>	
+			<script>
+				require([
+					'jquery',
+					'mage/mage'
+				], function ($) {
+					'use strict';
+					$(document).on('click', '.view-detail', function(e) {
+						var width_window = $(window).width();
+						if(width_window > 991){
+							if($(this).closest('.product-item').hasClass("active")){
+								$(this).closest('.product-item').removeClass("active");
+							}else{
+								$('.product-item').removeClass("active");
+								$(this).closest('.product-item').addClass("active"); 
+							}
+							return false; 
+						}
+					});
+				});
+			</script>
+		</div>
+	</div>
+<?php } ?>

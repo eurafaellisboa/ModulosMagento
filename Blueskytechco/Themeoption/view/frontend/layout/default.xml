@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+		<link src="Blueskytechco_Themeoption::css/animation_theme.css"/>
+	</head>
+	<body>
+		<referenceContainer name="head.additional">
+            <block class="Blueskytechco\Themeoption\Block\Customcss" name="add_custom_theme_head" template="Blueskytechco_Themeoption::html/head.phtml" before="-"/>
+        </referenceContainer>
+        <referenceContainer name="after.body.start">
+        	<block class="Blueskytechco\Themeoption\Block\Html\Notices" name="activation_purchase_code_notices" before="-" template="Blueskytechco_Themeoption::html/notices.phtml"/>
+        </referenceContainer>
+		<referenceContainer name="before.body.end">
+			<block class="Blueskytechco\Themeoption\Block\Newsletterpopup" name="newsletter_popup" template="Blueskytechco_Themeoption::html/newsletterpopup.phtml" before="-"/>
+			<block class="Magento\Framework\View\Element\Template" template="Blueskytechco_Themeoption::html/fake_order.phtml" name="before_body_end_fake_order" after="-"/>
+		</referenceContainer>
+    </body>
+</page>

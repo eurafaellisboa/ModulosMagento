@@ -1,0 +1,31 @@
+<div id="locator_filter-store" class="block" style="display: flex;">
+    <div class="column_left" style="width: 33%">
+		<div class="center"> 
+			<div class="store_list"><?= $block->getChildHtml('store_list_view') ?></div>
+		</div>
+    </div>
+	<div class="column_right" style="width: 67%;height: 80vh; max-height: 800px;padding-left: 15px;">
+		 <div id="bst-map-view" style="height: 100%"></div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $block->getApiKey() ?>&libraries=places"></script>
+<script>
+    var baloonTemplate = <?php echo $block->getBaloonTemplate() ?>;
+</script>
+<script>
+    require([
+        'jquery',
+        'Blueskytechco_StoreLocator/js/viewmap',
+        'Blueskytechco_StoreLocator/js/cluster',
+        'domReady!'
+    ], function ($) {
+        $('#bst-map-view').bstLocatorView({
+            jsonLocations: <?php echo $this->getJsonLocations() ?>,
+			imageShop: "<?php echo $block->getViewFileUrl('Blueskytechco_StoreLocator::images/shop.jpg'); ?>",
+            imageLocations: "<?php echo $block->getViewFileUrl('Blueskytechco_StoreLocator::images/'); ?>"
+        })
+    });
+</script>
+
+
+

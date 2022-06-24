@@ -1,0 +1,96 @@
+<div class="section widget-blog-posts-slider-carousel3 margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('margin_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $_postCollection = $block->getPostCollection(); ?>
+	<?php if ($_postCollection->count()) { ?>
+	<div class="elementor__content widget-blog-post-slider first-loading-slick">
+	<?php $data_sizes = $block->getSizeThumbnail(); ?>
+	<?php $items = 0; foreach ($_postCollection as $_post) { $items ++; ?>
+		<?php
+            $_postUrl = $block->escapeUrl($_post->getPostUrl());
+            $_postName = $block->escapeHtml($_post->getTitle());
+        ?>
+		<div class="elementor-blog-post-item">
+			<?php
+			$featuredImage = $_post->getFeaturedListImage() ?: $_post->getFeaturedImage();
+			$width = 680;
+			$height = 510;
+            if(isset($data_sizes['common']['img'])){
+            	$width = $data_sizes['common']['img']['width'];
+            	$height = $data_sizes['common']['img']['height'];
+            }
+            if(isset($data_sizes['custom']['img1'])){
+        		$width = $data_sizes['custom']['img1']['width'];
+        		$height = $data_sizes['custom']['img1']['height'];
+        	}
+            if (!$featuredImage) {
+            	$featuredImage = '//placehold.jp/1aada3/fff/'.$width.'x'.$height.'.png?text=Kalles';
+            }
+            $aspect_ratio = $width / $height;
+            ?>
+			<div class="post-image elementor__item--hover">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= $block->escapeHtml($featuredImage) ?>" data-sizes="auto" style="--aspect-ratio: <?= $aspect_ratio;?>;">
+					<a class="item-link" href="<?= /*@noEscape*/ $_postUrl ?>"></a>
+				</div>
+			</div>
+			<div class="post-info">
+				<h3 class="post-title"><a href="<?= /*@noEscape*/ $_postUrl ?>"> <?= /*@noEscape*/ $_postName ?> </a></h3>
+				<div class="post-description">
+					<?= /*@noEscape*/ $block->getShorContent($_post) ?>
+				</div>
+			</div>
+		</div>
+	<?php } ?>
+	</div>
+	<?php }else{ ?>
+		<div class="elementor__content widget-blog-post-slider first-loading-slick">
+			<div class="elementor-blog-post-item">
+				<div class="post-image elementor__item--hover">
+					<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png" data-sizes="auto" style="--aspect-ratio: 1.3333333333333;">
+						<a class="item-link" href="#"></a>
+					</div>
+				</div>
+				<div class="post-info">
+					<h3 class="post-title"><a href="#"> Spring &ndash; Summer Trending 2020 </a></h3>
+					<div class="post-description">
+						<p>Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, ...</p>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-blog-post-item">
+				<div class="post-image elementor__item--hover">
+					<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png" data-sizes="auto" style="--aspect-ratio: 1.3333333333333;">
+						<a class="item-link" href="#"></a>
+					</div>
+				</div>
+				<div class="post-info">
+					<h3 class="post-title"><a href="#">The Easiest Way to Break Out on Top </a></h3>
+					<div class="post-description">
+						<p>Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, ...</p>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-blog-post-item">
+				<div class="post-image elementor__item--hover">
+					<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" data-sizes="auto" style="--aspect-ratio: 1.3333333333333;">
+						<a class="item-link" href="#"></a>
+					</div>
+				</div>
+				<div class="post-info">
+					<h3 class="post-title"><a href="#">Style for couple in Weeding season</a></h3>
+					<div class="post-description">
+						<p>Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, ...</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php } ?>
+</div>

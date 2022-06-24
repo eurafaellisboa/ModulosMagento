@@ -1,0 +1,490 @@
+<?php
+use Magento\Framework\App\Action\Action;
+$number_products = $block->getDataWidgetConfig('number_products') ? $block->getDataWidgetConfig('number_products') : 8;
+?>
+<div class="section widget-product-advanced widget-product-advanced-grid-default margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('space_between_item') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php if($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())){ ?>
+	<?php
+    $type = 'widget-product-advanced-grid';
+
+    $mode = 'grid';
+
+    $image = 'new_products_content_widget_grid';
+    $items = $block->getProductCollection()->getItems();
+
+    $showWishlist = true;
+    $showCompare = true;
+    $showCart = true;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    $description = false;
+    ?>
+	<ol class="elementor__content row product-items <?= /* @noEscape */ $type ?> products-grid">
+        <?php $iterator = 1; ?>
+        <?php foreach ($items as $_item): ?>
+            <?= /* @noEscape */ '<li class="product-item'.$block->getCol().'">' ?>
+                <div class="product-item-info">
+    				<div class="product_item_images">
+    					<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+    						<?= $block->getImage($_item, $image)->toHtml() ?>
+    					</a>
+    					<?php if ($showWishlist || $showCompare || $showCart): ?>
+                            <div class="product-item-inner">
+                                <div class="product-item-actions">
+    							<div class="product-item-actions_middle">
+                                    <?php if ($showCart): ?>
+                                        <div class="actions-primary">
+                                            <?php if ($_item->isSaleable()): ?>
+                                                <?php $postParams = $block->getAddToCartPostParams($_item); ?>
+											<!--
+                                                <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
+                                                    <input type="hidden" name="product" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
+                                                    <input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+                                                    <?= $block->getBlockHtml('formkey') ?>
+                                                    <button type="submit"
+                                                            title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+                                                            class="action tocart primary">
+                                                        <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                                    </button>
+                                                </form>
+												-->
+                                            <?php else: ?>
+                                                <?php if ($_item->isAvailable()): ?>
+                                                    <div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+                                                <?php else: ?>
+                                                    <div class="stock unavailable"><span><?= $block->escapeHtml(__('Esgotado')) ?></span></div>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+    							</div>
+                                    <?php if ($showWishlist || $showCompare): ?>
+                                        <div class="actions-secondary" data-role="add-to-links">
+                                            <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow() && $showWishlist): ?>
+                                                <a href="#"
+                                                   data-post='<?= /* @noEscape */ $block->getAddToWishlistParams($_item) ?>' class="action towishlist" data-action="add-to-wishlist" title="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>">
+                                                    <span><?= $block->escapeHtml(__('Add to Wish List')) ?></span>
+                                                </a>
+                                            <?php endif; ?>
+                                            <?php if ($block->getAddToCompareUrl() && $showCompare): ?>
+                                                <?php $compareHelper = $this->helper(\Magento\Catalog\Helper\Product\Compare::class);?>
+                                                <a href="#" class="action tocompare" data-post='<?= /* @noEscape */ $compareHelper->getPostDataParams($_item) ?>' title="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>">
+                                                    <span><?= $block->escapeHtml(__('Add to Compare')) ?></span>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+    				</div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="<?= $block->escapeHtml($_item->getName()) ?>"
+                               href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+                               class="product-item-link">
+                                <?= $block->escapeHtml($_item->getName()) ?>
+                            </a>
+                        </strong>
+    					<?php if ($templateType): ?>
+    						<?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
+    					<?php endif; ?>
+                        <?= $block->getProductPriceHtml($_item, $type) ?>
+
+                        <?= $block->getProductDetailsHtml($_item) ?>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach ?>
+    </ol>
+	<?php }else{ ?>
+        <ol class="elementor__content row product-items widget-product-advanced-grid products-grid">
+            <?php if($number_products >= 1){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container product-image-container-89" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" />
+                                </span>
+                                <span class="product-label">
+                                    <span class="onsale label-product">11%</span>
+                                </span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price" data-role="priceBox">
+                            <span class="special-price">
+                                <span class="price">$40.00</span>
+                            </span>
+                            <span class="old-price">
+                                <span data-price-amount="45" data-price-type="oldPrice" class="price-wrapper"><span class="price">$45.00</span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <?php if($number_products >= 2){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" />
+                                </span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price">
+                            <span class="price-wrapper"><span class="price">$15.00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <?php if($number_products >= 3){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png" />
+                                </span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price">
+                            <span class="price-wrapper"><span class="price">$15.00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <?php if($number_products >= 4){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png" />
+                                </span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price">
+                            <span class="price-wrapper"><span class="price">$15.00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <?php if($number_products >= 5){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container product-image-container-89" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" />
+                                </span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price" data-role="priceBox">
+                            <span class="special-price">
+                                <span class="price">$40.00</span>
+                            </span>
+                            <span class="old-price">
+                                <span data-price-amount="45" data-price-type="oldPrice" class="price-wrapper"><span class="price">$45.00</span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <?php if($number_products >= 6){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" />
+                                </span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price">
+                            <span class="price-wrapper"><span class="price">$15.00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <?php if($number_products >= 7){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png" />
+                                </span>
+                            </span>
+                            <span class="product-label">
+                                <span class="newlabel label-product">New</span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price">
+                            <span class="price-wrapper"><span class="price">$15.00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <?php if($number_products >= 8){ ?>
+            <li class="product-item <?= $block->getCol() ; ?>">
+                <div class="product-item-info image_hover_effects--zoom-overlay">
+                    <div class="product_item_images">
+                        <a href="#" class="product-item-photo">
+                            <span class="product-image-container" style="width: 500px;" data-hover="image_hover_effects--zoom-overlay">
+                                <span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+                                    <img class="product-image-photo lazyloaded" loading="lazy" width="700" height="892" alt="Sample product" src="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png" />
+                                </span>
+                            </span>
+                        </a>
+                        <div class="product-item-inner">
+                            <div class="product-item-actions">
+                                <div class="product-item-actions_middle">
+                                    <div class="actions-primary">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="quickview button_quickview">
+                                        <a class="action link-quickview" data-product-id="33" href="#"><span>Quick View</span></a>
+                                    </div>
+                                </div>
+                                <div class="actions-secondary" data-role="add-to-links">
+                                    <a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Sample product" href="#" class="product-item-link"> Sample product</a>
+                        </strong>
+                        <div class="price-box price-final_price">
+                            <span class="price-wrapper"><span class="price">$15.00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+        </ol>
+
+	<?php } ?>
+</div>

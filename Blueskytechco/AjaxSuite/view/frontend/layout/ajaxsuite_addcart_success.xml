@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Blueskytechco\AjaxSuite\Block\AjaxCart\Success" name="wrapper.success" template="Blueskytechco_AjaxSuite::addcart_success.phtml">
+            <block class="Magento\Catalog\Block\Product\Gallery" as="product_image" template="Blueskytechco_AjaxSuite::product/image.phtml"/>
+        </block>
+    </container>
+</layout>

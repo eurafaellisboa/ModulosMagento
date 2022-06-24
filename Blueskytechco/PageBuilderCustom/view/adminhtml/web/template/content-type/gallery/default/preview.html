@@ -1,0 +1,6 @@
+<div class="pagebuilder-content-type pagebuilder-gallery children-min-height" attr="data.main.attributes" event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false" ko-style="data.main.style" css="data.main.css">
+    <render args="getOptions().template"></render>
+    <div class="row page-builder-gallery-container" data-bind="sortableChildren: { handle: '.itemimg-drag-handle', containment: 'parent', placeholder: 'ui-state-highlight-gallery sortable-placeholder', tolerance: 'pointer', start: onSortStart.bind($parent.preview), stop: onSortStop.bind($parent.preview) }" each="contentType.getChildren()">
+      <div data-bind="attr: { 'class': $parent.getColItem(), 'data-class': $parent.getColItem() }" template="{ name: preview.template, data: preview, afterRender: function () { preview.dispatchAfterRenderEvent.apply(preview, arguments); } }"></div>
+    </div>
+</div>

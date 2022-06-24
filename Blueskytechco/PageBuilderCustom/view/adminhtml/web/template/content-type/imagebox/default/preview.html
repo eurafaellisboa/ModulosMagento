@@ -1,0 +1,19 @@
+<div class="pagebuilder-content-type pagebuilder-imagebox type-nested" event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <render args="getOptions().template"></render>
+    <div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+        <div class="elementor-image-box-wrapper">
+            <figure class="elementor-image-box-img">
+                <if args="getImageSrc()">
+                    <img if="getImageSrc()" data-bind="attr:{src: getImageSrc()}"/>
+                </if>
+                <ifnot args="getImageSrc()">
+                    <img src="//placehold.jp/1aada3/fff/570x630.png?text=Image" />
+                </ifnot>
+            </figure>
+            <div class="elementor-image-box-content">
+                <h3 class="elementor-image-box-title" if="data.title.html" html="data.title.html" attr="data.title.attributes"></h3>
+                <div class="elementor-image-box-description" if="data.short_description.html" html="data.short_description.html" attr="data.short_description.attributes"></div>
+            </div>
+        </div>
+    </div>
+</div>

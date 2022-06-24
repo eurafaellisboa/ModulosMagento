@@ -1,0 +1,155 @@
+.admin__menu #menu-blueskytechco-rokanbase-rokanbase > a:before {
+    content: url('../images/logo.png') !important;
+}
+#storelocator_stores_edit_tabs_time_info_content .entry-edit .admin__field .admin__field-control{
+	  margin: 0 0 15px;
+}
+#storelocator_stores_edit_tabs_time_info_content .entry-edit .admin__field .admin__field-control span{
+ 	padding-right:10px;
+}	
+#table-container-blueskytechco-importer .title-theme-name-fixed{
+	padding: 10px 10px 7px 10px;
+    background: #01aae9;
+    color: #fff;
+}
+.blueskytechco-container-import-theme-items{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;   
+    flex-wrap: wrap;
+}
+#table-container-blueskytechco-importer .des-theme-name-fixed{
+    padding: 11px 15px;
+    text-align: left;
+    margin: 0 0 20px 0;
+    background-color: #fff;
+    border-left: 4px solid #ffba00;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+}
+#table-container-blueskytechco-importer .item-theme-import-fixed-container{
+	float: left;
+	margin: 0 2% 3% 0;
+	position: relative;
+	width: 32%;
+	border: 1px solid #ddd;
+	box-shadow: 0 1px 1px -1px rgb(0 0 0 / 10%);
+	box-sizing: border-box;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;   
+    flex-direction: column;
+    justify-content: space-between;
+}
+#table-container-blueskytechco-importer .item-theme-import-fixed-container:nth-child(3n) {
+    margin-right: 0;
+}
+#table-container-blueskytechco-importer .info-theme-name-and-activate{
+	position: relative;
+    text-align: center;
+}
+#table-container-blueskytechco-importer .item-theme-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    padding: 10px 15px 10px;
+    box-shadow: inset 0 1px 0 rgb(0 0 0 / 10%);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: #fff;
+    background: rgba(255,255,255,.65);
+}
+#table-container-blueskytechco-importer .item-theme-actions{
+    padding: 0 10px 15px;
+}
+#table-container-blueskytechco-importer .item-button-live-preview{
+	color: #222;
+    border-color: #efefef;
+    background: #efefef;
+    padding: 10px 14px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+#table-container-blueskytechco-importer .item-button-activate{
+    background: #007cba;
+    border-color: #007cba;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: none;
+    padding: 10px 14px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+     border-radius: 5px;
+}
+.theme-has-selected-fix-style .item-theme-name{
+	color: #fff !important;
+    background: #007cba !important;
+}
+.admin__menu #menu-blueskytechco-rokanbase-rokanbase > a{
+    font-size: 0.9rem;
+}
+.body-blueskytechco-tab .section-config > .admin__collapsible-block > a, 
+.body-blueskytechco-tab .accordion > dt a, 
+.body-blueskytechco-tab .accordion .admin__collapsible-block > a{ 
+    color: #fff !important;
+    background: #26bea9;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+}
+.body-blueskytechco-tab .section-config > .admin__collapsible-block > a:hover, 
+.body-blueskytechco-tab .accordion > dt a:hover, 
+.body-blueskytechco-tab .accordion .admin__collapsible-block > a:hover{ 
+    color: #fff;
+}
+.body-blueskytechco-tab .section-config > .admin__collapsible-block > a:before, 
+.body-blueskytechco-tab .accordion > dt a:before, 
+.body-blueskytechco-tab .accordion .admin__collapsible-block > a:before{ 
+    right: 3.3rem;
+}
+.body-blueskytechco-tab .section-config{
+    border-bottom: 1px solid #fff;
+}
+.blueskytechco-tab .admin__page-nav-item._active, 
+.blueskytechco-tab .admin__page-nav-item.ui-state-active{
+    border-color: #e4e4e4;
+}
+.blueskytechco-tab .admin__page-nav-item._active .admin__page-nav-link, 
+.blueskytechco-tab .admin__page-nav-item.ui-state-active .admin__page-nav-link{
+    background: #e4e4e4;
+}
+.blueskytechco-tab .admin__page-nav-item{
+    margin-left: 0;
+}
+.blueskytechco-tab .admin__page-nav-item .admin__page-nav-link{
+    padding-left: 1.3rem;
+}
+.body-blueskytechco-tab .admin__page-nav-title,
+.body-blueskytechco-tab .admin__page-nav._collapsed._show ._collapsible,
+.body-blueskytechco-tab .admin__page-nav-title._collapsible,
+.body-blueskytechco-tab .admin__page-nav-title._collapsible:hover{
+    background: #00c5ff;
+    font-size: 0;
+    position: relative;
+    color: #fff;
+}
+.body-blueskytechco-tab .admin__page-nav-title:before{
+    background: url('../images/logo_blue.png');
+    display: inline-block;
+    content: "";
+    width: 80%;
+    height: 31px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left;
+    transform: translateZ(0);
+}
+.body-blueskytechco-tab .admin__page-nav-title._collapsible:after:after{
+    top: 2.7rem;
+}

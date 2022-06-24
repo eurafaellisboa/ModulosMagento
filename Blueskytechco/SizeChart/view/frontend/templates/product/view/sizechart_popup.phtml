@@ -1,0 +1,27 @@
+<?php
+	$product = $block->getProduct();
+	$helperData = $this->helper('Blueskytechco\SizeChart\Helper\Data');
+	$content = $helperData->getData($product);
+?>
+<div class="product-information-buttons">
+	<a href="#popup-size-guide" class="open-popup-size-guide"><?php /* @escapeNotVerified */ echo __('Guia de Tamanhos') ?></a>
+</div>
+<div id="popup-size-guide" class="mfp-with-anim white-popup ajax_pp_popup mfp-hide product-sizechart-content">
+	<?= $content ?>
+</div>
+<script>
+    require(['jquery',
+        'Blueskytechco_QuickviewProduct/js/model/jquery.magnific-popup.min',
+		], function ($, magnificPopup) {
+		$( document ).ready(function() {
+            $('.open-popup-size-guide').magnificPopup({
+                type:'inline',
+                midClick: true,
+                removalDelay: 500,
+                mainClass: 'mfp-zoom-in'
+            });
+        });
+    });
+</script>
+
+

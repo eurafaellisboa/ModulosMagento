@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\Theme\Block\Html\Title
+ */
+$titleHtml = '';
+if (trim($block->getPageHeading())) {
+    $titleHtml = '<span class="base">'
+        . $block->escapeHtml($block->getPageHeading())
+        . '</span>';
+}
+?>
+<?php if ($titleHtml) : ?>
+<div class="d-none">
+    <h1 class="page-title">
+        <?= /* @noEscape */ $titleHtml ?>
+    </h1>
+</div>
+<?php endif; ?>

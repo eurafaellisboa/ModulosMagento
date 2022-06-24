@@ -1,0 +1,116 @@
+<?php 
+	$helper = $this->helper('Blueskytechco\Instagram\Helper\Data');
+?>
+<div class="section widget-instagram-slider-default margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('margin_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $_collection = $block->getInstagramPostByStoreView(); ?>
+	<?php $data_sizes = $block->getSizeThumbnail(); ?>
+	<?php if ($_collection->count()) { ?>
+	<div class="elementor__content widget-instagram-slider first-loading-slick">
+		<?php $items = 0; foreach ($_collection as $_instagram) { $items ++; ?>
+			<?php
+			$width = 300;
+			$height = 300;
+            if(isset($data_sizes['common']['img'])){
+            	$width = $data_sizes['common']['img']['width'];
+            	$height = $data_sizes['common']['img']['height'];
+            }
+            $aspect_ratio = $width / $height;
+            ?>
+            <div class="elementor-instagram-item item-loading-slick elementor__item--hover <?= $block->getDataWidgetConfig('image_format') ?><?php if ($block->getDataWidgetConfig('show_captions') == 'true') { ?> has-caption<?php } ?><?php if ($block->getDataWidgetConfig('show_instagram_icon') == 'true') { ?> has-intagram-icon<?php } ?>">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= $helper->getMediaPath().$_instagram->getLocalMediaUrl(); ?>" data-sizes="auto" style="--aspect-ratio: <?= $aspect_ratio;?>;">
+					<a class="item-link" href="<?= $_instagram->getPermalink(); ?>" target="_blank">
+					</a>
+				</div>
+				<?php if ($block->getDataWidgetConfig('show_captions') == 'true' || $block->getDataWidgetConfig('show_instagram_icon') == 'true') { ?>
+					<figure class="instagram-content">
+						<?php if ($block->getDataWidgetConfig('show_instagram_icon') == 'true') { ?>
+							<div class="instagram-icon"></div>
+						<?php } ?>
+						<?php if ($block->getDataWidgetConfig('show_captions') == 'true' && $_instagram->getCaption()) { ?>
+							<figcaption><?= $_instagram->getCaption() ?></figcaption>
+						<?php } ?>
+					</figure>
+				<?php } ?>
+			</div>
+		<?php } ?>
+	</div>
+	<?php }else{ ?>
+		<div class="elementor__content widget-instagram-slider">
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+			<div class="elementor-instagram-item elementor__item--hover square has-caption has-intagram-icon">
+				<div class="data-bgset-image-wrapper lazyload" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png" data-sizes="auto" style="--aspect-ratio: 1;">
+					<a class="item-link" href="#" target="_blank"> </a>
+				</div>
+				<figure class="instagram-content">
+					<div class="instagram-icon"></div>
+				</figure>
+			</div>
+		</div>
+
+	<?php } ?>
+</div>

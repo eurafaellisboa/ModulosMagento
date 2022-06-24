@@ -1,0 +1,13 @@
+<div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+    <div class="container-pagebuilder-faq">
+        <if args="data.title.html || data.shortdescription.html">
+            <div class="elementor__header">
+                <h3 class="elementor__headline" if="data.title.html" html="data.title.html" attr="data.title.attributes"></h3>
+                <div class="elementor__description" if="data.shortdescription.html" html="data.shortdescription.html" attr="data.shortdescription.attributes"></div>
+            </div>
+        </if>
+        <ul class="ul-list-faqs">
+            <render args="masterTemplate"></render>
+        </ul>
+    </div>
+</div>

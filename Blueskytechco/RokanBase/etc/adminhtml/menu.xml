@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_RokanBase::rokanbase" title="Blueskytechco" module="Blueskytechco_RokanBase" sortOrder="60" resource="Blueskytechco_RokanBase::rokanbase"/>
+        <add id="Blueskytechco_RokanBase::rokanbase_setting" parent="Blueskytechco_RokanBase::rokanbase" title="Configuration" module="Blueskytechco_RokanBase" sortOrder="10" resource="Blueskytechco_RokanBase::rokanbase_setting"/>
+        <add id="Blueskytechco_RokanBase::rokanbase_manage" parent="Blueskytechco_RokanBase::rokanbase" title="Manage" module="Blueskytechco_RokanBase" sortOrder="20" resource="Blueskytechco_RokanBase::rokanbase_manage"/>
+	</menu>
+</config>

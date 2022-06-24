@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <instagramsection>
+          <instagramgroup>
+            <active><![CDATA[1]]></active>
+            <userid><![CDATA[17841451753392806]]></userid>
+            <accesstoken><![CDATA[IGQVJWRHJSaTFGQ3I0OWw1QXdFMEdySlM1dnpxanhjNHZAoYmE2SVdWZAlhxVW9JaEszcTR5RUwwVzNPRFRiSjRFMmlxZAjFsRkJVMXY3a29IbGE1TlNQYnphOEdhMFZA6WEFZAWkZALUlFn]]></accesstoken>
+            <selectimageresolution><![CDATA[0]]></selectimageresolution>
+            <username><![CDATA[@bluesky6688888]]></username>
+            <limit><![CDATA[8]]></limit>
+          </instagramgroup>
+        </instagramsection>
+    </default>
+</config>

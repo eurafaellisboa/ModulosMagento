@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <menus>
+            <horizontal>
+                <active><![CDATA[1]]></active>
+                <horizontal_menu><![CDATA[1648006269]]></horizontal_menu>
+                <animation><![CDATA[down_to_up]]></animation>
+              </horizontal>
+              <vertical>
+                <active><![CDATA[1]]></active>
+                <heading><![CDATA[shop by category]]></heading>
+                <limit_show><![CDATA[10]]></limit_show>
+                <show_screen><![CDATA[0]]></show_screen>
+                <animation><![CDATA[down_to_up]]></animation>
+                <vertical_menu><![CDATA[1648006270]]></vertical_menu>
+              </vertical>
+              <builder_label>
+                <new_bg_label><![CDATA[#01BAD4]]></new_bg_label>
+                <new_text_label><![CDATA[#FFFFFF]]></new_text_label>
+                <sale_bg_label><![CDATA[#FFA800]]></sale_bg_label>
+                <sale_text_label><![CDATA[#FFFFFF]]></sale_text_label>
+                <hot_bg_label><![CDATA[#FF3E11]]></hot_bg_label>
+                <hot_text_label><![CDATA[#FFFFFF]]></hot_text_label>
+              </builder_label>
+              <flat>
+                <flat_data><![CDATA[1]]></flat_data>
+              </flat>
+        </menus>
+    </default>
+</config>

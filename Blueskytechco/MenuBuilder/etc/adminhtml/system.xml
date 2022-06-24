@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="menus" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Menus Builder</label>
+            <tab>blueskytechco</tab>
+			<resource>Blueskytechco_MenuBuilder::configuration</resource>
+			<group id="horizontal" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+				<label>Config Horizontal Menu</label> 
+				<field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="horizontal_menu" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Horizontal Menu</label>
+                    <source_model>Blueskytechco\MenuBuilder\Model\Config\Source\HorizontalMenu</source_model>
+                </field>
+				<field id="animation" type="select" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dropdowns Animation</label>
+                    <source_model>Blueskytechco\MenuBuilder\Model\Config\Source\Animation</source_model>
+                </field>
+            </group>
+			<group id="vertical" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+				<label>Config Vertical Menu</label> 
+				<field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="heading" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1"> 
+                    <label>Title:</label>
+                    <comment>Title</comment>
+                </field>
+				<field id="vertical_menu" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Vertical Menu</label>
+                    <source_model>Blueskytechco\MenuBuilder\Model\Config\Source\VerticalMenu</source_model>
+                </field>
+				<field id="limit_show" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Limit show Item</label>
+                    <comment>Default : 10 Item</comment>
+                </field>
+				<field id="show_screen" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Limit show Item by screen</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="small_desktop" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Small Desktop</label>
+                    <comment>Smaller than default 1 or 2 items.</comment>
+                    <depends>
+                        <field id="show_screen">1</field>
+                    </depends>
+                </field>
+				<field id="animation" type="select" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dropdowns Animation</label>
+                    <source_model>Blueskytechco\MenuBuilder\Model\Config\Source\Animation</source_model>
+                </field>
+            </group>
+            <group id="builder_label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+				<label>Config label Menu</label> 
+				<field id="new_bg_label" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Label BG Color</label>
+                    <frontend_model>Blueskytechco\MenuBuilder\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="new_text_label" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Label Text Color</label>
+                    <frontend_model>Blueskytechco\MenuBuilder\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="sale_bg_label" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sale Label BG Color</label>
+                    <frontend_model>Blueskytechco\MenuBuilder\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="sale_text_label" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sale Label Text Color</label>
+                    <frontend_model>Blueskytechco\MenuBuilder\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="hot_bg_label" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hot Label BG Color</label>
+                    <frontend_model>Blueskytechco\MenuBuilder\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="hot_text_label" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hot Label Text Color</label>
+                    <frontend_model>Blueskytechco\MenuBuilder\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+            </group>
+            <group id="flat" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+				<label>Config Flat Menu</label> 
+				<field id="flat_data" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled Flat Data</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="flat_data_menu" translate="label comment" type="button" sortOrder="20"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Run Flat</label>
+                    <frontend_model>Blueskytechco\MenuBuilder\Block\Adminhtml\Button\Flat\Block</frontend_model>
+                    <depends>
+                        <field id="flat_data">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

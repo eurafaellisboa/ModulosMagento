@@ -1,0 +1,15 @@
+<?php
+if(!$block->isHomePage()){
+	$banner = $block->getBannerImages();
+	$page_info = $block->getPage();
+?>
+	<div class="top-header-banner-image-cms-page<?= /* @noEscape */ ($banner != '') ? 'data-bgset-image-wrapper cms-page-has-uploaded-image-banner' : ''; ?>"<?= /* @noEscape */ $banner ?>>
+		<?php if($page_info->getBreadcrumbsPosition() == 'after'){ ?>
+			<?= ($page_info->getHideContentHeading() != 1) ? $this->getChildHtml("page.main.title") : ''; ?>
+			<?= ($page_info->getHideBreadcrumbs() != 1) ? $this->getChildHtml("breadcrumbs") : ''; ?>
+		<?php }else{ ?>
+			<?= ($page_info->getHideBreadcrumbs() != 1) ? $this->getChildHtml("breadcrumbs") : ''; ?>
+			<?= ($page_info->getHideContentHeading() != 1) ? $this->getChildHtml("page.main.title") : ''; ?>
+		<?php } ?>
+	</div>
+<?php } ?>

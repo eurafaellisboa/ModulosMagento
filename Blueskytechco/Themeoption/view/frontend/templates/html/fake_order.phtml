@@ -1,0 +1,6 @@
+<?php if($this->helper('Blueskytechco\Themeoption\Helper\Themeconfig')->isEnableFakeOrder()){ ?>
+<div data-url="<?php echo $this->getUrl('themeoption/fakeorder/getitem');?>" id="purchase-fake-order" data-seconds-hide="<?php echo ($this->helper('Blueskytechco\Themeoption\Helper\Themeconfig')->getInfoFakeOrder('seconds_hide') != '') ? $this->helper('Blueskytechco\Themeoption\Helper\Themeconfig')->getInfoFakeOrder('seconds_hide') : 3; ?>" data-seconds-displayed="<?php echo ($this->helper('Blueskytechco\Themeoption\Helper\Themeconfig')->getInfoFakeOrder('seconds_displayed') != '') ? $this->helper('Blueskytechco\Themeoption\Helper\Themeconfig')->getInfoFakeOrder('seconds_displayed') : 5; ?>" class="purchase-order animated hidden-xs"  style="display: none;">
+	<a class="purchase-close" href="javascript:void(0);"></a>
+	<div class="product-purchase"></div>
+</div>
+<?php } ?>

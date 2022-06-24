@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="storelocator" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Store Locator</label>
+            <tab>blueskytechco</tab>
+			<resource>Blueskytechco_StoreLocator::configuration</resource>
+            <group id="google_api_key" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>General</label>
+                <field id="frontend" translate="label" sortOrder="10" type="text" showInDefault="1">
+                    <label>Google Api Key</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Blueskytechco\SizeChart\Api\RepositoryInterface" type="Blueskytechco\SizeChart\Model\SizeChartRepository" />
+    <preference for="Blueskytechco\SizeChart\Api\Data\DataInterface" type="Blueskytechco\SizeChart\Model\SizeChart" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="sizechart_guide_grid_data_source" xsi:type="string">sizeChartGrid</item>
+            </argument>
+        </arguments>
+    </type>
+	
+	<virtualType name="sizeChartGrid" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">size_chart</argument>
+            <argument name="resourceModel" xsi:type="string">Blueskytechco\SizeChart\Model\ResourceModel\SizeChart</argument>
+        </arguments>
+    </virtualType>
+	
+</config>

@@ -1,0 +1,16 @@
+<?php if ($block->displayNoticeActivationPurchaseCode()): ?>
+    <div class="message global notice_activation_purchase_code">
+        <div class="content">
+            <p><span><?= base64_decode('WW91ciBsaWNlbnNlIGlzIGludmFsaWRhdGVkLg==') ; ?></span> <?= base64_decode('UGxlYXNlIGdvIHRvOg==') ; ?> <i><?= base64_decode('Qmx1ZXNreXRlY2hjbyA+IEFjdGl2YXRpb24gUHVyY2hhc2UgQ29kZQ==') ; ?></i></p>
+        </div>
+    </div>
+<?php endif; ?>
+<?php 
+    $cmsBlockTopHeader = $block->getCmsBlockTopHeader();
+?>
+<?php if($cmsBlockTopHeader && $cmsBlockTopHeader != ''){ ?>
+<div class="section-top-header">
+    <div class="content__top--header--banner"><?= $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($cmsBlockTopHeader)->toHtml(); ?></div>
+    <a rel="nofollow" href="#" class="btn__top--header--banner--close"><?= __('close');?></a>
+</div>
+<?php } ?>

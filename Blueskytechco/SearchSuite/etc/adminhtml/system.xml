@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="searchsuite" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Search Suite</label>
+            <tab>blueskytechco</tab>
+			<resource>Blueskytechco_SearchSuite::rokanbase_searchsuite</resource>
+			<group id="search" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Search Suite</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Search</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Search Type</label>
+                    <source_model>Blueskytechco\SearchSuite\Model\Config\Action\SearchType</source_model>
+                </field>
+                <field id="limit" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1"> 
+                    <label>Limit Suggestion</label>
+                </field>
+                <field id="quick_search" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1"> 
+                    <label>Quick search</label>
+                </field>
+            </group>
+            <group id="search_category" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Search Category</label>
+                <field id="enable_search_category" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Search Category</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_category" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0"
+                       showInStore="1" >
+                    <label>Show category form</label>
+                    <comment>(Just only for Search type Popup)</comment>
+                    <source_model>Blueskytechco\SearchSuite\Model\Config\Action\CategoryType</source_model>
+                    <depends>
+                        <field id="enable_search_category">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="product_suggestion" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Suggestion</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Search Category</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="text_suggestion" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1"> 
+                    <label>Text Suggestion</label>
+                </field>
+                <field id="category" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Select Category</label>
+                    <source_model>Blueskytechco\SearchSuite\Model\Config\Source\Categorylist</source_model>
+                </field>
+            </group>
+			<group id="product" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product</label>
+				<field id="enable_image" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="enable_price" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Price</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="enable_short_description" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Short Description</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="enable_reviews_rating" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Reviews Rating</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

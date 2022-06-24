@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="img-src">
+            <values>
+                <value id="blueskytechmage" type="host">blueskytechmage.com</value>
+                <value id="mageblueskytech" type="host">mageblueskytech.com</value>
+                <value id="placehold" type="host">placehold.jp</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

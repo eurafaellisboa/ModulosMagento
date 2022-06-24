@@ -1,0 +1,36 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $viewModel \Blueskytechco\CustomCatalog\ViewModel\Catalog
+ */
+?>
+<?php
+    $_product = $block->getProduct();
+    $view_model = $block->getViewModel();
+    $zoom = $view_model->getActionZoom();
+    $zoom_type = 1;
+    
+    if ($zoom) {
+        switch ($zoom) {
+            case "1":
+                $zoom_type = 1;
+                break;
+            case "2":
+                $zoom_type = 2;
+                break;
+            case "3":
+                $zoom_type = 3;
+                break;
+        }
+    }
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Blueskytechco_CustomCatalog/js/customlayout": {
+            "zoomType": "<?= $block->escapeHtmlAttr($zoom_type) ?>"
+        }
+    }
+}
+</script>

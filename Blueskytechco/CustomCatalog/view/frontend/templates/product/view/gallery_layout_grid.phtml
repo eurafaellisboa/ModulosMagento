@@ -1,0 +1,88 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $viewModel \Blueskytechco\CustomCatalog\ViewModel\Catalog
+ */
+?>
+<?php
+    $gallery_images = $block->getGalleryImages();
+    $options = json_decode($block->getGalleryOptions()->getOptionsJson(), true);
+    $width  = (isset($options['width']) && $options['width'])?$options['width']:'';
+    $height  = (isset($options['height']) && $options['height'])?$options['height']:'';
+	$_product = $block->getProduct();
+    $view_model = $block->getViewModel();
+    $zoom = $view_model->getActionZoom();
+    $gallery_type = $view_model->getGalleryType();
+    $image_helper = $view_model->getImageHelper();
+    $_helperThemeoption = $this->helper('Blueskytechco\Themeoption\Helper\Product');
+    $add_class = '';
+    $zoom_action = false;
+    $zoom_type = 1;
+    if ($zoom) {
+        switch ($zoom) {
+            case "1":
+                $zoom_action = true;
+                $zoom_type = 1;
+                break;
+            case "2":
+                $zoom_action = true;
+                $zoom_type = 2;
+                break;
+            case "3":
+                $zoom_action = true;
+                $zoom_type = 3;
+                break;
+        }
+    }
+    if ($zoom_action) {
+        $add_class = ' img_action_zoom';
+    }
+?>
+<div id="gallery-images" class="gallery-images p-thumb isotope-image slick-slider<?= $block->escapeHtml($add_class); ?>" 
+    data-prmasonry='{"transitionDuration": 0,"selector":".product-image", "layoutMode":"masonry","rtl": false }'
+    data-slick='{"slidesToShow": 1,"slidesToScroll": 1,"rows": 1,"autoplay": false, "infinite": true, "fade": true,"autoplaySpeed": false,"arrows": true,"dots": false}'
+    data-zoom="<?= $block->escapeHtmlAttr($zoom_type); ?>" data-gallery-type="<?= $block->escapeHtmlAttr($gallery_type); ?>"
+    >
+    <?php foreach($gallery_images as $image): ?>
+        <?php if ($image->getData('video_url') && $view_model->getVideoUrl($image->getData('video_url'))) { ?>
+        <div style="width: 100%;" class="product-image gallery-video">
+            <iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen="allowfullscreen" class="media-video"
+                src="<?= $view_model->getVideoUrl($image->getData('video_url')) ?>"
+                title="<?= $_product->getName() ?>" style="width: 100%;height: <?= $height ?>px;"></iframe>
+        </div>
+        <?php } else { ?>
+            <div style="width: 100%;" class="product-image">
+            <div class="gallery-img" style="padding-bottom: <?= $height/$width*100 ?>%;" data-width="<?= $width ?>" data-height="<?= $height ?>"
+                data-mdid="<?= $image->getValueId() ?>" data-src="<?= $image->getData('medium_image_url'); ?>"
+                data-bgset="<?= $image->getData('medium_image_url'); ?>"
+                >
+                <img class="product-image-photo product-image lazyload" src="<?= $_helperThemeoption->getImageUrlLoading() ?>" data-src="<?= $image->getData('medium_image_url'); ?>" alt="<?= $_product->getName() ?>">
+            </div>
+        </div>    
+        <?php } ?>
+    <?php endforeach; ?>
+    <?php if (!count($gallery_images)) { ?>
+        <div style="width: 100%;" class="product-image">
+            <div class="gallery-img" style="padding-bottom: <?= $height/$width*100 ?>%;" data-width="<?= $width ?>" data-height="<?= $height ?>"
+                data-src="<?= $image_helper->getDefaultPlaceholderUrl('image'); ?>"
+                data-bgset="<?= $image_helper->getDefaultPlaceholderUrl('image'); ?>"
+                >
+                <img class="product-image-photo product-image lazyload" src="<?= $_helperThemeoption->getImageUrlLoading() ?>" data-src="<?= $image_helper->getDefaultPlaceholderUrl('image'); ?>"
+                    alt="<?= $_product->getName() ?>">
+            </div>
+        </div>
+    <?php } ?>
+</div>
+<?php if ($gallery_type == 'mfp' || $gallery_type == 'pswp') { ?>
+<div class="group_btns">
+    <button class="show_btn_pr_gallery my-tooltip-top">
+        <i class="las la-expand-arrows-alt"></i>
+        <span class="tt_txt tooltip-content no-wrap"><?= $block->escapeHtml(__('Click to enlarge')) ?></span>
+    </button>
+</div>
+<?php } ?>
+<?php if ($zoom_action) { ?>
+<div class="dt_img_zoom pa t__0 r__0 dib"></div>
+<?php } ?>

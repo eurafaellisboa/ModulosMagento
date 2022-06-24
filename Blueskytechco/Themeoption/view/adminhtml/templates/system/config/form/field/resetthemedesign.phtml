@@ -1,0 +1,40 @@
+<script>
+    require([
+        'jquery',
+		'Magento_Ui/js/modal/confirm',
+		'Magento_Ui/js/modal/alert',
+        'prototype'
+    ], function($, confirmation, alert){
+		$('#resetthemedesign_button').click(function () {
+            confirmation({
+				title: $.mage.__('Reset Theme Design'),
+				content: $.mage.__('Are you sure you want to reset?'),
+				actions: {
+					confirm: function(){
+						var params = {};
+						new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+							parameters:     params,
+							loaderArea:     false,
+							asynchronous:   true,
+							onCreate: function() {
+							},
+							onSuccess: function(response) {
+								alert({
+									title: $.mage.__('Notification'),
+									content: $.mage.__('Reset successfully! Your admin panel and navigate to Blueskytechco > Theme Options > Theme Design > Press Save Config'),
+									actions: {
+										always: function(){}
+									}
+								});
+							}
+						});
+					},
+					cancel: function(){},
+					always: function(){}
+				}
+			});
+        });
+    });
+</script>
+ 
+<?php echo $block->getButtonHtml() ?>

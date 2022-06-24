@@ -1,0 +1,18 @@
+<!--@subject {{trans "Ask A Question"}}  @-->
+{{template config_path="design/email/header_template"}}
+<table width="100%">
+    <tr class="email-intro" style="font-family: Roboto; font-size: 21.5px;">
+        <td>
+            <p>
+                <b>{{trans "Ask A Question:"}}</b>
+				<ul class="fast-opstion">
+					<li>{{trans "Name : %customer_name" customer_name=$customer_name}}</li>
+					<li>{{trans "Telephone : %phone" phone=$phone}}</li>
+					<li>{{trans "Product name : %product" product=$product}}</li>
+					<li>{{trans "Message : %message" message=$message}}</li>
+				</ul>
+            </p>
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,59 @@
+<div class="section widget-category-thumbnail-image-slider-carousel6 margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('margin_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $_catCollection = $block->getCatCollection(); ?>
+	<?php $data_sizes = $block->getSizeThumbnail(); ?>
+	<?php if ($_catCollection->count()) { ?>
+	<div class="elementor__content widget-category-thumbnail-image-slider first-loading-slick">
+		<?php $items = 0; foreach ($_catCollection as $_cat) { $items ++; ?>
+			<div class="elementor-category-thumbnail-image-item elementor__item--hover item-loading-slick">
+				<?php 
+				$width = 300;
+				$height = 300;
+				$featuredImage = '';
+				if($_cat->getData('widget_category_thumbnail') != ''){
+					$featuredImage = $block->getCategoryThumnnail($_cat->getData('widget_category_thumbnail'));
+				}
+				if(isset($data_sizes['common']['img'])){
+                	$width = $data_sizes['common']['img']['width'];
+                	$height = $data_sizes['common']['img']['height'];
+                }
+                if(isset($data_sizes['custom']['img1'])){
+            		$width = $data_sizes['custom']['img1']['width'];
+            		$height = $data_sizes['custom']['img1']['height'];
+            	}
+            	if($block->getDataWidgetConfig('width') && $block->getDataWidgetConfig('width') != ''){
+            		$width = $block->getDataWidgetConfig('width');
+            	}
+            	if($block->getDataWidgetConfig('height') && $block->getDataWidgetConfig('height') != ''){
+            		$height = $block->getDataWidgetConfig('height');
+            	}
+            	if (!$featuredImage) {
+                	$featuredImage = '//placehold.jp/1aada3/fff/'.$width.'x'.$height.'.png?text=Kalles';
+                }
+	            $aspect_ratio = $width / $height;
+				?>
+				<div class="category-thumbnail_img">
+					<a href="<?= /*@noEscape*/ $_cat->getUrl(); ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= $aspect_ratio;?>;" data-bgset="<?= $block->escapeHtml($featuredImage) ?>" data-sizes="auto">
+					</a>
+				</div>
+				<div class="category-thumbnail__info">
+					<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $_cat->getUrl(); ?>"> <?= /*@noEscape*/ $_cat->getName(); ?> </a></h3>
+				</div>
+			</div>
+		<?php } ?>
+	</div>
+	<?php }else{ ?>
+	<div class="message info empty">
+        <div><?= $escaper->escapeHtml(__('No Categories were found matching your condition.')) ?></div>
+    </div>
+	<?php } ?>
+</div>

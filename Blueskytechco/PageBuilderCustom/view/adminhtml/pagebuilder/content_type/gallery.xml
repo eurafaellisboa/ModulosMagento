@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="gallery"
+          label="Gallery"
+          component="Magento_PageBuilder/js/content-type-collection"
+          preview_component="Blueskytechco_PageBuilderCustom/js/content-type/gallery/preview"
+          master_component="Magento_PageBuilder/js/content-type/master-collection"
+          form="pagebuilder_gallery_form"
+          menu_section="blueskytechco_page_builder_custom_elements"
+          icon="icon-pagebuilder-gallery"
+          sortOrder="12"
+          translate="label">
+        <breakpoints>
+            <breakpoint name="mobile">
+                <form>pagebuilder_gallery_mobile_form</form>
+            </breakpoint>
+            <breakpoint name="tablet">
+                <form>pagebuilder_gallery_tablet_form</form>
+            </breakpoint>
+        </breakpoints>
+        <children default_policy="deny">
+            <child name="itemimg" policy="allow"/>
+        </children>
+        <appearances>
+            <appearance default="true"
+                        name="default"
+                        preview_template="Blueskytechco_PageBuilderCustom/content-type/gallery/default/preview"
+                        master_template="Blueskytechco_PageBuilderCustom/content-type/gallery/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
+                        <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <style name="display" source="display" converter="Magento_PageBuilder/js/converter/style/display" preview_converter="Magento_PageBuilder/js/converter/style/preview/display"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <attribute name="layout_design" source="data-layout-design"/>
+                        <attribute name="action_click" source="data-action-click"/>
+                        <attribute name="space_between_item" source="data-space-between-item"/>
+                        <attribute name="autoplay" source="data-autoplay"/>
+                        <attribute name="autoplay_speed" source="data-autoplay-speed"/>
+                        <attribute name="is_infinite" source="data-infinite-loop"/>
+                        <attribute name="show_arrows" source="data-show-arrows"/>
+                        <attribute name="show_dots" source="data-show-dots"/>
+                        <attribute name="carousel_mode" source="data-carousel-mode"/>
+                        <attribute name="slick_rows" source="data-slick-rows"/>
+                        <attribute name="col_xxl" source="data-col-xxl"/>
+                        <attribute name="col_xl" source="data-col-xl"/>
+                        <attribute name="col_lg" source="data-col-lg"/>
+                        <attribute name="col_md" source="data-col-md"/>
+                        <attribute name="col_sm" source="data-col-sm"/>
+                        <attribute name="col_xs" source="data-col-xs"/>
+                        <css name="css_classes"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+    </type>
+</config>

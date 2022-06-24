@@ -1,0 +1,26 @@
+{
+  "name": "blueskytechco/testimonial",
+  "description": "Testimonial magento 2.",
+  "require": {
+    "magepow/core" : ">=1.0"
+  },
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Alothemes",
+      "email": "support@magepow.com",
+      "homepage": "https://magepow.com",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Blueskytechco\\Testimonial\\": ""
+    }
+  }
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <update handle="catalog_product_opengraph" />
+    <update handle="page_calendar"/>
+    <body>
+        <attribute name="itemtype" value="http://schema.org/Product" />
+        <attribute name="itemscope" value="itemscope"/>
+        <referenceContainer name="content">
+            <container name="product.info.main" htmlTag="div" htmlClass="product-info-main" before="-">
+                <container name="product.info.price" label="Product info auxiliary container" htmlTag="div" htmlClass="product-info-price">
+                    <container name="product.info.stock.sku" label="Product auxiliary info" htmlTag="div" htmlClass="product-info-stock-sku">
+                        <container name="product.info.type" before="-"/>
+                        <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.sku" template="Magento_Catalog::product/view/attribute.phtml" after="product.info.type">
+                            <arguments>
+                                <argument name="at_call" xsi:type="string">getSku</argument>
+                                <argument name="at_code" xsi:type="string">sku</argument>
+                                <argument name="css_class" xsi:type="string">sku</argument>
+                                <argument name="at_label" xsi:type="string">default</argument>
+                                <argument name="add_attribute" xsi:type="string">itemprop="sku"</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <block class="Magento\Catalog\Block\Product\View" name="product.info.review" template="Magento_Catalog::product/view/review.phtml" after="product.info.stock.sku" />
+                    <block class="Magento\Catalog\Pricing\Render" name="product.price.final">
+                        <arguments>
+                            <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                            <argument name="price_type_code" xsi:type="string">final_price</argument>
+                            <argument name="zone" xsi:type="string">item_view</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <block class="Magento\Catalog\Pricing\Render" name="product.price.tier" after="product.info.price">
+                    <arguments>
+                        <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                        <argument name="price_type_code" xsi:type="string">tier_price</argument>
+                        <argument name="zone" xsi:type="string">item_view</argument>
+                    </arguments>
+                </block>
+                <container name="alert.urls" as="alert_urls" label="Alert Urls" after="product.price.tier"/>
+                <block class="Magento\Catalog\Block\Product\View" name="product.info" template="Magento_Catalog::product/view/form.phtml" after="alert.urls">
+                    <container name="product.info.form.content" as="product_info_form_content">
+                        <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magento_Catalog::product/view/addtocart.phtml"/>
+                    </container>
+                    <block class="Magento\Framework\View\Element\Template" name="product.info.form.options" as="options_container">
+                        <block class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper" as="product_options_wrapper" template="Magento_Catalog::product/view/options/wrapper.phtml">
+                            <block class="Magento\Catalog\Block\Product\View\Options" name="product.info.options" as="product_options" template="Magento_Catalog::product/view/options.phtml">
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\DefaultType" name="product.info.options.default" as="default" template="Magento_Catalog::product/view/options/type/default.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\Text" name="product.info.options.text" as="text" template="Magento_Catalog::product/view/options/type/text.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\File" name="product.info.options.file" as="file" template="Magento_Catalog::product/view/options/type/file.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\Select" name="product.info.options.select" as="select" template="Magento_Catalog::product/view/options/type/select.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\Date" name="product.info.options.date" as="date" template="Magento_Catalog::product/view/options/type/date.phtml"/>
+                            </block>
+                            <block class="Magento\Framework\View\Element\Html\Calendar" name="html_calendar" as="html_calendar" template="Magento_Theme::js/calendar.phtml"/>
+                        </block>
+                        <block class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="Magento_Catalog::product/view/options/wrapper/bottom.phtml">
+                            <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart.additional" as="product.info.addtocart" template="Magento_Catalog::product/view/addtocart.phtml"/>
+                        </block>
+                    </block>
+                </block>
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.overview" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info" after="product.info.extrahint">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getShortDescription</argument>
+                        <argument name="at_code" xsi:type="string">short_description</argument>
+                        <argument name="css_class" xsi:type="string">overview</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Overview</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+                    </arguments>
+                </block>
+                <container name="trust.Seal" htmlTag="div" htmlClass="trust_seal" after="product.info.extrahint">
+                    <block name="trustSeal" before="contactForm" class="Magento\Cms\Block\Block">    
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">bluesky_default_trust_seal</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <container name="product.rate.price" htmlTag="div" htmlClass="product-rate-price" before="product.info"/>
+                <container name="product-category" htmlTag="div" htmlClass="product-category">
+                    <block class="Magento\Catalog\Block\Product\View" name="product.category.name" template="Blueskytechco_QuickviewProduct::product/view/productscategory.phtml">
+                    </block>
+                </container>
+            </container>
+            <container name="product.info.media" htmlTag="div" htmlClass="product media" after="product.info.main">
+                <block class="Magento\Framework\View\Element\Template" name="skip_gallery_after.target" before="skip_gallery_before.wrapper" template="Magento_Theme::html/skiptarget.phtml">
+                    <arguments>
+                        <argument name="target_id" xsi:type="string">gallery-prev-area</argument>
+                    </arguments>
+                </block>
+                <container name="skip_gallery_before.wrapper" htmlTag="div" htmlClass="action-skip-wrapper">
+                    <block class="Magento\Framework\View\Element\Template" before="product.info.media.image" name="skip_gallery_before" template="Magento_Theme::html/skip.phtml">
+                        <arguments>
+                            <argument name="target" xsi:type="string">gallery-next-area</argument>
+                            <argument name="label" translate="true" xsi:type="string">Skip to the end of the images gallery</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <block class="Magento\Catalog\Block\Product\View\Gallery" name="product.info.media.image" template="Magento_Catalog::product/view/gallery.phtml">
+                    <arguments>
+                        <argument name="gallery_options" xsi:type="object">Magento\Catalog\Block\Product\View\GalleryOptions</argument>
+                        <argument name="imageHelper" xsi:type="object">Magento\Catalog\Helper\Image</argument>
+                    </arguments>
+                </block>
+                <container name="skip_gallery_after.wrapper" htmlTag="div" htmlClass="action-skip-wrapper">
+                    <block class="Magento\Framework\View\Element\Template" after="product.info.media.image" name="skip_gallery_after" template="Magento_Theme::html/skip.phtml">
+                        <arguments>
+                            <argument name="target" xsi:type="string">gallery-prev-area</argument>
+                            <argument name="label" translate="true" xsi:type="string">Skip to the beginning of the images gallery</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <block class="Magento\Framework\View\Element\Template" name="skip_gallery_before.target" after="skip_gallery_after.wrapper" template="Magento_Theme::html/skiptarget.phtml">
+                    <arguments>
+                        <argument name="target_id" xsi:type="string">gallery-next-area</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="breadcrumbs" remove="true"/>
+        <referenceBlock name="before_body_end_fake_order" remove="true"/>
+        <referenceBlock name="header.container" remove="true"/>
+        <referenceBlock name="minicart" remove="true" />
+        <referenceBlock name="footer-container" remove="true"/>
+        <referenceBlock name="page.top" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true" />
+        <referenceBlock name="cookie_notices" remove="true" />
+        <move element="page.main.title" destination="product.info.main" before="-"/> 
+		<move element="product.info.type" destination="product.info.main" before="product.info.stock.sku"/>
+		<move element="product.info.stock.sku" destination="product.info.main" before="product-category"/>
+		<move element="product.info.overview" destination="product.info.main" before="product.info"/>
+		<move element="product.info.review" destination="product.rate.price" after="-"/>
+		<move element="product.info.price" destination="product.rate.price" before="-"/>
+        <referenceContainer name="after.body.start">
+            <block class="Magento\Framework\View\Element\Text" name="minicart.qickview">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<script>window.checkout = {};</script>]]></argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

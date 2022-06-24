@@ -1,0 +1,58 @@
+<div class="section widget-testimonial-slider-design-3 margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('margin_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $testimonials = $block->getTestimonials(); ?>
+	<?php if ($testimonials->count()) { ?>
+	<div class="elementor__content widget-testimonial-slider">
+		<?php foreach ($testimonials as $testimonial){ ?>
+			<div class="elementor-testimonial-item elementor__item--hover">
+				<div class="testimonial-customer">
+					<img class="avatar" src="<?= $this->escapeUrl($this->getImage($testimonial))?>" alt="<?php echo __($this->escapeHtml($testimonial->getName())) ?>" title="<?php echo __($this->escapeHtml($testimonial->getName())) ?>" />
+				</div>
+				<div class="testimonial-text">
+                    <div class="testimonial-rating">
+						<div class="rating-summary">
+							<span class="rating-result" style="display:block;">
+								<span style="display:block; width:<?php echo $testimonial->getData('rating_summary')*20; ?>%;" class="rating"></span>
+							</span>
+						</div>
+					</div>
+                    <div class="testimonial-content"><?= $this->escapeHtml($testimonial->getText()); ?></div>
+					<p class="testimonial-name"><?= $this->escapeHtml($testimonial->getName()); ?></p>
+				</div>
+			</div>
+		<?php } ?>
+	</div>
+	<?php }else{ ?>
+		<div class="elementor__content widget-testimonial-slider">
+			<div class="elementor-testimonial-item elementor__item--hover">
+				<div class="testimonial-customer">
+					<img class="avatar" src="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" alt="alex" title="alex" />
+				</div>
+				<div class="testimonial-text">
+					<p class="testimonial-name">alex</p>
+					<div class="testimonial-content">The theme is beautiful. Just got a compliment on it today. The customer service has been great.</div>
+					<div class="testimonial-job">
+						Developer
+					</div>
+					<div class="testimonial-rating">
+						<div class="rating-summary">
+							<span class="rating-result" style="display: block;">
+								<span style="display: block; width: 100%;" class="rating"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<?php } ?>
+</div>

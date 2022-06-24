@@ -1,0 +1,13 @@
+<?php $_product = $block->getProduct(); ?>
+<div class="short-product-images">
+	<figure class="elementor-image-short-product">
+		<a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>">
+			<?php if($_product->getData('small_image') && $_product->getData('small_image') != ''){ ?>
+			<img src="<?= $block->resizeImage($_product, 'small_image', 600, 765) ?>" class="short-products-view" title="<?= $block->escapeHtml($_product->getName()) ?>" alt="<?= $block->escapeHtml($_product->getName()) ?>">
+			<?php } ?>
+			<?php if($_product->getData('hover') && $_product->getData('hover') != ''){ ?>
+			<img src="<?= $block->resizeImage($_product, 'hover', 600, 765) ?>" class="short-products-view-hover" title="<?= $block->escapeHtml($_product->getName()) ?>" alt="<?= $block->escapeHtml($_product->getName()) ?>">
+			<?php } ?>
+		</a>
+	</figure>
+</div>

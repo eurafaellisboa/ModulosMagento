@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_QuickviewProduct::quickview" title="Quick View" module="Blueskytechco_QuickviewProduct" sortOrder="100" parent="Blueskytechco_RokanBase::rokanbase_setting" resource="Blueskytechco_QuickviewProduct::quickview" action="adminhtml/system_config/edit/section/quickview_product" />
+    </menu>
+</config>

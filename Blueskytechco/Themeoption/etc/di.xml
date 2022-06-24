@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Config\View">
+        <plugin name="themeoptionPluginConfigView" type="Blueskytechco\Themeoption\Plugin\Config\View"/>
+    </type>
+    <type name="Magento\Framework\View\Result\Page">
+        <plugin name="themeoptionPluginResultPage" type="Blueskytechco\Themeoption\Plugin\Result\Page"/>
+    </type>
+    <preference for="Magento\MediaStorage\Service\ImageResize" type="Blueskytechco\Themeoption\Plugin\Service\ImageResize"/>
+</config>

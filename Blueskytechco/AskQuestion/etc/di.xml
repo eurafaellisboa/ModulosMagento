@@ -1,0 +1,27 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="askquestion_questions_listing_data_source" xsi:type="string">AskQuestion</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="AskQuestion" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">askquestion_questions</argument>
+            <argument name="resourceModel" xsi:type="string">Blueskytechco\AskQuestion\Model\ResourceModel\Question</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AskQuestionQuestionsListingDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Blueskytechco\AskQuestion\Model\ResourceModel\Question\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AskQuestionQuestionsListingFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Blueskytechco\AskQuestion\Model\ResourceModel\Question\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">askquestion_question</argument>
+            <argument name="resourceModel" xsi:type="string">Blueskytechco\AskQuestion\Model\ResourceModel\Question</argument>
+        </arguments>
+    </virtualType>
+</config>

@@ -1,0 +1,41 @@
+<?php
+/**
+ * Horizontal menu for store
+ *
+ * @var $viewModel \Blueskytechco\MenuBuilder\ViewModel\MenuBuilder
+ */
+?>
+<?php
+    $view_model = $viewModel;
+    $animation = $view_model->getData('menus/horizontal/animation');
+    $active_menu_config = $view_model->getData('menus/horizontal/active');
+    $title = $block->getData('title')?$block->getData('title'):__('Menu');
+    $id_menu = $block->getData('menus_select');
+if (!$active_menu_config && $view_model->getWidgetMenuHtml($id_menu)) {
+    ?>
+<div class="horizontal-menu-container">
+    <div data-action="toggle-nav" class="action nav-toggle d-xl-none sticky-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
+            <rect width="30" height="1.5"></rect>
+            <rect y="7" width="20" height="1.5"></rect>
+            <rect y="14" width="30" height="1.5"></rect>
+        </svg>
+    </div>
+    <nav class="navigation horizontal main-nav nav-sections">
+        <div class="close-menu-mobile"><a href="#" id="close-menu"><?= $block->escapeHtml(__('Close')) ?></a></div>
+        <div class="menu-mobile-title d-block d-xl-none">
+            <a class="active" data-menu="horizontal-list" href="#"><span><?= $block->escapeHtml($title) ?></span></a>
+        </div>
+        <ul class="horizontal-list menu <?= $block->escapeHtml($animation) ?>">
+            <?= $view_model->getWidgetMenuHtml($id_menu) ?>
+        </ul>
+    </nav>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".horizontal-menu-container": {
+            "Blueskytechco_MenuBuilder/js/components/horizontalmenu": {}
+        }
+    }
+</script>
+<?php } ?>

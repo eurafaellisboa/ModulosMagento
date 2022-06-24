@@ -1,0 +1,45 @@
+<!--
+/**
+ * Copyright © 2021-2022 Blueskytechco, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div id="rokan-autocomplete-wrapper" class="rokan-autocomplete-wrapper" data-bind="visible: showPopup()">
+    <div class="result-header"><span data-bind="text: result.product.text_suggestion"></span></div>
+	<div data-bind="visible: anyResultCount()">
+        <div class="products products-list" data-bind="visible: result.product.data().length > 0">
+			<ul class="products list items product-items" role="listbox" data-bind="foreach: result.product.data">
+				<li class="item product product-item">
+					<div class="product-item-info">
+						<div class="product photo product-item-photo" data-bind="visible: image">
+							<a data-bind="attr: { href: url, title: name }">
+								<img data-bind="attr: { src: image, title: name }" />
+							</a>
+						</div>
+						<div class="product details product-item-details">
+							<div class="product name product-item-name" data-bind="visible: name">
+								<a class="product-item-link" data-bind="attr: { href: url, title: name }, text: name"></a>
+							</div>
+							<div class="product name product-item-reviews" data-bind="html: reviews_rating, visible: reviews_rating"></div>
+							<div class="product-info-price">
+								<div class="product price product-item-price" data-bind="html: price, visible: price"></div>
+							</div>
+							<div class="product name product-item-shortdescription" data-bind="html: short_description, visible: short_description"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="title-view-all-search">
+			<a class="see-all" data-bind="attr: {href: result.product.url}">
+				<!-- ko i18n: 'View all' --><!-- /ko -->
+				<!-- (<span data-bind="text: result.product.size"></span>) -->
+			</a>
+		</div>
+    </div> 
+    <div class="no-result" data-bind="visible: !anyResultCount()">
+		<!-- ko i18n: 'Nothing matches your search'--><!-- /ko -->
+		<svg aria-hidden="true" role="img" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4 16.4C16.4 16.4 14.75 14.2 12 14.2C9.25 14.2 7.6 16.4 7.6 16.4M8.7 8.7H8.711M15.3 8.7H15.311M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12Z" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+	</div>
+</div>

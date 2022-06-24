@@ -1,0 +1,12 @@
+<div class="pagebuilder-content-type children-min-height" attr="data.main.attributes" ko-style="data.main.style" css="data.main.css" event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <div class="container-pagebuilder-faq">
+        <render args="getOptions().template"></render>
+        <div class="elementor__header">
+            <h3 class="elementor__headline" if="data.title.html" html="data.title.html"></h3>
+            <div class="elementor__description" if="data.shortdescription.html" html="data.shortdescription.html"></div>
+        </div>
+        <div afterRender="afterRender">
+            <render args="childTemplate"></render>
+        </div>
+    </div>
+</div>

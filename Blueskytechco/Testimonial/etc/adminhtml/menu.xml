@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Blueskytechco_Testimonial::testimonial_index" title="Testimonial" module="Blueskytechco_Testimonial" sortOrder="20" parent="Blueskytechco_RokanBase::rokanbase_manage" action="testimonial/index" resource="Blueskytechco_Testimonial::testimonial_index"/>
+    </menu>
+</config>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="collect_product_data" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Collect Product Data</label>
+            <tab>blueskytechco</tab>
+            <resource>Blueskytechco_ProductWidgetAdvanced::collect_product_data</resource>
+            <group id="run_now" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Collect Product Data</label>
+                <field id="bestSeller" translate="label comment" type="button" sortOrder="10"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>BestSeller</label>
+                    <frontend_model>Blueskytechco\ProductWidgetAdvanced\Block\Adminhtml\Button\BestSeller</frontend_model>
+                </field>
+                <field id="topRate" translate="label comment" type="button" sortOrder="20"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>TopRate</label>
+                    <frontend_model>Blueskytechco\ProductWidgetAdvanced\Block\Adminhtml\Button\TopRate</frontend_model>
+                </field>
+                <field id="mostViewed" translate="label comment" type="button" sortOrder="30"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>MostViewed</label>
+                    <frontend_model>Blueskytechco\ProductWidgetAdvanced\Block\Adminhtml\Button\MostViewed</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

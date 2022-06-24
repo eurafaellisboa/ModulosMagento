@@ -1,0 +1,111 @@
+<div class="section widget-category-thumbnail-image-grid-default2 margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('space_between_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $_catCollection = $block->getCatCollection(); ?>
+	<?php if ($_catCollection->count()) { ?>
+	<div class="row elementor__content">
+		<?php $items = 0; foreach ($_catCollection as $_cat) { 
+			$items ++;
+			$col = 'col-12';
+			$width = 1170;
+			$height = 600;
+			$total_cat = $_catCollection->count();
+			if($total_cat == 2){
+				$col = 'col-6';
+				$width = 570;
+				$height = 300;
+			}
+			if($total_cat == 3){
+				if($items == 2){
+					$col = 'col-lg-6 col-md-6 col-12';
+					$width = 740;
+					$height = 300;
+				}
+				else{
+					$col = 'col-lg-3 col-md-3 col-12';
+					$width = 370;
+					$height = 300;
+				}
+			}
+		?>
+		<div class="<?= $col ?>">
+			<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+				<?php
+					$featuredImage = '';
+					if($_cat->getData('widget_category_thumbnail') != ''){
+						$featuredImage = $block->getCategoryThumnnail($_cat->getData('widget_category_thumbnail'));
+					}
+					if (!$featuredImage) {
+						$featuredImage = '//placehold.jp/1aada3/fff/'.$width.'x'.$height.'.png?text='.$width.'x'.$height;
+					}
+					$aspect_ratio = $width / $height;
+				?>
+				<a href="<?= /*@noEscape*/ $_cat->getUrl(); ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= $aspect_ratio;?>;" data-bgset="<?= $block->escapeHtml($featuredImage) ?>" data-sizes="auto">
+				</a>
+				<div class="category-thumbnail__info absolute center-bottom">
+					<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $_cat->getUrl(); ?>"> <?= /*@noEscape*/ $_cat->getName(); ?> </a></h3>
+				</div>
+			</div>
+		</div>
+		<?php if($items == 3){ break; } ?>
+		<?php } ?>
+	</div>
+	<?php }else{ ?>
+		<div class="row elementor__content">
+			<div class="col-lg-3 col-md-3 col-12">
+				<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+					<a
+						href="#"
+						class="category-thumbnail__image data-bgset-image-wrapper lazyload"
+						style="--aspect-ratio: 1.2333333333333;"
+						data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png"
+						data-sizes="auto"
+					>
+					</a>
+					<div class="category-thumbnail__info absolute center-bottom">
+						<h3 class="category-thumbnail__title"><a href="#"> Rugs &amp; Textiles </a></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-12">
+				<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+					<a
+						href="#"
+						class="category-thumbnail__image data-bgset-image-wrapper lazyload"
+						style="--aspect-ratio: 2.4666666666667;"
+						data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png"
+						data-sizes="auto"
+					>
+					</a>
+					<div class="category-thumbnail__info absolute center-bottom">
+						<h3 class="category-thumbnail__title"><a href="#"> Tableware &amp; Accessories </a></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-12">
+				<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+					<a
+						href="#"
+						class="category-thumbnail__image data-bgset-image-wrapper lazyload"
+						style="--aspect-ratio: 1.2333333333333;"
+						data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png"
+						data-sizes="auto"
+					>
+					</a>
+					<div class="category-thumbnail__info absolute center-bottom">
+						<h3 class="category-thumbnail__title"><a href="#"> Cookware &amp; Kitchen </a></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<?php } ?>
+</div>

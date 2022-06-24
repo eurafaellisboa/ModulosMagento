@@ -1,0 +1,64 @@
+<?php 
+$_helper = $this->helper('Blueskytechco\Themeoption\Helper\Product');
+?>
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')) :?>
+    <div class="product info detailed tab-accordions">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items">
+            <?php foreach ($detailedInfoGroup as $key=>$name) :?>
+                <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="panel entry-content clicked_accordion" id="tab_pr_description-<?= $key ?>">
+                    <div class="data item title"
+                        id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>">
+                        <a class="data switch"
+                            href="javascript:;"
+                            id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title"
+                            >
+                            <span class="txt_h_tab"><?= /* @noEscape */ $label ?></span>
+                            <span class="nav_link_icon ml__5"></span>
+                        </a>
+                    </div>
+                    <div class="data item content"
+                        id="<?= $block->escapeHtmlAttr($alias) ?>" style="display: none;"
+                        >
+                        <?= /* @noEscape */ $html ?>
+                    </div>
+                </div>
+                <?php $show_panel = false; ?>
+            <?php endforeach;?>
+            <?php 
+            $customTab = $_helper->getProductCustomTab();
+            if(count($customTab) > 0){
+                foreach($customTab as $key => $custom_tab){
+            ?>
+            <div class="panel entry-content clicked_accordion" id="tab_pr_description-<?= $key ?>">
+                <div class="data item title"
+                    id="tab-label-<?= $block->escapeHtmlAttr($custom_tab['id']) ?>">
+                    <a class="data switch"
+                        href="javascript:;"
+                        id="tab-label-<?= $block->escapeHtmlAttr($custom_tab['id']) ?>-title"
+                        >
+                        <span class="txt_h_tab"><?= /* @noEscape */ $custom_tab['title']; ?></span>
+                        <span class="nav_link_icon ml__5"></span>
+                    </a>
+                </div>
+                <div class="data item content"
+                    id="<?= $block->escapeHtmlAttr($custom_tab['id']) ?>" style="display: none;"
+                    >
+                    <?= $custom_tab['content'] ?>
+                </div>
+            </div>
+            <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+<?php endif; ?>

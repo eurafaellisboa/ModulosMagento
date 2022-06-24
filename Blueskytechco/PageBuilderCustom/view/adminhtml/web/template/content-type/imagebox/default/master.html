@@ -1,0 +1,16 @@
+<div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+    <div class="elementor-image-box-wrapper">
+        <figure class="elementor-image-box-img">
+            <a if="data.link.attributes().href" attr="data.link.attributes" ko-style="data.link.style" css="data.link.css">
+                <img attr="data.desktop_image.attributes" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="lazyload" />
+            </a>
+            <ifnot args="data.link.attributes().href">
+                <img attr="data.desktop_image.attributes" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="lazyload" />
+            </ifnot>
+        </figure>
+        <div class="elementor-image-box-content">
+            <h3 class="elementor-image-box-title" if="data.title.html" html="data.title.html" attr="data.title.attributes"></h3>
+            <div class="elementor-image-box-description" if="data.short_description.html" html="data.short_description.html" attr="data.short_description.attributes"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="blueskytechco-quickview-product-list" type="Blueskytechco\QuickviewProduct\Plugin\ProductList" sortOrder="1"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Gallery"> 
+        <plugin name="blueskytechco-quickview-gallery" type="Blueskytechco\QuickviewProduct\Plugin\ProductGallery" sortOrder="1"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\GalleryOptions"> 
+        <plugin name="blueskytechco-quickview-gallery-options" type="Blueskytechco\QuickviewProduct\Plugin\ProductGalleryOptions" sortOrder="1"/>
+    </type>
+    <type name="Magento\Swatches\Block\Product\Renderer\Configurable"> 
+        <plugin name="blueskytechco-quickview-gallery-options-type-configurable" type="Blueskytechco\QuickviewProduct\Plugin\Renderer\Configurable" sortOrder="1"/>
+    </type>
+</config>

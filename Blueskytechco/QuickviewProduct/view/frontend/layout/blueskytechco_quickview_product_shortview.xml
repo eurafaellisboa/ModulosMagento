@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="short.product.view" htmlTag="div" htmlClass="short-product-view" before="-">
+                <container name="short.product.info.main" htmlTag="div" htmlClass="short-product-info-main" before="-">
+                    <container name="short.product.info.media" htmlTag="div" htmlClass="short-product-media-container" before="-">
+                        <block class="Blueskytechco\QuickviewProduct\Block\Product\View" name="short.product.info.media.image" template="Blueskytechco_QuickviewProduct::product/view/gallery.phtml"/>
+                    </container>
+                    <container name="container.product.name" label="Product name container" htmlTag="div" htmlClass="container-product-name">
+                        <block class="Magento\Catalog\Block\Product\View" name="product.name" template="Blueskytechco_QuickviewProduct::product/view/title.phtml"/>
+                    </container>
+                    <container name="short.product.info.price" label="Product info auxiliary container" htmlTag="div" htmlClass="short-product-info-price" after="-">
+                        <block class="Magento\Catalog\Pricing\Render" name="product.price.final">
+                            <arguments>
+                                <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                                <argument name="price_type_code" xsi:type="string">final_price</argument>
+                                <argument name="zone" xsi:type="string">item_view</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <block class="Magento\Catalog\Pricing\Render" name="product.price.tier" after="product.info.price">
+                        <arguments>
+                            <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                            <argument name="price_type_code" xsi:type="string">tier_price</argument>
+                            <argument name="zone" xsi:type="string">item_view</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

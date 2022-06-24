@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_SearchSuite::searchsuite_setting" title="Search Suite" module="Blueskytechco_SearchSuite" sortOrder="150" parent="Blueskytechco_RokanBase::rokanbase_setting" action="adminhtml/system_config/edit/section/searchsuite" resource="Blueskytechco_SearchSuite::searchsuite_setting"/>
+    </menu>
+</config> 

@@ -1,0 +1,24 @@
+{
+    "name": "blueskytechco/module-page-builder-custom",
+    "description": "Page Builder Custom",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-page-builder": "*",
+        "php": "~7.1.3||~7.2.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [
+        {
+            "name": "Tony Pham",
+            "email": "tonypham.web.developer@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}

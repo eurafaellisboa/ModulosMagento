@@ -1,0 +1,23 @@
+<div attr="data.main.attributes"
+     ko-style="data.main.style"
+     css="Object.assign({focused: $parent.parentContentType.preview.focusedItemImg() === $index()})"
+     class="pagebuilder-content-type pagebuilder-itemimg no-system-border focus-options">
+    <render args="getOptions().template"></render>
+    <figure>
+        <div class="pr oh middle center" event="{ focusin: function (context, event) { onFocusIn($index(), event); }, focusout: function (context, event) { onFocusOut($index(), event); } }">
+            <span class="itemimg-drag-handle" css="{disabled: contentType.parentContentType.children().length <= 1}"></span>
+            <if args="checkHaveUploadImageData()">
+                <a event="{ click: onClick }" attr="getViewportImageData().attributes" class="item-img-click-event data-bgset-image-wrapper lazyload" ko-style="'--aspect-ratio' : getAspectRatio()" data-sizes="auto"></a>
+            </if>
+            <ifnot args="checkHaveUploadImageData()">
+                <a href="#" class="item-img-click-event data-bgset-image-wrapper lazyload" data-width="570" data-height="630" data-element="desktop_image" data-bgset="//placehold.jp/1aada3/fff/570x630.png?text=Image" data-sizes="auto" ko-style="'--aspect-ratio' : '0.904'"></a>
+            </ifnot>
+        </div>
+        <figcaption if="data.caption.html()"
+                    attr="data.caption.attributes"
+                    css="data.caption.css"
+                    html="data.caption.html"
+                    ko-style="data.caption.style">
+        </figcaption>
+    </figure>
+</div>

@@ -1,0 +1,26 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php 
+$_product = $block->getProduct();
+if (!$_product->isSaleable()) :?>
+<div class="form-notify single_variation_wrap" id="frm_notify">
+    <form method="post" action="<?= $block->escapeUrl($this->getUrl('customcatalog/notifystock/save')) ?>" id="contact_form_notify" class="frm_notify" data-mage-init='{"validation": {}}'>
+        <?php echo $this->getBlockHtml('formkey')?>
+        <input type="hidden" name="product_id" value="<?= $_product->getId() ?>">
+        <p><?= $block->escapeHtml('Avise-me quando esse produto voltar ao estoque:') ?></p>
+        <div class="field review-field-notify-email required">
+            <label for="notify_email" class="label"><span><?= $block->escapeHtml('Seu e-mail') ?></span></label>
+            <div class="control">
+                <input type="email" name="notify_email" id="nickname_fnotify_emailield"
+                    class="input-text" data-validate="{required:true, 'validate-email':true}">
+            </div>
+        </div>
+        <button type="button" class="notify_button button"><?= $block->escapeHtml('Quero ser avisado por e-mail') ?></button>
+    </form>
+</div>
+<?php endif; ?>

@@ -1,0 +1,180 @@
+<div class="section widget-lookbook-mansoy-default margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('space_between_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $_collection = $block->getLookbookItems(); ?>
+	<?php if ($_collection->count()) { ?>
+	<div class="widget-lookbook-wrapper row">
+		<?php 
+		if($_collection->count() < 5){
+			$items = 0; 
+			foreach ($_collection as $_item) {
+				$items ++;
+				$col = 'col-12';
+				$total_cat = $_collection->count();
+				if($total_cat == 2){
+					$col = 'col-md-6 col-12';
+				}
+				if($total_cat == 3){
+					if($items == 1){
+						$col = 'col-md-6 col-12';
+					}
+					else{
+						$col = 'col-12';
+					}
+				}
+				if($total_cat == 4){
+					if($items == 1){
+						$col = 'col-12';
+					}
+					else if($items == 2){
+						$col = 'col-12';
+					}
+					else if($items == 3){
+						$col = 'col-12';
+					}
+					else{
+						$col = 'col-12';
+					}
+				}
+				if($total_cat == 5){
+					if($items == 5){
+						$col = 'col-md-6 col-12';
+					}
+					else{
+						$col = 'col-md-12 col-6';
+					}
+				}
+			?>
+				<?php if($total_cat == 3 && $items == 2){ echo '<div class="col-lg-6 col-md-6 col-12 has-children"><div class="row row-level-2">'; } ?>
+				<?php if(($total_cat == 4 && $items == 1) || ($total_cat == 4 && $items == 3)){ echo '<div class="col-md-6 col-12 has-children"><div class="row row-level-2">'; } ?>
+				<?php if(($total_cat == 5 && $items == 1) || ($total_cat == 5 && $items == 3)){ echo '<div class="col-lg-3 col-md-3 col-12 has-children"><div class="row row-level-2">'; } ?>
+				<div class="<?= $col ?>">
+					<div class="elementor-lookbook-item elementor__item--hover">
+						<?php 
+						$banner = $block->getBannerImageSrc($_item);
+						$width = $_item->getWidth();
+						$height = $_item->getHeight();
+						$aspect_ratio = $width / $height;
+						?>
+						<div class="lookbook-item-preview">
+							<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= $banner; ?>" data-sizes="auto" style="--aspect-ratio: <?= $aspect_ratio;?>;"></div>
+							<?= /* @escapeNotVerified */ $block->getPin($_item) ?>
+						</div>
+						<div class="lookbook-item-title">
+				        	<?= /* @escapeNotVerified */ $block->getTitleLinkHtml($_item) ?>
+				        </div>
+					</div>
+				</div>
+				<?php if(($total_cat == 3 && $items == 3) || ($total_cat == 4 && $items == 4) || ($total_cat == 4 && $items == 2) || ($total_cat == 5 && $items == 2) || ($total_cat == 5 && $items == 4)){ echo '</div></div>'; } ?>
+				<?php if($items == 5){ break; } ?>
+		<?php } ?>
+	<?php }elseif($_collection->count() == 5){
+		$data_cat = [];
+		$items = 0;
+		foreach ($_collection as $_item) { 
+			$items ++;
+			$banner = $block->getBannerImageSrc($_item);
+			$width = $_item->getWidth();
+			$height = $_item->getHeight();
+			$aspect_ratio = $width / $height;
+			$data_cat[] = ['banner' => $banner, 'aspect_ratio' => $aspect_ratio, 'bin' => $block->getPin($_item), 'title' => $block->getTitleLinkHtml($_item)];
+			if($items == 5){ break; }
+		}
+	?>
+		<div class="col-lg-3 col-md-3 col-12">
+           <div class="row">
+           		<div class="col-md-12 col-6">
+		        	<div class="elementor-lookbook-item elementor__item--hover">
+						<div class="lookbook-item-preview">
+							<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= /*@noEscape*/ $data_cat[0]['banner']; ?>" data-sizes="auto" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[0]['aspect_ratio']; ?>;"></div>
+							<?= /*@noEscape*/ $data_cat[0]['bin']; ?>
+						</div>
+						<div class="lookbook-item-title">
+				        	<?= /*@noEscape*/ $data_cat[0]['title']; ?>
+				        </div>
+					</div>
+		        </div>
+		        <div class="col-md-12 col-6">
+		        	<div class="elementor-lookbook-item elementor__item--hover">
+						<div class="lookbook-item-preview">
+							<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= /*@noEscape*/ $data_cat[1]['banner']; ?>" data-sizes="auto" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[1]['aspect_ratio']; ?>;"></div>
+							<?= /*@noEscape*/ $data_cat[1]['bin']; ?>
+						</div>
+						<div class="lookbook-item-title">
+				        	<?= /*@noEscape*/ $data_cat[1]['title']; ?>
+				        </div>
+					</div>
+		        </div>
+           </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-12">
+           <div class="row">
+           		<div class="col-md-12 col-6">
+		        	<div class="elementor-lookbook-item elementor__item--hover">
+						<div class="lookbook-item-preview">
+							<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= /*@noEscape*/ $data_cat[3]['banner']; ?>" data-sizes="auto" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[3]['aspect_ratio']; ?>;"></div>
+							<?= /*@noEscape*/ $data_cat[3]['bin']; ?>
+						</div>
+						<div class="lookbook-item-title">
+				        	<?= /*@noEscape*/ $data_cat[3]['title']; ?>
+				        </div>
+					</div>
+		        </div>
+		        <div class="col-md-12 col-6">
+		        	<div class="elementor-lookbook-item elementor__item--hover">
+						<div class="lookbook-item-preview">
+							<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= /*@noEscape*/ $data_cat[4]['banner']; ?>" data-sizes="auto" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[4]['aspect_ratio']; ?>;"></div>
+							<?= /*@noEscape*/ $data_cat[4]['bin']; ?>
+						</div>
+						<div class="lookbook-item-title">
+				        	<?= /*@noEscape*/ $data_cat[4]['title']; ?>
+				        </div>
+					</div>
+		        </div>
+           </div>
+        </div>
+        <div class="col-md-6 col-12">
+        	<div class="elementor-lookbook-item elementor__item--hover">
+				<div class="lookbook-item-preview">
+					<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= /*@noEscape*/ $data_cat[2]['banner']; ?>" data-sizes="auto" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[2]['aspect_ratio']; ?>;"></div>
+					<?= /*@noEscape*/ $data_cat[2]['bin']; ?>
+				</div>
+				<div class="lookbook-item-title">
+		        	<?= /*@noEscape*/ $data_cat[2]['title']; ?>
+		        </div>
+			</div>
+        </div>
+	<?php }else{ ?>
+		<?php $items = 0; foreach ($_collection as $_item) { $items ++; ?>
+			<div class="elementor-lookbook-item elementor__item--hover col-6 col-md-4 col-lg-3">
+				<?php 
+				$banner = $block->getBannerImageSrc($_item);
+				$width = $_item->getWidth();
+				$height = $_item->getHeight();
+				$aspect_ratio = $width / $height;
+				?>
+				<div class="lookbook-item-preview">
+					<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= $banner; ?>" data-sizes="auto" style="--aspect-ratio: <?= $aspect_ratio;?>;"></div>
+					<?= /* @escapeNotVerified */ $block->getPin($_item) ?>
+				</div>
+				<div class="lookbook-item-title">
+		        	<?= /* @escapeNotVerified */ $block->getTitleLinkHtml($_item) ?>
+		        </div>
+			</div>
+		<?php } ?>
+	<?php } ?>
+	</div>
+	<?php }else{ ?>
+		<div class="message info empty">
+			<div><?= $escaper->escapeHtml(__('No Lookbook items were found matching your condition. You can add items in "Blueskytechco > LookBook > Manage Items".')) ?></div>
+		</div>
+	<?php } ?>
+</div>

@@ -1,0 +1,43 @@
+<?php
+    $menu_name = ($block->getDataContent() && $block->getDataContent()->getName())
+        ? $block->getDataContent()->getName()
+        : '';
+?>
+<div id="nav-menu-header">
+    <div class="admin__field _required">
+        <div class="admin__field-label">
+            <label>
+                <span><?= $block->escapeHtml(__('Menu Name')) ?></span>
+            </label>
+        </div>
+        <div class="admin__field-control">
+            <input name="menu-name" id="menu-name" type="text" 
+                data-validate='{"required":true}' data-form-part="menus_builder_form" 
+                maxlength="255" value='<?= $block->escapeHtml($menu_name) ?>' 
+                class="menu-name form-required" required="required">
+        </div>
+    </div>
+    <div class="admin__field _required">
+        <div class="admin__field-label">
+            <label>
+                <span><?= $block->escapeHtml(__('Menu Type')) ?></span>
+            </label>
+        </div>
+        <div class="admin__field-control">
+            <select name="menu-type" id="menu-type" data-form-part="menus_builder_form" 
+                data-validate='{"required":true}'>
+                <option value="1" 
+                    <?= ($block->getDataContent() && $block->getDataContent()->getType() == 1) ? 'selected' : ''; ?>>
+                    <?= $block->escapeHtml(__('Horizontal')) ?>
+                </option>
+                <option value="2" 
+                    <?= ($block->getDataContent() && $block->getDataContent()->getType() == 2) ? 'selected' : ''; ?>>
+                    <?= $block->escapeHtml(__('Vertical')) ?>
+                </option>
+            </select>
+        </div>
+    </div>
+    <?php if (!$block->getDataContent()) { ?>
+        <p><?= $block->escapeHtml(__('Give your menu a name, then click Create Menu.')) ?></p>
+    <?php } ?>
+</div>

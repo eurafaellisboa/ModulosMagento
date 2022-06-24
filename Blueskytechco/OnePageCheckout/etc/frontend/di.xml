@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="\Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="onepagecheckout_checkout_layout_processor" type="Blueskytechco\OnePageCheckout\Plugin\Checkout\Block\Checkout\LayoutProcessor" />
+    </type>
+    <type name="\Magento\Checkout\Helper\Data">
+        <plugin name="onepagecheckout_checkout_helper_data" type="Blueskytechco\OnePageCheckout\Plugin\Checkout\Helper\Data" />
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="onepagecheckout_checkout_composite_config" xsi:type="object">Blueskytechco\OnePageCheckout\Model\CompositeConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="onepagecheckout" xsi:type="array">
+                    <item name="class" xsi:type="string">Blueskytechco\OnePageCheckout\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">90</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Controller\Index\Index">
+        <plugin name="onepagecheckout_checkout_redirect_link"
+                type="Blueskytechco\OnePageCheckout\Plugin\Checkout\Controller\Index\Index" />
+    </type>
+    <type name="Magento\Sales\Model\Order\Address\Validator">
+        <plugin name="rkopc_show_create_account" type="Blueskytechco\OnePageCheckout\Plugin\Sales\Model\Order\Address\Validator" />
+    </type>
+</config>

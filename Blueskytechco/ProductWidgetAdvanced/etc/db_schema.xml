@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="blueskytechco_product_widget_advanced_bestseller" resource="default" engine="innodb" comment="Collect Data BestSeller">
+        <column xsi:type="bigint" name="index_id" padding="20" unsigned="true" nullable="false" identity="true" comment="Index ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Product ID"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" comment="Store ID"/>
+        <column xsi:type="int" name="bestseller" padding="10" unsigned="true" nullable="false" identity="false" comment="Bestseller" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="index_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ADVANCED_BESTSELLER_PRODUCT_ID_STORE_ID">
+            <column name="store_id"/>
+            <column name="product_id"/>
+        </constraint>
+    </table>
+    <table name="blueskytechco_product_widget_advanced_most_viewed" resource="default" engine="innodb" comment="Collect Data MostViewed">
+        <column xsi:type="bigint" name="index_id" padding="20" unsigned="true" nullable="false" identity="true" comment="Index ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Product ID"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" comment="Store ID"/>
+        <column xsi:type="int" name="viewed" padding="10" unsigned="true" nullable="false" identity="false" comment="Viewed" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="index_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ADVANCED_MOST_VIEW_STORE_ID_PRODUCT_ID">
+            <column name="store_id"/>
+            <column name="product_id"/>
+        </constraint>
+    </table>
+    <table name="blueskytechco_product_widget_advanced_review_rate" resource="default" engine="innodb" comment="Collect Data TopRate">
+        <column xsi:type="bigint" name="index_id" padding="20" unsigned="true" nullable="false" identity="true" comment="Index ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Product ID"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" comment="Store ID"/>
+        <column xsi:type="int" name="rate" padding="10" unsigned="true" nullable="false" identity="false" comment="Rate Average" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="index_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ADVANCED_REVIEW_RATE_STORE_ID_PRODUCT_ID">
+            <column name="store_id"/>
+            <column name="product_id"/>
+        </constraint>
+    </table>
+</schema>

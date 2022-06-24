@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="instagramwidget" class="Blueskytechco\Instagram\Block\Widget\Instagram">
+        <label translate="true">Instagram widget</label>
+        <description>Instagram widget</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="description" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Description</label> 
+            </parameter>
+            <parameter name="image_format" xsi:type="select" required="false" visible="true" sort_order="60">
+                <label translate="true">Image format</label>
+                <options>
+                    <option name="square" value="square" selected="true">
+                        <label translate="true">Square</label>
+                    </option>
+                    <option name="circle" value="circle">
+                        <label translate="true">Circle</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="show_captions" xsi:type="select" required="false" visible="true" sort_order="70">
+                <label>Show captions</label>
+                <options>
+                    <option name="no" value="no" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="yes">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="show_instagram_icon" xsi:type="select" required="false" visible="true" sort_order="75">
+                <label>Show Instagram icon</label>
+                <description translate="true">Show when disable Instagram caption</description>
+                <options>
+                    <option name="no" value="no" selected="true">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="yes" value="yes">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="type_name" xsi:type="text"  visible="true" sort_order="92" >
+                <label translate="true">Appearance</label>
+            </parameter>
+            <parameter name="template_id" xsi:type="text"  visible="true" sort_order="100" >
+                <label translate="true">Templates Grid/List</label>
+            </parameter>
+            <parameter name="template_carousel_id" xsi:type="text"  visible="true" sort_order="120" >
+                <label translate="true">Templates Carousel</label>
+            </parameter>
+            <parameter name="margin_item" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Margin</label>
+            </parameter>
+            <parameter name="margin_grid_vertical" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Margin Grid Vertical</label>
+            </parameter>
+            <parameter name="grid_columns" xsi:type="text"  visible="true" sort_order="130" >
+                <label translate="true">Columns</label>
+            </parameter>
+            <parameter name="image_hover_effects" xsi:type="text"  visible="true" sort_order="140" >
+                <label translate="true">Image hover effects</label>
+            </parameter>
+        </parameters>
+    </widget> 
+</widgets>

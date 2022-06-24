@@ -1,0 +1,163 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//  Variables
+// ________________________________________
+@intagram-caption-color: @color-white;
+@intagram-caption-limited-line: 3;
+@intagram-caption-font-size: @font-size__base;
+@intagram-caption-font-style: false;
+@intagram-caption-text-transform: false;
+@intagram-caption-text-postion: absolute;
+//  Icons
+//  ________________________________________
+
+@intagram_icon_font: "Font Awesome 5 Brands";
+@intagram-icon: "\f16d";
+@intagram-icon_font-weight: 400;
+@_icon_intagram_font_size: 36px;
+@_icon_intagram_color: @color-white;
+
+@intagram-overlay_bg: fade(#000, 30%);
+
+@item-row-margin: 2rem;
+// Intagram icon
+.icon-font-intgram(){
+	.lib-css(content, @intagram-icon);
+	.lib-css(color, @_icon_intagram_color);
+	.lib-css(font-size, @_icon_intagram_font_size);
+    .lib-css(font-family, @intagram_icon_font);
+    .lib-css(font-weight,  @intagram-icon_font-weight);
+}
+// Hover effect
+@hover_zoom: true;
+@hover_transform: scale(1.1);
+.lib-hover-intagram-effect(
+  @_hover_zoom: @hover_zoom
+) when (@_hover_zoom = true) {
+    .lib-css(transform, @hover_transform, 1);
+}
+
+& when (@media-common = true) {
+	.rokantheme-instagram{
+		.item-row{
+			.intagram-item{
+				&:not(:last-of-type){
+					.lib-css(margin-bottom, @item-row-margin);
+				}
+			}
+		}
+		.intagram-item{
+			a{
+				display: block;
+				overflow: hidden;
+				img{
+					.lib-css(transition, 0.4s, 1);
+				}
+				&:hover{
+					img{
+						.lib-hover-intagram-effect();
+					}
+				}
+				&.circle{
+					@border-radius: 50%;
+					.lib-css(border-radius, @border-radius, 1);
+					img{
+						@border-radius: 50%;
+						.lib-css(border-radius, @border-radius, 1);
+					}
+				}
+				&.has-intagram-icon{
+					&:not(.has-caption){
+						position: relative;
+						&:before{
+							.icon-font-intgram();
+							position: absolute;
+							left: 50%;
+							top: 50%;
+							@transform: translate(-50%, -50%);
+							.lib-css(transform, @transform, 1);
+							z-index: 2;
+							opacity: 0;
+							visibility: hidden;
+							.lib-css(transition, 0.4s, 1);
+						}
+						&:hover{
+							&:before{
+								opacity: 1;
+								visibility: visible;
+							}
+						}
+					}
+				}
+				&.has-intagram-icon,
+				&.has-caption{
+					&:after{
+						content: '';
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						z-index: 1;
+						.lib-css(background-color, @intagram-overlay_bg);
+						opacity: 0;
+						visibility: hidden;
+						.lib-css(transition, 0.4s, 1);
+					}
+					&:hover{
+						&:after{
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+					&.circle{
+						&:after{
+							@border-radius: 50%;
+							.lib-css(border-radius, @border-radius, 1);
+						}
+					}
+				}
+				&.has-caption{
+					figcaption{
+						.lib-css(color, @intagram-caption-color);
+						.lib-css(font-size, @intagram-caption-font-size);
+						.lib-css(font-style, @intagram-caption-font-style);
+						.lib-css(text-transform, @intagram-caption-text-transform);
+						 display: -webkit-box;
+					    -webkit-box-orient: vertical;
+					    overflow: hidden;
+					    text-overflow: ellipsis;
+						.lib-css(-webkit-line-clamp, @intagram-caption-limited-line);
+						.lib-css(position, @intagram-caption-text-postion);
+						top: 50%;
+						left: 50%;
+						width: 100%;
+						@transform: translate(-50%, -50%);
+						.lib-css(transform, @transform, 1);
+						padding: 0 10%;
+						text-align: center;
+						z-index: 2;
+					}
+					&:after{
+						opacity: 1;
+						visibility: visible;
+					} 
+				}
+			}
+		}
+		// Error
+		.instagram-connect-error{
+			text-align: center;
+		    padding: 25px 15px;
+		    background-color: #f8d7da;
+		    border-color: #f5c6cb;
+		    p{
+		    	margin-bottom: 0;
+		    	strong{
+		    		display: block;
+		    		margin-bottom: 8px;
+		    	}
+		    }
+		}
+	}
+}

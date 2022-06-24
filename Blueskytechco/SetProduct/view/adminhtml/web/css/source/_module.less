@@ -1,0 +1,211 @@
+& when (@media-common =true) {
+    #lookbook-edit-form a:hover{
+        text-decoration: none;
+    }
+    .left-manager-lookbook{
+        margin-bottom: 10px;
+        .panel-control-general-options{
+            max-width: 90%;
+        }
+        .lookbook_admin_field{
+            &.name{
+                margin-bottom: 10px;
+            }
+        }
+        input, 
+        select,
+        .select2-container--default{
+            width: 100%;
+            padding-left: 10px;
+            margin: 10px 0 0;
+            min-height: 40px;   
+            border-radius: 0;
+            border: 1px solid #dcdcde;
+            display: flex;
+            align-items: center;
+        }
+        .lookbook_admin_label{
+            .required{
+                color: #e02b27;
+            }
+        }
+        button{
+            margin-top: 10px;
+        }
+        input[type="file"],
+        .select2-container--default {
+            padding-left: 0;
+        }
+        .select2-container--default {
+            min-width: 300px;
+            border-radius: 0;
+            height: 38px;
+            .flex();
+            align-items: center;
+            .select2-selection--single{
+                border: 0;
+            }
+            .select2-selection__arrow{
+                top:  !important;
+            }
+        }
+        #button-add-products-click,
+        .upload-image-container .button-select-image{
+            background-color: @color-white ;
+            border-radius: 5px;
+            color: #222;
+            padding: 6px 20px;
+            &:hover{
+                background-color: #222;
+                color: @color-white;
+                border-color: #222;
+            }
+        }
+        .position-absolute-fixed {
+            > *{
+                margin-bottom: 10px;
+            }
+        }
+        .lookbook-title{
+            .flex();
+            margin: 10px -5px;
+            > div{
+                flex: 1;
+                padding: 0 5px;
+            }
+        }
+        .upload-image-container{
+            position: relative;
+            input{
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                height: 100%;
+                opacity: 0;
+            }
+            .button-select-image{
+                .lib-button(
+                    @_button-background: #e3e3e3;
+                    @_button-border: 1px solid #adadad;
+                );
+                margin: 10px 0;
+            }
+        }
+        .container-lookbook-append-products{
+            ul{
+                li{
+                    position: relative;
+                    .flex();
+                    align-items: center;
+                    margin-left: -5px;
+                    margin-right: -5px;
+                    > div{
+                        flex: 1;
+                        padding: 0 5px;
+                    }
+                    .div-container-del-product{
+                        flex: unset;
+                        button{
+                            border: 0;
+                            padding: 0;
+                            background: transparent;
+                            i{
+                                .lib-font-size(11);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #button-add-products-click,
+        .upload-image-container .button-select-image{
+            background-color: @color-white ;
+            border-radius: 5px;
+            color: #222;
+            padding: 6px 20px;
+            &:hover{
+                background-color: #222;
+                color: @color-white;
+                border-color: #222;
+            }
+        }
+    }
+    .lookbook-live-preview{
+        .pin-icon-product{
+            border-radius: 50%;
+            text-align: center;
+            z-index: 10;
+            padding: 0;
+            backface-visibility: hidden;
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            border: 2px solid @color-white;
+            background-color: @color-white;
+            color: #000;
+            text-shadow: none;
+            font-weight: 600;
+            overflow: hidden;
+            @transition: transform .2s ease-out,opacify .2s ease-out;
+            .lib-css(transition, @transition, 1);
+            opacity: 1;
+        }
+        .dark{
+            .pin-icon-product{
+                border: 2px solid @color-white;
+                background-color: #000;
+                color: @color-white;
+            }
+        }
+    }
+    .right-manager-lookbook{
+        .add-lookbook-title{
+            margin: 1rem 0 2rem;
+        }
+    }
+    .lookbook-page-edit-admin .page-main-actions .page-actions._fixed, 
+    .lookbook-page-edit-admin .messages{
+        display: none !important;
+    }
+    .position-absolute-fixed{
+        position: absolute;
+        max-height: 500px;
+        width: 100%;
+        overflow: auto;
+    }
+    .lookbook-live-preview img{
+        max-width: 100%;
+    }
+    .lookbook-icon{
+        position: absolute;
+    }
+    .pin-icon-product, 
+    .lookbook-icon{
+        cursor: move;
+    }
+    .lookbook-live-preview{
+        position: relative;
+        display: inline-block;
+    }
+    .js-data-products-ajax{
+        width: 200px;
+    }
+    // Product sussgest
+    .select2-result-products{
+        .flex(
+            @_flex-wrap: nowrap;
+        );
+        .select2-result-products-img{
+            width: 50px;
+            margin-right: 1.5rem;
+        }
+    }
+}

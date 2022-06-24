@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<update handle="editor"/>
+	<head>
+		<link src="Blueskytechco_SetProduct::css/select2.css"/>
+    </head>
+	<body>
+        <referenceContainer name="content">
+            <block class="Blueskytechco\SetProduct\Block\Adminhtml\Field\Tabs" name="lookbook.field.tabs" template="Blueskytechco_SetProduct::field/tabs.phtml">
+                <block class="Blueskytechco\SetProduct\Block\Adminhtml\Field\Details" name="lookbook.field.details"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,69 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $viewModel \Blueskytechco\CustomCatalog\ViewModel\Catalog
+ */
+?>
+<?php
+    $view_model = $block->getViewModel();
+?>
+<?= $view_model->getSubCategoryHtml() ?>
+<script> 
+require([
+    'jquery',
+    'slick'
+    ], function ($) {
+    'use strict';
+    $(document).ready(function() {
+        var $carouselElement = $('.sub-category-slide'),
+        slickConfig = {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            rows: 1,
+            autoplay: false,
+            autoplaySpeed: false,
+            arrows: true,
+            dots: false,
+            responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4
+                }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 2
+                }
+            }
+            ]
+        };
+        $carouselElement.slick(slickConfig);
+    });
+});
+</script>

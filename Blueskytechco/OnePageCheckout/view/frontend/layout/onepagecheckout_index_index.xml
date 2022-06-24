@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_index_index"/>
+    <body>
+        <attribute name="class" value="blueskytechco-onepagecheckout"/>
+        <attribute name="class" value="checkout-index-index"/>
+        <referenceBlock name="page.main.title">
+            <block class="Blueskytechco\OnePageCheckout\Block\Config" name="short.description" template="Blueskytechco_OnePageCheckout::short_description.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/onepage</item>
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/shipping</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="customer-email" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/form/element/email</item>
+                                                        </item>
+                                                        <item name="address-list" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/shipping-address/list</item>
+                                                        </item>
+                                                        <item name="before-shipping-method-form" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <!-- address-list-additional-addresses -->
+                                                                <item name="blueskytechco_opc_shipping_delivery_date" xsi:type="array">
+                                                                    <item name="label" xsi:type="string" translate="true">Shipping Delivery Date</item>
+                                                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/form/element/date</item>
+                                                                    <item name="dataScope" xsi:type="string">before-shipping-method-form.blueskytechco_opc_shipping_delivery_date</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                        <item name="options" xsi:type="array">
+                                                                            <item name="timeFormat" xsi:type="string">HH:mm</item>
+                                                                            <item name="showsTime" xsi:type="string">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="blueskytechco_opc_shipping_delivery_comment" xsi:type="array">
+                                                                    <item name="label" xsi:type="string" translate="true">Shipping Delivery Comment</item>
+                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
+                                                                    <item name="dataScope" xsi:type="string">before-shipping-method-form.blueskytechco_opc_shipping_delivery_comment</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/textarea</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/payment</item>
+                                                    <item name="template" xsi:type="string">Blueskytechco_OnePageCheckout/payment</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="customer-email" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/form/element/email</item>
+                                                        </item>
+                                                        <item name="payments-list" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/payment/list</item>
+                                                            <item name="template" xsi:type="string">Blueskytechco_OnePageCheckout/payment-methods/list</item>
+                                                        </item>
+                                                        <item name="additional-payment-validators" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="agreements-validator" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/agreement-validation</item>
+                                                                </item>
+                                                                <item name="create-new-account-validator" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/create-new-account-validation</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="afterMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="discount" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/payment/discount</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">Blueskytechco_OnePageCheckout/sidebar</item>
+                                    </item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="cart_items" xsi:type="array">
+                                                    <item name="displayArea" xsi:type="string">summary</item>
+                                                    <item name="sortOrder" xsi:type="string">0</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="details" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/summary/item/details</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="blueskytechco_opc_order_comment" xsi:type="array">
+                                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
+                                            <item name="label" xsi:type="string" translate="true">Order Comment</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="sortOrder" xsi:type="string">220</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">Blueskytechco_OnePageCheckout/form/order-comment</item>
+                                            </item>
+                                        </item>
+                                        <item name="subscribe" xsi:type="array">
+                                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/boolean</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="sortOrder" xsi:type="string">230</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">ui/form/element/checkbox</item>
+                                                <item name="checked" xsi:type="boolean">false</item>
+                                                <item name="description" xsi:type="string" translate="true">Check to Subscribe Our Newsletter</item>
+                                                <item name="dataType" xsi:type="string">boolean</item>
+                                                <item name="formElement" xsi:type="string">checkbox</item>
+                                            </item>
+                                        </item>
+                                        <item name="giftmessage" xsi:type="array">
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="sortOrder" xsi:type="string">240</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="giftOptionsCart" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/gift-message</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="template" xsi:type="string">Blueskytechco_OnePageCheckout/gift-message</item>
+                                                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="agreements" xsi:type="array">
+                                            <item name="component" xsi:type="string">Magento_CheckoutAgreements/js/view/checkout-agreements</item>
+                                            <item name="template" xsi:type="string">Blueskytechco_OnePageCheckout/checkout/checkout-agreements</item>
+                                            <item name="sortOrder" xsi:type="string">260</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="dataScope" xsi:type="string">checkoutAgreements</item>
+                                            <item name="provider" xsi:type="string">checkoutProvider</item>
+                                        </item>
+                                        <item name="place-order-btn" xsi:type="array">
+                                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/place-order-btn</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="sortOrder" xsi:type="string">270</item>
+                                        </item>
+                                        <item name="opc_widget_under_button" xsi:type="array">
+                                            <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/view/opc-widget</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">Blueskytechco_OnePageCheckout/widget/opc-widget-button</item>
+                                            </item>
+                                            <item name="sortOrder" xsi:type="string">280</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="autocomplete" xsi:type="array">
+                                    <item name="sortOrder" xsi:type="string">250</item>
+                                    <item name="component" xsi:type="string">Blueskytechco_OnePageCheckout/js/model/autocomplete</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

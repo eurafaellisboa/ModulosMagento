@@ -1,0 +1,36 @@
+<?php
+/**
+ * Quickview Product for store
+ *
+ * @var $viewModel \Blueskytechco\QuickviewProduct\ViewModel\QuickView
+ */
+?>
+<?php
+    $view_model = $block->getViewModel();
+    $position = $view_model->getData('position');
+    $label = $view_model->getData('label');
+    $class_position = $view_model->getData('class_position')?$view_model->getData('class_position')
+        :'[data-role=add-to-links]';
+    $nav = $view_model->getData('nav');
+    $navdir = $view_model->getData('navdir');
+if ($nav == 'dots') {
+    $add_class = 'thumb_slide';
+} else {
+    $add_class = ($navdir == 'bottom')?'horizontal_'.$navdir.'':
+        'vertical_'.$navdir.'';
+}
+    
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Blueskytechco_QuickviewProduct/js/blueskytechco_quickview": { 
+            "quickviewUrl": "<?= $block->escapeHtml($block->getUrl('blueskytechco_quickview/product/view')); ?>",
+            "buttonText": "<?= $block->escapeHtml($label) ?>",
+            "classInsertPosition": "<?= $block->escapeHtml($class_position) ?>", 
+            "actionInsert": "<?= $block->escapeHtml($position) ?>",
+            "classGallery": "<?= $block->escapeHtml($add_class) ?>"
+        }
+    }
+}
+</script>

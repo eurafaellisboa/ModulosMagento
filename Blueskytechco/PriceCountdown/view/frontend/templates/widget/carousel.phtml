@@ -1,0 +1,162 @@
+<?php
+use Magento\Framework\App\Action\Action;
+?>
+<div class="section widget-product-countdown-timers-slider-carousel margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('margin_item') ?> desgin_product_price_countdown--<?= /*@noEscape*/ $block->getDataWidgetConfig('desgin') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php if($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())){ ?>
+	<?php
+    $type = 'widget-product-countdown-timers-slider';
+
+    $mode = 'slider';
+
+    $image = 'new_products_content_widget_grid';
+    $items = $block->getProductCollection()->getItems();
+
+    $showWishlist = true;
+    $showCompare = false;
+    $showCart = true;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    $description = false;
+    ?>
+	<div class="elementor__content product-items <?= /* @noEscape */ $type ?> products-grid">
+        <?php foreach ($items as $_item) : ?>
+        <div class="product-item">
+            <div class="product-item-info">
+				<div class="product_item_images">
+					<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+						<?= $block->getImage($_item, $image)->toHtml() ?>
+					</a>
+					<?php if ($showWishlist || $showCompare || $showCart): ?>
+						<div class="product-item-inner">
+							<div class="product-item-actions">
+							<div class="product-item-actions_middle">
+								<?php if ($showCart): ?>
+									<div class="actions-primary">
+										<?php if ($_item->isSaleable()): ?>
+											<?php $postParams = $block->getAddToCartPostParams($_item); ?>
+											<form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
+												<input type="hidden" name="product" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
+												<input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+												<?= $block->getBlockHtml('formkey') ?>
+												<button type="submit"
+														title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+														class="action tocart primary">
+													<span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+												</button>
+											</form>
+										<?php else: ?>
+											<?php if ($_item->isAvailable()): ?>
+												<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+											<?php else: ?>
+												<div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
+											<?php endif; ?>
+										<?php endif; ?>
+									</div>
+								<?php endif; ?>
+							</div>
+								<?php if ($showWishlist || $showCompare): ?>
+									<div class="actions-secondary" data-role="add-to-links">
+										<?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow() && $showWishlist): ?>
+											<a href="#"
+												data-post='<?= /* @noEscape */ $block->getAddToWishlistParams($_item) ?>' class="action towishlist" data-action="add-to-wishlist" title="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>">
+												<span><?= $block->escapeHtml(__('Add to Wish List')) ?></span>
+											</a>
+										<?php endif; ?>
+										<?php if ($block->getAddToCompareUrl() && $showCompare): ?>
+											<?php $compareHelper = $this->helper(\Magento\Catalog\Helper\Product\Compare::class);?>
+											<a href="#" class="action tocompare" data-post='<?= /* @noEscape */ $compareHelper->getPostDataParams($_item) ?>' title="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>">
+												<span><?= $block->escapeHtml(__('Add to Compare')) ?></span>
+											</a>
+										<?php endif; ?>
+									</div>
+								<?php endif; ?>
+							</div>
+						</div>
+					<?php endif; ?>
+				</div>
+				<div data-countdown="<?= $block->getDataCountdown($_item) ?>"></div>
+                <div class="final-date-product-countdown-timers"></div>
+                <div class="product-item-details">
+                    <strong class="product-item-name">
+                        <a title="<?= $block->escapeHtml($_item->getName()) ?>"
+                           href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+                           class="product-item-link">
+                            <?= $block->escapeHtml($_item->getName()) ?>
+                        </a>
+                    </strong>
+
+                    <?= $block->getProductPriceHtml($_item, $type) ?>
+                </div>
+            </div>
+        </div> 
+        <?php endforeach ?>
+	</div>
+	<?php }else{ ?>
+		<div class="elementor__content product-items widget-product-countdown-timers-slider products-grid">
+			<div class="product-item">
+				<div class="product-item-info">
+					<div class="product_item_images">
+						<a href="#" class="product-item-photo">
+							<span class="product-image-container product-image-container-89" style="width: 700px;" data-hover="image_hover_effects--zoom-overlay">
+								<span class="product-image-wrapper" style="padding-bottom: 127.42857142857%;">
+									<img
+										class="product-image-photo lazyload"
+										data-src="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png"
+										src="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png"
+										loading="lazy"
+										width="700"
+										height="892"
+										alt="Sample"
+									/>
+								</span>
+								<span class="product-label"> <span class="onsale label-product">11%</span> </span>
+							</span>
+						</a>
+						<div class="product-item-inner">
+							<div class="product-item-actions">
+								<div class="product-item-actions_middle">
+									<div class="actions-primary">
+										<button type="submit" title="Add to Cart" class="action tocart primary">
+											<span>Add to Cart</span>
+										</button>
+									</div>
+								</div>
+								<div class="actions-secondary" data-role="add-to-links">
+									<a href="#" class="action towishlist" data-action="add-to-wishlist" title="Add to Wish List">
+										<span>Add to Wish List</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-countdown="2023/06/15 23:59:59"></div>
+					<div class="final-date-product-countdown-timers"></div>
+					<div class="product-item-details">
+						<strong class="product-item-name">
+							<a title="Sample" href="#" class="product-item-link">Sample</a>
+						</strong>
+
+						<div class="price-box price-final_price" data-role="priceBox" data-product- data-price-box="product-id-89">
+							<span class="special-price">
+								<span class="price">$40.00</span>
+							</span>
+							<span class="old-price">
+								<span class="price">$45.00</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<?php } ?>
+</div>

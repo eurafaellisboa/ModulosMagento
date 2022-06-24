@@ -1,0 +1,104 @@
+<?php 
+$helper = $this->helper('Blueskytechco\Themeoption\Helper\Verifypurchasecode');
+if($helper->checkEnvatoPurchaseCode()){
+?>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $(document).ready(function(){
+            if($("#row_activationcode_activation_purchasecode p.note").length > 0){
+                $("#row_activationcode_activation_purchasecode p.note").html('<span style="color: green; font-weight: bold; font-style: italic;"><?= __("Theme successfully activated using manual activation. Thanks for buying our theme.");?></span>');
+            }
+        });
+    });
+</script>
+<?php } ?>
+<script>
+    require(['jquery'], function ($) {
+        $('#themesetting_product_cropping').change(function(){
+            themesetting_product_cropping();
+        });
+        themesetting_product_cropping();
+        function themesetting_product_cropping(){
+            if($('#themesetting_product_cropping').length > 0){
+                var get_crop = $('#themesetting_product_cropping').val();
+                if(get_crop != 'custom'){
+                    $('#fixed_change_cropping_type').text('Images will be cropped into a square');
+                }
+                else{
+                    $('#fixed_change_cropping_type').text('Images will be cropped to a custom aspect ratio');
+                }
+            }
+        }
+    });
+</script>
+<?php 
+$current_url = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+if(strpos($current_url, 'section/themeoption') !== false){
+?>
+<script>
+    require(['jquery'], function ($) {
+        $('#themeoption_font_google_font_family').change(function(){
+            themeoption_font_google_font_family();
+        });
+        themeoption_font_google_font_family();
+        function themeoption_font_google_font_family(){
+            if($('#themeoption_font_google_font_family').length > 0){
+                var g_link = $('#themeoption_font_google_font_family').val();
+                g_link = g_link.replace(/ /g, "+");;
+                $('#themeoption_font_google_font_family_customize').attr('href','https://fonts.google.com/specimen/'+g_link);
+                $('#themeoption_font_google_font_family_customize').text('https://fonts.google.com/specimen/'+g_link);   
+            }
+        }
+
+        $('#themeoption_font_google_menu_family').change(function(){
+            themeoption_font_google_menu_family();
+        });
+        themeoption_font_google_menu_family();
+        function themeoption_font_google_menu_family(){
+            if($('#themeoption_font_google_menu_family').length > 0){
+                var g_link = $('#themeoption_font_google_menu_family').val();
+                g_link = g_link.replace(/ /g, "+");;
+                $('#themeoption_font_google_menu_family_customize').attr('href','https://fonts.google.com/specimen/'+g_link);
+                $('#themeoption_font_google_menu_family_customize').text('https://fonts.google.com/specimen/'+g_link);   
+            }
+        }
+
+        $('#themeoption_font_google_heading_family').change(function(){
+            themeoption_font_google_heading_family();
+        });
+        themeoption_font_google_heading_family();
+        function themeoption_font_google_heading_family(){
+            if($('#themeoption_font_google_heading_family').length > 0){
+                var g_link = $('#themeoption_font_google_heading_family').val();
+                g_link = g_link.replace(/ /g, "+");;
+                $('#themeoption_font_google_heading_family_customize').attr('href','https://fonts.google.com/specimen/'+g_link);
+                $('#themeoption_font_google_heading_family_customize').text('https://fonts.google.com/specimen/'+g_link);   
+            }
+        }
+
+        $('#themeoption_font_google_other_family').change(function(){
+            themeoption_font_google_other_family();
+        });
+        themeoption_font_google_other_family();
+        function themeoption_font_google_other_family(){
+            if($('#themeoption_font_google_other_family').length > 0){
+                var g_link = $('#themeoption_font_google_other_family').val();
+                g_link = g_link.replace(/ /g, "+");;
+                $('#themeoption_font_google_other_family_customize').attr('href','https://fonts.google.com/specimen/'+g_link);
+                $('#themeoption_font_google_other_family_customize').text('https://fonts.google.com/specimen/'+g_link);   
+            }
+        }
+    });
+</script>
+<?php } ?>
+<?php if(strpos($current_url, 'section/themeoption') !== false || strpos($current_url, 'section/activationcode') !== false || strpos($current_url, 'section/themesetting') !== false || strpos($current_url, 'section/demoimporter') !== false || strpos($current_url, 'section/collect_product_data') !== false || strpos($current_url, 'section/instagramsection') !== false || strpos($current_url, 'section/menus') !== false || strpos($current_url, 'section/searchsuite') !== false || strpos($current_url, 'section/storelocator') !== false || strpos($current_url, 'section/exportoptions') !== false){ ?>
+<script>
+    require(['jquery'], function ($) {
+        $('#system_config_tabs div.config-nav-block.admin__page-nav').hide();
+        $('#system_config_tabs div.config-nav-block.admin__page-nav.blueskytechco-tab').show();
+        $('body').addClass('body-blueskytechco-tab');
+    });
+</script>
+<?php } ?>

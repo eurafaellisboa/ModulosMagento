@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="staticmenu"
+          label="Static Menu"
+          component="Magento_PageBuilder/js/content-type-collection"
+          preview_component="Blueskytechco_PageBuilderCustom/js/content-type/staticmenu/preview"
+          master_component="Magento_PageBuilder/js/content-type/master-collection"
+          form="pagebuilder_staticmenu_form"
+          menu_section="blueskytechco_page_builder_custom_elements"
+          icon="icon-pagebuilder-staticmenu"
+          sortOrder="30"
+          translate="label">
+        <children default_policy="deny">
+            <child name="staticmenu-item" policy="allow"/>
+        </children>
+        <appearances>
+            <appearance 
+                        default="true"
+                        name="stacked"
+                        preview_template="Blueskytechco_PageBuilderCustom/content-type/staticmenu/stacked/preview"
+                        master_template="Blueskytechco_PageBuilderCustom/content-type/staticmenu/stacked/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <style name="text_align" source="text_align"/>
+                        <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
+                        <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <css name="css_classes"/>
+                    </element>
+                    <element name="title">
+                        <html name="title"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+    </type>
+</config>

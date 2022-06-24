@@ -1,0 +1,153 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+// Variables
+@bls_icon-box-width: 5rem;
+@bls_icon-box-height: 5rem;
+
+@bls_icon-box-stacked-border: 1px solid @border-color__base;
+@bls_icon-box-stacked-background: @color-white;
+
+@bls_icon-box-framed-border: 1px solid @darkcolor;
+@bls_icon-box-framed-background: @darkcolor;
+@bls_icon-box-framed-color: @color-white;
+// Icon
+@bls_icon-box-font-size: 3.6rem;
+@bls_icon-box-color: false;
+
+@bls_icon-box-top-margin: 0 0 1rem;
+@bls_icon-box-left-margin: 0 5px 0 0;
+@bls_icon-box-right-margin: 0 0 0 5px;
+
+// Title
+
+@bls_icon-box-title-font-size: 1.4rem;
+@bls_icon-box-title-font-weight: false;
+@bls_icon-box-title-text-transform: false;
+@bls_icon-box-title-color: false;
+@bls_icon-box-title-margin: 0 0 5px;
+
+.bls_icon-box-title(
+    @_bls_icon-box-title-font-size: @bls_icon-box-title-font-size;
+    @_bls_icon-box-title-font-weight: @bls_icon-box-title-font-weight;
+    @_bls_icon-box-title-text-transform: @bls_icon-box-title-text-transform;
+    @_bls_icon-box-title-color: @bls_icon-box-title-color;
+    @_bls_icon-box-title-margin: @bls_icon-box-title-margin;
+){
+    .lib-css(font-size, @_bls_icon-box-title-font-size);
+    .lib-css(font-weight, @_bls_icon-box-title-font-weight);
+    .lib-css(text-transform, @_bls_icon-box-title-text-transform);
+    .lib-css(color, @_bls_icon-box-title-color);
+    .lib-css(margin, @_bls_icon-box-title-margin)
+}
+
+// Bls Icon box description
+
+@bls_icon-box-des-font-size: false;
+@bls_icon-box-des-font-weight: false;
+@bls_icon-box-des-text-transform: false;
+@bls_icon-box-des-color: false;
+@bls_icon-box-des-margin: 0;
+
+.bls_icon-box-des(
+    @_bls_icon-box-des-font-size: @bls_icon-box-des-font-size;
+    @_bls_icon-box-des-font-weight: @bls_icon-box-des-font-weight;
+    @_bls_icon-box-des-text-transform: @bls_icon-box-des-text-transform;
+    @_bls_icon-box-des-color: @bls_icon-box-des-color;
+    @_bls_icon-box-des-margin: @bls_icon-box-des-margin;
+){
+    .lib-css(font-size, @_bls_icon-box-des-font-size);
+    .lib-css(font-weight, @_bls_icon-box-des-font-weight);
+    .lib-css(text-transform, @_bls_icon-box-des-text-transform);
+    .lib-css(color, @_bls_icon-box-des-color);
+    .lib-css(margin, @_bls_icon-box-des-margin)
+}
+// Bls Icon box gobal style
+& when (@media-common =true) {
+    .mr_20{
+        .elementor-icon-box-wrapper{
+            .elementor-icon-box-icon{
+                margin-right: 20px;
+            }
+        }
+    }
+    .elementor-icon-box-wrapper{
+        .flex(
+            @_flex-wrap: nowrap;
+        );
+        .elementor-icon-box-content{
+            flex: 1;
+            a{
+                &:not(:hover){
+                    color: @text__color;
+                }
+            }
+        }
+    }
+    .elementor-icon-box-icon{
+        .lib-css(color, @bls_icon-box-color);
+        line-height: 1;
+    }
+    .elementor-icon-box-title{
+        .bls_icon-box-title();
+    }
+    .elementor-icon-box-description{
+        .bls_icon-box-des();
+    }
+
+    // Bls Icon box top postion
+    [data-icon-box-position="top"]{
+        .elementor-icon-box-wrapper{
+            flex-direction: column;
+        }
+        .elementor-icon-box-icon{
+            .lib-css(margin, @bls_icon-box-top-margin);
+        }
+    }
+    // Bls Icon box left postion
+    [data-icon-box-position="left"]{
+        .elementor-icon-box-icon{
+            .lib-css(margin, @bls_icon-box-left-margin);
+        }
+    }
+    // Bls Icon box right postion
+    [data-icon-box-position="right"]{
+        .elementor-icon-box-icon{
+            order: 2;
+            .lib-css(margin, @bls_icon-box-right-margin);
+        }
+    }
+    // Bls icon box view
+    [data-icon-box-view="stacked"],
+    [data-icon-box-view="framed"]{
+        .elementor-icon-box-icon{
+            .lib-css(width, @bls_icon-box-width);
+            .lib-css(height, @bls_icon-box-height);
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    [data-icon-box-view="framed"]{
+        .elementor-icon-box-icon{
+            .lib-css(border, @bls_icon-box-stacked-border);
+            .lib-css(background, @bls_icon-box-stacked-background);
+        }
+    }
+
+    [data-icon-box-view="stacked"]{
+        .elementor-icon-box-icon{
+            .lib-css(border, @bls_icon-box-framed-border);
+            .lib-css(background, @bls_icon-box-framed-background);
+            .lib-css(color, @bls_icon-box-framed-color);
+        }
+    }
+    [data-justify-content="center"]{
+        .elementor-icon-box-wrapper{
+           align-items: center;
+        }
+    }
+}

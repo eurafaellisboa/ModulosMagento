@@ -1,0 +1,164 @@
+@font-face {
+    font-family: Futura;
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-Light.woff2") format("woff2"), url("../fonts/FuturaLT-Light.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 300;
+    font-style: oblique;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-LightOblique.woff2") format("woff2"), url("../fonts/FuturaLT-LightOblique.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-Book.woff2") format("woff2"), url("../fonts/FuturaLT-Book.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 400;
+    font-style: oblique;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-BookOblique.woff2") format("woff2"), url("../fonts/FuturaLT-BookOblique.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/FuturaLT.woff2") format("woff2"), url("../fonts/FuturaLT.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 500;
+    font-style: oblique;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-Oblique.woff2") format("woff2"), url("../fonts/FuturaLT-Oblique.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-Heavy.woff2") format("woff2"), url("../fonts/FuturaLT-Heavy.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 600;
+    font-style: oblique;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-HeavyOblique.woff2") format("woff2"), url("../fonts/FuturaLT-HeavyOblique.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-Bold.woff2") format("woff2"), url("../fonts/FuturaLT-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 700;
+    font-style: oblique;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-BoldOblique.woff2") format("woff2"), url("../fonts/FuturaLT-BoldOblique.woff") format("woff");
+}
+
+
+@font-face {
+    font-family: Futura;
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-ExtraBold.woff2") format("woff2"), url("../fonts/FuturaLT-ExtraBold.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 800;
+    font-style: oblique;
+    font-display: swap;
+    src: url("../fonts/FuturaLT-ExtraBoldOblique.woff2") format("woff2"), url("../fonts/FuturaLT-ExtraBoldOblique.woff") format("woff");
+}
+
+@font-face {
+    font-family: Futura;
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+    src: url(../fonts/FuturaLT-Heavy.woff) format("woff"), url(../fonts/FuturaLT-Heavy.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-Reg.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-Reg.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-Italic.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-Med.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-Med.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-MedIt.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-MedIt.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-Demi.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-Demi.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-DemiIt.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-DemiIt.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-Bold.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Avenir Next Rounded Std';
+    src: url('../fonts/AvenirNextRoundedStd-BoldIt.woff2') format('woff2'), url('../fonts/AvenirNextRoundedStd-BoldIt.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}

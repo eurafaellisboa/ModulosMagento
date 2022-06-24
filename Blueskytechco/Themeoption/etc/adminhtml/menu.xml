@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_Themeoption::theme" title="Theme V1.0.5" module="Blueskytechco_Themeoption" sortOrder="1" parent="Blueskytechco_RokanBase::rokanbase" resource="Blueskytechco_Themeoption::theme"/>
+        <add id="Blueskytechco_Themeoption::themesetting" title="Theme Settings" module="Blueskytechco_Themeoption" sortOrder="10" parent="Blueskytechco_Themeoption::theme" action="adminhtml/system_config/edit/section/themesetting" resource="Blueskytechco_Themeoption::themesetting"/>
+        <add id="Blueskytechco_Themeoption::themeoption" title="Theme Design" module="Blueskytechco_Themeoption" sortOrder="15" parent="Blueskytechco_Themeoption::theme" action="adminhtml/system_config/edit/section/themeoption" resource="Blueskytechco_Themeoption::themeoption"/>
+        <add id="Blueskytechco_Themeoption::demoimporter" title="Demo Importer" module="Blueskytechco_Themeoption" sortOrder="30" parent="Blueskytechco_Themeoption::theme" action="adminhtml/system_config/edit/section/demoimporter" resource="Blueskytechco_Themeoption::demoimporter"/>
+        <add id="Blueskytechco_Themeoption::activationcode" title="Activation Purchase Code" module="Blueskytechco_Themeoption" sortOrder="40" parent="Blueskytechco_Themeoption::theme" action="adminhtml/system_config/edit/section/activationcode" resource="Blueskytechco_Themeoption::activationcode"/>
+    </menu>
+</config>

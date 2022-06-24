@@ -1,0 +1,128 @@
+<?php
+use Magento\Framework\App\Action\Action;
+?>
+<div class="section widget-daily-deal-grid-default products-grid margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('space_between_item') ?> desgin_product_daily_deal--<?= /*@noEscape*/ $block->getDataWidgetConfig('desgin') ?>">
+	<div class="header-daily-deal-container">
+		<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__header">
+			<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+			<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+			<?php } ?>
+			<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+			<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+			<?php } ?>
+		</div>
+		<?php } ?>
+		<div data-countdown="<?= $block->getDataWidgetConfig('countdown_data') ?>"></div>
+		<?php if($block->getDataWidgetConfig('hide_products') != 'true'){ ?>
+			<div class="container-countdown-time"><div class="final-text-daily-deal"><?= $block->getDataWidgetConfig('countdown_text') ?></div><div class="final-date-daily-deal"></div></div>
+		<?php }else{ ?>
+			<?php 
+				$countdown_text = explode("countdown", $block->getDataWidgetConfig('countdown_text'));
+				$countdown_text_1 = isset($countdown_text[0]) ? $countdown_text[0] : '';
+				$countdown_text_2 = isset($countdown_text[1]) ? $countdown_text[1] : '';
+			?>
+			<a href="<?= $block->getCategoriesUrl();?>" class="daily-deal-category-url"></a>
+			<div class="container-countdown-time"><div class="final-text-daily-deal"><?= $countdown_text_1 ?></div><div class="final-date-daily-deal"></div><div class="final-text-daily-deal-2"><?= $countdown_text_2 ?></div></div>
+		<?php } ?>
+	</div>
+	<?php if($block->getDataWidgetConfig('hide_products') != 'true'){ ?>
+		<?php if($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())){ ?>
+		<?php
+	    $type = 'widget-daily-deal-grid';
+
+	    $mode = 'grid';
+
+	    $image = 'new_products_content_widget_grid';
+	    $items = $block->getProductCollection()->getItems();
+
+	    $showWishlist = true;
+	    $showCompare = true;
+	    $showCart = true;
+	    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+	    $description = false;
+	    ?>
+		<ol class="elementor__content row product-items <?= /* @noEscape */ $type ?>">
+	        <?php $iterator = 1; ?>
+	        <?php foreach ($items as $_item): ?>
+	            <?= /* @noEscape */ '<li class="product-item'.$block->getCol().'">' ?>
+		            <div class="product-item-info">
+						<div class="product_item_images">
+							<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+								<?= $block->getImage($_item, $image)->toHtml() ?>
+							</a>
+							<?php if ($showWishlist || $showCompare || $showCart): ?>
+		                        <div class="product-item-inner">
+		                            <div class="product-item-actions">
+									<div class="product-item-actions_middle">
+		                                <?php if ($showCart): ?>
+		                                    <div class="actions-primary">
+		                                        <?php if ($_item->isSaleable()): ?>
+		                                            <?php $postParams = $block->getAddToCartPostParams($_item); ?>
+		                                            <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
+		                                                <input type="hidden" name="product" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
+		                                                <input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+		                                                <?= $block->getBlockHtml('formkey') ?>
+		                                                <button type="submit"
+		                                                        title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+		                                                        class="action tocart primary">
+		                                                    <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+		                                                </button>
+		                                            </form>
+		                                        <?php else: ?>
+		                                            <?php if ($_item->isAvailable()): ?>
+		                                                <div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+		                                            <?php else: ?>
+		                                                <div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
+		                                            <?php endif; ?>
+		                                        <?php endif; ?>
+		                                    </div>
+		                                <?php endif; ?>
+									</div>
+		                                <?php if ($showWishlist || $showCompare): ?>
+		                                    <div class="actions-secondary" data-role="add-to-links">
+		                                        <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow() && $showWishlist): ?>
+		                                            <a href="#"
+		                                               data-post='<?= /* @noEscape */ $block->getAddToWishlistParams($_item) ?>' class="action towishlist" data-action="add-to-wishlist" title="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>">
+		                                                <span><?= $block->escapeHtml(__('Add to Wish List')) ?></span>
+		                                            </a>
+		                                        <?php endif; ?>
+		                                        <?php if ($block->getAddToCompareUrl() && $showCompare): ?>
+		                                            <?php $compareHelper = $this->helper(\Magento\Catalog\Helper\Product\Compare::class);?>
+		                                            <a href="#" class="action tocompare" data-post='<?= /* @noEscape */ $compareHelper->getPostDataParams($_item) ?>' title="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>">
+		                                                <span><?= $block->escapeHtml(__('Add to Compare')) ?></span>
+		                                            </a>
+		                                        <?php endif; ?>
+		                                    </div>
+		                                <?php endif; ?>
+		                            </div>
+		                        </div>
+		                    <?php endif; ?>
+						</div>
+		                <div class="product-item-details">
+		                    <strong class="product-item-name">
+		                        <a title="<?= $block->escapeHtml($_item->getName()) ?>"
+		                           href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+		                           class="product-item-link">
+		                            <?= $block->escapeHtml($_item->getName()) ?>
+		                        </a>
+		                    </strong>
+							<?php if ($templateType): ?>
+								<?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
+							<?php endif; ?>
+		                    <?= $block->getProductPriceHtml($_item, $type) ?>
+
+		                    <?= $block->getProductDetailsHtml($_item) ?>
+		                </div>
+		                <?= $block->getProductSalableQuantityHtml($_item) ?>
+		            </div>
+	            </li>
+	        <?php endforeach ?>
+	    </ol>
+		<?php }else{ ?>
+		<div class="message info empty">
+	        <div><?= $escaper->escapeHtml(__('No products were found matching your condition.')) ?></div>
+	    </div>
+		<?php } ?>
+	<?php } ?>
+</div>

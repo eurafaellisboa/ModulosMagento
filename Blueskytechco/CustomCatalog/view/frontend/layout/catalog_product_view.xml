@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="Blueskytechco_CustomCatalog::css/drift-basic.min.css" />
+    </head>
+    <body>
+        <referenceContainer name="before.body.end">
+			<block class="Blueskytechco\CustomCatalog\Block\Init" name="head.components.product" template="Blueskytechco_CustomCatalog::product/view/int.phtml" before="-">
+                <arguments>
+					<argument name="view_model" xsi:type="object">Blueskytechco\CustomCatalog\ViewModel\Catalog</argument>
+				</arguments>
+            </block>
+		</referenceContainer>
+		<referenceContainer name="product.info.main">
+            <container name="brand.product" htmlTag="div" htmlClass="brand-product" after="-">
+                <block class="Magento\Catalog\Block\Product\View" name="product.brand"
+                    template="Blueskytechco_CustomCatalog::product/view/brand.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">Blueskytechco\CustomCatalog\ViewModel\Catalog</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="upsell.stock" htmlTag="div" htmlClass="upsell-stock" after="product.info">
+                <block class="Magento\Catalog\Block\Product\View" name="product.upsell.stock"
+                    template="Blueskytechco_CustomCatalog::product/view/upsell_stock.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">Blueskytechco\CustomCatalog\ViewModel\Catalog</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="out.stock" htmlTag="div" htmlClass="out-stock" after="product.info">
+                <block class="Magento\Catalog\Block\Product\View" name="product.out.stock"
+                    template="Blueskytechco_CustomCatalog::product/view/out_stock.phtml">
+                </block>
+            </container>
+		</referenceContainer>
+        <referenceBlock name="product.info.addtocart">
+            <block class="Magento\Catalog\Block\Product\View" template="Blueskytechco_CustomCatalog::product/view/buynow.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Blueskytechco\CustomCatalog\ViewModel\Catalog</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart.additional">
+            <block class="Magento\Catalog\Block\Product\View" template="Blueskytechco_CustomCatalog::product/view/buynow.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Blueskytechco\CustomCatalog\ViewModel\Catalog</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="before.body.end">
+            <block class="Magento\Catalog\Block\Product\View" name="stickycart"
+            	template="Blueskytechco_CustomCatalog::product/view/stickycart.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Blueskytechco\CustomCatalog\ViewModel\Catalog</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="stickycart">
+            <block class="Magento\Catalog\Pricing\Render" name="stickycart.product.price.final">
+                <arguments>
+                    <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                    <argument name="price_type_code" xsi:type="string">final_price</argument>
+                    <argument name="zone" xsi:type="string">item_view</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="productalert.stock" remove="true"/>
+        <move element="brand.product" destination="product.info.main" before="-"/>
+	</body>
+</page>

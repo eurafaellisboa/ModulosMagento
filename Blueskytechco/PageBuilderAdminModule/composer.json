@@ -1,0 +1,19 @@
+{
+    "name": "Blueskytechco_PageBuilderAdminModule",
+    "version": "0.0.1",
+    "description": "Page Builder content type for Admin stage styling, including viewport previews.",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-page-builder": "*",
+        "php": "~7.3.0||~7.4.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}

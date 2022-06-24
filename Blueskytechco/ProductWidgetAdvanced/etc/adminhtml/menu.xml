@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_ProductWidgetAdvanced::collect_product_data" title="Collect Product Data" module="Blueskytechco_ProductWidgetAdvanced" sortOrder="50" parent="Blueskytechco_RokanBase::rokanbase_manage" action="adminhtml/system_config/edit/section/collect_product_data" resource="Blueskytechco_ProductWidgetAdvanced::collect_product_data"/>
+    </menu>
+</config>

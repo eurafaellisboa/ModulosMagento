@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="heading">
+        <appearances>
+            <appearance 
+                        name="default"
+                        preview_template="Blueskytechco_PageBuilderCustom/content-type/heading/default/preview"
+                        master_template="Blueskytechco_PageBuilderCustom/content-type/heading/default/master">
+                    <elements>    
+                        <element name="main">
+                            <attribute name="viewtype" source="data-heading-mode"/>
+                        </element>
+                        <element name="heading_text_editer">
+                            <html name="heading_text_editer"/>
+                        </element>
+                    </elements>
+            </appearance>
+        </appearances>
+    </type>
+</config>

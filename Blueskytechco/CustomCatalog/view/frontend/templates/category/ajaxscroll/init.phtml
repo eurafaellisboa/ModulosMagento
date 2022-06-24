@@ -1,0 +1,188 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $viewModel \Blueskytechco\CustomCatalog\ViewModel\Catalog
+ */
+?>
+<?php
+    $view_model = $block->getViewModel();
+    $position = $view_model->getDataQuickView('position');
+    $label = $view_model->getDataQuickView('label');
+    $class_position = $view_model->getDataQuickView('class_position')?$view_model->getDataQuickView('class_position')
+        :'[data-role=add-to-links]';
+    $nav = $view_model->getDataQuickView('nav');
+    $navdir = $view_model->getDataQuickView('navdir');
+if ($nav == 'dots') {
+    $add_class = 'thumb_slide';
+} else {
+    $add_class = ($navdir == 'bottom')?'horizontal_'.$navdir.'':
+        'vertical_'.$navdir.'';
+}
+    $params = $view_model->getParams();
+    $add_class_button_lm = (isset($params['load-more']) && $params['load-more'] == 'scroll')
+        ? ' load-on-scroll'
+        : '';
+?>
+<script>
+	require(['jquery',
+        'Blueskytechco_PageBuilderCustom/js/resource/packery/packery.pkgd',
+        'Blueskytechco_PageBuilderCustom/js/resource/isotope/isotope.pkgd',
+        'Blueskytechco_QuickviewProduct/js/blueskytechco_quickview',
+        'Blueskytechco_CustomCatalog/js/scroll/waypoints.min'
+		], function ($, Packery, Isotope, QuickView) {
+		$( document ).ready(function() {
+            
+            var next = $('.toolbar .pages .next'),
+                nextSelector = '.toolbar .pages .next',
+                product_items = '.products.list.items.product-items',
+                products = $(product_items),
+                btn = '.products-footer .category-load-more',
+                btn_load = $(btn),
+                addToCartButtonSelector = '.action.tocart',
+                holder = products;
+			$('.toolbar .pages').hide();
+            if (next.length) {
+                var next_url = next.attr('href');
+                if(typeof(next_url) != 'undefined') {
+                    next_url += '&load_more=1';
+                } else {
+                    next_url = '';
+                }
+                if (next_url) {
+                    products.after(getNextHtml(next_url));
+                }
+            }
+
+            clickOnScrollButton( btn_load, holder );
+            
+            $(document).on('click', btn, function(e){
+                e.preventDefault();
+                var self = $(this),
+                    _parent = self.parent(),
+                    holder = _parent.siblings('.product-items'),
+                    windowScrollTop =$(window).scrollTop();
+
+                loadProducts(product_items, nextSelector, self, function(data) {
+                    
+                    var $itemContainer = $(product_items, data).eq(0);
+                    if ($itemContainer) {
+                        $('.toolbar-amount').html(getToolbarAmount(data));
+                        if (windowScrollTop){                           
+                            $(window).scrollTop(windowScrollTop);
+                        }
+                        var content_html = $itemContainer.html();
+
+                        var namefns = 'Defaultjs';
+                        if ( holder.hasClass('container-products-masonry') ) {
+                            namefns = 'isotopejs';
+                        } else if ( holder.hasClass('container-products-packery') ) {
+                            namefns = 'packeryjs';
+                        }
+                        
+                        AppendPrependFns[namefns](holder, content_html);
+
+                        $(document).trigger('swatches-visible');
+                        $(addToCartButtonSelector).attr('disabled', false);
+
+                        var opstionQuickView = {
+                            quickviewUrl: '<?= $block->escapeUrl($block->getUrl('blueskytechco_quickview/product/view')); ?>',
+                            buttonText: '<?= $block->escapeHtml($label) ?>',
+                            actionInsert: '<?= $block->escapeHtml($position) ?>',
+                            classInsertPosition: '<?= $block->escapeHtmlAttr($class_position) ?>',
+                            classGallery: '<?= $block->escapeHtmlAttr($add_class) ?>'
+                        }
+
+                        QuickView(opstionQuickView);
+
+                        next_url = getNextUrl(data, nextSelector);
+                        if (next_url) {
+                            self.attr("href", next_url);
+                            clickOnScrollButton( self, holder );
+                        }else{
+                            self.remove();
+                        }
+                    }
+                });
+                return false;
+            });
+		});
+
+        var AppendPrependFns = {
+            isotopejs: function(el, items) {
+                var items = $(items);
+                require( [ 'jquery-bridget/jquery-bridget' ], function( jQueryBridget ) {
+                    jQueryBridget('isotope', Isotope, $);
+                    el.append(items).isotope('appended', items).trigger('contentUpdated');
+                });
+            },
+            packeryjs: function(el, items) {
+                var items = $(items);
+                require( [ 'jquery-bridget/jquery-bridget' ], function( jQueryBridget ) {
+                    jQueryBridget('packery', Packery, $);
+                    el.append(items).packery('appended', items).trigger('contentUpdated');
+                });
+            },
+            Defaultjs: function(el, items) {
+                el.append(items).trigger('contentUpdated');
+            }
+        };
+
+        function getNextUrl(container, nextSelector) {
+            // always take the last matching item
+            var next_url = $(nextSelector, container).last().attr('href');
+            if(typeof(next_url) != 'undefined') {
+                next_url += '&load_more=1';
+            } else {
+                next_url = '';
+            }
+            return next_url;
+        }
+
+        function getNextHtml(next_url) {
+            var next_html = '<div class="products-footer">'+
+                '<a href="'+next_url+'" class="category-load-more button<?= $block->escapeHtmlAttr($add_class_button_lm) ?>">Load More</a>'+
+                '</div>';
+            
+            return next_html;
+        }
+
+        function getToolbarAmount(container) {
+            var $toolbar_amount = $('.toolbar-amount', container).eq(0);
+            return $toolbar_amount;
+        }
+
+        function clickOnScrollButton($btn, $holder) {
+            if($btn.length == 0){
+                $btn = $('.products-footer .category-load-more');
+            }
+            if ( $btn.length == 0 || $holder.length == 0 || !$btn.hasClass('load-on-scroll') ) return;
+            new Waypoint({
+                element: $holder[0],
+                handler: function(direction) {
+                    this.destroy();
+                    $btn.trigger('click');
+                },
+                offset: "bottom-in-view"
+            });
+        }
+
+        function loadProducts(product_items, nextSelector, btn, callback) {
+            var ajaxurl = btn.attr('href');
+            $.ajax({
+                type: 'GET',
+                url: ajaxurl,
+                beforeSend: function() {
+                    btn.addClass('loading');
+                },
+                success: function(data) {
+                    btn.removeClass('loading');
+                    callback( data );
+                },
+                error: function(data) {
+                    console.log('ajax error');
+                },
+            });
+        }
+    });
+</script>

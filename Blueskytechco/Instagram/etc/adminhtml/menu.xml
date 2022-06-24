@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_Instagram::instagram_config" title="Instagram" module="Blueskytechco_Instagram" sortOrder="100" parent="Blueskytechco_RokanBase::rokanbase_setting" action="adminhtml/system_config/edit/section/instagramsection" resource="Blueskytechco_Instagram::instagram_config"/>
+    </menu>
+</config>

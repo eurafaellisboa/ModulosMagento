@@ -1,0 +1,87 @@
+<div class="section widget-testimonial-slider-design--2 margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('margin_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $testimonials = $block->getTestimonials(); ?>
+	<?php if ($testimonials->count()) { ?>
+	<div class="elementor__content widget-testimonial-slider">
+		<?php foreach ($testimonials as $testimonial){ ?>
+			<div class="elementor-testimonial-item elementor__item--hover">
+				<div class="testimonial-text">
+					<div class="testimonial-content"><?= $this->escapeHtml($testimonial->getText()); ?></div>
+					<div class="testimonial-customer flex-layout center_vertical">
+						<div class="testimonial-img">
+							<img class="avatar" src="<?= $this->escapeUrl($this->getImage($testimonial))?>" alt="<?php echo __($this->escapeHtml($testimonial->getName())) ?>" title="<?php echo __($this->escapeHtml($testimonial->getName())) ?>" />
+						</div>
+						<div class="testimonial-info">
+							<p class="testimonial-name"><?= $this->escapeHtml($testimonial->getName()); ?></p>
+							<div class="testimonial-job">
+								<?= $testimonial->getJob(); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php } ?>
+	</div>
+	<?php }else{ ?>
+		<div class="elementor__content widget-testimonial-slider">
+			<div class="elementor-testimonial-item elementor__item--hover">
+				<div class="testimonial-text">
+					<div class="testimonial-content">Really good design/documentation, pretty much everything is nicely setup. Support team is very responsive to problems. Highly recommended to everyone! I&rsquo;m your fan already</div>
+					<div class="testimonial-customer flex-layout center_vertical">
+						<div class="testimonial-img">
+							<img class="avatar" src="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" alt="Yutang" title="Yutang" />
+						</div>
+						<div class="testimonial-info">
+							<p class="testimonial-name">Yutang</p>
+							<div class="testimonial-job">
+								Developer
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-testimonial-item elementor__item--hover">
+				<div class="testimonial-text">
+					<div class="testimonial-content">Really good design/documentation, pretty much everything is nicely setup. Support team is very responsive to problems. Highly recommended to everyone! I&rsquo;m your fan already</div>
+					<div class="testimonial-customer flex-layout center_vertical">
+						<div class="testimonial-img">
+							<img class="avatar" src="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png" alt="Yutang" title="Yutang" />
+						</div>
+						<div class="testimonial-info">
+							<p class="testimonial-name">Yutang</p>
+							<div class="testimonial-job">
+								Developer
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-testimonial-item elementor__item--hover">
+				<div class="testimonial-text">
+					<div class="testimonial-content">Really good design/documentation, pretty much everything is nicely setup. Support team is very responsive to problems. Highly recommended to everyone! I&rsquo;m your fan already</div>
+					<div class="testimonial-customer flex-layout center_vertical">
+						<div class="testimonial-img">
+							<img class="avatar" src="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" alt="Yutang" title="Yutang" />
+						</div>
+						<div class="testimonial-info">
+							<p class="testimonial-name">Yutang</p>
+							<div class="testimonial-job">
+								Developer
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<?php } ?>
+</div>

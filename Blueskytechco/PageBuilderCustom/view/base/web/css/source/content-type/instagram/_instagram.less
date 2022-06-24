@@ -1,0 +1,109 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+//  Variables
+
+@intagram-caption-color: @color-white;
+@intagram-caption-limited-line: 3;
+@intagram-caption-font-size: @font-size__base;
+@intagram-caption-font-style: false;
+@intagram-caption-text-transform: false;
+@intagram-caption-text-intagramion: absolute;
+
+//  Icons
+
+@intagram_icon_font: "Font Awesome 5 Brands";
+@intagram-icon: "\f16d";
+@intagram-icon_font-weight: 400;
+@_icon_intagram_font_size: 26px;
+@_icon_intagram_color: @color-white;
+
+@intagram-overlay_bg: fade(#000, 30%);
+
+@item-row-margin: 2rem;
+
+// Intagram icon
+.icon-font-intgram() {
+    .lib-css(content, @intagram-icon);
+    .lib-css(color, @_icon_intagram_color);
+    .lib-css(font-size, @_icon_intagram_font_size);
+    .lib-css(font-family, @intagram_icon_font);
+    .lib-css(font-weight, @intagram-icon_font-weight);
+}
+// Bls Instagram style
+
+& when (@media-common =true) {
+    .widget-instagram-slider{
+        .slick-slide{
+            > div{
+                line-height: 0;
+            }
+        }
+    }
+    .elementor-instagram-item {
+        overflow: hidden;
+        position: relative;
+        &.circle {
+            @border-radius: 50%;
+            .lib-css(border-radius, @border-radius, 1);
+        }
+        .instagram-content{
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @transform: translate(-50%, -50%);
+            .lib-css(transform, @transform, 1);
+            .flex();
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            .lib-css(transition, 0.4s, 1);
+            .instagram-icon {
+                line-height: 1;
+                &:before {
+                    .icon-font-intgram();
+                }
+            }
+            z-index: 1;
+            figcaption {
+                .lib-css(color, @intagram-caption-color);
+                .lib-css(font-size, @intagram-caption-font-size);
+                .lib-css(font-style, @intagram-caption-font-style);
+                .lib-css(text-transform, @intagram-caption-text-transform);
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                .lib-css(-webkit-line-clamp, @intagram-caption-limited-line);
+            }
+        }
+        &:hover{
+            .instagram-content{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    // Error
+    .instagram-connect-error {
+        text-align: center;
+        padding: 25px 15px;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+
+        p {
+            margin-bottom: 0;
+
+            strong {
+                display: block;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+ 
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+	<widget id="blueskytechco_testimonial" class="Blueskytechco\Testimonial\Block\Widget\Testimonial">
+		<label translate="true">Testimonial Widget</label>
+		<description>Testimonials</description>
+		<parameters>
+             <parameter name="testimonial_id" xsi:type="text" visible="true" required="true" sort_order="1">
+                <label translate="true">Testimonial Id</label>
+            </parameter>
+		</parameters>
+	</widget>
+</widgets>

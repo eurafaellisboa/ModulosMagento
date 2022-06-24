@@ -1,0 +1,529 @@
+/* gobal popup-ajaxsuite style */
+& when (@media-common =true) {
+    .hside_opened{
+        overflow: hidden;
+    }
+    .modal-popup,
+    .modal-custom,
+    .modal-slide {
+        .action-close {
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    } 
+
+    .popup-ajaxsuite {
+        max-width: 76rem;
+        margin: auto;
+        &.modal-popup._inner-scroll .modal-inner-wrap {
+            min-width: unset;
+            .modal-content{
+                padding: 0;
+            }
+        }
+
+        .block-customer-login {
+            padding: 0 !important;
+
+            .block-content {
+                padding: 3rem;
+            }
+        }
+
+        #mb-ajaxsuite-popup-wrapper{
+            padding: 2rem;
+        }
+
+        .block-form-login .block-title,
+        .pupup-suc-added-to-your-bag {
+            position: relative;
+            text-transform: uppercase;
+            font-weight: @heading__font-weight__base;
+            background-color: @color-white;
+            color: @darkcolor;
+            text-align: left;
+            letter-spacing: 1px;
+            padding: 1.3rem 0 1.3rem 1.8rem;
+            border: 1px solid @border-color__base;
+            border-top: 0;
+            position: relative;
+            margin-bottom: 0;
+
+            strong {
+                color: @darkcolor;
+            }
+
+            &:after {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                @transform: translateY(-50%);
+                .lib-css(transform, @transform, 1);
+            }
+        }
+    }
+
+    .modals-wrapper {
+        .modal-popup._inner-scroll {
+            .flex();
+            justify-content: center;
+            align-items: center;
+            .modal-inner-wrap {
+                width: fit-content;
+                position: relative;
+                box-shadow: none;
+                transform: none;
+                .lib-css(border-radius, @form-element-input__border-radius);
+
+                .modal-header {
+                    padding: 0;
+                }
+
+                .modal-content {
+
+                    .lib-css(border-radius, @form-element-input__border-radius);
+
+                    .block-authentication {
+                        .lib-css(border-radius, @form-element-input__border-radius);
+
+                        .block-title {
+                            .lib-font-size(14);
+                        }
+                    }
+
+                    .form-login {
+                        .fieldset {
+                            margin-bottom: 0;
+
+                            label {
+                                text-transform: uppercase;
+                                .lib-font-size(12);
+                                color: #999999;
+                                display: inline-block;
+                                margin-bottom: 4px;
+                            }
+                        }
+
+                        .password {
+                            .action {
+                                display: block;
+                                text-align: right;
+                                margin-top: 0.5rem;
+                                color: @color-gray60;
+                            }
+                        }
+
+                        .actions-toolbar {
+                            >.primary {
+                                float: none;
+                                display: block;
+                                margin-bottom: 1.7rem;
+
+                                button {
+                                    .lib-css(border-radius, @form-element-input__border-radius);
+                                }
+                            }
+
+                            .action-register,
+                            .action-login {
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                float: none;
+                            }
+
+                            .action-register {
+                                margin-top: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #mb-ajaxsuite-popup-wrapper {
+        text-align: center;
+
+        .photo.image {
+            max-width: 35.5rem;
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-name {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+
+            strong {
+                .lib-css(color, @product-name-link__color);
+                display: block;
+                margin-bottom: 6px;
+                .lib-font-size(16);
+            }
+
+            .greycolor {
+                color: @color-gray60;
+                font-size: @font-size__base;
+            }
+        }
+
+        .ajaxsuite-buttons {
+            button {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .wrapper-success {
+            .pupup-suc-added-to-your-bag {
+                top: -2rem;
+                margin-left: -2rem;
+                margin-right: -2rem;
+            }
+
+            .product-information {
+                margin-bottom: 3rem;
+                .flex();
+                flex-wrap: nowrap;
+
+                .product-infor {
+                    .flex();
+                    flex-wrap: nowrap;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .product-name {
+                    margin: 0;
+                    text-align: left;
+
+                    .pupup-suc-added-to-your-bag {
+                        font-weight: @heading__color__base;
+                        margin-bottom: 1rem;
+                        font-size: 1.6rem;
+                        color: @heading__color__base;
+                    }
+
+                    .pupup-suc-added-ajax-cart-qty-price {
+                        .flex();
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        margin-top: 0.7rem;
+                        .lib-font-size(16);
+                        color: @heading__color__base;
+
+                        .pupup-suc-added-ajax-cart-qty {
+                            margin-top: 0.8rem;
+                            .lib-font-size(14);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .action {
+
+        &.towishlist,
+        &.tocompare,
+        &.link-quickview {
+
+            &.loading,
+            &.disabled {
+                opacity: 1;
+
+                &:before {
+                    content: "" !important;
+                    border: 1px solid;
+                    color: transparent;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50px;
+                    border-color: #5f5f5f #797979 #ccc #fff;
+                    line-height: 1;
+                    @animation: spin 0.4s infinite linear;
+                    .lib-css(animation, @animation, @_prefix: 1);
+                    display: inline-block;
+                }
+            }
+        }
+
+        &.tocart {
+            span {
+                position: relative;
+
+                &:before {
+                    content: "" !important;
+                    border: 1px solid;
+                    color: transparent;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50px;
+                    border-color: #5f5f5f #797979 #ccc #fff;
+                    line-height: 1;
+                    @animation: spin 0.4s infinite linear;
+                    .lib-css(animation, @animation, @_prefix: 1);
+                    display: inline-block;
+                    margin-right: 3px;
+                    opacity: 0;
+                    position: relative;
+                    top: 2px;
+                    left: -2px;;
+                }
+            }
+
+            &.loading {
+                span {
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    // Check mark
+    .checkmark__circle {
+        stroke-dasharray: 166;
+        stroke-dashoffset: 166;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+        stroke: #7ac142;
+        fill: none;
+        animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+
+    svg.checkmark {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: block;
+        stroke-width: 2;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        margin: 10% auto;
+        box-shadow: inset 0px 0px 0px #7ac142;
+        animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+
+    .checkmark__check {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    }
+    @keyframes wave {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes stroke {
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes scale {
+
+        0%,
+        100% {
+            transform: none;
+        }
+
+        50% {
+            transform: scale3d(1.1, 1.1, 1);
+        }
+    }
+
+    @keyframes fill {
+        100% {
+            box-shadow: inset 0px 0px 0px 30px #7ac142;
+        }
+    }
+    // Add cart loading bar
+    body{
+        header.page-header{
+            &:before{
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 3px;
+                width: 0;
+                opacity: 0;
+                background: @theme__color__primary;
+                transition: width .25s ease-in-out;
+                z-index: 100;
+                pointer-events: none;
+
+            }
+        }
+        &.ajax_ld{
+            header.page-header{
+                &:before{
+                    width: 40%;
+                    opacity: 1;
+                }
+            }
+        }
+        &.ajax_end{
+            header.page-header{
+                &:before{
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+
+/* Ipad and lager srceen */
+.media-width(@extremum, @break) when (@extremum ='min') and(@break =@screen__s) {
+
+    #mb-ajaxsuite-popup-wrapper {
+        .photo.image {
+            max-width: 27rem;
+        }
+
+        .pop-up-success {
+            max-width: 25.5rem;
+        }
+
+        .wrapper-success {
+            .photo.image {
+                max-width: 100%;
+            }
+
+            max-width: 50rem;
+
+            .product-information {
+                .photo.image {
+                    max-width: 23.6rem;
+                    margin-right: 3rem;
+                    width: 50%;
+                    height: 100%;
+                }
+
+                .product-name {
+                    margin: 0;
+                    text-align: left;
+
+                    .product-item-name {
+                        .lib-font-size(18);
+                        padding-top: 11%;
+                    }
+                }
+            }
+
+            .ajaxsuite-buttons {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 30px;
+            }
+        }
+
+    }
+
+    .action {
+        &.tocart {
+            &.disabled {
+                &:before {
+                    position: relative;
+                    top: 2px;
+                    left: -2px;
+                }
+            }
+        }
+    }
+
+    // Login
+    .modal-popup {
+        .block-form-login {
+            min-width: 350px;
+        }
+    }
+}
+
+@icon_success_add_to_content: "\f00c";
+@icon_success_add_to_font_family: 'Font Awesome 5 Free';
+@icon_success_add_to_font-size: 2rem;
+@icon_success_add_to_color: @theme__color__primary;
+
+/* Mobile screen */
+.media-width(@extremum, @break) when (@extremum ='max') and(@break =@screen__s) {
+    .modals-wrapper {
+        .modal-popup._inner-scroll {
+            left: 0;
+
+            .modal-inner-wrap {
+                background: @color-white;
+                max-width: 90%;
+                min-height: 1rem;
+
+                .modal-content {
+                    #mb-ajaxsuite-popup-wrapper {
+                        .photo.image {
+                            display: none;
+                        }
+
+                        .product-name,
+                        .product-information .product-name {
+                            text-align: center !important;
+                            justify-content: center;
+
+                            .product-name {
+                                &:before {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .pupup-suc-added-ajax-cart-qty-price {
+                            justify-content: center;
+                        }
+
+                        .ajaxsuite-buttons {
+                            #button_continue_shopping {
+                                display: none;
+                            }
+                        }
+
+                        .wrapper-success {
+                            min-width: 220px;
+
+                            .product-information {
+                                justify-content: center;
+
+                                .product-name {
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+
+                    .block-authentication {
+                        .bg-login-popup {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and(@break =@screen__m) {
+    svg.checkmark {
+        display: none;
+    }
+}

@@ -1,0 +1,90 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog post list item template
+ *
+ * @var $block \Magefan\Blog\Block\Post\AbstractPost
+ */
+?>
+<?php
+$_post = $block->getPost();
+$_postUrl = $block->escapeUrl($_post->getPostUrl());
+$_postName = $block->escapeHtml($_post->getTitle());
+?>
+<li class="post-holder post-holder-<?= (int)$_post->getId() ?> image_hover_effects--zoom-overlay">
+    <div class="post-header">
+        <?php $featuredImage = $_post->getFeaturedListImage() ?: $_post->getFeaturedImage(); ?>
+        <?php if ($featuredImage) { ?>
+            <?php
+            $featuredImgAlt = $_post->getData('featured_list_img_alt') ?: $_post->getData('featured_img_alt');
+            if (!$featuredImgAlt) {
+                $featuredImgAlt = $_postName;
+            }
+            ?>
+            <div class="post-ftimg-hld elementor__item--hover">
+                <a href="<?= /*@noEscape*/ $_postUrl ?>"
+                    class="post-image-effect"
+                    title="<?= /*@noEscape*/ $_postName ?>">
+                    <img src="<?= $block->escapeUrl($featuredImage) ?>"
+                            alt="<?= $block->escapeHtml($featuredImgAlt) ?>" />
+                </a>
+            </div>
+        <?php } ?>
+        <div class="inside-thumb">
+            <?php if ($block->authorEnabled()) { ?>
+                <?php if ($_author = $_post->getAuthor()) { ?>
+                <div class="item post-author">
+                        <span class="label"><?= $block->escapeHtml(__('By')) ?></span>
+                        <span class="value">
+                        <?php if ($authorPageEnabled = $block->authorPageEnabled()) { ?>
+                        <a title="<?= $block->escapeHtml($_author->getTitle()) ?>"
+                        href="<?= $block->escapeUrl($_author->getAuthorUrl()) ?>">
+                        <?php } ?>
+
+                        <?= $block->escapeHtml($_author->getTitle()) ?>
+
+                        <?php if ($authorPageEnabled) { ?>
+                        </a>
+                        <?php } ?>
+                    </span>
+                </div>
+                <?php } ?>
+            <?php } ?>
+            <div class="post-title">
+                <a class="post-item-link"
+                    href="<?= /*@noEscape*/ $_postUrl ?>">
+                    <?= /*@noEscape*/ $_postName ?>
+                </a>
+            </div>
+
+            <div class="post-info">
+               
+                <?php if ($_post->isPublishDateEnabled()) { ?>
+                    <div class="item post-posed-date">
+                        <span class="label"><?= $block->escapeHtml(__('on')) ?></span>
+                        <span class="value"><?= $block->escapeHtml($_post->getPublishDate()) ?></span>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <div class="post-content">
+        <div class="post-description clearfix">
+            <div class="post-text-hld clearfix">
+                <?= /*@noEscape*/ $block->getShorContent() ?>
+            </div>
+            <a class="post-read-more"
+               href="<?= /*@noEscape*/ $_postUrl ?>"
+               title="<?= /*@noEscape*/ $_postName ?>">
+                <?= $block->escapeHtml(__('Continue Reading')) ?>
+            </a>
+        </div>
+    </div>
+</li>

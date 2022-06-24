@@ -1,0 +1,574 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Ui\Model\UrlInput\LinksConfigProvider">
+        <arguments>
+            <argument name="linksConfiguration" xsi:type="array">
+                <item name="storeurl" xsi:type="string">Blueskytechco\PageBuilderCustom\Model\UrlInput\StoreUrl</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\PageBuilder\Model\Stage\Config" type="Blueskytechco\PageBuilderCustom\Model\Stage\Config" />
+    <virtualType name="AppearanceSourceBlogPosts" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">grid</item>
+                    <item name="title" xsi:type="string" translate="true">Blog Posts Grid/List</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/grid.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Blog Posts Carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/carousel.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="GridTemplateSource" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/grid/default.png</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">default_2</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/grid/default_2.png</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">default_3</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/grid/default_3.png</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">default_4</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/grid/default_4.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CarouselTemplateSource" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/carousel/carousel.png</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_2</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/carousel/carousel_2.png</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_3</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/carousel/carousel_3.png</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_4</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/carousel/carousel_4.png</item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_5</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/carousel/carousel_5.png</item>
+                </item>
+                <item name="5" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_6</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/carousel/carousel_6.png</item>
+                </item>
+                <item name="6" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_7</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/templates/carousel/carousel_7.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceInstagram" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">grid</item>
+                    <item name="title" xsi:type="string" translate="true">Instagram Grid/List</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/grid.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Instagram Carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/carousel.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceCategoryThumbnailImage" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">grid</item>
+                    <item name="title" xsi:type="string" translate="true">Grid/List</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/grid.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/carousel.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="GridTemplateCategoryThumbnailImageSource" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Limited to 4 categories.</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/grid/default.png</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">default_2</item>
+                    <item name="title" xsi:type="string" translate="true">Limited to 3 categories.</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/grid/default_2.png</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">default_3</item>
+                    <item name="title" xsi:type="string" translate="true">Limited to 4 categories.</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/grid/default_3.png</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">default_4</item>
+                    <item name="title" xsi:type="string" translate="true">Limited to 5 categories.</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/grid/default_4.png</item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="value" xsi:type="string">default_5</item>
+                    <item name="title" xsi:type="string" translate="true">Limited to 5 categories.</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/grid/default_5.png</item>
+                </item>
+                <item name="5" xsi:type="array">
+                    <item name="value" xsi:type="string">default_6</item>
+                    <item name="title" xsi:type="string" translate="true">Limited to 5 categories.</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/grid/default_6.png</item>
+                </item>
+                <item name="6" xsi:type="array">
+                    <item name="value" xsi:type="string">default_7</item>
+                    <item name="title" xsi:type="string" translate="true">Limited to 6 categories.</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/grid/default_6.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+     <virtualType name="CarouselTemplateCategoryThumbnailImageSource" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/carousel/carousel.png</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_2</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/carousel/carousel_2.png</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_3</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/carousel/carousel_3.png</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_4</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/carousel/carousel_4.png</item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_5</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/carousel/carousel_5.png</item>
+                </item>
+                <item name="5" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_6</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/carousel/carousel_6.png</item>
+                </item>
+                <item name="6" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_7</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/category-thumbnail-image/templates/carousel/carousel_4.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceProductWidgetAdvanced" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">grid</item>
+                    <item name="title" xsi:type="string" translate="true">Grid/List</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/grid.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/carousel.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="GridTemplateProductWidgetAdvancedSource" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/product-advanced/templates/grid/default.png</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">list</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/product-advanced/templates/grid/list.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CarouselTemplateProductWidgetAdvancedSource" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/product-advanced/templates/carousel/carousel.png</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel_2</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/product-advanced/templates/carousel/carousel_2.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceGallery" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceItemImage" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Item Image</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/content-type/image/appearance/full.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceFaq" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceFaqItem" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\Wysiwyg\Config">
+        <arguments>
+            <argument name="editors" xsi:type="array">
+                <item name="mage/adminhtml/wysiwyg/tiny_mce/tinymce4Adapter" xsi:type="array">
+                    <item name="component_initializers" xsi:type="array">
+                        <item name="faq-item" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/faq-item/wysiwyg/tinymce4/component-initializer</item>
+                        <item name="htmlquote" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/htmlquote/wysiwyg/tinymce4/component-initializer</item>
+                    </item>
+                    <item name="config_modifiers" xsi:type="array">
+                        <item name="faq-item" xsi:type="string">Blueskytechco_PageBuilderCustom/js/content-type/faq-item/wysiwyg/tinymce4/config-modifier</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="FAQsTemplateSource" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/faq/templates/default.png</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">default_2</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/faq/templates/default_2.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceLookbook" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">banner</item>
+                    <item name="title" xsi:type="string" translate="true">Banner</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/banner.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">gridlist</item>
+                    <item name="title" xsi:type="string" translate="true">Grid</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/grid.svg</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/carousel.svg</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">mansoy</item>
+                    <item name="title" xsi:type="string" translate="true">Mansoy</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/mansoy.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceProductCountDowntimers" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">grid</item>
+                    <item name="title" xsi:type="string" translate="true">Grid</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/grid.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/carousel.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceDailyDeal" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">grid</item>
+                    <item name="title" xsi:type="string" translate="true">Grid</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/grid.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Carousel</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/icons/appearance/carousel.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceImageBox" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Image Box</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/content-type/image/appearance/full.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="ImageBoxPosition" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">small</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">left</item>
+                    <item name="title" xsi:type="string" translate="true">Left</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/form/element/visual-select/alignment/left.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">top</item>
+                    <item name="title" xsi:type="string" translate="true">Top</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/form/element/visual-select/alignment/center.svg</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">right</item>
+                    <item name="title" xsi:type="string" translate="true">Right</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/form/element/visual-select/alignment/right.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceIconBox" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Icon Box</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/content-type/image/appearance/full.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="IconBoxPosition" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">small</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">left</item>
+                    <item name="title" xsi:type="string" translate="true">Left</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/form/element/visual-select/alignment/left.svg</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">top</item>
+                    <item name="title" xsi:type="string" translate="true">Top</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/form/element/visual-select/alignment/center.svg</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">right</item>
+                    <item name="title" xsi:type="string" translate="true">Right</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/form/element/visual-select/alignment/right.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="IconBoxView" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">small</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/iconbox/view/default.png</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">stacked</item>
+                    <item name="title" xsi:type="string" translate="true">Stacked</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/iconbox/view/stacked.png</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">framed</item>
+                    <item name="title" xsi:type="string" translate="true">Framed</item>
+                    <item name="icon" xsi:type="string">Blueskytechco_PageBuilderCustom::css/images/content-type/iconbox/view/framed.png</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceQuote" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceTestimonial" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">carousel</item>
+                    <item name="title" xsi:type="string" translate="true">Carousel</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceNewsletter" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceStaticmenu" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">stacked</item>
+                    <item name="title" xsi:type="string" translate="true">Stacked</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceStaticmenuItem" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="NesletterLayout" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">small</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">style_1</item>
+                    <item name="title" xsi:type="string" translate="true">Style 1</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">style_2</item>
+                    <item name="title" xsi:type="string" translate="true">Style 2</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="TestimonialTemplate" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">small</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">design_2</item>
+                    <item name="title" xsi:type="string" translate="true">Design 2</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">design_3</item>
+                    <item name="title" xsi:type="string" translate="true">Design 3</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceProductCountDowntimersGridLayout" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">small</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">grid_design_2</item>
+                    <item name="title" xsi:type="string" translate="true">Design 2</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

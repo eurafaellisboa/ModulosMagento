@@ -1,0 +1,7 @@
+<?php
+$banner = $block->getBannerImages();
+?>
+<div class="top-header-banner-image-cms-page<?= /* @noEscape */ ($banner != '') ? 'data-bgset-image-wrapper cms-page-has-uploaded-image-banner' : ''; ?>"<?= /* @noEscape */ $banner ?>>
+	<?= $this->getChildHtml("page.main.title"); ?>
+	<?= $this->getChildHtml("breadcrumbs"); ?>
+</div>

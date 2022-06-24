@@ -1,0 +1,219 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+.pagebuilder-content-type-wrapper {
+    .pagebuilder-products-placeholder {
+        align-items: center;
+        background-color: @color-gray98;
+        display: flex;
+        justify-content: center;
+        min-height: 300px;
+
+        .placeholder-text {
+            color: @color-gray65-lighten;
+            font-size: 20px;
+            font-weight: lighter;
+        }
+    }
+
+    .product-items {
+        &:extend(.abs-reset-list all);
+    }
+
+    .product-item {
+        display: inline-block;
+        max-width: 100%;
+        min-width: 50px;
+        text-align: left;
+        vertical-align: top;
+        &:extend(.abs-add-box-sizing all);
+
+        a,
+        button,
+        .swatch-attribute-options {
+            pointer-events: none;
+        }
+
+        .old-price {
+
+            .price {
+                font-weight: normal;
+            }
+        }
+
+        .regular-price {
+            .price-label {
+                display: none;
+            }
+        }
+
+        .minimal-price {
+            .price-container {
+                display: block;
+            }
+        }
+
+        .minimal-price-link {
+            margin-top: @indent__xs;
+        }
+
+        .price-from,
+        .price-to {
+            margin: 0;
+        }
+
+        .map-old-price {
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: @indent__s;
+            }
+
+            .price-wrapper {
+                text-decoration: line-through;
+            }
+        }
+
+        .map-fallback-price {
+            display: none;
+        }
+
+        .action {
+            max-width: 100%;
+
+            &.tocart {
+                .lib-font-size(13px);
+                border-radius: 0;
+                line-height: 1;
+                padding-bottom: @indent__s;
+                padding-top: @indent__s;
+
+                >span {
+                    white-space: normal;
+                    word-wrap: break-word;
+                }
+            }
+
+            &.primary {
+                background: @color-blue1;
+                background-image: none;
+                border: 1px solid @color-blue1;
+                box-sizing: border-box;
+                color: @color-white;
+                cursor: pointer;
+                display: inline-block;
+                font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 1.4rem;
+                font-weight: 600;
+                padding: 7px 15px;
+                vertical-align: middle;
+            }
+
+            &.towishlist,
+            &.tocompare {
+                &:before {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    color: inherit;
+                    display: inline-block;
+                    font-family: 'luma-icons';
+                    font-size: 16px;
+                    font-weight: normal;
+                    line-height: 16px;
+                    margin: -2px 5px 0 0;
+                    overflow: hidden;
+                    speak: none;
+                    text-align: center;
+                    vertical-align: middle;
+                }
+
+                span {
+                    border: 0;
+                    clip: rect(0, 0, 0, 0);
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    padding: 0;
+                    position: absolute;
+                    width: 1px;
+                }
+            }
+
+            &.towishlist {
+                &:extend(.abs-actions-addto all);
+                .lib-icon-font-symbol(@_icon-font-content: @icon-wishlist-full,
+                    @_icon-font-position: before);
+            }
+
+            &.tocompare {
+                .lib-icon-font-symbol(@_icon-font-content: @icon-compare-full,
+                    @_icon-font-position: before);
+            }
+        }
+    }
+
+    .product-item-name {
+        &:extend(.abs-product-link all);
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        display: block;
+        font-weight: 400;
+        hyphens: auto;
+        margin: @indent__xs 0;
+        word-wrap: break-word;
+    }
+
+    .product-reviews-summary,
+    .testimonial-rating {
+        margin-bottom: @indent__s + @indent__xs;
+
+        .reviews-actions {
+            display: inline-block;
+            font-size: @font-size__s;
+            ;
+            vertical-align: middle;
+
+            a:not(:last-child) {
+                margin-right: 30px;
+            }
+
+            .action.add {
+                white-space: nowrap;
+            }
+        }
+
+        .rating-summary {
+            .lib-rating-summary();
+            .lib-rating-summary-label-hide();
+
+            display: inline-block;
+            margin: 0 4px 0 0;
+            vertical-align: middle;
+
+            .rating-result {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .swatch-attribute {
+        box-sizing: content-box;
+
+        &:last-child {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.admin__field-product-tooltip {
+    [data-role='spinner'] {
+        display: inline-block;
+    }
+
+    .admin__field-tooltip-content ul {
+        padding-left: 17px;
+        padding-top: 10px;
+    }
+}

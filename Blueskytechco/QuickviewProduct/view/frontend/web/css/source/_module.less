@@ -1,0 +1,361 @@
+//
+//  Variables
+//  _____________________________________________
+@quickview-page-title: 3rem;
+@fotorama_dot: 11px;
+@fotorama_dot-border: 2px solid @color-black;
+@fotorama_dot-border-active: @color-black; 
+@fotorama_dot-bkg: #fff;
+@fotorama_dot-bkg-active: @color-black;
+@quickview-max-width: 910px;
+@padding-ratio: 68.7%;
+
+& when (@media-common =true) {
+  body {
+    .mfp-close{
+      font-size: 0 !important;
+      .bls-icon-close();
+    }
+
+    .mfp-bg{
+      background-color: transparent;
+      opacity: 1;
+      .bls-overlay();
+      &.mfp-ready{
+        .bls-overlay-active;
+        &.mfp-removing {
+          &:after{
+            opacity: 0;
+          }
+        }
+      }
+    }
+    .mfp-content{
+      max-height: 95vh;
+      .lib-css(max-width, @quickview-max-width);
+      overflow: hidden;
+      @animation: 0.4s cubic-bezier(.26,.54,.32,1) forwards fadeInLeftShort;
+      .lib-css(animation, @animation, 1);
+    }
+
+    .mfp-zoom-in {
+      .mfp-content{
+        @animation: 0.4s cubic-bezier(.26,.54,.32,1) forwards fadeOutRightShort;
+        .lib-css(animation, @animation, 1);
+      }
+      /* animate in */
+      &.mfp-ready {
+        .mfp-content{
+          @animation: 0.4s cubic-bezier(.26,.54,.32,1) forwards fadeInLeftShort;
+          .lib-css(animation, @animation, 1);
+        }
+      }
+      /* animate out */
+      &.mfp-removing {
+        .mfp-content{
+          @animation: 0.4s cubic-bezier(.26,.54,.32,1) forwards fadeOutRightShort;
+          .lib-css(animation, @animation, 1);
+        }
+      }
+    }
+
+    .mfp-iframe-scaler {
+      .mfp-iframe{
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+
+    .mfp-iframe-scaler *{
+      opacity: 0;
+      .transition();
+      transition-delay: 0.3s;
+    }
+
+    .mfp-ready{
+      .mfp-iframe-scaler *{
+        opacity: 1;
+      }
+    }
+  }
+  .blueskytechco_quickview-product-view {
+    overflow: hidden;
+    &.not(.thumb_slide){
+      overflow-y: auto;
+    }
+    .page.messages{
+      position: relative;
+      z-index: 2;
+    }
+    .column.main{
+      > div{
+        box-sizing: border-box;
+      }
+    }
+    .product-reviews-summary{
+      .reviews-actions{
+        display: none;
+      }
+    }
+    .product-options-bottom{
+      float: none !important;
+      width: 100% !important;
+    }
+    .bundle-options-container {
+      .legend.title {
+        .lib-css(font-size, @quickview-page-title );
+      }
+      .bundle-options-wrapper,
+      .product-options-wrapper,
+      .block-bundle-summary{
+        float: none !important;
+        width: 100%;
+        margin-top: 30px;
+        padding: 0;
+      }
+    }
+    .page-title-wrapper {
+      .page-title {
+        .lib-css(font-size, @quickview-page-title );
+      }
+    }
+    .product-info-main{
+      padding: 20px;
+    }
+    .field.downloads{
+      > .label{
+        font-weight: bold;
+        margin: 0 0 8px;
+        display: inline-block;
+
+      }
+    }
+    .page-wrapper {
+      #maincontent {
+        padding: 0;
+        background: @color-white;
+        width: 100% !important;
+      }
+    }
+    // Vertical right
+    .vertical_left{
+      .fotorama__stage[style*="lef"]{
+        margin-left: 10px;
+      }
+    }
+
+    .vertical_right{
+      .fotorama__stage[style*="lef"]{
+        margin-left: 0;
+      }
+    }
+    > *:not(.page-wrapper, .swatch-option-tooltip, .modals-wrapper) {
+      display: none
+    }
+    .modals-wrapper{
+      .checkmark{
+        display: none;
+      }
+    }
+    .page-wrapper{
+      > *:not(#maincontent, .ajaxsuite-popup-wrapper){
+        display: none;
+      }
+    }
+  }
+  .mfp-container.mfp-iframe-holder {
+    .mfp-close {
+      top: -5px;
+      right: 10px;
+      width: auto;
+      color: #838383;
+      font-weight: normal;
+      padding: 5px;
+
+    }
+
+    .mfp-iframe-scaler {
+      .lib-css(padding-top, @padding-ratio);
+    }
+
+    .mfp-preloader {
+      .bls-cricle-snipper();
+      vertical-align: middle;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  .vertical_right{
+    .fotorama__nav-wrap--vertical.fotorama__nav-wrap{
+      left: auto;
+      right: 0;
+    }
+    .fotorama__stage{
+      left: 0 !important;
+      .fotorama__img{
+        left: 0;
+        top: 0;
+        @transform: none;
+        .lib-css(transform, @transform, 1);
+      }
+    }
+  }
+  .vertical_left{
+    .fotorama__stage{
+      .fotorama__img{
+        left: 0;
+        top: 0;
+        @transform: none;
+        .lib-css(transform, @transform, 1);
+      }
+    }
+  }
+  .button_quickview{
+    display: inline-block;
+    vertical-align: middle;
+    .link-quickview{
+      .lib-icon-font(
+          @icon-search,
+          @_icon-font-size: 20px,
+          @_icon-font-line-height: 20px,
+          @_icon-font-text-hide: true,
+          @_icon-font-position: before
+      );
+      span{
+        .lib-visually-hidden-reset();
+      }
+    }
+  }
+
+}
+@product_media_width: 54.333333%;
+// Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+  .blueskytechco_quickview-product-view{
+    .bls-webkit-scrollbar();
+    .page-wrapper{
+      position: relative;
+      .column.main{
+        padding: 0;
+        .product.media{
+          .lib-css(width, @product_media_width);
+          margin: 0;
+        }
+      }
+      .product-info-main{
+        width: 100% - @product_media_width;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: auto;
+      }
+    }
+    &.thumb_slide{
+      .page-main{
+        &:after,
+        &:before {
+          content: "";
+          position: absolute;
+          left: @product_media_width;
+          right: 5px;
+          background: @color-white;
+          height: 20px;
+          z-index: 2;
+        }
+        &:before{
+          top: 0;
+        }
+        &:after{
+          bottom: 0;
+        }
+      }
+      .column.main{
+        .product.media{
+          .lib-css(width, @product_media_width);
+          float: none;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          top: 0;
+          margin: 0;
+          float: none;
+        }
+      }
+      .gallery-placeholder,
+      .fotorama-item,
+      .fotorama__wrap{
+        height: 100%;
+      }
+      .fotorama__stage{
+        width: 100% !important;
+        height: 100% !important;
+        .fotorama__stage__frame .fotorama__img{
+          left: 0;
+          @transform: translate3d(0, 0, 0);
+          .lib-css(transform, @transform, 1);
+          max-height: unset;
+          width: 100%;
+        }
+      }
+      .fotorama__nav-wrap--horizontal{
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+      }
+    }
+    &.not(.thumb_slide){
+      .product.media{
+        padding: 20px;
+      }
+    }
+    .gallery-placeholder{
+      &.vertical_left,
+      &.vertical_right{
+        padding: 20px;
+      }
+    }
+    .product-category{
+      a{
+        pointer-events: none;
+      }
+    }
+  }
+}
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+  .mfp-wrap{
+    .mfp-container{
+      padding-left: 0;
+      padding-right: 0;
+      width: 90%;
+      right: 0;
+      margin: auto;
+      max-height: 90vh;
+    }
+  }
+  
+}
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__s) {
+  .mfp-container.mfp-iframe-holder{
+      .mfp-content{
+        height: 100%;
+      }
+  }
+  .blueskytechco_quickview-product-view{
+    overflow: hidden;
+    overflow-y: auto;
+    .row.gx-5{
+      margin: 0;
+      > div{
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}

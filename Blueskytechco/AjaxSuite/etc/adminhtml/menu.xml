@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Blueskytechco_AjaxSuite::ajaxsuite" title="Ajax Suite" module="Blueskytechco_AjaxSuite" sortOrder="5" parent="Blueskytechco_RokanBase::rokanbase_setting" resource="Blueskytechco_AjaxSuite::ajaxsuite" action="adminhtml/system_config/edit/section/ajaxsuite" />
+    </menu>
+</config>

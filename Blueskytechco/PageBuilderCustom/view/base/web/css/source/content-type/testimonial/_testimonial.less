@@ -1,0 +1,122 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+// Variables
+@bls_testimonial-text-align: center;
+
+@bls_testimonial-image-width: 100px;
+@bls_testimonial-image-height: 100px;
+@bls_testimonial-image-border-radius: 50%;
+@bls_testimonial-image-margin: 0 auto 15px;
+
+@bls_testimonial-author-font-size: false;
+@bls_testimonial-author-font-weight: 500;
+@bls_testimonial-author-color: @darkcolor;
+@bls_testimonial-author-text-transform: capitalize;
+@bls_testimonial-author-margin: 0 0 10px;
+
+@bls_testimonial-des-font-size: false;
+@bls_testimonial-des-font-weight: 300;
+@bls_testimonial-des-color: false;
+@bls_testimonial-des-margin: 0 auto 10px;
+
+@bls_testimonial-job-font-size: false;
+@bls_testimonial-job-font-weight: 500;
+@bls_testimonial-job-color: @darkcolor;
+@bls_testimonial-job-text-transform: capitalize;
+@bls_testimonial-job-margin: 0 0 10px;
+
+
+& when (@media-common =true) {
+    .elementor-testimonial-item{
+        .lib-css(text-align, @bls_testimonial-text-align);
+    }
+    .testimonial-customer{
+        img{
+            .lib-css(width, @bls_testimonial-image-width);
+            .lib-css(height, @bls_testimonial-image-height);
+            .lib-css(border-radius, @bls_testimonial-image-border-radius);
+            .lib-css(margin, @bls_testimonial-image-margin);
+            object-fit: cover;
+        }
+    }
+    .testimonial-name{
+        .lib-css(font-size, @bls_testimonial-author-font-size);
+        .lib-css(font-weight, @bls_testimonial-author-font-weight);
+        .lib-css(color, @bls_testimonial-author-color);
+        .lib-css(text-transform, @bls_testimonial-author-text-transform);
+        .lib-css(margin, @bls_testimonial-author-margin);
+    }
+
+    .testimonial-content{
+        .lib-css(font-size, @bls_testimonial-des-font-size);
+        .lib-css(font-weight, @bls_testimonial-des-font-weight);
+        .lib-css(color, @bls_testimonial-des-color);
+        .lib-css(margin, @bls_testimonial-des-margin);
+        max-width: 525px;
+    }
+
+    .testimonial-job{
+        .lib-css(font-size, @bls_testimonial-job-font-size);
+        .lib-css(font-weight, @bls_testimonial-job-font-weight);
+        .lib-css(color, @bls_testimonial-job-color);
+        .lib-css(text-transform, @bls_testimonial-job-text-transform);
+        .lib-css(margin, @bls_testimonial-job-margin);
+    }
+    .testimonial-rating{
+        .rating-summary {
+            .rating-result{
+                margin: auto;
+            }
+        }
+    }
+    .widget-testimonial-slider-design--2{
+        .slick-slide{
+            .elementor-testimonial-item{
+                text-align: left;
+                padding: 4rem 2.5rem;
+                border: 1px solid @border-color__base;
+                .testimonial-img{
+                    margin-right: 1.5rem;
+                    img{
+                        height: 8rem;
+                        width: 8rem;
+                        object-fit: cover;
+                    }
+                }
+                .testimonial-content{
+                    margin-bottom: 3rem;
+                }
+                .testimonial-name{
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                }
+                .testimonial-job{
+                    font-weight: 400;
+                    color: @text__color;
+                }
+            }
+        }
+        .testimonial-info{
+            text-align: center;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .widget-testimonial-slider-design--2{
+        .slick-slide{
+            &:not(:first-child){
+                .elementor-testimonial-item{
+                    margin-left: -1px;
+                }
+            }
+            &:nth-child(3){
+                .elementor-testimonial-item{
+                    margin-left: -2px;
+                }
+            }
+        }
+    }
+}

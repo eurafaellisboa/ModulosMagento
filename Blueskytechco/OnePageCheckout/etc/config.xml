@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <onepagecheckout>
+            <general>
+                <enabled>1</enabled>
+                <seourl>expresscheckout.html</seourl>
+                <page_title>Express Checkout</page_title>
+                <show_shipping_delivery_date>1</show_shipping_delivery_date>
+                <show_shipping_delivery_comment>1</show_shipping_delivery_comment>
+                <show_order_comment>1</show_order_comment>
+                <show_subscribe_newsletter>1</show_subscribe_newsletter>
+                <show_gift_message>1</show_gift_message>
+                <default_newletter_checkbox>0</default_newletter_checkbox>
+                <show_discount_box>1</show_discount_box>
+                <title_box_shipping_delivery_date>Shipping Delivery Date</title_box_shipping_delivery_date>
+                <title_box_shipping_delivery_comment>Shipping Delivery Comment</title_box_shipping_delivery_comment>
+                <title_box_order_comment>Order Comment</title_box_order_comment>
+                <title_box_subscribe>Check To Subscribe Order Newsletter</title_box_subscribe>
+                <title_place_order>Place Order</title_place_order>
+            </general>
+        </onepagecheckout>
+    </default>
+</config>

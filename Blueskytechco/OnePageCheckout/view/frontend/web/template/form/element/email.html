@@ -1,0 +1,133 @@
+<!-- ko foreach: getRegion('amazon-button-region') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+
+<!-- ko ifnot: isCustomerLoggedIn() -->
+
+<!-- ko foreach: getRegion('before-login-form') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+<form class="form form-login" data-role="email-with-possible-login"
+      data-bind="submit:login"
+      method="post">
+    <fieldset id="customer-email-fieldset" class="fieldset" data-bind="blockLoader: isLoading">
+        <div class="field required">
+            <label class="label" for="customer-email">
+                <span data-bind="i18n: 'Email Address'"></span>
+            </label>
+            <div class="control _with-tooltip">
+                <!-- ko if: window.checkoutConfig.rewrite_email_element -->
+                <input class="input-text"
+                       type="email"
+                       data-bind="
+                            textInput: email,
+                            hasFocus: emailFocused,
+                            mageInit: {'mage/trim-input':{}}"
+                       name="username"
+                       data-validate="{required:true, 'validate-email':true}"
+                       id="customer-email" />
+                <!-- /ko -->
+                <!-- ko ifnot: window.checkoutConfig.rewrite_email_element -->
+                <input class="input-text"
+                       type="email"
+                       data-bind="
+                            textInput: email,
+                            hasFocus: emailFocused"
+                       name="username"
+                       data-validate="{required:true, 'validate-email':true}"
+                       id="customer-email" />
+                <!-- /ko -->
+                <!-- ko template: 'ui/form/element/helper/tooltip' --><!-- /ko -->
+                <span class="note" data-bind="fadeVisible: isPasswordVisible() == false"><!-- ko i18n: 'You can create an account after checkout.'--><!-- /ko --></span>
+            </div>
+        </div>
+
+        <!--Hidden fields -->
+        <fieldset class="fieldset hidden-fields" data-bind="fadeVisible: isPasswordVisible">
+            <div class="field">
+                <label class="label" for="customer-password">
+                    <span data-bind="i18n: 'Password'"></span>
+                </label>
+                <div class="control">
+                    <input class="input-text"
+                           data-bind="
+                                attr: {
+                                    placeholder: $t('Password'),
+                                }"
+                           type="password"
+                           name="password"
+                           id="customer-password"
+                           data-validate="{required:true}" autocomplete="off"/>
+                    <span class="note" data-bind="i18n: 'You already have an account with us. Sign in or continue as guest.'"></span>
+                </div>
+
+            </div>
+            <!-- ko foreach: getRegion('additional-login-form-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+            <div class="actions-toolbar">
+                <input name="context" type="hidden" value="checkout" />
+                <div class="primary">
+                    <button type="submit" class="action login primary" data-action="checkout-method-login"><span data-bind="i18n: 'Login'"></span></button>
+                </div>
+                <div class="secondary">
+                    <a class="action remind" data-bind="attr: { href: forgotPasswordUrl }">
+                        <span data-bind="i18n: 'Forgot Your Password?'"></span>
+                    </a>
+                </div>
+            </div>
+        </fieldset>
+        <!--Hidden fields -->
+
+        <!-- ko if: createNewAccountConfig() -->
+        <fieldset class="fieldset hidden-fields create-account" data-bind="fadeVisible: isPasswordVisible() == false">
+            <div class="field">
+                <input class="checkbox"
+                       data-bind="click: createNewAccountChecked($element.id)"
+                       type="checkbox"
+                       name="createnewcustomer"
+                       id="create-new-customer"
+                       autocomplete="off"/>
+                <label class="label">
+                    <span data-bind="i18n: 'Create New Account'"></span>
+                </label>
+            </div>
+            <div class="field _required pass" data-bind="fadeVisible: createNewAccount()">
+                <label class="label" for="new-customer-password">
+                    <span data-bind="i18n: 'Password'"></span>
+                </label>
+                <div class="control">
+                    <input class="input-text"
+                           data-bind="
+                            attr: {
+                                placeholder: $t('Password'),
+                                'data-password-min-length': minLength(),
+                                'data-password-min-character-sets': minCharacterSets()
+                            }"
+                           type="password"
+                           name="newcustomerpassword"
+                           id="new-customer-password"
+                           data-validate="{required: true, 'validate-customer-password':true}" autocomplete="off"/>
+                </div>
+            </div>
+            <div class="field _required confirm-pass" data-bind="fadeVisible: createNewAccount()">
+                <label class="label" for="new-customer-password-confirmation">
+                    <span data-bind="i18n: 'Confirm Password'"></span>
+                </label>
+                <div class="control">
+                    <input class="input-text"
+                           data-bind="
+                            attr: {
+                                placeholder: $t('Confirm Password'),
+                            }"
+                           type="password"
+                           name="newcustomerpassword_confirmation"
+                           id="new-customer-password-confirmation"
+                           data-validate="{required: true, equalTo:'#new-customer-password'}" autocomplete="off"/>
+                </div>
+            </div>
+        </fieldset>
+        <!-- /ko -->
+    </fieldset>
+</form>
+<!-- /ko -->

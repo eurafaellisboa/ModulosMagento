@@ -1,0 +1,10 @@
+<?php
+$data = $block->getConfig();
+$_helper = $this->helper('Blueskytechco\Themeoption\Helper\Themeconfig');
+?>
+<?php if ($_helper->useGoogleFonts($data)) { ?>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?<?= $_helper->getLinkGoogleFonts($data);?>&display=swap" rel="stylesheet">
+<?php } ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $_helper->getThemeOption() ?>">

@@ -1,0 +1,23 @@
+{
+    "name": "blueskytechco/module-widget-category",
+    "description": "Widget Category",
+    "require": {
+        "magento/framework": "~103.0.3",
+        "magento/module-eav": "*",
+        "php": "~7.3.0||~7.4.0",
+        "phpgt/dom": "2.1.6"
+    },
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Blueskytechco\\WidgetCategory\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

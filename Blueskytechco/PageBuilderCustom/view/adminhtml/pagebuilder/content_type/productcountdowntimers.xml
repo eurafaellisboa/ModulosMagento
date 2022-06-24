@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="productcountdowntimers"
+        label="Product Countdown Timers"
+        menu_section="blueskytechco_page_builder_custom_elements"
+        component="Magento_PageBuilder/js/content-type"
+        preview_component="Blueskytechco_PageBuilderCustom/js/content-type/productcountdowntimers/preview"
+        form="pagebuilder_productcountdowntimers_form"
+        icon="icon-pagebuilder-productcountdowntimers"
+        sortOrder="14"
+        translate="label">
+        <children default_policy="deny"/>
+        <breakpoints>
+            <breakpoint name="mobile">
+                <form>pagebuilder_productcountdowntimers_grid_mobile_form</form>
+            </breakpoint>
+            <breakpoint name="tablet">
+                <form>pagebuilder_productcountdowntimers_grid_tablet_form</form>
+            </breakpoint>
+        </breakpoints>
+        <appearances>
+            <appearance
+                        default="true"
+                        name="grid"
+                        preview_template="Blueskytechco_PageBuilderCustom/content-type/productcountdowntimers/default/preview"
+                        master_template="Blueskytechco_PageBuilderCustom/content-type/productcountdowntimers/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <style name="text_align" source="text_align"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/border-style" name="border" source="border_style"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/color" name="border_color" source="border_color"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/border-width" name="border_width" source="border_width"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/remove-px" name="border_radius" source="border_radius"/>
+                        <style name="display" source="display" converter="Magento_PageBuilder/js/converter/style/display" preview_converter="Magento_PageBuilder/js/converter/style/preview/display"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <attribute source="data-content-type" name="name"/>
+                        <attribute source="data-appearance" name="appearance"/>
+                        <attribute name="countdown_day" source="data-countdown-text-day"/>
+                        <attribute name="countdown_hour" source="data-countdown-text-hour"/>
+                        <attribute name="countdown_minute" source="data-countdown-text-minute"/>
+                        <attribute name="countdown_second" source="data-countdown-text-second"/>
+                        <html name="html" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/store-id"/>
+                        <css name="css_classes"/>
+                    </element>
+                </elements>
+                <converters>
+                    <converter component="Blueskytechco_PageBuilderCustom/js/content-type/productcountdowntimers/mass-converter/widget-directive" name="widget_directive">
+                        <config>
+                            <item name="html_variable" value="html"/>
+                        </config>
+                    </converter>
+                </converters>
+            </appearance>
+            <appearance name="carousel"
+                        preview_template="Blueskytechco_PageBuilderCustom/content-type/productcountdowntimers/default/preview"
+                        master_template="Blueskytechco_PageBuilderCustom/content-type/productcountdowntimers/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <form>pagebuilder_productcountdowntimers_carousel_form</form>
+                <elements>
+                    <element name="main">
+                        <style name="text_align" source="text_align"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/border-style" name="border" source="border_style"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/color" name="border_color" source="border_color"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/border-width" name="border_width" source="border_width"/>
+                        <style converter="Magento_PageBuilder/js/converter/style/remove-px" name="border_radius" source="border_radius"/>
+                        <style name="display" source="display" converter="Magento_PageBuilder/js/converter/style/display" preview_converter="Magento_PageBuilder/js/converter/style/preview/display"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <attribute name="autoplay" source="data-autoplay"/>
+                        <attribute name="autoplay_speed" source="data-autoplay-speed"/>
+                        <attribute name="is_infinite" source="data-infinite-loop"/>
+                        <attribute name="show_arrows" source="data-show-arrows"/>
+                        <attribute name="show_dots" source="data-show-dots"/>
+                        <attribute name="carousel_mode" source="data-carousel-mode"/>
+                        <attribute name="slick_rows" source="data-slick-rows"/>
+                        <attribute name="col_xxl" source="data-col-xxl"/>
+                        <attribute name="col_xl" source="data-col-xl"/>
+                        <attribute name="col_lg" source="data-col-lg"/>
+                        <attribute name="col_md" source="data-col-md"/>
+                        <attribute name="col_sm" source="data-col-sm"/>
+                        <attribute name="col_xs" source="data-col-xs"/>
+                        <attribute name="countdown_day" source="data-countdown-text-day"/>
+                        <attribute name="countdown_hour" source="data-countdown-text-hour"/>
+                        <attribute name="countdown_minute" source="data-countdown-text-minute"/>
+                        <attribute name="countdown_second" source="data-countdown-text-second"/>
+                        <static_attribute source="data-center-padding" value="90px"/>
+                        <html name="html" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/store-id"/>
+                        <css name="css_classes"/>
+                    </element>
+                </elements>
+                <converters>
+                    <converter component="Blueskytechco_PageBuilderCustom/js/content-type/productcountdowntimers/mass-converter/carousel-widget-directive" name="widget_directive">
+                        <config>
+                            <item name="html_variable" value="html"/>
+                        </config>
+                    </converter>
+                </converters>
+            </appearance>
+        </appearances>
+    </type>
+</config>

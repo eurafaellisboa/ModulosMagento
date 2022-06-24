@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu> 
+        <add id="Blueskytechco_MenuBuilder::menus_builder" title="MenuBuilder" module="Blueskytechco_MenuBuilder" sortOrder="110" parent="Blueskytechco_RokanBase::rokanbase" resource="Blueskytechco_MenuBuilder::menus_builder" />
+        <add id="Blueskytechco_MenuBuilder::menus_builder_gird" title="Menus Builder" module="Blueskytechco_MenuBuilder" sortOrder="10" parent="Blueskytechco_MenuBuilder::menus_builder" action="menus/builder/index" resource="Blueskytechco_MenuBuilder::menus_builder"/>
+		<add id="Blueskytechco_MenuBuilder::menus_setting" title="Menus Settings" module="Blueskytechco_MenuBuilder" sortOrder="20" parent="Blueskytechco_MenuBuilder::menus_builder" action="adminhtml/system_config/edit/section/menus" resource="Blueskytechco_MenuBuilder::menus_setting"/>
+    </menu>
+</config>
+ 

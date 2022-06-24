@@ -1,0 +1,7 @@
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$url = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('web/secure/base_url');
+?>
+<script>
+    var CUSTOM_BASE_URL = '<?= /** @noEscape */ $url ?>';
+</script>

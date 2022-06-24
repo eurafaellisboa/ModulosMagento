@@ -1,0 +1,344 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+// Variables
+
+@bls_countdown-margin: 15px 0 10px;
+
+@bls_countdown_box-width: 60px;
+@bls_countdown_box-height: 60px;
+@bls_countdown_box-border: false;
+@bls_countdown_box-border-radius: 3px;
+@bls_countdown_box-padding: 5px;
+@bls_countdown_box-margin: 0 2px 5px;
+@bls_countdown_box-box-shadow: 0 0 3px fade(@darkcolor, 10%);
+
+@bls_countdown_box_dark-background: @darkcolor;
+@bls_countdown_box_dark_number-color: @color-white;
+@bls_countdown_box_dark_text-color: #999;
+
+@bls_countdown_box_light-background: @color-white;
+@bls_countdown_box_light_number-color: @darkcolor;
+@bls_countdown_box_light_text-color: #999;
+
+@bls_countdown_box_bottom-value: 20px;
+
+@bls_countdown_number-font-size: 16px;
+@bls_countdown_number-font-weight: false;
+@bls_countdown_number-margin: false;
+
+@bls_countdown_text-font-size: 14px;
+@bls_countdown_text-font-weight: false;
+
+// Mobile Devices
+
+@bls_mobile_box_countdown-width: 40px;
+@bls_mobile_box_countdown-height: 40px;
+
+@bls_mobile_countdown_number-font-size: 14px;
+@bls_mobile_countdown_text-font-size: 12px;
+
+@bls_mobile_countdown_number-margin: 0 0 5px;
+& when (@media-common =true) {
+    .final-date-product-countdown-timers {
+        text-align: center;
+        .lib-css(margin, @bls_countdown-margin);
+
+        >* {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .lib-css(min-width, @bls_mobile_box_countdown-width);
+            .lib-css(min-height, @bls_mobile_box_countdown-height);
+            .lib-css(border, @bls_countdown_box-border);
+            .lib-css(border-radius, @bls_countdown_box-border-radius);
+            .lib-css(box-shadow, @bls_countdown_box-box-shadow);
+            .lib-css(padding, @bls_countdown_box-padding);
+            .lib-css(margin, @bls_countdown_box-margin);
+        }
+
+        .countdown_ti {
+            .lib-css(font-size, @bls_mobile_countdown_number-font-size);
+            .lib-css(font-weight, @bls_countdown_number-font-weight);
+            .lib-css(margin, @bls_mobile_countdown_number-margin);
+            line-height: 1;
+        }
+
+        .countdown_tx {
+            .lib-css(font-size, @bls_countdown_text-font-size);
+            .lib-css(font-weight, @bls_countdown_text-font-weight);
+            line-height: 1;
+        }
+
+    }
+
+    .desgin_product_price_countdown--dark {
+        .final-date-product-countdown-timers {
+            >* {
+                .lib-css(background-color, @bls_countdown_box_dark-background);
+            }
+
+            .countdown_ti {
+                .lib-css(color, @bls_countdown_box_dark_number-color);
+            }
+
+            .countdown_tx {
+                .lib-css(color, @bls_countdown_box_dark_text-color);
+            }
+        }
+    }
+
+    .desgin_product_price_countdown--light {
+        .final-date-product-countdown-timers {
+            >* {
+                .lib-css(background-color, @bls_countdown_box_light-background);
+            }
+
+            .countdown_ti {
+                .lib-css(color, @bls_countdown_box_light_number-color);
+            }
+
+            .countdown_tx {
+                .lib-css(color, @bls_countdown_box_light_text-color);
+            }
+        }
+    }
+
+    *[class*=widget-product-countdown-timers] {
+        .product_item_images{
+            margin-bottom: 0;
+        }
+        .product-item-details {
+            text-align: center;
+
+            .price-box {
+                justify-content: center;
+                margin-top: 5px;
+            }
+        }
+    }
+    .widget-product-countdown-timers-slider{
+        .product-item{
+            margin-top: 0;
+        }
+    }
+    .widget-product-countdown-timers-grid{
+        .product-item-photo{
+            overflow: hidden;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .final-date-product-countdown-timers {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        .lib-css(bottom, @bls_countdown_box_bottom-value);
+        .transition();
+
+        >* {
+            .lib-css(min-width, @bls_countdown_box-width);
+            .lib-css(min-height, @bls_countdown_box-height);
+        }
+
+        .countdown_ti {
+            .lib-css(font-size, @bls_countdown_number-font-size);
+            .lib-css(margin, @bls_countdown_number-margin);
+        }
+
+        .countdown_tx {
+            .lib-css(font-size, @bls_countdown_text-font-size);
+        }
+    }
+
+    *[class*=widget-product-countdown-timers] {
+        .product-item {
+            .product-item-info {
+                position: relative;
+            }
+
+            .product-item-details {
+                position: absolute;
+                z-index: 2;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 15px;
+                @background: linear-gradient(0deg, rgba(0, 0, 0, .6) 0, rgba(0, 0, 0, 0) 100%);
+                .lib-css(background, @background, 1);
+                opacity: 0;
+                visibility: hidden;
+                .transition();
+
+                .price-box>.price-container *,
+                .price-box>*:not(.special-price) .price-container *,
+                .price-box .old-price,
+                .product-item-name>a {
+                    color: @color-white;
+                }
+            }
+
+            &:hover {
+                .final-date-product-countdown-timers {
+                    opacity: 0;
+                }
+
+                .product-item-details {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+//
+// product-countdown-layout2
+//________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .product-countdown-layout2{
+        .product-item-info{
+            .flex();
+            .product_item-images,
+            .product-item-actions{
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0 15px;
+            }
+        }
+    }    
+}
+& when (@media-common =true) {
+    .product-countdown-layout2{
+        .final-date-product-countdown-timers{
+            position: static;
+            opacity: 1 !important;
+            text-align: left;
+            margin: 30px 0 0;
+        }
+        .product-image-photo,
+        .products-image-hover{
+            background-color: #f5f5f5;
+            transform: none !important;
+        }
+        .product-item-info{
+            .product_item-images{
+                padding-bottom: 20px;
+            }
+            .product_item-details{
+                margin-bottom: 30px;
+                .product-item-name{
+                    font-size: 3.2rem;
+                    font-weight: @heading__font-weight__base;
+                    margin-bottom: 10px;
+                }
+                .price-box{
+                    font-size: 22px;
+                    line-height: 22px;
+                    margin-bottom: 20px;
+                    .price{
+                        font-size: 22px;
+                    }
+                }
+            }         
+        }
+        .variations_button{
+            display: flex;
+            align-items: center;
+            .actions-secondarys{
+                display: flex;
+                align-items: center;
+                .action{
+                    position: relative;
+                    min-width: 40px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    margin-left: 10px;
+                    border-radius: 5px;
+                    border: 1px solid #222;
+                    text-align: center;
+                    transition: .3s;
+                    display: inline-block;
+                    span{
+                        display: none;
+                    }
+                    &::before{
+                        color: #222;
+                    }
+                    &:hover{
+                        background: @theme__color__primary;
+                        color: #fff;
+                        border-color: @theme__color__primary;
+                        &::before{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .actions-primary{
+                width: auto;
+                button{
+                    min-width: 160px;
+                    border-radius: 5px;
+                    min-height: 40px;
+                    &::before{
+                        display: none;
+                    }
+                    &:focus{
+                        background: @theme__color__primary;
+                        color: #fff;
+                        border-color: @theme__color__primary;
+                    }
+                }
+            }
+        }
+        .product-share-links{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 20px;
+            .share-links{
+                display: inline-flex;
+                margin-right: 10px;
+                text-transform: capitalize;
+                a{
+                    color: @text__color;
+                }
+            }
+            .share-dialog{
+                margin: 0;
+            }
+
+        }
+        .final-date-product-countdown-timers{
+            > span{
+                background: none;
+                color: @text__color;
+                min-width: unset;
+                min-height: unset;
+                border: 0;
+                box-shadow: none;
+                margin: 0;
+            }
+            .countdown_ti{
+                min-width: 50px;
+                min-height: 50px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                border: 2px solid #ddd;
+                color: @heading__color__base;
+                font-weight: 600;
+            }
+            .countdown_tx{
+                text-transform: uppercase;
+            }
+        }
+       
+               
+    }
+}

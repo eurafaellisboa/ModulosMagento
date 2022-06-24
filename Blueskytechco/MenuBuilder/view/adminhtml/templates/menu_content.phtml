@@ -1,0 +1,122 @@
+<?php if ($block->getDataContent()) { ?>
+<div id="nav-menus-frame" class="nav-clearfix">
+    <div id="menu-settings-column" class="metabox-holder">
+        <h2><?= $block->escapeHtml(__('Add menu items')) ?></h2>
+        <div id="side-sortables" class="accordion-container">
+            <ul class="outer-border">
+                <li class="control-section accordion-section add-type-page" id="add-type-page">
+                    <h3 class="accordion-section-title hndle" tabindex="0">
+                        <?= $block->escapeHtml(__('Cms Page')) ?>
+                    </h3>
+                    <div class="accordion-section-content" style="display:none">
+                        <div class="cmspagediv">
+                            <div id="tabs-panel-cmspage-pop" class="tabs-panel tabs-panel-active" tabindex="0">
+                                <ul id="cmspagechecklist-pop" class="cmspagechecklist form-no-clear">
+                                    <?= $block->getListCmsPageHtml(); ?>
+                                </ul>
+                            </div>
+                            <p class="button-controls clearfix">
+                                <span class="select-all">
+                                    <input type="button" class="select-all-checkbox" 
+                                        value="<?= $block->escapeHtml(__('Select All')) ?>" 
+                                    >
+                                </span>
+                                <span class="add-to-menu">
+                                    <input type="submit" class="button submit-add-to-menu right" 
+                                        value="<?= $block->escapeHtml(__('Add to Menu')) ?>" 
+                                        name="add-menu-cmspage" id="submit-menu-cmspage">
+                                </span>
+                            </p> 
+                        </div>
+                    </div>
+                </li>
+                <li class="control-section accordion-section add-category" id="add-category">
+                    <h3 class="accordion-section-title hndle" tabindex="0">
+                        <?= $block->escapeHtml(__('Categories')) ?>
+                    </h3>
+                    <div class="accordion-section-content" style="display:none">
+                        <div class="categorydiv">
+                            <div id="tabs-panel-category-pop" class="tabs-panel tabs-panel-active" tabindex="0">
+                                <ul id="categorychecklist-pop" class="categorychecklist form-no-clear">
+                                    <?= $block->getListCategoriesHtml(); ?>
+                                </ul>
+                            </div>
+                            <p class="button-controls clearfix">
+                                <span class="select-all">
+                                    <input type="button" class="select-all-checkbox" 
+                                        value="<?= $block->escapeHtml(__('Select All')) ?>" 
+                                    >
+                                </span>
+                                <span class="add-to-menu">
+                                    <input type="submit" class="button submit-add-to-menu right" 
+                                        value="<?= $block->escapeHtml(__('Add to Menu')) ?>" 
+                                        name="add-menu-category" id="submit-menu-category">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="control-section accordion-section add-custom-links" id="add-custom-links">
+                    <h3 class="accordion-section-title hndle" tabindex="0">
+                        <?= $block->escapeHtml(__('Custom Links')) ?>
+                    </h3>
+                    <div class="accordion-section-content" style="display:none"> 
+                        <div class="customlinksdiv">
+                            <div id="tabs-panel-customlinks-pop" class="tabs-panel tabs-panel-active" tabindex="0">
+                                <p id="menu-item-url-wrap">
+                                    <label class="howto" for="custom-menu-item-url">
+                                        <?= $block->escapeHtml(__('URL')) ?>
+                                    </label>
+                                    <input id="custom-menu-item-url" name="menu-item[menu-item-url]" type="text" 
+                                        class="code menu-item-textbox form-required" placeholder="https://">
+                                </p>
+                                <p id="menu-item-name-wrap">
+                                    <label class="howto" for="custom-menu-item-name">
+                                        <?= $block->escapeHtml(__('Link Text')) ?>
+                                    </label>
+                                    <input id="custom-menu-item-name" name="menu-item[menu-item-title]" 
+                                        type="text" class="regular-text menu-item-textbox">
+                                </p>
+                            </div>
+                            <p class="button-controls clearfix">
+                                <span class="add-to-menu">
+                                    <input type="submit" class="button submit-add-to-menu right" 
+                                        value="<?= $block->escapeHtml(__('Add to Menu')) ?>" 
+                                        name="add-menu-custom-links" id="submit-menu-custom-links">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="menu-management">
+        <div id="menu-management-edit">
+            <div class="menu-management-title">
+                <h2><?= $block->escapeHtml(__('Menu structure')) ?></h2>
+            </div>
+            <div class="menu-edit">
+                <p><?= $block->escapeHtml(__('Drag the items into the order you prefer. 
+                    Click the arrow on the right of the item to reveal additional configuration options.')) ?></p>
+                <ul class="menu ui-sortable" id="menu-to-edit"> 
+                    <?= $block->getContentHtml(); ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>  
+    require([  
+        'jquery',
+        'Blueskytechco_MenuBuilder/js/components/menu_builder',
+        'domReady!'
+    ], function ($) {  
+        var json = <?= $block->escapeJsQuote(json_encode($block->getJsonConfigWysiwyg())) ?>;
+        $('#menu-to-edit').menuBuilder({
+            ajaxAddMenuItem:"<?= $block->escapeHtml($block->getUrl('menus/builder/ajax')) ?>",
+            getJsonConfigWysiwyg:json
+        });
+    });
+</script>
+<?php } ?>

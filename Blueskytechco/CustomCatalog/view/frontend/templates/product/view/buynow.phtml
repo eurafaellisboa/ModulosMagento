@@ -1,0 +1,25 @@
+<?php
+/**
+ * Custom Catalog for store
+ *
+ * @var $viewModel \Blueskytechco\CustomCatalog\ViewModel\Catalog
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php 
+    $_product = $block->getProduct();
+    $view_model = $block->getViewModel();
+?>
+<?php if ($view_model->getParamsBuyNow()) :?>
+<div class="buynow-button">
+    <button type="submit" title="<?php /* @escapeNotVerified */ echo __('Buy Now') ?>" id="buy-now" class="action buynow primary" data-mage-init='
+    {
+        "Blueskytechco_CustomCatalog/js/buy_now": {
+            "form": "#product_addtocart_form"
+        }
+    }
+    '>
+        <span><?php /* @escapeNotVerified */ echo __('Buy It Now') ?></span>
+    </button>
+</div>
+<?php endif; ?>

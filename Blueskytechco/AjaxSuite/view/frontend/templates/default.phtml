@@ -1,0 +1,60 @@
+<?php
+/**
+ * @var $block Blueskytechco\AjaxSuite\Block\Js
+ */
+?>
+<?php
+$logo = $block->getConfigValue('ajaxsuite/ajaxwishlist/logo_pupup_login');
+$bg_pupup_login = $block->getConfigValue('ajaxsuite/ajaxwishlist/bg_pupup_login');
+$title = $block->getConfigValue('ajaxsuite/ajaxwishlist/title');
+$description = json_encode($block->getConfigValue('ajaxsuite/ajaxwishlist/description'));
+if($logo && $logo != ''){
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+    $path = \Blueskytechco\AjaxSuite\Model\Config\Logo::UPLOAD_DIR.'/'.$logo;
+    $logo_link = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).$path;
+}
+else{
+    $logo_link = $block->getLogoSrc();
+}
+if($bg_pupup_login && $bg_pupup_login != ''){
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+    $path = \Blueskytechco\AjaxSuite\Model\Config\Background::UPLOAD_DIR.'/'.$bg_pupup_login;
+    $bg_link = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).$path;
+}
+else{
+    $bg_link = '';
+}
+?>
+<script>
+    window.logoUrl = '<?= $logo_link ?>';
+	window.backgroundUrl = '<?= $bg_link ?>';
+	window.title = '<?= $title ?>';
+	window.description = <?= $description ?>;
+</script>
+<?php
+if ($block->getSettingStatus()): ?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "blueskytechco/ajaxsuite"    : {
+                "loginUrl": "<?php echo $block->getUrl('customer/account/login') ?>",
+                "customerId": "<?php echo $block->getCustomerId() ?>",
+                "ajaxCart" : {
+                    "enabled" : <?php echo $block->getSettingStatus('ajaxcart'); ?>,
+                    "actionAfterSuccess" : "<?php echo $block->getModuleConfigValue('ajaxcart/success_action'); ?>"
+                },
+                "ajaxWishList" : {
+                    "enabled" : <?php echo $block->getSettingStatus('ajaxwishlist'); ?>,
+                    "WishlistUrl": "<?php echo $block->getUrl('ajaxsuite/wishlist/add') ?>"
+                },
+                "ajaxCompare" : {
+                    "enabled" : <?php echo $block->getSettingStatus('ajaxcompare'); ?>,
+                    "CompareUrl": "<?php echo $block->getUrl('ajaxsuite/compare/add') ?>"
+                }
+            }
+    }
+}
+</script>
+<?php endif; ?>

@@ -1,0 +1,31 @@
+// Copyright by Blueskytechco
+// ________________________________________
+//
+
+& when (@media-common =true) {
+    .pswp {
+
+        .pswp__ui--fit .pswp__top-bar,
+        .pswp__ui--fit .pswp__caption,
+        .pswp__button--arrow--left:before,
+        .pswp__button--arrow--right:before {
+            background-color: rgba(33, 43, 54, .9);
+        }
+
+        .pswp__bg {
+            background-color: @color-white;
+        }
+
+        .pswp__button--arrow--left,
+        .pswp__button--arrow--right {
+            .lib-button-reset();
+        }
+
+        .pswp__button {
+            &:hover {
+                background-color: unset;
+                border: none;
+            }
+        }
+    }
+}

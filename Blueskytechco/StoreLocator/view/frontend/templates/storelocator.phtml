@@ -1,0 +1,52 @@
+<div id="locator_filter" class="block" style="display: flex;">
+    <div class="column_left" style="width: 33%">
+        <div class="block-content">
+            <div id="current-address" class="bstlocator_input">
+                <div class="input-box">
+                    <input type="text" value="" class="input-text" id="locator-search" name="address" placeholder="<?= __('Enter a location')?>">
+					<input type="hidden" id="lat" name="lat">
+                    <input type="hidden" id="long" name="long">
+				</div>
+            </div>
+
+            <div class="bstlocator_input">
+                <button class="action as-dark" title="Filter"  id="sortByFilter" >
+                    <span>
+                        <span>
+                            <?= __('Search')?>
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </div>
+		
+		<div class="center"> 
+			<div class="store_list"><?= $block->getChildHtml('store_list') ?></div>
+		</div>
+    </div>
+	<div class="column_right" style="width: 67%;height: 80vh; max-height: 800px;padding-left: 15px;">
+		 <div id="bst-map-load" style="height: 100%"></div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $block->getApiKey() ?>&libraries=places"></script>
+<script>
+    var baloonTemplate = <?php echo $block->getBaloonTemplate() ?>;
+</script>
+<script>
+    require([
+        'jquery',
+        'Blueskytechco_StoreLocator/js/loadmap',
+        'Blueskytechco_StoreLocator/js/cluster',
+        'domReady!'
+    ], function ($) { 
+        $('#bst-map-load').bstLocator({
+            jsonLocations: <?php echo $this->getJsonLocations() ?>,
+			ajaxCallUrl: "<?php echo $this->getUrl('store-locator/index/ajax') ?>",
+			imageShop: "<?php echo $block->getViewFileUrl('Blueskytechco_StoreLocator::images/shop.jpg'); ?>",
+            imageLocations: "<?php echo $block->getViewFileUrl('Blueskytechco_StoreLocator::images/'); ?>"
+        })
+    });
+</script>
+
+
+

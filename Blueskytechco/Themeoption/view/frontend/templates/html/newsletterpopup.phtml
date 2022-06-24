@@ -1,0 +1,18 @@
+<?php if($block->getConfigNewlltes() > 0){ ?>
+<div id="newsletter-popup-common" class="white-popup mfp-hide" data-show="<?= $block->getConfigNewlltes(); ?>" data-width="<?= $block->getConfigNewlltesWidth(); ?>">
+	<div class="newsletter-popup__container">
+		<?= $block->getContentSetting() ;?>
+		<div class="popup-new__checkzone">
+			<input type="checkbox" id="new_check--show">
+			<label for="new_check--show"><?= __('Do not show it anymore.');?></label>
+		</div>
+	</div>
+</div>
+<?php } ?>
+<?php if((!$block->getConfigNewlltes() || $block->getConfigNewlltes() == 0) && $block->getConfigProductPopup() > 0){ ?>
+<div id="products-popup-common" class="white-popup mfp-hide" data-show="<?= $block->getConfigProductPopup(); ?>" data-width="<?= $block->getConfigProductPopupWidth(); ?>" data-timeout="<?= $block->getConfigProductPopupTimeout(); ?>">
+	<div class="products-popup__container">
+		<?= $block->getproductsContentSetting() ;?> 
+	</div>
+</div>
+<?php } ?>

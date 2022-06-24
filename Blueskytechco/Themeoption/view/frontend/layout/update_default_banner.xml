@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <container name="container.elementor.after.page.top" htmlTag="div" htmlClass="container-elementor-after-page-top" label="After Page Top" after="page.top" before="main.content">
+                <block class="Blueskytechco\Themeoption\Block\PageBanner\BannerImage" name="elementor.banner.image" template="Blueskytechco_Themeoption::html/banner_image.phtml" after="-"/>
+            </container>
+        </referenceContainer>
+
+        <move element="breadcrumbs" destination="elementor.banner.image"/>
+        <move element="page.main.title" destination="elementor.banner.image"/>
+    </body>
+</page>

@@ -1,0 +1,22 @@
+<div id="position-save-messages" class="messages"></div>
+
+<div id="admin-field-tabs" class="row">
+    <a class="button action-default col-m-12" href="#address-information">
+        <i class="fa fa-home"></i>
+        <span><?= $block->escapeHtml(__('Address Information')) ?></span>
+    </a>
+</div>
+
+<div id="field-position-sortable">
+    <?= $block->getChildHtml() ?>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Blueskytechco_OnePageCheckout/js/field-tabs": {
+            "url": "<?= $block->escapeUrl($block->getAjaxUrl()) ?>"
+        }
+    }
+}
+</script>

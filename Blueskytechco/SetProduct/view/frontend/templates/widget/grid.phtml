@@ -1,0 +1,38 @@
+<div class="section widget-lookbook-grid-default margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('space_between_item') ?> image_hover_effects-<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $_collection = $block->getLookbookItems(); ?>
+	<?php if ($_collection->count()) { ?>
+	<div class="elementor__content widget-lookbook-wrapper row">
+		<?php $items = 0; foreach ($_collection as $_item) { $items ++; ?>
+			<div class="elementor-lookbook-item elementor__item--hover<?= /* @escapeNotVerified */ $block->getCol() ?>">
+				<?php 
+				$banner = $block->getBannerImageSrc($_item);
+				$width = $_item->getWidth();
+				$height = $_item->getHeight();
+				$aspect_ratio = $width / $height;
+				?>
+				<div class="lookbook-item-preview">
+					<div class="data-bgset-image-wrapper lazyload" data-bgset="<?= $banner; ?>" data-sizes="auto" style="--aspect-ratio: <?= $aspect_ratio;?>;"></div>
+					<?= /* @escapeNotVerified */ $block->getPin($_item) ?>
+				</div>
+				<div class="lookbook-item-title">
+		        	<?= /* @escapeNotVerified */ $block->getTitleLinkHtml($_item) ?>
+		        </div>
+			</div>
+		<?php } ?>
+	</div>
+	<?php }else{ ?>
+	<div class="message info empty">
+        <div><?= $escaper->escapeHtml(__('No Lookbook items were found matching your condition. You can add items in "Blueskytechco > LookBook > Manage Items".')) ?></div>
+    </div>
+	<?php } ?>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View"
+                name="product.question.ask"
+                template="Blueskytechco_AskQuestion::product/view/question.phtml"
+                ifconfig="question_email/general/enabled">
+            </block>
+        </referenceContainer>
+    </body>
+</page>

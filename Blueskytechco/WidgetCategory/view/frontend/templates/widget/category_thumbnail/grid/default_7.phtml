@@ -1,0 +1,266 @@
+<div class="section widget-category-thumbnail-image-grid-default6 margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('space_between_item') ?> image_hover_effects--<?= /*@noEscape*/ $block->getDataWidgetConfig('image_hover_effects') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php $_catCollection = $block->getCatCollection(); ?>
+	<?php if ($_catCollection->count()) { ?>
+	<div class="row elementor__content">
+	<?php 
+	if($_catCollection->count() < 6){
+		$items = 0; 
+		foreach ($_catCollection as $_cat) { 
+			$items ++;
+			$col = 'col-12';
+			$width = 1170;
+			$height = 600;
+			$total_cat = $_catCollection->count();
+			if($total_cat == 2){
+				$col = 'col-md-6 col-12';
+				$width = 570;
+				$height = 300;
+			}
+			if($total_cat == 3){
+				if($items == 1){
+					$col = 'col-md-6 col-12';
+					$width = 570;
+					$height = 630;
+				}
+				else{
+					$col = 'col-12';
+					$width = 570;
+					$height = 300;
+				}
+			}
+			if($total_cat == 4){
+				if($items == 1){
+					$col = 'col-12';
+					$width = 570;
+					$height = 505;
+				}
+				else if($items == 2){
+					$col = 'col-12';
+					$width = 570;
+					$height = 410;
+				}
+				else if($items == 3){
+					$col = 'col-12';
+					$width = 570;
+					$height = 315;
+				}
+				else{
+					$col = 'col-12';
+					$width = 570;
+					$height = 410;
+				}
+			}
+			if($total_cat == 5){
+				if($items == 5){
+					$col = 'col-md-6 col-12';
+					$width = 570;
+					$height = 630;
+				}
+				else{
+					$col = 'col-md-12 col-6';
+					$width = 270;
+					$height = 300;
+				}
+			}
+			if($total_cat == 6){
+				if($items == 6){
+					$col = 'col-md-6 col-12';
+					$width = 270;
+					$height = 180;
+				}
+				else{
+					$col = 'col-md-12 col-6';
+					$width = 270;
+					$height = 300;
+				}
+			}
+		?>
+		<?php if($total_cat == 3 && $items == 2){ echo '<div class="col-lg-6 col-md-6 col-12 has-children"><div class="row row-level-2">'; } ?>
+		<?php if(($total_cat == 4 && $items == 1) || ($total_cat == 4 && $items == 3)){ echo '<div class="col-md-6 col-12 has-children"><div class="row row-level-2">'; } ?>
+		<?php if(($total_cat == 5 && $items == 1) || ($total_cat == 5 && $items == 3)){ echo '<div class="col-lg-3 col-md-3 col-12 has-children"><div class="row row-level-2">'; } ?>
+		<?php if(($total_cat == 6 && $items == 1) || ($total_cat == 6 && $items == 3)){ echo '<div class="col-lg-3 col-md-3 col-12 has-children"><div class="row row-level-2">'; } ?>
+
+		<div class="<?= $col ?>">
+			<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+				<?php
+					$featuredImage = '';
+					if($_cat->getData('widget_category_thumbnail') != ''){
+						$featuredImage = $block->getCategoryThumnnail($_cat->getData('widget_category_thumbnail'));
+					}
+					if (!$featuredImage) {
+						$featuredImage = '//placehold.jp/1aada3/fff/'.$width.'x'.$height.'.png?text='.$width.'x'.$height;
+					}
+					$aspect_ratio = $width / $height;
+				?>
+				<a href="<?= /*@noEscape*/ $_cat->getUrl(); ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= $aspect_ratio;?>;" data-bgset="<?= $block->escapeHtml($featuredImage) ?>" data-sizes="auto">
+				</a>
+				<div class="category-thumbnail__info absolute center-bottom">
+					<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $_cat->getUrl(); ?>"> <?= /*@noEscape*/ $_cat->getName(); ?> </a></h3>
+				</div>
+			</div>
+		</div>
+		<?php if(($total_cat == 3 && $items == 3) || ($total_cat == 4 && $items == 4) || ($total_cat == 4 && $items == 2) || ($total_cat == 5 && $items == 2) || ($total_cat == 5 && $items == 4) || ($total_cat == 6 && $items == 2) || ($total_cat == 6 && $items == 4)){ echo '</div></div>'; } ?>
+		<?php if($items == 6){ break; } ?>
+		<?php } ?>
+	<?php }else{ ?>
+
+		<?php 
+		$data_cat = [];
+		$items = 0; 
+		foreach ($_catCollection as $_cat) { 
+			$items ++;
+			$width = 570;
+			$height = 470;
+			if($items == 2){
+				$width = 370;
+				$height = 200;
+			}
+			else if($items == 4 || $items == 5 || $items == 6 ){
+				$width = 270;
+				$height = 180;
+			}
+			$aspect_ratio = $width / $height;
+			$featuredImage = '';
+			if($_cat->getData('widget_category_thumbnail') != ''){
+				$featuredImage = $block->getCategoryThumnnail($_cat->getData('widget_category_thumbnail'));
+			}
+			if (!$featuredImage) {
+				$featuredImage = '//placehold.jp/1aada3/fff/'.$width.'x'.$height.'.png?text='.$width.'x'.$height;
+			}
+			$data_cat[] = ['name' => $_cat->getName(), 'url' => $_cat->getUrl(), 'img' => $featuredImage, 'width' => $width, 'height' => $height, 'aspect_ratio' => $aspect_ratio];
+			if($items == 6){ break; }
+		}
+		?>
+		<div class="col-md-6 col-12 has-children">
+			<div class="row row-level-2">
+         		<div class="col-12">
+					<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+						<a href="<?= /*@noEscape*/ $data_cat[0]['url']; ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[0]['aspect_ratio']; ?>;" data-bgset="<?= $block->escapeHtml($data_cat[0]['img']) ?>" data-sizes="auto"></a>
+						<div class="category-thumbnail__info absolute center-bottom">
+							<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $data_cat[0]['url']; ?>"> <?= /*@noEscape*/ $data_cat[0]['name']; ?> </a></h3>
+						</div>
+					</div>
+				</div>
+         		<div class="col-12">
+         			<div class="row">
+           				<div class="col-6">
+							<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+								<a href="<?= /*@noEscape*/ $data_cat[3]['url']; ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[3]['aspect_ratio']; ?>;" data-bgset="<?= $block->escapeHtml($data_cat[3]['img']) ?>" data-sizes="auto"></a>
+								<div class="category-thumbnail__info absolute center-bottom">
+									<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $data_cat[3]['url']; ?>"> <?= /*@noEscape*/ $data_cat[3]['name']; ?> </a></h3>
+								</div>
+							</div>
+						</div>
+           				<div class="col-6">
+							<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+								<a href="<?= /*@noEscape*/ $data_cat[4]['url']; ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[4]['aspect_ratio']; ?>;" data-bgset="<?= $block->escapeHtml($data_cat[4]['img']) ?>" data-sizes="auto"></a>
+								<div class="category-thumbnail__info absolute center-bottom">
+									<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $data_cat[4]['url']; ?>"> <?= /*@noEscape*/ $data_cat[4]['name']; ?> </a></h3>
+								</div>
+							</div>
+						</div>
+         			</div>
+     			</div> 
+       		</div>
+   		</div>
+       <div class="col-md-6 col-12 has-children">
+       		<div class="row row-level-2">
+       			<div class="col-12">
+				   <div class="row">
+           				<div class="col-6">
+							<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+								<a href="<?= /*@noEscape*/ $data_cat[1]['url']; ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[1]['aspect_ratio']; ?>;" data-bgset="<?= $block->escapeHtml($data_cat[1]['img']) ?>" data-sizes="auto"></a>
+								<div class="category-thumbnail__info absolute center-bottom">
+									<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $data_cat[1]['url']; ?>"> <?= /*@noEscape*/ $data_cat[1]['name']; ?> </a></h3>
+								</div>
+							</div>
+						</div>
+           				<div class="col-6">
+							<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+								<a href="<?= /*@noEscape*/ $data_cat[5]['url']; ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[5]['aspect_ratio']; ?>;" data-bgset="<?= $block->escapeHtml($data_cat[5]['img']) ?>" data-sizes="auto"></a>
+								<div class="category-thumbnail__info absolute center-bottom">
+									<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $data_cat[5]['url']; ?>"> <?= /*@noEscape*/ $data_cat[5]['name']; ?> </a></h3>
+								</div>
+							</div>
+						</div>
+         			</div>
+				</div>
+				<div class="col-12">
+					<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+						<a href="<?= /*@noEscape*/ $data_cat[2]['url']; ?>" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: <?= /*@noEscape*/ $data_cat[2]['aspect_ratio']; ?>;" data-bgset="<?= $block->escapeHtml($data_cat[2]['img']) ?>" data-sizes="auto"></a>
+						<div class="category-thumbnail__info absolute center-bottom">
+							<h3 class="category-thumbnail__title"><a href="<?= /*@noEscape*/ $data_cat[2]['url']; ?>"> <?= /*@noEscape*/ $data_cat[2]['name']; ?> </a></h3>
+						</div>
+					</div>
+				</div>
+       		</div>
+       	</div>
+	<?php } ?>
+	</div>
+	<?php }else{ ?>
+		<div class="row elementor__content">
+			<div class="col-md-6 col-12 has-children">
+				<div class="row row-level-2">
+					<div class="col-12">
+						<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+							<a href="#" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: 1;" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" data-sizes="auto"></a>
+							<div class="category-thumbnail__info absolute center-bottom">
+								<h3 class="category-thumbnail__title"><a href="#"> Women's </a></h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="row">
+							<div class="col-6">
+								<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+									<a href="#" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: 0.9;" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png" data-sizes="auto"></a>
+									<div class="category-thumbnail__info absolute center-bottom">
+										<h3 class="category-thumbnail__title"><a href="#"> Bag </a></h3>
+									</div>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+									<a href="#" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: 0.9;" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png" data-sizes="auto"></a>
+									<div class="category-thumbnail__info absolute center-bottom">
+										<h3 class="category-thumbnail__title"><a href="#"> Shoes </a></h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-12 has-children">
+				<div class="row row-level-2">
+					<div class="col-12">
+						<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+							<a href="#" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: 1.9;" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png" data-sizes="auto"></a>
+							<div class="category-thumbnail__info absolute center-bottom">
+								<h3 class="category-thumbnail__title"><a href="#"> Men </a></h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="elementor-category-thumbnail-image-item elementor__item--hover">
+							<a href="#" class="category-thumbnail__image data-bgset-image-wrapper lazyload" style="--aspect-ratio: 1;" data-bgset="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png" data-sizes="auto"></a>
+							<div class="category-thumbnail__info absolute center-bottom">
+								<h3 class="category-thumbnail__title"><a href="#"> Watches </a></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php } ?>
+</div>

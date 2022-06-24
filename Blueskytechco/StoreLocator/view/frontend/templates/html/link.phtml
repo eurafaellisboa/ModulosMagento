@@ -1,0 +1,10 @@
+<?php
+/**
+ * Copyright © 2019 Blueskytechco. All rights reserved. 
+ */
+?>
+<li class="level0 level-top<?php if($block->isCurrent()) echo ' active'; ?>">
+    <a href="<?php echo $block->getHref(); ?>" title="<?php echo $block->escapeHtml($block->getLabel()); ?>" class="level-top">
+        <?php echo $block->escapeHtml($block->getLabel()); ?>
+    </a>
+</li>

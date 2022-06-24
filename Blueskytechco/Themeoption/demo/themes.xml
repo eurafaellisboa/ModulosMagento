@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<root>
+  <themes>
+    <id><![CDATA[36891241]]></id>
+    <name><![CDATA[Kalles - Clean minimal Magento 2 theme]]></name>
+    <des><![CDATA[You need install theme before use importer. Importing demo data is the easiest way to setup your theme. It will allow you to quickly edit everything. You can select import theme for each store view. Reload storefront after imported.]]></des>
+    <home>
+      <title><![CDATA[Home Fashion Default]]></title>
+      <identifier><![CDATA[demo_fashion_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Market]]></title>
+      <identifier><![CDATA[demo_market_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_market_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_market_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Bakery]]></title>
+      <identifier><![CDATA[demo_bakery_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_bakery_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_bakery_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Flower]]></title>
+      <identifier><![CDATA[demo_flower_2]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_flower_2.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_flower_2]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Furniture 4]]></title>
+      <identifier><![CDATA[demo_furniture_4]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_furniture_4.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_furniture_4]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Fashion 9]]></title>
+      <identifier><![CDATA[demo_fashion_9]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_9.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_9]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Fashion 10]]></title>
+      <identifier><![CDATA[demo_fashion_10]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_10.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_10]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Fashion 11]]></title>
+      <identifier><![CDATA[demo_fashion_11]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_11.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_11]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home New Fashion]]></title>
+      <identifier><![CDATA[demo_fashion_14]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_14.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_14]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Fashion Trend]]></title>
+      <identifier><![CDATA[demo_fashion_16]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_16.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_16]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Flower]]></title>
+      <identifier><![CDATA[demo_flower_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_flower_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_flower_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Cosmetic]]></title>
+      <identifier><![CDATA[demo_cosmetic_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_cosmetic_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_cosmetic_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Furniture]]></title>
+      <identifier><![CDATA[demo_furniture_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_furniture_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_furniture_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Lingeries]]></title>
+      <identifier><![CDATA[demo_lingeries_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_lingeries_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_lingeries_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Handmade]]></title>
+      <identifier><![CDATA[demo_handmade_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_handmade_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_handmade_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home New Furniture]]></title>
+      <identifier><![CDATA[demo_furniture_3]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_furniture_3.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_furniture_3]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Deco]]></title>
+      <identifier><![CDATA[demo_decor_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_decor_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_decor_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Furniture 2]]></title>
+      <identifier><![CDATA[demo_furniture_2]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_furniture_2.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_furniture_2]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Organic]]></title>
+      <identifier><![CDATA[demo_organic_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_organic_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_organic_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Organic 2]]></title>
+      <identifier><![CDATA[demo_organic_2]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_organic_2.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_organic_2]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Sport]]></title>
+      <identifier><![CDATA[demo_sport_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_sport_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_sport_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Sport Accessories]]></title>
+      <identifier><![CDATA[demo_sport_2]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_sport_2.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_sport_2]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Electric Vertical]]></title>
+      <identifier><![CDATA[demo_electric_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_electric_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_electric_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Decor 2]]></title>
+      <identifier><![CDATA[demo_decor_2]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_decor_2.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_decor_2]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Classic]]></title>
+      <identifier><![CDATA[demo_fashion_2]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_2.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_2]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Static Image]]></title>
+      <identifier><![CDATA[demo_fashion_3]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_3.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_3]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Metro]]></title>
+      <identifier><![CDATA[demo_fashion_4]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_4.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_4]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Parallax]]></title>
+      <identifier><![CDATA[demo_fashion_5]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_5.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_5]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Lookbook]]></title>
+      <identifier><![CDATA[demo_fashion_6]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_6.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_6]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Video Banner]]></title>
+      <identifier><![CDATA[demo_fashion_7]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_7.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_7]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home categories link]]></title>
+      <identifier><![CDATA[demo_fashion_8]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_8.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_8]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Instagram Shop]]></title>
+      <identifier><![CDATA[demo_fashion_13]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_13.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_13]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home fashion 12]]></title>
+      <identifier><![CDATA[demo_fashion_12]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_12.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_12]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Fashion Simple]]></title>
+      <identifier><![CDATA[demo_fashion_15]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_fashion_15.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_fashion_15]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Jewelry]]></title>
+      <identifier><![CDATA[demo_jewelry_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_jewelry_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_jewelry_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Glasses]]></title>
+      <identifier><![CDATA[demo_glasses_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_glasses_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_glasses_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Travel Accessories]]></title>
+      <identifier><![CDATA[demo_travel_accessories_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_travel_accessories_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_travel_accessories_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home pet]]></title>
+      <identifier><![CDATA[demo_pet_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_pet_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_pet_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Hiking]]></title>
+      <identifier><![CDATA[demo_hiking]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_hiking.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_hiking]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home spa]]></title>
+      <identifier><![CDATA[demo_spa_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_spa_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_spa_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Barber]]></title>
+      <identifier><![CDATA[demo_barber_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_barber_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_barber_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home Plant 1]]></title>
+      <identifier><![CDATA[demo_plant_1]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_plant_1.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_plant_1]]></linkpreview>
+    </home>
+    <home>
+      <title><![CDATA[Home plant 2]]></title>
+      <identifier><![CDATA[demo_plant_2]]></identifier>
+      <image><![CDATA[blueskytechmage.com/preview/kalles/demo_plant_2.jpg]]></image>
+      <linkpreview><![CDATA[blueskytechmage.com/kalles/demo_plant_2]]></linkpreview>
+    </home>
+  </themes>
+</root>

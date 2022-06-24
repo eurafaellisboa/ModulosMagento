@@ -1,0 +1,362 @@
+<?php
+use Magento\Framework\App\Action\Action;
+?>
+<div class="section widget-daily-deal-slider-carousel products-grid margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('margin_item') ?> desgin_product_daily_deal--<?= /*@noEscape*/ $block->getDataWidgetConfig('desgin') ?>">
+	<div class="header-daily-deal-container">
+		<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__header">
+			<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+			<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+			<?php } ?>
+			<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+			<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+			<?php } ?>
+		</div>
+		<?php } ?>
+		<div data-countdown="<?= $block->getDataWidgetConfig('countdown_data') ?>"></div>
+		<?php if($block->getDataWidgetConfig('hide_products') != 'true'){ ?>
+			<div class="container-countdown-time"><div class="final-text-daily-deal"><?= $block->getDataWidgetConfig('countdown_text') ?></div><div class="final-date-daily-deal"></div></div>
+		<?php }else{ ?>
+			<?php 
+				$countdown_text = explode("countdown", $block->getDataWidgetConfig('countdown_text'));
+				$countdown_text_1 = isset($countdown_text[0]) ? $countdown_text[0] : '';
+				$countdown_text_2 = isset($countdown_text[1]) ? $countdown_text[1] : '';
+			?>
+			<a href="<?= $block->getCategoriesUrl();?>" class="daily-deal-category-url"></a>
+			<div class="container-countdown-time"><div class="final-text-daily-deal"><?= $countdown_text_1 ?></div><div class="final-date-daily-deal"></div><div class="final-text-daily-deal-2"><?= $countdown_text_2 ?></div></div>
+		<?php } ?>
+	</div>
+	<?php if($block->getDataWidgetConfig('hide_products') != 'true'){ ?>
+		<?php if($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())){ ?>
+		<?php
+	    $type = 'widget-daily-deal-slider';
+
+	    $mode = 'slider';
+
+	    $image = 'new_products_content_widget_grid';
+	    $items = $block->getProductCollection()->getItems();
+
+	    $showWishlist = true;
+	    $showCompare = true;
+	    $showCart = true;
+	    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+	    $description = false;
+	    ?>
+		<div class="elementor__content product-items <?= /* @noEscape */ $type ?>">
+	        <?php foreach ($items as $_item) : ?>
+	        <div class="product-item">
+	            <div class="product-item-info">
+					<div class="product-item-details mb-4">
+	                    <strong class="product-item-name">
+	                        <a title="<?= $block->escapeHtml($_item->getName()) ?>"
+	                           href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+	                           class="product-item-link">
+	                            <?= $block->escapeHtml($_item->getName()) ?>
+	                        </a>
+	                    </strong>
+
+	                    <?= $block->getProductPriceHtml($_item, $type) ?>
+
+	                    <?= $block->getProductDetailsHtml($_item) ?>
+	                </div>
+					<div class="product_item_images">
+						<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+							<?= $block->getImage($_item, $image)->toHtml() ?>
+						</a>
+						<?php if ($showWishlist || $showCompare || $showCart) : ?>
+	                        <div class="product-item-inner">
+	                            <div class="product-item-actions">
+									<div class="product-item-actions_middle">
+										<?php if ($showCart) : ?>
+											<div class="actions-primary">
+												<?php if ($_item->isSaleable()) : ?>
+													<?php $postParams = $block->getAddToCartPostParams($_item); ?>
+													<form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
+														<input type="hidden" name="product" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
+														<input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+														<?= $block->getBlockHtml('formkey') ?>
+														<button type="submit"
+																title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+																class="action tocart primary">
+															<span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+														</button>
+													</form>
+												<?php else : ?>
+													<?php if ($_item->getIsSalable()) : ?>
+														<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+													<?php else : ?>
+														<div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
+													<?php endif; ?>
+												<?php endif; ?>
+											</div>
+										<?php endif; ?>
+									</div>
+	                                <?php if ($showWishlist || $showCompare) : ?>
+	                                    <div class="actions-secondary" data-role="add-to-links">
+	                                        <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow() && $showWishlist) : ?>
+	                                            <a href="#"
+	                                               data-post='<?= /* @noEscape */ $block->getAddToWishlistParams($_item) ?>' class="action towishlist" data-action="add-to-wishlist" title="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>">
+	                                                <span><?= $block->escapeHtml(__('Add to Wish List')) ?></span>
+	                                            </a>
+	                                        <?php endif; ?>
+	                                        <?php if ($block->getAddToCompareUrl() && $showCompare) : ?>
+	                                            <?php $compareHelper = $this->helper(\Magento\Catalog\Helper\Product\Compare::class);?>
+	                                            <a href="#" class="action tocompare" data-post='<?= /* @noEscape */ $compareHelper->getPostDataParams($_item) ?>' title="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>">
+	                                                <span><?= $block->escapeHtml(__('Add to Compare')) ?></span>
+	                                            </a>
+	                                        <?php endif; ?>
+	                                    </div>
+	                                <?php endif; ?>
+	                            </div>
+	                        </div>
+	                    <?php endif; ?>
+					</div>
+	                
+	                <?= $block->getProductSalableQuantityHtml($_item) ?>
+	            </div>
+	        </div>
+	        <?php endforeach ?>
+		</div>
+		<?php }else{ ?>
+			<div class="elementor__content product-items widget-daily-deal-slider">
+				<div class="product-item">
+					<div class="product-item-info">
+						<div class="product-item-details mb-4">
+							<strong class="product-item-name">
+								<a title="Analogue Resin Strap A" href="#" class="product-item-link"> Analogue Resin Strap A </a>
+							</strong>
+
+							<div class="price-box price-final_price">
+								<span class="special-price">
+									<span class="price">$35.00</span>
+								</span>
+								<span class="old-price">
+									<span class="price">$45.00</span>
+								</span>
+							</div>
+						</div>
+						<div class="product_item_images">
+							<a href="#" class="product-item-photo">
+								<span class="product-image-container product-image-container-348" style="width: 540px;" data-hover="image_hover_effects--zoom-overlay">
+									<span class="product-image-wrapper" style="padding-bottom: 127.59259259259%;">
+										<img
+											class="product-image-photo lazyload"
+											data-src="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png"
+											src="//blueskytechmage.com/place_holder/kalles/place_holder-backpack_1.png"
+											loading="lazy"
+											width="540"
+											height="689"
+											alt="Analogue Resin Strap A"
+										/>
+									</span>
+								</span>
+							</a>
+							<div class="product-item-inner">
+								<div class="product-item-actions">
+									<div class="product-item-actions_middle">
+										<div class="actions-primary">
+											<button type="submit" title="Add to Cart" class="action tocart primary">
+												<span>Add to Cart</span>
+											</button>
+										</div>
+									</div>
+									<div class="actions-secondary" data-role="add-to-links">
+										<a href="#" data-action="add-to-wishlist" title="Add to Wish List">
+											<span>Add to Wish List</span>
+										</a>
+										<a href="#" class="action tocompare" title="Add to Compare">
+											<span>Add to Compare</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="container-sold-salable-quantity">
+							<div class="container-sold-percent"><div class="sold-percent" style="width: 5%;"></div></div>
+							<div class="container-sold-number"><span class="text-sold">Sold:</span><span class="number-sold">50/1000</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="product-item">
+					<div class="product-item-info">
+						<div class="product-item-details mb-4">
+							<strong class="product-item-name">
+								<a title="Analogue Resin Strap A" href="#" class="product-item-link"> Analogue Resin Strap A </a>
+							</strong>
+
+							<div class="price-box price-final_price">
+								<span class="special-price">
+									<span class="price">$35.00</span>
+								</span>
+								<span class="old-price">
+									<span class="price">$45.00</span>
+								</span>
+							</div>
+						</div>
+						<div class="product_item_images">
+							<a href="#" class="product-item-photo">
+								<span class="product-image-container product-image-container-348" style="width: 540px;" data-hover="image_hover_effects--zoom-overlay">
+									<span class="product-image-wrapper" style="padding-bottom: 127.59259259259%;">
+										<img
+											class="product-image-photo lazyload"
+											data-src="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png"
+											src="//blueskytechmage.com/place_holder/kalles/place_holder-cloth_1.png"
+											loading="lazy"
+											width="540"
+											height="689"
+											alt="Analogue Resin Strap A"
+										/>
+									</span>
+								</span>
+							</a>
+							<div class="product-item-inner">
+								<div class="product-item-actions">
+									<div class="product-item-actions_middle">
+										<div class="actions-primary">
+											<button type="submit" title="Add to Cart" class="action tocart primary">
+												<span>Add to Cart</span>
+											</button>
+										</div>
+									</div>
+									<div class="actions-secondary" data-role="add-to-links">
+										<a href="#" data-action="add-to-wishlist" title="Add to Wish List">
+											<span>Add to Wish List</span>
+										</a>
+										<a href="#" class="action tocompare" title="Add to Compare">
+											<span>Add to Compare</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="container-sold-salable-quantity">
+							<div class="container-sold-percent"><div class="sold-percent" style="width: 5%;"></div></div>
+							<div class="container-sold-number"><span class="text-sold">Sold:</span><span class="number-sold">50/1000</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="product-item">
+					<div class="product-item-info">
+						<div class="product-item-details mb-4">
+							<strong class="product-item-name">
+								<a title="Analogue Resin Strap A" href="#" class="product-item-link"> Analogue Resin Strap A </a>
+							</strong>
+
+							<div class="price-box price-final_price">
+								<span class="special-price">
+									<span class="price">$35.00</span>
+								</span>
+								<span class="old-price">
+									<span class="price">$45.00</span>
+								</span>
+							</div>
+						</div>
+						<div class="product_item_images">
+							<a href="#" class="product-item-photo">
+								<span class="product-image-container product-image-container-348" style="width: 540px;" data-hover="image_hover_effects--zoom-overlay">
+									<span class="product-image-wrapper" style="padding-bottom: 127.59259259259%;">
+										<img
+											class="product-image-photo lazyload"
+											data-src="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png"
+											src="//blueskytechmage.com/place_holder/kalles/place_holder-watch_1.png"
+											loading="lazy"
+											width="540"
+											height="689"
+											alt="Analogue Resin Strap A"
+										/>
+									</span>
+								</span>
+							</a>
+							<div class="product-item-inner">
+								<div class="product-item-actions">
+									<div class="product-item-actions_middle">
+										<div class="actions-primary">
+											<button type="submit" title="Add to Cart" class="action tocart primary">
+												<span>Add to Cart</span>
+											</button>
+										</div>
+									</div>
+									<div class="actions-secondary" data-role="add-to-links">
+										<a href="#" data-action="add-to-wishlist" title="Add to Wish List">
+											<span>Add to Wish List</span>
+										</a>
+										<a href="#" class="action tocompare" title="Add to Compare">
+											<span>Add to Compare</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="container-sold-salable-quantity">
+							<div class="container-sold-percent"><div class="sold-percent" style="width: 5%;"></div></div>
+							<div class="container-sold-number"><span class="text-sold">Sold:</span><span class="number-sold">50/1000</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="product-item">
+					<div class="product-item-info">
+						<div class="product-item-details mb-4">
+							<strong class="product-item-name">
+								<a title="Analogue Resin Strap A" href="#" class="product-item-link"> Analogue Resin Strap A </a>
+							</strong>
+
+							<div class="price-box price-final_price">
+								<span class="special-price">
+									<span class="price">$35.00</span>
+								</span>
+								<span class="old-price">
+									<span class="price">$45.00</span>
+								</span>
+							</div>
+						</div>
+						<div class="product_item_images">
+							<a href="#" class="product-item-photo">
+								<span class="product-image-container product-image-container-348" style="width: 540px;" data-hover="image_hover_effects--zoom-overlay">
+									<span class="product-image-wrapper" style="padding-bottom: 127.59259259259%;">
+										<img
+											class="product-image-photo lazyload"
+											data-src="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png"
+											src="//blueskytechmage.com/place_holder/kalles/place_holder-shoes_1.png"
+											loading="lazy"
+											width="540"
+											height="689"
+											alt="Analogue Resin Strap A"
+										/>
+									</span>
+								</span>
+							</a>
+							<div class="product-item-inner">
+								<div class="product-item-actions">
+									<div class="product-item-actions_middle">
+										<div class="actions-primary">
+											<button type="submit" title="Add to Cart" class="action tocart primary">
+												<span>Add to Cart</span>
+											</button>
+										</div>
+									</div>
+									<div class="actions-secondary" data-role="add-to-links">
+										<a href="#" data-action="add-to-wishlist" title="Add to Wish List">
+											<span>Add to Wish List</span>
+										</a>
+										<a href="#" class="action tocompare" title="Add to Compare">
+											<span>Add to Compare</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="container-sold-salable-quantity">
+							<div class="container-sold-percent"><div class="sold-percent" style="width: 5%;"></div></div>
+							<div class="container-sold-number"><span class="text-sold">Sold:</span><span class="number-sold">50/1000</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<?php } ?>
+	<?php } ?>
+</div>

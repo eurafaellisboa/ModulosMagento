@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!--
+  Copyright © 2019 Blueskytechco. All rights reserved.
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Blueskytechco_StoreLocator::js/google-map.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Blueskytechco\StoreLocator\Block\Adminhtml\Stores\Edit" name="storelocator_stores_edit"/>
+        </referenceContainer>
+
+        <referenceContainer name="left">
+            <block class="Blueskytechco\StoreLocator\Block\Adminhtml\Stores\Edit\Tabs" name="storelocator_stores_edit_tabs" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,64 @@
+<?php
+use Magento\Framework\App\Action\Action;
+?>
+<div class="section widget-product-advanced widget-product-advanced-list-default margin_item--<?= /*@noEscape*/ $block->getDataWidgetConfig('space_between_item') ?>">
+	<?php if($block->getDataWidgetConfig('title') != '' || $block->getDataWidgetConfig('short_description') != ''){ ?>
+	<div class="elementor__header">
+		<?php if($block->getDataWidgetConfig('title') != ''){ ?>
+		<h3 class="elementor__headline"><?= $block->escapeHtml($block->getDataWidgetConfig('title')) ?></h3>
+		<?php } ?>
+		<?php if($block->getDataWidgetConfig('short_description') != ''){ ?>
+		<div class="elementor__description"><?= $block->filterOutputContent($block->getDataWidgetConfig('short_description')) ?></div>
+		<?php } ?>
+	</div>
+	<?php } ?>
+	<?php if($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())){ ?>
+	<?php
+    $type = 'widget-product-advanced-list';
+
+    $mode = 'list'; 
+
+	$image = 'new_products_content_widget_grid';
+    $items = $block->getProductCollection()->getItems();
+
+    $showWishlist = true;
+    $showCompare = false;
+    $showCart = true;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    $description = false;
+    ?>
+	<ol class="product-items <?= /* @noEscape */ $type ?> products-list">
+        <?php $iterator = 1; ?>
+        <?php foreach ($items as $_item): ?>
+            <li class="product-item">
+	            <div class="product-item-info">
+					<div class="product_item_images">
+						<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+							<?= $block->getImage($_item, $image)->toHtml() ?>
+						</a>
+					</div>
+	                <div class="product-item-details">
+	                    <strong class="product-item-name">
+	                        <a title="<?= $block->escapeHtml($_item->getName()) ?>"
+	                           href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+	                           class="product-item-link">
+	                            <?= $block->escapeHtml($_item->getName()) ?>
+	                        </a>
+	                    </strong>
+						<?php if ($templateType): ?>
+							<?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
+						<?php endif; ?>
+	                    <?= $block->getProductPriceHtml($_item, $type) ?>
+
+	                    <?= $block->getProductDetailsHtml($_item) ?>
+	                </div>
+	            </div>
+           </li>
+        <?php endforeach ?>
+    </ol>
+	<?php }else{ ?>
+	<div class="message info empty">
+        <div><?= $escaper->escapeHtml(__('No products were found matching your condition.')) ?></div>
+    </div>
+	<?php } ?>
+</div>

@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="onepagecheckout" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>One Page Checkout</label>
+            <tab>sales</tab>
+            <resource>Blueskytechco_OnePageCheckout::onepagecheckout_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General Options</label>
+                <field id="enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Express Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="seourl" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Seo Url</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="page_title" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Page Title</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="short_description" translate="label" type="textarea" sortOrder="45" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Short Description</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="show_order_comment" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show Order Comment on Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <!--field id="title_box_order_comment" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title Box Order Comment</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="show_order_comment">1</field>
+                    </depends>
+                </field-->
+                <field id="show_subscribe_newsletter" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show Checkbox Subscribe on Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="title_box_subscribe" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title Box Subscribe Newletter</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="show_subscribe_newsletter">1</field>
+                    </depends>
+                </field>
+                <field id="default_newletter_checkbox" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1"
+                               showInStore="1">
+                    <label>Default checkbox Subscribe on Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="show_subscribe_newsletter">1</field>
+                    </depends>
+                </field>
+                <field id="show_discount_box" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show Discount Box on Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="show_gift_message" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show Gift Message on Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="show_widget_box" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show Widget After Place Order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="widget_after_placeorder" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Cms Show after Place Order</label>
+                    <source_model>Magento\Cms\Model\Config\Source\Block</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="show_widget_box">1</field>
+                    </depends>
+                </field>
+                <field id="show_shipping_delivery_date" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show Shipping Delivery Date</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="title_box_shipping_delivery_date" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title Box Shipping Delivery Date</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="show_shipping_delivery_date">1</field>
+                    </depends>
+                </field>
+                <field id="show_shipping_delivery_comment" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show Shipping Delivery Comment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="title_box_shipping_delivery_comment" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title Box Shipping Delivery Comment</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="show_shipping_delivery_comment">1</field>
+                    </depends>
+                </field>
+                <field id="show_full_layout" translate="label" type="select" sortOrder="140" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Show full Header and Footer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="title_place_order" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1"
+                       showInStore="1" >
+                    <label>Title Button Place Order</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

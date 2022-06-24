@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="newsletter"
+          label="Newsletter"
+          component="Magento_PageBuilder/js/content-type"
+          preview_component="Blueskytechco_PageBuilderCustom/js/content-type/newsletter/preview"
+          master_component="Blueskytechco_PageBuilderCustom/js/content-type/newsletter/master"
+          form="pagebuilder_newsletter_form"
+          menu_section="blueskytechco_page_builder_custom_elements"
+          icon="icon-pagebuilder-newsletter"
+          sortOrder="20"
+          translate="label">
+        <children default_policy="deny"/>
+        <appearances>
+            <appearance default="true"
+                        name="default"
+                        preview_template="Blueskytechco_PageBuilderCustom/content-type/newsletter/default/preview"
+                        master_template="Blueskytechco_PageBuilderCustom/content-type/newsletter/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <style name="text_align" source="text_align"/>
+                        <style name="display" source="display" converter="Magento_PageBuilder/js/converter/style/display" preview_converter="Magento_PageBuilder/js/converter/style/preview/display"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <attribute name="layout" source="data-layout"/>
+                        <css name="css_classes"/>
+                    </element>
+                    <element name="placeholder">
+                         <attribute name="placeholder" source="placeholder"/>
+                    </element>
+                    <element name="subscribe">
+                        <html name="subscribe"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+    </type>
+</config>

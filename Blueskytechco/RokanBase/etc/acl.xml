@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Blueskytechco_RokanBase::rokanbase" title="Blueskytechco" translate="title" sortOrder="60">
+                    <resource id="Blueskytechco_RokanBase::rokanbase_setting" title="Blueskytechco 2.3.2" translate="title" sortOrder="1"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
