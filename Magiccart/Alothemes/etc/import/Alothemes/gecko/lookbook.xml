@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <lookbook>
+    <item>
+      <title><![CDATA[lookbook1]]></title>
+      <identifier><![CDATA[lookbook1]]></identifier>
+      <type_id><![CDATA[1]]></type_id>
+      <link><![CDATA[#]]></link>
+      <image><![CDATA[magiccart/lookbook/l/o/lookbook1.jpg]]></image>
+      <options><![CDATA[{"magic_pin":{"0":{"content":"for her paris(#163)","undefined":"Save pin","product_id":"163","coords":{"lat":"841.5","long":"209"}},"1":{"content":"stylish off the shoulder(#184)","undefined":"Save pin","product_id":"184","classes":"class","coords":{"lat":"612","long":"576"}},"2":{"content":"belle fa(#169)","undefined":"Save pin","product_id":"169","classes":"easypin-right","coords":{"lat":"1539","long":"613"}},"3":{"content":"northvalley(#151)","undefined":"Save pin","product_id":"151","classes":"easypin-right","coords":{"lat":"1490","long":"297"}},"canvas":{"src":"http://wp2cart.com/gecko/pub/media/magiccart/lookbook/l/o/lookbook1.jpg","width":1920,"height":930}}}]]></options>
+      <stores><![CDATA[29,30]]></stores>
+      <order><![CDATA[0]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+    <item>
+      <title><![CDATA[lookbook2]]></title>
+      <identifier><![CDATA[lookbook2]]></identifier>
+      <type_id><![CDATA[1]]></type_id>
+      <link><![CDATA[#]]></link>
+      <image><![CDATA[magiccart/lookbook/l/o/lookbook2.jpg]]></image>
+      <options><![CDATA[{"magic_pin":{"0":{"content":"jaune rouge(#150)","undefined":"Save pin","product_id":"150","coords":{"lat":"404","long":"361"}},"1":{"content":"macmax(#149)","undefined":"Save pin","product_id":"149","classes":"easypin-right1","coords":{"lat":"508","long":"664"}},"canvas":{"src":"http://wp2cart.com/gecko/pub/media/magiccart/lookbook/l/o/lookbook2.jpg","width":640,"height":854}}}]]></options>
+      <stores><![CDATA[29,30]]></stores>
+      <order><![CDATA[0]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+    <item>
+      <title><![CDATA[lookbook3]]></title>
+      <identifier><![CDATA[lookbook3]]></identifier>
+      <type_id><![CDATA[1]]></type_id>
+      <link><![CDATA[#]]></link>
+      <image><![CDATA[magiccart/lookbook/l/o/lookbook3.jpg]]></image>
+      <options><![CDATA[{"magic_pin":{"0":{"content":"go pomelo(#152)","undefined":"Save pin","product_id":"152","coords":{"lat":"327.5","long":"582"}},"1":{"content":"carla giannini(#148)","undefined":"Save pin","product_id":"148","coords":{"lat":"436.5","long":"339"}},"2":{"content":"jasminah paris(#144)","undefined":"Save pin","product_id":"144","classes":"","coords":{"lat":"829.5","long":"335"}},"3":{"content":"daphnea(#153)","undefined":"Save pin","product_id":"153","classes":"easypin-right","coords":{"lat":"956","long":"744"}},"canvas":{"src":"http://wp2cart.com/gecko/pub/media/magiccart/lookbook/l/o/lookbook3.jpg","width":1278,"height":854}}}]]></options>
+      <stores><![CDATA[29,30]]></stores>
+      <order><![CDATA[0]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+  </lookbook>
+</root>

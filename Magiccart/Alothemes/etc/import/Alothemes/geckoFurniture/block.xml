@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <block>
+    <item>
+      <title><![CDATA[block_map_contacts]]></title>
+      <identifier><![CDATA[block_map_contact]]></identifier>
+      <content><![CDATA[<div class="google-map"><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8277911385558!2d-0.13108129999999998!3d51.51637529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d183f5ea3%3A0x8e1c5b00f1b16579!2zMTIgT3hmb3JkIFN0LCBTb2hvLCBMb25kb24gVzFELCBWxrDGoW5nIFF14buRYyBBbmg!5e0!3m2!1svi!2s!4v1434261501432" width="570" height="325"></iframe>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Slide Furniture]]></title>
+      <identifier><![CDATA[slide-furniture]]></identifier>
+      <content><![CDATA[<div class="slide-home alo-magicslider">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="slide_furniture" class="home-slider" template="magicslider.phtml"}}</div>
+<div class="bt-cat-content col-cat">
+<div class="row">
+<div class="col-md-4 col-sm-12 col-banner">
+<div class="addon-box">
+<div class="banner-ads banner-ads1">
+<div class="banner-boder-zoom">
+<div class="bt-cat-thumb"><a href="{{store url='lamp-furniture.html'}}"><img src="{{media url=&quot;Furniture/a.jpg&quot;}}" alt=""></a></div>
+<div class="hover-wrap">
+<h3>lamp furniture</h3>
+<a href="{{store url='lamp-furniture.html'}}">Explorer</a></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-12 col-banner">
+<div class="addon-box">
+<div class="banner-ads banner-ads2">
+<div class="banner-boder-zoom">
+<div class="bt-cat-thumb"><a href="{{store url='audio-decor.html'}}"><img src="{{media url=&quot;Furniture/b.jpg&quot;}}" alt=""></a></div>
+<div class="hover-wrap">
+<h3>audio decor</h3>
+<a href="{{store url='audio-decor.html'}}">view collections</a></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-12 col-banner">
+<div class="addon-box">
+<div class="banner-ads banner-ads3">
+<div class="banner-boder-zoom">
+<div class="bt-cat-thumb"><a href="{{store url='new-arrivals.html'}}"><img src="{{media url=&quot;Furniture/c.jpg&quot;}}" alt=""></a></div>
+<div class="hover-wrap">
+<h3>new arrivals</h3>
+<a href="{{store url='new-arrivals.html'}}">shop now</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="box-furniture">
+<div class="text-note-main">
+<h2><span class="heading-title">best selling products</span></h2>
+<p>Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+</div>
+<div>{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="bestseller-prodcuts-furniture" template="product.phtml"}}</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[header-offer]]></title>
+      <identifier><![CDATA[header-offer]]></identifier>
+      <content><![CDATA[<!-- header-offer -->
+<div id="header-offer" class="top-banner">
+<div class="bg-overlay"><span class="hidden">overlay</span></div>
+<div class="container-offer">
+<div class="promotion-offer">
+<h2>Sport Headphone Equipment</h2>
+<h3 class="des1">Protect her inevitable but unfortunate collision happened to himself</h3>
+<a class="des2" href="#">View now</a> <span class="header-offer-close"><i class="fa fa-times"><span class="hidden">header-offer-close</span></i></span></div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[0]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Top]]></title>
+      <identifier><![CDATA[block_footer_top]]></identifier>
+      <content><![CDATA[<div class="container">
+<div class="footer-top-content">
+<div class="row">
+<div class="col-lg-3 col-md-12 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<div class="block1 block-content-statick"><a class="introduce-logo" href="#"><img src="{{media url="wysiwyg/alothemes/static/demo1/01footer-logo.png"}}" alt="" /></a>
+<ul class="address-list">
+<li class="feature-icon first">
+<p class="no-margin"><span class="contact-name fa fa-briefcase"><span class="hidden">hidden</span></span><span><span class="tit-contain">184 Main Rd E, St Albans<br /><span class="br">VIC 3021, Australia</span></span></span></p>
+</li>
+<li class="feature-icon">
+<p><span class="contact-name fa fa-envelope-o"><span class="hidden">hidden</span></span><span><span class="tit-contain">contact@gecko.com</span></span></p>
+</li>
+<li class="feature-icon">
+<p><span class="contact-name fa fa-phone"><span class="hidden">hidden</span></span><span><span class="tit-contain">+001 2233 456</span></span></p>
+</li>
+<li class="follow-buttons">
+<div class="social-profile"><a class="social-link social-facebook" href="#"><i class="fa fa-facebook"><em class="hidden">hidden</em></i></a><a class="social-link social-twitter" href="#"><i class="fa fa-twitter"><em class="hidden">hidden</em></i></a><a class="social-link social-google" href="#"><i class="fa fa-google-plus"><em class="hidden">hidden</em></i></a><a class="social-link social-instagram" href="#"><i class="fa fa-instagram"><em class="hidden">hidden</em></i></a><a class="social-link social-pinterest" href="#"><i class="fa fa-pinterest"><em class="hidden">hidden</em></i></a></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-4 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Quick Links</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-content block-content-statick toggle-content">
+<ul class="bullet">
+<li><a href="#">Store Location</a></li>
+<li><a href="#">My Account</a></li>
+<li><a href="#">Orders Tracking</a></li>
+<li><a href="#">Size Guide</a></li>
+<li><a href="#">FAQs</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-4 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Help &amp; Support</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-content block-content-statick toggle-content">
+<ul class="bullet">
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Terms &amp; Conditions</a></li>
+<li><a href="#">Returns &amp; Exchanges</a></li>
+<li><a href="#">Shipping &amp; Delivery</a></li>
+<li><a href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-4 col-xs-12">
+<div class="collapsible mobile-collapsible coll-msg">
+<h3 class="block-title heading">NewsLetter Sign up</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-newletter block-content block-content-statick toggle-content">{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}
+<div class="payment-method">
+<div class="payment-text"><span>We Using Safe Payments:</span></div>
+<div class="payment-img"><a href="#"><img src="{{media url="wysiwyg/alothemes/static/demo1/payment2.png"}}" alt="" /></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[block_contact_map]]></title>
+      <identifier><![CDATA[block_contact_map]]></identifier>
+      <content><![CDATA[<div class="google-map"><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8277911385558!2d-0.13108129999999998!3d51.51637529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d183f5ea3%3A0x8e1c5b00f1b16579!2zMTIgT3hmb3JkIFN0LCBTb2hvLCBMb25kb24gVzFELCBWxrDGoW5nIFF14buRYyBBbmg!5e0!3m2!1svi!2s!4v1434261501432" width="100%" height="526"></iframe>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[store_contact]]></title>
+      <identifier><![CDATA[store_contact]]></identifier>
+      <content><![CDATA[<h3>Contact Information</h3>
+<p>We love to hear from you on our customer service, merchandise, website or any topics you want to share with us. Your comments and suggestions will be appreciated. Please complete the form below.</p>
+<p><i class="fa fa-home"></i> 184 Main Rd E, St Albans Victoria 3021, Australia</p>
+<p><i class="fa fa-phone"></i> 1800-123-222 / 1900-1570-230</p>
+<p><i class="fa fa-envelope"></i> contact@company.com</p>
+<p><i class="fa fa-clock-o"></i> Everyday 9:00-17:00</p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Custom Left Category  Bestseller]]></title>
+      <identifier><![CDATA[category_view_custom_block]]></identifier>
+      <content><![CDATA[<div class="block block-custom-product block-custom-left">{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="best-sale-left" template="productcustom.phtml"}}</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Right Menu]]></title>
+      <identifier><![CDATA[block-right-menu]]></identifier>
+      <content><![CDATA[<div class="banner-menu"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/banner-menu-right.jpg"}}" alt="" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Right Menu Banner and Sale]]></title>
+      <identifier><![CDATA[block_right_menu_banner_sale]]></identifier>
+      <content><![CDATA[<div class="menu-banner-sale"><!--<div class="menu-products-sale">{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="megamenu-sale" template="product.phtml"}}</div-->
+<div class="banner-menu"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/banner-menu-right2.jpg"}}" alt="" /></div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Right Menu 2]]></title>
+      <identifier><![CDATA[block-right-menu2]]></identifier>
+      <content><![CDATA[<div class="banner-menu banner-menu-position"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/banner-menu-right3.png"}}" alt="" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Bottom Menu]]></title>
+      <identifier><![CDATA[block-bottom-menu2]]></identifier>
+      <content><![CDATA[<div class="banner-menu banner-menu-bottom"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/banner-menu-bottom.jpg"}}" alt="" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Product Types]]></title>
+      <identifier><![CDATA[block-product-types]]></identifier>
+      <content><![CDATA[<div class="level-top-mega">
+<div class="content-mega">
+<div class="content-mega-horizontal">
+<ul class="level0 category-item mage-column cat-mega">
+<li class="children level1 category-item"><a href="{{store url='coffee-press-off-white.html'}}">Product Detail</a>
+<ul class="level1 submenu">
+<li class="level2 category-item"><a href="{{store url='configurable-product.html'}}">Product With Color Swatch</a></li>
+<li class="level2 category-item"><a href="{{store url='sofa-furniture.html'}}">Product with video</a></li>
+<li class="level2 category-item"><a href="{{store url='aubrey-chair.html'}}">Product With instagram</a></li>
+<li class="level2 category-item"><a href="{{store url='grouped-product.html'}}">Grouped Product</a></li>
+<li class="level2 category-item"><a href="{{store url='woleen-tee.html'}}">Product full width layout</a></li>
+<li class="level2 category-item"><a href="{{store url='asos-ridley-high-waist.html'}}">Right sidebar</a></li>
+<li class="level2 category-item"><a href="{{store url='furniture-2columns-left.html'}}">Left sidebar</a></li>
+</ul>
+</li>
+<li class="children level1 category-item"><a href="{{store url='coffee-press-off-white.html'}}">Product features</a>
+<ul class="level1 submenu">
+<li class="level2 category-item"><a href="{{store url='configurable-product.html'}}">Product Swatch with circle</a></li>
+<li class="level2 category-item"><a href="{{store url='bundle-product.html'}}">Product with bundle</a></li>
+<li class="level2 category-item"><a href="{{store url='coffee-press-off-white.html'}}">Product Countdown</a></li>
+<li class="level2 category-item"><a href="{{store url='configurable-product.html'}}">Variant Images Grouped</a></li>
+<li class="level2 category-item"><a href="{{store url='sofa-furnitur-green.html'}}">Sticky Add to cart button</a></li>
+</ul>
+</li>
+<li class="children level1 category-item"><a href="{{store url='coffee-press-off-white.html'}}">Product Detail Layout</a>
+<ul class="level1 submenu">
+<li class="level2 category-item"><a href="{{store url='chair-furniture-blue.html'}}">Product Detail Layout 1</a></li>
+<li class="level2 category-item"><a href="{{store url='asos-ridley-high-waist.html'}}">Product Detail Layout 2</a></li>
+<li class="level2 category-item"><a href="{{store url='jean-roshe-one-casual.html'}}">Product Detail Layout 3</a></li>
+<li class="level2 category-item"><a href="{{store url='vector-shoes.html'}}">Product Detail Layout 4</a></li>
+<li class="level2 category-item"><a href="{{store url='tactical-rush-moab.html'}}">Product Detail Layout 5</a></li>
+<li class="level2 category-item"><a href="{{store url='asos-ridley-high-waist.html'}}">Product with thumb at bottom</a></li>
+<li class="level2 category-item"><a href="{{store url='light-oil-lamp.html'}}">Product with thumb on left</a></li>
+<li class="level2 category-item"><a href="{{store url='jean-lion-king-black.html'}}">Product Tab Accordions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block service]]></title>
+      <identifier><![CDATA[service]]></identifier>
+      <content><![CDATA[<!-- Block service -->
+<div class="service">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-3 col-sm-3 col-md-3 one-service">
+			   <div class="service-item">
+					<div class="icon"><img class="img-responsive" alt="services" src="{{media url="wysiwyg/alothemes/static/demo3/icon-s1.png"}}" /></div>
+					<div class="info">
+						<h3><span>Free</span> Fast Delivery</h3>
+						<p>On hundreds of Digital appliances <br> Excludes Sunday delivery</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 two-service">
+				<div class="service-item">
+					<div class="icon"><img class="img-responsive" alt="services" src="{{media url="wysiwyg/alothemes/static/demo3/icon-s2.png"}}" /></div>
+					<div class="info">
+						<h3><span>Buyer</span> Protection</h3>
+						<p>On hundreds of Digital appliances <br> Excludes Sunday delivery</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 three-service">
+				<div class="service-item">
+					<div class="icon"><img class="img-responsive" alt="services" src="{{media url="wysiwyg/alothemes/static/demo3/icon-s3.png"}}" /></div>
+					<div class="info">
+						<h3><span>Return</span> & Exchange</h3>
+						<p>On hundreds of Digital appliances <br> Excludes Sunday delivery</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 for-service">
+				<div class="service-item">
+					<div class="icon"><img class="img-responsive" alt="services" src="{{media url="wysiwyg/alothemes/static/demo3/icon-s4.png"}}" /></div>
+					<div class="info">
+						<h3><span>Support</span> 24/7</h3>
+						<p>On hundreds of Digital appliances <br> Excludes Sunday delivery</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Shop]]></title>
+      <identifier><![CDATA[block-shop]]></identifier>
+      <content><![CDATA[<ul class="level0 dropdown">
+<li class="level1"><a href="#"><span>Grid Layout</span></a></li>
+<li class="level1"><a href="#"><span>Metro Layout</span></a></li>
+<li class="level1"><a href="#"><span>Masonry Layout</span></a></li>
+<li class="level1"><a href="#"><span>Full Width Layout</span></a></li>
+<li class="level1"><a href="#"><span>Left Sidebar</span></a></li>
+<li class="level1"><a href="#"><span>Right Sidebart</span></a></li>
+<li class="level1"><a href="#"><span>Infinit scrolling<span class="cat_label Sale">Sale</span></span></a></li>
+<li class="level1"><a href="#"><span>Load more button</span></a></li>
+<li class="level1"><a href="#"><span>Collection Countdown<span class="cat_label Hot">Hot</span></span></a></li>
+</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[newsletter_popup]]></title>
+      <identifier><![CDATA[newsletter_popup]]></identifier>
+      <content><![CDATA[<div class="block-content">
+<div class="block-title">Sign Up Newsletter</div>
+<div class="popup content">
+<h2 class="promo-panel-text promo-text">Sign up our newsletter and save 25% off for the next purchase!</h2>
+<p class="caption">Subscribe to our newsletters and don’t miss new arrivals, the latest fashion updates and our promotions.</p>
+<div class="subcribe-box newsletter-new clearfix">
+<div class="field newsletter input-box">
+<div class="control"><input id="newsletter-popup" class="input-text" name="email" type="email" placeholder="Email address" data-validate="{required:true, 'validate-email':true}"></div>
+</div>
+<div class="actions"><button class="action subscribe button" title="Subscribe" type="submit"> Subscribe </button></div>
+</div>
+</div>
+<div class="caption share">Your Information will never be shared with any third party.</div>
+<div class="subscribe-bottom"><label for="hideforever_ypop"><input id="hideforever_ypop" class="no-view" name="no-view" type="checkbox"><span class="check_ypop"><em class="hidden">hidden</em></span> Don’t show this popup again</label></div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[block brand product view]]></title>
+      <identifier><![CDATA[block_brand_product_view]]></identifier>
+      <content><![CDATA[<div class="product_img_trust_seal"><img src="{{media url=&quot;cart_right_image.png&quot;}}" alt="" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Lookbook]]></title>
+      <identifier><![CDATA[lookbook]]></identifier>
+      <content><![CDATA[<div class="home-lookbook">
+<div class="content-lookbook content1">
+<div class="row">
+<div class="col-md-6 lookbook-photo">
+<img src="{{media url=&quot;magiccart/Organic/lookbook1.jpg&quot;}}" alt="" />
+</div>
+<div class="col-md-6 lookbook-pharse">
+<div class="letter-lookbook">
+<h3 class="section-title tl" style="text-align: left;">Spring Women Collection</h3>
+<h4 class="fs_16" style="text-align: left;">1. <a class="cd chp" href="#">Ribbed Bodycon Dress</a></h4>
+<h4 class="fs_16" style="text-align: left;">2. <a class="cd chp" href="#">Classic Cotton Leggings</a></h4>
+<h4 class="fs_16" style="text-align: left;">3. <a class="cd chp" href="#">Faux Suede Oxfords Brown</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="content-lookbook content2">
+<div class="row">
+<div class="col-md-6 lookbook-pharse">
+<div class="letter-lookbook">
+<h3 class="section-title tl" style="text-align: right;">Men Collections</h3>
+<h4 class="fs_16" style="text-align: right;">1. <a class="cd chp" href="#">Ribbed Bodycon Dress</a></h4>
+<h4 class="fs_16" style="text-align: right;">2. <a class="cd chp" href="#">Classic Cotton Leggings</a></h4>
+<h4 class="fs_16" style="text-align: right;">3. <a class="cd chp" href="#">Faux Suede Oxfords Brown</a></h4>
+</div>
+</div>
+<div class="col-md-6 lookbook-photo">
+<img src="{{media url=&quot;magiccart/Organic/lookbook2.jpg&quot;}}" alt="" />
+</div>
+</div>
+</div>
+<div class="content-lookbook content3">
+<div class="row">
+<div class="col-md-4 lookbook-photo lookbook-photo-left">
+<img src="{{media url=&quot;magiccart/Organic/lookbook3.jpg&quot;}}" alt="" />
+</div>
+<div class="col-md-4 lookbook-pharse">
+<div class="letter-lookbook">
+<h3 class="section-title tl" style="text-align: right;">Men Collections</h3>
+<h4 class="fs_16" style="text-align: right;">1. <a class="cd chp" href="#">Ribbed Bodycon Dress</a></h4>
+<h4 class="fs_16" style="text-align: right;">2. <a class="cd chp" href="#">Classic Cotton Leggings</a></h4>
+<h4 class="fs_16" style="text-align: right;">3. <a class="cd chp" href="#">Faux Suede Oxfords Brown</a></h4>
+<h3 class="tu fs__20 fw__700 mt__60" style="text-align: left;">Spring Women Collection</h3>
+<h4 class="fs_14" style="text-align: left;">1. <a class="cd chp" href="#">Ribbed Bodycon Dress</a></h4>
+<h4 class="fs_16" style="text-align: left;">2. <a class="cd chp" href="#">Classic Cotton Leggings</a></h4>
+<h4 class="fs_16" style="text-align: left;">3. <a class="cd chp" href="#">Faux Suede Oxfords Brown</a></h4>
+</div>
+</div>
+<div class="col-md-4 lookbook-photo lookbook-photo-right">
+<img src="{{media url=&quot;magiccart/Organic/lookbook4.jpg&quot;}}" alt="" />
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block pages]]></title>
+      <identifier><![CDATA[block-pages]]></identifier>
+      <content><![CDATA[<ul class="level0 dropdown">
+<li class="level1"><a href="{{store url='about-us'}}">About us</a></li>
+<li class="level1"><a href="{{store url='contact'}}">Contact us</a></li>
+<li class="level1"><a href="{{store url='terms-conditions'}}">Terms & Conditions</a></li>
+<li class="level1"><a href="{{store url='returns-exchanges'}}">Returns & Exchanges</a></li>
+<li class="level1"><a href="{{store url='shipping-delivery'}}">Shipping & Delivery</a></li>
+<li class="level1"><a href="{{store url='privacy-policy'}}">Privacy Policy</a></li>
+</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[instagram_sidebar]]></title>
+      <identifier><![CDATA[instagram_sidebar]]></identifier>
+      <content><![CDATA[<div class="block-instagram">
+<h3 class="ins-title">Instagram</h3>
+<div class="social-instagram">{{widget type="Magiccart\Alothemes\Block\Widget\Socialstream" socialnetwork="instagram" template="socialstream_sidebar.phtml" type_name="Social Stream Widgets"}}</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Service sidebar]]></title>
+      <identifier><![CDATA[service-sidebar]]></identifier>
+      <content><![CDATA[<div class="summary-service">
+    <h3 class="title primary">
+        Shipping & Delivery
+    </h3>
+    <div class="service-main">
+        <div class="icon">
+            <span class="pe-7s-car"><span class="hidden">hidden</span></span>
+        </div>
+        <div class="content">
+            <h3 class="title">Free shipping</h3>
+            <p class="phrase">Free shipping on all US order or order above $200</p>
+        </div>
+    </div>
+    <div class="service-main">
+        <div class="icon">
+            <span class="pe-7s-help2"><span class="hidden">hidden</span></span>
+        </div>
+        <div class="content">
+            <h3 class="title">Support 24/7</h3>
+            <p class="phrase">Contact us 24 hours a day</p>
+        </div>
+    </div>
+    <div class="service-main">
+        <div class="icon">
+            <span class="pe-7s-refresh"><span class="hidden">hidden</span></span>
+        </div>
+        <div class="content">
+            <h3 class="title">30 Day return</h3>
+            <p class="phrase">Simply return it within 30 days for an exchange.</p>
+        </div>
+    </div>
+    <div class="service-main">
+        <div class="icon">
+            <span class="pe-7s-door-lock"><span class="hidden">hidden</span></span>
+        </div>
+        <div class="content">
+            <h3 class="title">100% PaymentT secure</h3>
+            <p class="phrase">We ensure secure payment with PEV</p>
+        </div>
+    </div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Custom Tab]]></title>
+      <identifier><![CDATA[custom-tab]]></identifier>
+      <content><![CDATA[<div class="custom_tab" style="text-align: center;"><img src="https://cdn.shopify.com/s/files/1/2588/5532/files/care-icon.png" width="216" height="41">
+<p style="text-align: center;">LT01: 70% wool, 15% polyester, 10% polyamide, 5% acrylic 900 Grms/mt</p>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Instagram Product page]]></title>
+      <identifier><![CDATA[instagram-product-page]]></identifier>
+      <content><![CDATA[<div class="instagram-product">
+<div class="container">
+<h3 class="jas_title divider pr ">Tag your photos with <span>Gecko</span> on Instagram.</h3>
+<div class="instagram-product-page">{{widget type="Magiccart\Alothemes\Block\Widget\Socialstream" socialnetwork="instagram" template="socialstream_product.phtml" type_name="Social Stream Widgets"}}</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Sale Products Top]]></title>
+      <identifier><![CDATA[sale-products-top]]></identifier>
+      <content><![CDATA[<div class="sale-product-top">
+<div class="container"><img src="{{media url=&quot;week_specail.png&quot;}}" alt="" />
+<div class="alo-count-down count-down-time"><span class="icon-clock"><span class="hidden">hidden</span></span>
+<div class="countdown caption" data-timer="2/25/2022">
+<div class="timer-box"><span class="hidden">hidden</span></div>
+<div class="timer-box"><span class="hidden">hidden</span></div>
+<div class="timer-box"><span class="hidden">hidden</span></div>
+<div class="timer-box"><span class="hidden">hidden</span></div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Size Guide]]></title>
+      <identifier><![CDATA[size_guide]]></identifier>
+      <content><![CDATA[<div class="image-size"><img src="{{media url=&quot;magiccart/Organic/size_guide.png&quot;}}" alt="" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Delivery And Return]]></title>
+      <identifier><![CDATA[delivery_and_return]]></identifier>
+      <content><![CDATA[<h4 class="delivery">Delivery</h4>
+<p>All orders shipped with UPS Express.</p>
+<p>Always free shipping for orders over US $250.</p>
+<p>All orders are shipped with a UPS tracking number.</p>
+<h4 class="mt__30 mb__10 fs__16">Returns</h4>
+<p>Items returned within 14 days of their original shipment date in same as new condition will be eligible for a full refund or store credit.</p>
+<p>Refunds will be charged back to the original form of payment used for purchase.</p>
+<p>Customer is responsible for shipping charges when making returns and shipping/handling fees of original purchase is non-refundable.</p>
+<p>All sale items are final purchases.</p>
+<h4 class="help">Help</h4>
+<p>Give us a shout if you have any other questions and/or concerns.</p>
+<p>Email:&nbsp;<a href="#"><span class="__cf_email__">[email&nbsp;protected]</span>/* */</a></p>
+<p>Phone: +1 (23) 456 789</p>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[social-profile]]></title>
+      <identifier><![CDATA[social-profile]]></identifier>
+      <content><![CDATA[<div class="social-profile">
+    <a class="social-link social-facebook" href="#"><i class="fa fa-facebook"></i></a>
+    <a class="social-link social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+    <a class="social-link social-google" href="#"><i class="fa fa-google-plus"></i></a>
+    <a class="social-link social-instagram" href="#"><i class="fa fa-instagram"></i></a>
+    <a class="social-link social-pinterest" href="#"><i class="fa fa-pinterest"></i></a>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[social-link]]></title>
+      <identifier><![CDATA[social-link]]></identifier>
+      <content><![CDATA[<div class="social-profile">
+    <a class="social-link social-facebook" href="#"><i class="fa fa-facebook"></i></a>
+    <a class="social-link social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+    <a class="social-link social-google" href="#"><i class="fa fa-google-plus"></i></a>
+    <a class="social-link social-instagram" href="#"><i class="fa fa-instagram"></i></a>
+    <a class="social-link social-pinterest" href="#"><i class="fa fa-pinterest"></i></a>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer_organic]]></title>
+      <identifier><![CDATA[footer_organic]]></identifier>
+      <content><![CDATA[<div class="container">
+<div class="row">
+<div class="block-ft">
+<div class="collapsible mobile-collapsible">
+<div class="block1 block-content-statick"><a class="introduce-logo" href="#"><img src="{{media url=&quot;magiccart/Organic/logo-ft.png&quot;}}" alt=""></a>
+<ul class="address-list">
+<li class="feature-icon first">
+<p class="no-margin"><span class="tit-contain">184 Main Rd E, St Albans<br><span class="br">VIC 3021, Australia</span></span></p>
+</li>
+<li class="feature-icon">
+<p><span class="tit-contain">contact@gecko.com</span></p>
+</li>
+<li class="feature-icon">
+<p><span class="tit-contain">+001 2233 456</span></p>
+</li>
+<li class="follow-buttons"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="block-ft">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading toggle-tab mobile outside-none">Quick Links</h3>
+<div class="block-content block-content-statick toggle-content">
+<ul class="bullet">
+<li><a href="#">Store Location</a></li>
+<li><a href="{{store url='customer/account'}}">My Account</a></li>
+<li><a href="#">Orders Tracking</a></li>
+<li><a href="#">Size Guide</a></li>
+<li><a href="{{store url='faqs'}}">FAQs</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="block-ft">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading toggle-tab mobile outside-none">Help &amp; Support</h3>
+<div class="block-content block-content-statick toggle-content">
+<ul class="bullet">
+<li><a href="{{store url='contact'}}">Contact us</a></li>
+<li><a href="{{store url='terms-conditions'}}">Terms &amp; Conditions</a></li>
+<li><a href="{{store url='returns-exchanges'}}">Returns &amp; Exchanges</a></li>
+<li><a href="{{store url='shipping-delivery'}}">Shipping &amp; Delivery</a></li>
+<li><a href="{{store url='privacy-policy'}}">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="block-ft">
+<div class="collapsible mobile-collapsible coll-msg">
+<h3 class="block-title heading">NewsLetter Sign up</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-newletter block-content block-content-statick toggle-content">{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}
+<div class="payment-method">
+<div class="payment-text">We Using Safe Payments:</div>
+<div class="payment-img"><a href="#"><img src="{{media url=&quot;magiccart/Organic/payment.png&quot;}}" alt=""></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Content Bottom Furniture]]></title>
+      <identifier><![CDATA[block_content_bottom]]></identifier>
+      <content><![CDATA[<div class="block-newletter block-content">
+<div class="container">{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}</div>
+</div>
+<div class="summary-service home-service">
+<div class="container">
+<div class="row">
+<div class="service-main col-lg-3 col-md-3 col-sm-6">
+<div class="icon"><span class="pe-7s-plane"><span class="hidden">hidden</span></span></div>
+<div class="content">
+<h3 class="title">Free Shipping</h3>
+<p class="phrase">Free shipping for all US order</p>
+</div>
+</div>
+<div class="service-main col-lg-3 col-md-3 col-sm-6">
+<div class="icon"><span class="pe-7s-help2"><span class="hidden">hidden</span></span></div>
+<div class="content">
+<h3 class="title">Support 24/7</h3>
+<p class="phrase">Contact us 24 hours a day</p>
+</div>
+</div>
+<div class="service-main col-lg-3 col-md-3 col-sm-6">
+<div class="icon"><span class="pe-7s-refresh-2"><span class="hidden">hidden</span></span></div>
+<div class="content">
+<h3 class="title">30 days return</h3>
+<p class="phrase">you have 30 days to return</p>
+</div>
+</div>
+<div class="service-main col-lg-3 col-md-3 col-sm-6">
+<div class="icon"><span class="pe-7s-door-lock"><span class="hidden">hidden</span></span></div>
+<div class="content">
+<h3 class="title">Payment 100% Secure</h3>
+<p class="phrase">payment 100% secure</p>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Footer Top Furniture]]></title>
+      <identifier><![CDATA[footer_top_furniture]]></identifier>
+      <content><![CDATA[<div class="container">
+<div class="footer-top-content">
+<div class="row">
+<div class="col-lg-3 col-md-6 col-sm-12">
+<div class="collapsible mobile-collapsible">
+<div class="block1 block-content-statick"><a class="introduce-logo" href="#"><img src="{{media url=&quot;Furniture/01-logo-02.png&quot;}}" alt=""></a>
+<ul class="address-list">
+<li class="address-phase">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</li>
+<li class="follow-buttons">
+<div class="social-profile"><a class="social-link social-facebook" href="#"><em class="fa fa-facebook"><em class="hidden">hidden</em></em></a><a class="social-link social-twitter" href="#"><em class="fa fa-twitter"><em class="hidden">hidden</em></em></a><a class="social-link social-google" href="#"><em class="fa fa-google-plus"><em class="hidden">hidden</em></em></a><a class="social-link social-instagram" href="#"><em class="fa fa-instagram"><em class="hidden">hidden</em></em></a><a class="social-link social-pinterest" href="#"><em class="fa fa-pinterest"><em class="hidden">hidden</em></em></a></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-2 col-md-6 col-sm-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Categories</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-content block-content-statick toggle-content">
+<ul class="bullet">
+<li><a href="{{store url='living-room.html'}}">Living room</a></li>
+<li><a href="{{store url='megamenu/kitchen-dinning/kitchen-dining.html'}}">Kitchen dining</a></li>
+<li><a href="{{store url='bedroom.html'}}">Bedroom</a></li>
+<li><a href="{{store url='audio-decor.html'}}">Audio decor</a></li>
+<li><a href="{{store url='daining-room.html'}}">Daining room</a></li>
+<li><a href="{{store url='bottles.html'}}">Bottles</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-2 col-md-6 col-sm-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Information</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-content block-content-statick toggle-content">
+<ul class="bullet">
+<li><a href="{{store url='about-us'}}">About us</a></li>
+<li><a href="{{store url='contact'}}">Contact us</a></li>
+<li><a href="{{store url='terms-conditions'}}">Terms &amp; Conditions</a></li>
+<li><a href="{{store url='returns-exchanges'}}">Returns &amp; Exchanges</a></li>
+<li><a href="{{store url='shipping-delivery'}}">Shipping &amp; Delivery</a></li>
+<li><a href="{{store url='privacy-policy'}}">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-2 col-md-6 col-sm-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Quick links</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-content block-content-statick toggle-content">
+<ul class="bullet">
+<li><a href="{{store url='customer/account'}}">My Account</a></li>
+<li><a href="{{store url='store-location'}}">Store Location</a></li>
+<li><a href="#">Orders Tracking</a></li>
+<li><a href="{{store url='size-guide'}}">Size Guide</a></li>
+<li><a href="{{store url='faqs'}}">FAQs</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12">
+<div class="collapsible mobile-collapsible coll-msg">
+<h3 class="block-title heading">Instagram</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block-content block-content-statick toggle-content social-instagram">{{widget type="Magiccart\Alothemes\Block\Widget\Socialstream" socialnetwork="instagram" template="socialstream.phtml"}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Payment ]]></title>
+      <identifier><![CDATA[block-footer-payment]]></identifier>
+      <content><![CDATA[<div class="main2 payment"><img src="{{media url=&quot;Furniture/payment.png&quot;}}" alt="" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+  </block>
+</root>

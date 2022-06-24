@@ -1,0 +1,1174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <page>
+    <item>
+      <title><![CDATA[Home page]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[home]]></identifier>
+      <content_heading><![CDATA[Home Page]]></content_heading>
+      <content><![CDATA[<p>CMS homepage content goes here.</p>
+]]></content>
+      <layout_update_xml><![CDATA[<!--
+    <referenceContainer name="right">
+        <action method="unsetChild"><argument name="alias" xsi:type="string">right.reports.product.viewed</argument></action>
+        <action method="unsetChild"><argument name="alias" xsi:type="string">right.reports.product.compared</argument></action>
+    </referenceContainer>-->]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[404 Not Found]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[no-route]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="main-404">
+    <h1 class="title">404</h1>
+    <h3 class="sub-title">Sorry! Page you are looking can’t be found.</h3>
+    <div class="go-back">Go back to the <a href="{{store url=''}}" class="go-home">homepage</a></div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Enable Cookies]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[enable-cookies]]></identifier>
+      <content_heading><![CDATA[What are Cookies?]]></content_heading>
+      <content><![CDATA[<div class="enable-cookies cms-content">
+<p>"Cookies" are little pieces of data we send when you visit our store. Cookies help us get to know you better and personalize your experience. Plus they help protect you and other shoppers from fraud.</p>
+<p style="margin-bottom: 20px;">Set your browser to accept cookies so you can buy items, save items, and receive customized recommendations. Here&rsquo;s how:</p>
+<ul>
+<li><a href="https://support.google.com/accounts/answer/61416?hl=en" target="_blank">Google Chrome</a></li>
+<li><a href="http://windows.microsoft.com/en-us/internet-explorer/delete-manage-cookies" target="_blank">Internet Explorer</a></li>
+<li><a href="http://support.apple.com/kb/PH19214" target="_blank">Safari</a></li>
+<li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla/Firefox</a></li>
+</ul>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Privacy Policy]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[privacy-policy]]></identifier>
+      <content_heading><![CDATA[Privacy Policy]]></content_heading>
+      <content><![CDATA[<div class="row jas-page-terms">
+    <div class="col-lg-12 col-12 mt__60 mb__60" role="main" itemscope="itemscope"
+        itemtype="http://schema.org/CreativeWork">
+        <div class="container">
+            <div class="privacy_policy">
+                <h3>The Company Private Limited Policy</h3>
+                <p style="text-align: justify;">The Company Private Limited and each of their respective subsidiary,
+                    parent and affiliated companies is deemed to operate this Website (“we” or “us”) recognizes that you
+                    care how information about you is used and shared. We have created this Privacy Policy to inform you
+                    what information we collect on the Website, how we use your information and the choices you have
+                    about the way your information is collected and used.&nbsp; Please read this Privacy Policy
+                    carefully.&nbsp; Your use of the Website indicates that you have read and accepted our privacy
+                    practices, as outlined in this Privacy Policy.</p>
+                <p style="text-align: justify;">Please be advised that the practices described in this Privacy Policy
+                    apply to information gathered by us or our subsidiaries, affiliates or agents: (i) through this
+                    Website, (ii) where applicable, through our Customer Service Department in connection with this
+                    Website, (iii) through information provided to us in our free standing retail stores, and (iv)
+                    through information provided to us in conjunction with marketing promotions and sweepstakes.</p>
+                <p style="text-align: justify;">We are not responsible for the content or privacy practices on any
+                    websites</p>
+                <p style="text-align: justify;">We reserve the right, in our sole discretion, to modify, update, add to,
+                    discontinue, remove or otherwise change any portion of this Privacy Policy, in whole or in part, at
+                    any time. When we amend this Privacy Policy, we will revise the “last updated” date located at the
+                    top of this Privacy Policy.</p>
+                <p style="text-align: justify;">If you provide information to us or access or use the Website in any way
+                    after this Privacy Policy has been changed, you will be deemed to have unconditionally consented and
+                    agreed to such changes.&nbsp; The most current version of this Privacy Policy will be available on
+                    the Website and will supersede all previous versions of this Privacy Policy.</p>
+                <p style="text-align: justify;">If you have any questions regarding this Privacy Policy, you should
+                    contact our Customer Service Department by email at <a
+                        href="mailto:marketing@company.com">marketing@company.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[About Us]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[about-us]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="about-us-content mt__60 mb__60">
+<div id="magento-section-text_columns" class="magento-section row t_text_columns">
+<div class="col-md-6 col-sm-12 mb__50">
+<h3 class="tu fs__20 fw__400 mb__12">OUR MISSION</h3>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, <em>totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae</em> vitae dicta sunt explicabo nemo enim ipsam.</p>
+</div>
+<div class="col-md-6 col-sm-12 mb__35">
+<h3 class="tu fs__20 fw__400 mb__12">OUR STORIES</h3>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<div class="col-md-6 col-sm-12 mb__50">
+<h3 class="tu fs__20 fw__400 mb__12">OUR APPROACH</h3>
+<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;<em>sed quia non numquam eius modi tempora incidunt ut labore</em>&nbsp;et dolore magnam aliquam quaerat voluptatem.</p>
+</div>
+<div class="col-md-6 col-sm-12 mb__50">
+<h3 class="tu fs__20 fw__400 mb__12">OUR PHILOSOPHY</h3>
+<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Quis nostrum exercitationem ullam.</p>
+</div>
+</div>
+<div id="magento-section-testimonials" class="magento-section row t_testimonials_2">
+<div class="col-sm-12">
+<blockquote>
+<p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Quis nostrum exercitationem ullam.</p>
+</blockquote>
+</div>
+</div>
+<div id="magento-section-jas_member" class="magento-section row t_members mt__30 mb__90">
+<div class="col-md-4 col-sm-12">
+<div class="jas-member tc pr">
+<div class="pr db"><img src="{{media url=&quot;wysiwyg/alothemes/cms/member1.jpg&quot;}}" alt="">
+</div>
+<h4 class="mt__15 fwsb">Lisa John</h4>
+Fashion Design
+<div class="social pa w__100 ts__03">
+	<a class="facebook" href="#" target="_blank"><span class="fa fa-facebook"><em class="hidden">hidden</em></span></a>
+    <a class="twitter" href="#" target="_blank"><span class="fa fa-twitter"><em class="hidden">hidden</em></span></a>
+    <a class="dribbble" href="#" target="_blank"><span class="fa fa-dribbble"><em class="hidden">hidden</em></span></a>
+    <a class="behance" href="#" target="_blank"><span class="fa fa-behance"><em class="hidden">hidden</em></span></a>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-12">
+<div class="jas-member tc pr">
+<div class="pr db"><img src="{{media url=&quot;wysiwyg/alothemes/cms/member2.jpg&quot;}}" alt="">
+</div>
+<h4 class="mt__15 fwsb">Jane Doe</h4>
+Director
+<div class="social pa w__100 ts__03">
+	<a class="facebook" href="#" target="_blank"><span class="fa fa-facebook"><em class="hidden">hidden</em></span></a>
+    <a class="twitter" href="#" target="_blank"><span class="fa fa-twitter"><em class="hidden">hidden</em></span></a>
+    <a class="dribbble" href="#" target="_blank"><span class="fa fa-dribbble"><em class="hidden">hidden</em></span></a>
+    <a class="behance" href="#" target="_blank"><span class="fa fa-behance"><em class="hidden">hidden</em></span></a>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-12">
+<div class="jas-member tc pr">
+<div class="pr db"><img src="{{media url=&quot;wysiwyg/alothemes/cms/member3.jpg&quot;}}" alt="">
+</div>
+<h4 class="mt__15 fwsb">Cartherin Forres</h4>
+Marketing Director
+<div class="social pa w__100 ts__03">
+	<a class="facebook" href="#" target="_blank"><span class="fa fa-facebook"><em class="hidden">hidden</em></span></a>
+    <a class="twitter" href="#" target="_blank"><span class="fa fa-twitter"><em class="hidden">hidden</em></span></a>
+    <a class="dribbble" href="#" target="_blank"><span class="fa fa-dribbble"><em class="hidden">hidden</em></span></a>
+    <a class="behance" href="#" target="_blank"><span class="fa fa-behance"><em class="hidden">hidden</em></span></a>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Lookbook]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[lookbook]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[]]></content>
+      <layout_update_xml><![CDATA[<!-- lookbook-->
+<referenceContainer name="alo.sectionsbottom">
+			<block class="Magento\Cms\Block\Block" name="lookbook">
+				<arguments>
+					<argument name="block_id" xsi:type="string">lookbook</argument>
+				</arguments>
+			</block>
+</referenceContainer>]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Gecko 2]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[gecko2]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="block_parallax">
+<div class="content-parallax clearfix banner">
+<div class="bg-parallax">
+<div class="container">
+<div class="max-inner clearfix">
+<h4 class="title-1">street style</h4>
+<h2 class="big-title">daily outfit collection</h2>
+<a class="collection" href="#">view collection</a></div>
+</div>
+</div>
+</div>
+<div class="product-link">
+<div class="product1"><a href="#"> <img src="{{media url=&quot;wysiwyg/alothemes/static/demo2/pic1.jpg&quot;}}" alt=""> </a>
+<div class="text">
+<h4 class="title-2"><a href="#">new for this summer</a></h4>
+<span class="small-title"><a href="#">view collections</a></span></div>
+</div>
+<div class="product1"><a href="#"> <img src="{{media url=&quot;wysiwyg/alothemes/static/demo2/pic2.jpg&quot;}}" alt=""> </a>
+<div class="text">
+<h4 class="title-2"><a href="#">the outlet</a></h4>
+<span class="small-title"><a href="#">shop our closeout</a></span></div>
+</div>
+</div>
+<div class="content-parallax clearfix banner1">
+<div class="bg-parallax">
+<div class="container">
+<div class="max-inner clearfix">
+<h4 class="title-1">woman collection</h4>
+<h2 class="big-title">ss 2016 lookbook</h2>
+<a class="collection" href="{{store url='lookbook'}}">view collection</a></div>
+</div>
+</div>
+</div>
+<div class="product-link1">
+<div class="product2"><a href="#"> <img src="{{media url=&quot;wysiwyg/alothemes/static/demo2/pic4.jpg&quot;}}" alt=""> </a>
+<h4 class="title-2"><a href="#">accessories</a></h4>
+</div>
+<div class="product2"><a href="#"> <img src="{{media url=&quot;wysiwyg/alothemes/static/demo2/pic5.jpg&quot;}}" alt=""> </a>
+<div class="text"><span class="sale-off"><a href="#">sale off</a></span>
+<h4 class="sale-num"><a href="#">30%</a></h4>
+</div>
+</div>
+<div class="product2"><a href="#"> <img src="{{media url=&quot;wysiwyg/alothemes/static/demo2/pic6.jpg&quot;}}" alt=""> </a>
+<h4 class="title-2"><a href="#">lookbook</a></h4>
+</div>
+</div>
+<div class="content-parallax clearfix banner2">
+<div class="bg-parallax">
+<div class="container">
+<div class="max-inner clearfix">
+<h4 class="title-1">2016 - 2017 trending</h4>
+<h2 class="big-title">new season collection</h2>
+<a class="collection" href="#">view collection</a></div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[<!-- alo sectionstop-->
+<referenceContainer name="alo.sectionsbottom">
+			    <block class="Magento\Cms\Block\Block" name="block_content_bottom">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_content_bottom</argument>
+                    </arguments>
+                </block>
+</referenceContainer>]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Terms & Conditions]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[terms-conditions]]></identifier>
+      <content_heading><![CDATA[Terms & Conditions]]></content_heading>
+      <content><![CDATA[<div class="row jas-page-terms">
+    <div class="col-lg-12 col-12 mt__60 mb__60" role="main" itemscope="itemscope"
+        itemtype="http://schema.org/CreativeWork">
+        <div class="jas-container">
+            <div class="terms">
+                <h3>These Terms and Conditions May Change</h3>
+                <p>We reserve the right to update or modify these terms and conditions at any time without prior notice.
+                    &nbsp;Your use of shop.company.com and shop.beetlebug.com.sg following any such change constitutes
+                    your agreement to follow and be bound by the terms and conditions as changed. For this reason, we
+                    encourage you to review these terms and conditions whenever you use this website.</p>
+                <h3>Limitations of Liability</h3>
+                <p>The Company Pte Ltd shall not assume any responsibility, and shall not be liable for, any damages to,
+                    or viruses that may infect, your computer, telecommunication equipment, or other property caused by
+                    or arising from your access to, use of, or browsing this website or your downloading of any
+                    materials, from this website. IN NO EVENT WILL THE COMPANY PRIVATE LIMITED NOR THEIR RESPECTIVE
+                    OFFICERS, DIRECTORS, EMPLOYEES, SHAREHOLDERS, AFFILIATES, AGENTS, SUCCESSORS, ASSIGNS, RETAIL
+                    PARTNERS NOR ANY PARTY INVOLVED IN THE CREATION, PRODUCTION OR TRANSMISSION OF THIS WEB SITE BE
+                    LIABLE TO ANY PARTY FOR ANY INDIRECT, SPECIAL, PUNITIVE, INCIDENTAL OR CONSEQUENTIAL DAMAGES
+                    (INCLUDING, WITHOUT LIMITATION, THOSE RESULTING FROM LOST PROFITS, LOST DATA OR BUSINESS
+                    INTERRUPTION) ARISING OUT OF THE USE, INABILITY TO USE, OR THE RESULTS OF USE OF THIS WEB SITE, ANY
+                    WEB SITES LINKED TO THIS WEB SITE, OR THE MATERIALS, INFORMATION OR SERVICES CONTAINED AT ANY OR ALL
+                    SUCH SITES, WHETHER BASED ON WARRANTY, CONTRACT, TORT OR ANY OTHER LEGAL THEORY AND WHETHER OR NOT
+                    ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE FOREGOING LIMITATIONS OF LIABILITY DO NOT APPLY TO
+                    THE EXTENT PROHIBITED BY LAW. PLEASE REFER TO YOUR LOCAL LAWS FOR ANY SUCH PROHIBITIONS.</p>
+                <p>IN THE EVENT OF ANY PROBLEM WITH THIS WEBSITE OR ANY CONTENT, YOU AGREE THAT YOUR SOLE REMEDY IS TO
+                    CEASE USING THIS WEBSITE. IN THE EVENT OF ANY PROBLEM WITH THE PRODUCTS OR SERVICES THAT YOU HAVE
+                    PURCHASED ON OR THROUGH THIS WEB SITE, YOU AGREE THAT YOUR REMEDY, IF ANY, IS FROM THE MANUFACTURER
+                    OF SUCH PRODUCTS OR SUPPLIER OF SUCH SERVICES, IN ACCORDANCE WITH SUCH MANUFACTURER’S OR SUPPLIER’S
+                    WARRANTY, OR TO SEEK A RETURN AND REFUND FOR SUCH PRODUCT OR SERVICES IN ACCORDANCE WITH THE RETURNS
+                    AND REFUNDS POLICIES POSTED ON THIS WEB SITE. This site may include inaccuracies, mistakes or
+                    typographical errors. CharlesKeith.com does not warrant that the content will be uninterrupted or
+                    error free.</p>
+                <h3>Copyright and Trademark</h3>
+                <p>Unless otherwise indicated, material on this website, including but not limited to texts, images,
+                    illustrations, software, audio clips, video clips, animation files, is subject to the copyright and
+                    trademark rights of The Company Private Limited. Consequently, the material on this website may not
+                    be copied, reproduced, modified, posted, transmitted, distributed, in whole or in part in any form
+                    whatsoever, without the prior written consent of The Company Private Limited. All rights reserved.
+                </p>
+                <h3>Products, Content and Specifications</h3>
+                <p>All features, content, specifications, products and prices of products and services described or
+                    depicted on this website are subject to change at any time without notice. &nbsp;Certain weights,
+                    measures and similar descriptions are approximate and are provided for convenience purposes only.
+                    &nbsp;We make all reasonable efforts to accurately display the attributes of our products, including
+                    the applicable colors; however, the actual color you see will depend on your computer system and we
+                    cannot guarantee that your computer will accurately display such colors. &nbsp;The inclusion of any
+                    products or services in this website at a particular time does not imply or warrant that these
+                    products or services will be available at any time. &nbsp;It is your responsibility to ascertain and
+                    obey all applicable local, state and international laws in regard to the possession, use and sale of
+                    any item purchased from this website. By placing an order, you represent that the products ordered
+                    will be used only in a lawful manner.</p>
+                <h3>Shipping Limitations</h3>
+                <p>When an order is placed, it will be shipped to an address designated by the purchaser as long as that
+                    shipping address is compliant with the shipping restrictions contained on this website. &nbsp;All
+                    purchases from this website are made pursuant to a shipment contract. &nbsp;As a result, risk of
+                    loss and title for items purchased from this website pass to you upon delivery of the items to the
+                    carrier. &nbsp;You are responsible for filing any claims with carriers for damaged and/or lost
+                    shipments.</p>
+                <h3>Duties and Taxes</h3>
+                <p>You are responsible for duties and taxes outside Singapore. All items entering a foreign country are
+                    subject to customs inspection and assessment of the duties and taxes in accordance with that
+                    country’s national laws.</p>
+                <h3>Your Account</h3>
+                <p>You are responsible for maintaining the confidentiality of your account and password information, and
+                    you agree to accept responsibility for all activities that occur under your account and password.
+                    &nbsp;This website and The Company Pte Ltd reserves the right to refuse service, terminate accounts
+                    remove or edit content or cancel orders.</p>
+                <p>By placing an order, you warrant that you are over 18 years of age, and that you are providing
+                    shop.company.com or shop.beetlebug.com.sg with accurate, truthful information and that you have the
+                    authority to place the order.</p>
+                <h3>Exchange and Refund Policy (Singapore Outlets Only)</h3>
+                <p>New, unused full-price merchandise purchased at store retail store may be exchange at any boutique
+                    with an original receipt within 7 days of purchase. After 7 days, the merchandise may not be
+                    exchanged.</p>
+                <p>We offer a no-refund policy on all merchandises, however, for merchandise qualifying for an exchange,
+                    item may be exchange for store credits which may be used at our Singapore outlets only.</p>
+                <p>Merchandise on sale may not be exchanged or returned. All merchandise must be returned in sellable
+                    condition, otherwise, an exchange would not be allowed.</p>
+                <p>We reserve the right to reject any form of exchange without the original receipt.</p>
+                <h3>Exchange and Refund Policy (Online Shop)</h3>
+                <p>Electronice Communications</p>
+                <p>When you visit this website and/or send email to us, you consent to receive electronic communications
+                    from us. You agree that all agreements, notices, disclosures and other communications that we sent
+                    you electronically satisfy any legal requirement that such communications be in writing</p>
+                <p>Exclusions of Warranties</p>
+                <p>The Company Private Limited makes no representative or warranty regarding the good working order or
+                    condition of this website, its suitability for use, or that its use will be uninterrupted or
+                    error-free. All information or material provided in this website to you â€œas isâ€ and without
+                    warranties of any kind, expressed or implied, including without limitation, warranties or conditions
+                    of merchantability, fitness, quality, durability or suitability for any particular purpose, or
+                    non-infringement.</p>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Returns & Exchanges]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[returns-exchanges]]></identifier>
+      <content_heading><![CDATA[Returns & Exchanges]]></content_heading>
+      <content><![CDATA[<div class="row jas-page-terms">
+    <div class="col-lg-12 col-12 mt__60 mb__60" role="main" itemscope="itemscope"
+        itemtype="http://schema.org/CreativeWork">
+        <div class="container">
+            <div class="jas_returns">
+                <h2>RETURNS &amp; EXCHANGES POLICY</h2>
+                <p>We want you to be happy with your purchase and we apologize if it is not. For whatever reason that
+                    you are not satisfied, we would be most happy to provide exchanges and returns for all items
+                    purchased from us if the following conditions are met :</p>
+                <ul>
+                    <li>All items must be in their original packaging with product tags intact</li>
+                    <li>All items must be unworn, unused, unwashed and in its original condition</li>
+                    <li>Footwear should have no scuff marks on its outsole</li>
+                    <li>Originals receipts would need to be included</li>
+                    <li>All items would need to be purchased originally fromSingapore</li>
+                </ul>
+                <p>If non of the above conditions are met, we regret to inform that we are unable to process any claims
+                    for exchanges or refund regardless that the items have been mailed back to us.</p>
+                <p><strong><em>Sales item(s) are non-exchangeable nor returnable either in our retail boutique or via
+                            our online portal.</em></strong></p>
+                <h3>1. VALIDITY FOR EXCHANGES &amp; RETURNS</h3>
+                <p>All exchanges and returns would need to be raised within 10 days of the invoice date for
+                    Singaporeorders, and 20 days for overseas orders. For local deliveries, there is an option to
+                    exchange at any of our boutiques within Singaporeor through our online portal at <a
+                        href="http://www.company.com/">www.company.com</a>. All requests for returns however, would need
+                    to be strictly made online at <a href="http://www.company.com/">www.company.com</a> for both local
+                    and overseas deliveries.</p>
+                <h3>2. EXCHANGES AT OUR BOUTIQUES</h3>
+                <p>2.1 You will need to bring along your original invoice together with the item(s) in its original
+                    condition and packaging to any of our boutiques.</p>
+                <p>2.2 You will be entitled to an exchange of any item(s) in the boutique immediately after evaluation
+                    by our retail associates that it is valid.</p>
+                <p>2.3 If the value of the exchange item(s) is higher than the original item(s), you will be required to
+                    top up the difference in cash.</p>
+                <p>2.4 There will be no refund if the value of the exchange item(s) is lower than the original item(s).
+                </p>
+                <p>2.5 No other forms of exchanges (such as boutique cash vouchers or online store credit) will be given
+                    at our boutiques.</p>
+                <h3>3. EXCHANGES &amp; RETURNS ONLINE</h3>
+                <p>3.1 You will need to include your original invoice together with the item(s) in its original
+                    condition and packaging.</p>
+                <p>3.2 Kindly print and fill up the Exchange/Return Request Form <strong><span
+                            style="text-decoration: underline;">here</span></strong> and follow the steps indicated in
+                    the form for your exchange.</p>
+                <p>3.3 Mail us your parcel via a traceable mode of postage.</p>
+                <p>3.4 Wait for our email confirmation and you will be notified once your online Store Credit Voucher is
+                    ready.&nbsp; Generally, the processing period is 5 working days upon receipt of your parcel.</p>
+                <p>3.5 All requests for returns will be refunded via online Store Credit Vouchers only. Your online
+                    Store Credit Voucher is valid for 30 days and can be used for your next purchase online. It is
+                    strictly non refundable, non extendable, non exchangeable for cash and non exchangeable for boutique
+                    vouchers. The online Store Credit Voucher is applicable online only and cannot be used in our Retail
+                    boutiques.</p>
+                <p>3.6 Online Store Credit Vouchers are to be used in a singular transaction and any excess amount not
+                    utilized, would not be refunded.</p>
+                <p>3.7 Online Store Credit Vouchers given will be at the buying price of the product as stated in the
+                    original invoice. No refunds will be given for delivery charges incurred in the original, returned
+                    and onward shipping charges of exchanged items.</p>
+                <p>3.8 However, if any of the products received is deemed defective or a wrong shipment, BeetleBug.com
+                    will bear the cost of shipping the item(s) back to you. Please note that all exchanges are subjected
+                    to stock availability and whilst <a href="#">we</a> endeavour to ship a replacement item(s) back to
+                    you, we reserve the right to do an exchange by way of an item(s) of a similar value or providing
+                    online store credits or any other methods at the discretion of BeetleBug.com.</p>
+                <p>3.9 No refunds will be given for taxes, duties, tariffs and excise charges levied for overseas orders
+                    either for refunds or exchanged items.</p>
+                <p>3.10 All returns and exchanges made via our online portal at <a
+                        href="http://www.company.com/">www.company.com</a> would need to be shipped to :</p>
+                <p>The Company Pte Ltd</p>
+                <p>Changi South Lane</p>
+                <p>#03-01/03NanWahBuilding</p>
+                <p>Singapore</p>
+                <p>Tel: +65 6214 1490</p>
+                <h3>4. OTHER TERMS &amp; CONDITIONS</h3>
+                <p>4.1 All items that are returned and exchanged, can only be made once.</p>
+                <p>4.2 We reserve the right and full discretion to disqualify you from enjoying free returns if the
+                    subsequent item(s) for return or exchange are of the same item(s) as a previous order</p>
+                <p>4.3 Our returns and exchanges policy does not cover damage resulting from unique, accidental, or
+                    random damage that is the result of use by you or wear and tear of a product.</p>
+                <p>4.4 BeetleBug makes no warranty in respect of any product, express or implied, including any implied
+                    warranties of merchantability, quality, compliance with description and fitness for a particular
+                    purpose</p>
+                <p>4.5 Such returns are at all times governed by the provisions of the Consumer Protection (Fair
+                    Trading) Act of Singapore</p>
+                <p>4.6 All decisions made by BeetleBug.com is final</p>
+                <h3>5. REPAIR POLICY</h3>
+                <p>We offer repair services for all our products. Kindly visit us at any of our boutiques in
+                    Singaporefor more information or contact us at <a
+                        href="mailto:marketing@company.com">marketing@company.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Shipping & Delivery]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[shipping-delivery]]></identifier>
+      <content_heading><![CDATA[Shipping & Delivery]]></content_heading>
+      <content><![CDATA[<div class="row jas-page-terms">
+  <div class="col-lg-12 col-12 mt__60 mb__60" role="main" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
+       <div class="container">
+         <div class="shipping-delivery">
+<h3>1. SHIPPING &amp; DELIVERY POLICY</h3>
+<p>At Look, we provide <strong>FREE</strong> Standard delivery to any address within Global. However, do note that we do not deliver to PO Boxes, military and restricted areas, all naval ports andJurongIsland.</p>
+<p>On the front, we deliver to most countries that our logistics partners have affiliates in and whilst we strive to keep our rates affordable, our focus is on getting the items to you quickly, promptly and safely. For a list of countries that we deliver to and our charges, you may select your item and proceed to the check out page as charges are based on weight &amp; volume. Upon entering your delivery details, we will auto calculate the delivery charges based on your given address without the need for payment or registration.</p>
+<h3>2. ORDER STATUS &amp; TRACKING</h3>
+<p>All orders placed from Monday to Friday (excluding public holidays) will be processed and shipped within 2 working days upon confirmation of payment, from our warehouse. This could vary with circumstances such as online security checks, shipping restrictions, payment authorization, packing and dispatching of order. An email confirmation will be sent for all orders once received.</p>
+<p><span style="text-decoration: underline; font-weight: bold; color: #404040;">Local Deliveries</span></p>
+<p>There are 2 delivery options available for customer, Standard and Express courier.</p>
+<p><strong><em>Standard Courier </em></strong>– is FREE for all local orders and it takes approximately 5 working days to reach you from the time of order.</p>
+<p><strong><em>Express Courier</em></strong> – is available at an additional charge of $4.00 and it takes approximately 3 working days to reach you from the time of order.</p>
+<p>To serve you better, you may even choose the timing of your deliveries from 9am to 10pm, weekdays or Saturdays, regardless of Standard or Express couriers.</p>
+<p>Once the order has been dispatched, an email confirmation will be sent to you with the tracking number. You may check and track the delivery status of your orders with our local logistics partner, with your 6-digit Order Number. There will be an additional charge for re-delivery should nobody be present to receive the package. Please provide your contact number under the address selected upon checkout in order for the courier company to contact you in case of any unforeseen circumstances.</p>
+<p><span style="text-decoration: underline; font-weight: bold; color: #404040;">International Deliveries</span></p>
+<p>For all international deliveries, the time taken is dependent on our logistics partners and their affiliates. However, rest assured that your order is safely on its way and may track its status <strong><span style="text-decoration: underline;">here</span></strong>.</p>
+<h3>3. TAXES, DUTIES &amp; TARIFFS</h3>
+<p>For all international orders, you will need to pay for all import taxes, duties and tariffs (if any) as per your country’s governing laws in order to clear customs.</p>
+<h3>4. MODE OF PAYMENTS</h3>
+<p>We accept payments via VISA/MASTER credit and debit cards, American Express and PayPal. Please visit <a href="http://www.paypal.com/">www.paypal.com</a> for more information. We do not accept payments via ATM or inter-bank transfers.</p>
+</div>
+       </div>
+  </div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Privacy and Cookie Policy]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[privacy-policy-cookie-restriction-mode]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="privacy-policy cms-content">
+<div class="message info">Please replace this text with you Privacy Policy. Please add any additional cookies your website uses below (e.g. Google Analytics).</div>
+<p>This privacy policy sets out how this website (hereafter "the Store") uses and protects any information that you give the Store while using this website. The Store is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement. The Store may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.</p>
+<h2>What we collect</h2>
+<p>We may collect the following information:</p>
+<ul>
+<li>name</li>
+<li>contact information including email address</li>
+<li>demographic information such as postcode, preferences and interests</li>
+<li>other information relevant to customer surveys and/or offers</li>
+</ul>
+<p>For the exhaustive list of cookies we collect see the <a href="#list">List of cookies we collect</a> section.</p>
+<h2>What we do with the information we gather</h2>
+<p>We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:</p>
+<ul>
+<li>Internal record keeping.</li>
+<li>We may use the information to improve our products and services.</li>
+<li>We may periodically send promotional emails about new products, special offers or other information which we think you may find interesting using the email address which you have provided.</li>
+<li>From time to time, we may also use your information to contact you for market research purposes. We may contact you by email, phone, fax or mail. We may use the information to customise the website according to your interests.</li>
+</ul>
+<h2>Security</h2>
+<p>We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>
+<h2>How we use cookies</h2>
+<p>A cookie is a small file which asks permission to be placed on your computer's hard drive. Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual. The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences.</p>
+<p>We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page traffic and improve our website in order to tailor it to customer needs. We only use this information for statistical analysis purposes and then the data is removed from the system.</p>
+<p>Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find useful and which you do not. A cookie in no way gives us access to your computer or any information about you, other than the data you choose to share with us. You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website.</p>
+<h2>Links to other websites</h2>
+<p>Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question.</p>
+<h2>Controlling your personal information</h2>
+<p>You may choose to restrict the collection or use of your personal information in the following ways:</p>
+<ul>
+<li>whenever you are asked to fill in a form on the website, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes</li>
+<li>if you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by letting us know using our Contact Us information</li>
+</ul>
+<p>We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so. We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish this to happen.</p>
+<p>You may request details of personal information which we hold about you under the Data Protection Act 1998. A small fee will be payable. If you would like a copy of the information held on you please email us this request using our Contact Us information.</p>
+<p>If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect.</p>
+<h2><a name="list"></a>List of cookies we collect</h2>
+<p>The table below lists the cookies we collect and what information they store.</p>
+<table class="data-table data-table-definition-list">
+<thead>
+<tr>
+<th>COOKIE name</th>
+<th>COOKIE Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>CART</th>
+<td>The association with your shopping cart.</td>
+</tr>
+<tr>
+<th>CATEGORY_INFO</th>
+<td>Stores the category info on the page, that allows to display pages more quickly.</td>
+</tr>
+<tr>
+<th>COMPARE</th>
+<td>The items that you have in the Compare Products list.</td>
+</tr>
+<tr>
+<th>CUSTOMER</th>
+<td>An encrypted version of your customer id with the store.</td>
+</tr>
+<tr>
+<th>CUSTOMER_AUTH</th>
+<td>An indicator if you are currently logged into the store.</td>
+</tr>
+<tr>
+<th>CUSTOMER_INFO</th>
+<td>An encrypted version of the customer group you belong to.</td>
+</tr>
+<tr>
+<th>CUSTOMER_SEGMENT_IDS</th>
+<td>Stores the Customer Segment ID</td>
+</tr>
+<tr>
+<th>EXTERNAL_NO_CACHE</th>
+<td>A flag, which indicates whether caching is disabled or not.</td>
+</tr>
+<tr>
+<th>FORM_KEY</th>
+<td>Stores form key used by page cache functionality.</td>
+</tr>
+<tr>
+<th>FRONTEND</th>
+<td>Your session ID on the server.</td>
+</tr>
+<tr>
+<th>GUEST-VIEW</th>
+<td>Allows guests to edit their orders.</td>
+</tr>
+<tr>
+<th>LAST_CATEGORY</th>
+<td>The last category you visited.</td>
+</tr>
+<tr>
+<th>LAST_PRODUCT</th>
+<td>The most recent product you have viewed.</td>
+</tr>
+<tr>
+<th>NEWMESSAGE</th>
+<td>Indicates whether a new message has been received.</td>
+</tr>
+<tr>
+<th>NO_CACHE</th>
+<td>Indicates whether it is allowed to use cache.</td>
+</tr>
+<tr>
+<th>PERSISTENT_SHOPPING_CART</th>
+<td>A link to information about your cart and viewing history if you have asked the site.</td>
+</tr>
+<tr>
+<th>RECENTLYCOMPARED</th>
+<td>The items that you have recently compared.</td>
+</tr>
+<tr>
+<th>STF</th>
+<td>Information on products you have emailed to friends.</td>
+</tr>
+<tr>
+<th>STORE</th>
+<td>The store view or language you have selected.</td>
+</tr>
+<tr>
+<th>USER_ALLOWED_SAVE_COOKIE</th>
+<td>Indicates whether a customer allowed to use cookies.</td>
+</tr>
+<tr>
+<th>VIEWED_PRODUCT_IDS</th>
+<td>The products that you have recently viewed.</td>
+</tr>
+<tr>
+<th>WISHLIST</th>
+<td>An encrypted list of products added to your Wish List.</td>
+</tr>
+<tr>
+<th>WISHLIST_CNT</th>
+<td>The number of items in your Wish List.</td>
+</tr>
+</tbody>
+</table>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Sale Products]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[sale-products]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div>
+    {{widget type="Magento\CatalogWidget\Block\Product\ProductsList" show_pager="1" products_per_page="20" products_count="100" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`special_from_date`,`operator`:`^(=`,`value`:`2019-06-29`^]^]" page_var_name="pfnbuc" type_name="Catalog Products List"}}
+</div>]]></content>
+      <layout_update_xml><![CDATA[<referenceContainer name="page.top">
+    <block class="Magento\Cms\Block\Block" name="sale-products-top">
+        <arguments>
+            <argument name="block_id" xsi:type="string">sale-products-top</argument>
+        </arguments>
+    </block>
+</referenceContainer>]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[maintenance]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[maintenance]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="maintenance">
+    <h2 class="big-title">Coming soon</h2>
+    <div class="alo-count-down count-down-time">
+        <div class="countdown caption" data-timer="12/30/2020"></div>
+    </div>
+    <p class="text">We’re making lots of improvements and will be back sooon</p>
+    <div class="block-newletter">{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}</div>
+    <ul class="link-social">
+        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></a></li>
+        <li><a href="#"><i class="fa fa-pinterest-square"></i></a></a></li>
+    </ul>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Sale Products]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[sale-fashion]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" show_pager="1" products_per_page="20" products_count="100" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`special_from_date`,`operator`:`^(=`,`value`:`2019-09-10`^],`1--2`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`attribute_set_id`,`operator`:`==`,`value`:`10`^]^]" page_var_name="pnjisn"}}</p>]]></content>
+      <layout_update_xml><![CDATA[<referenceContainer name="page.top">
+    <block class="Magento\Cms\Block\Block" name="sale-products-top">
+        <arguments>
+            <argument name="block_id" xsi:type="string">sale-products-top</argument>
+        </arguments>
+    </block>
+</referenceContainer>]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Sale Products]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[sale-handmade]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" show_pager="1" products_per_page="20" products_count="100" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`special_from_date`,`operator`:`^(=`,`value`:`2019-09-10`^],`1--2`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`attribute_set_id`,`operator`:`==`,`value`:`12`^]^]" page_var_name="povdwv"}}</p>]]></content>
+      <layout_update_xml><![CDATA[<referenceContainer name="page.top">
+    <block class="Magento\Cms\Block\Block" name="sale-products-top">
+        <arguments>
+            <argument name="block_id" xsi:type="string">sale-products-top</argument>
+        </arguments>
+    </block>
+</referenceContainer>]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[FAQs]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[faqs]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="row bt-page">
+    <div class="col-lg-12 col-12 mt__60 mb__60" role="main" itemscope="itemscope"
+        itemtype="http://schema.org/CreativeWork">
+        <div class="container">
+            <div class="faqs">
+                <h3>1. ORDERING</h3>
+                <h4>1.1 Do I need to open an account in order to shop with you?</h4>
+                <p>No, you don’t need to. You can make purchases and check out as a guest everytime.</p>
+                <p>However, by setting up an account with us, it will allow you to order without having to enter your
+                    details every time you shop with us. You can sign up right now, or you can first start shopping and
+                    create your account before you check out at the shopping cart page.</p>
+                <h4>1.2 How do I /create an account?</h4>
+                <p>Please click on “Login/Register” followed by ‘Create An Account’ and fill in your personal
+                    particulars.</p>
+                <h4>1.3 How do I order?</h4>
+                <p>Shop for the items you want and add it to your shopping cart. When you have finished, you can proceed
+                    to your shopping cart and check out. Check and ensure that all information is correct before
+                    confirming your purchases and payment.</p>
+                <h4>1.4 I have problems adding items to my shopping cart</h4>
+                <p>You will be able to add the items as long as it is available. There could be an instance where the
+                    item is in someone else’s shopping cart hence the status of the items is reflected as “Temporarily
+                    Unavailable”.</p>
+                <h4>1.5 How do I pay for my orders?</h4>
+                <p>We accept payments via Paypal and all major credit and debit cards such as Mastercard, VISA and
+                    American Express.</p>
+                <h4>1.6 Can I amend and cancel my order?</h4>
+                <p>Unfortunately we are unable to cancel an order once it has been placed. This will allow us to pack
+                    your orders efficiently and to minimize errors. It is advisable to check your order before placing
+                    it.</p>
+                <h4>1.7 I have a discount code, how can I use it?</h4>
+                <p>Key in the voucher code at the field “Voucher Code” and click “Add” in your Shopping Cart page before
+                    proceeding to check out. Please note that we are unable to manually apply the voucher code to your
+                    order if you have missed keying it during check out. Kindly ensure that all information is correct
+                    before confirming your purchase.</p>
+                <h4>1.8 How will I know if my order is confirmed?</h4>
+                <p>After you have placed your order, you will receive an acknowledgement e-mail from us to confirm that
+                    your orders have been received. However, do note that orders will only be shipped when your credit
+                    card payment has been approved and billing and delivery address is verified. Alternatively, you may
+                    check the status of your order in “My Account” if you are a registered user.</p>
+                <h3><strong><br clear="all"> </strong></h3>
+                <h3>2. SHIPPING &amp; DELIVERY</h3>
+                <h4>2.1 When will my order be processed?</h4>
+                <p>All orders will be processed within 2 working days, excluding weekends and public holidays. Time
+                    stated is based on Singapore Time (UTC/GMT +8hours).</p>
+                <h4>2.2 How long will it take for me to receive my order?</h4>
+                <p>The Standard courier delivery time frame is approximately 5 working days and the Express courier is
+                    approximately 3 working days from the time of placing your order. This is applicable only to all
+                    Singapore deliveries. For all international deliveries, the time taken is dependent on our logistics
+                    partners and their affiliates.</p>
+                <h4>2.3 How can I track my delivery?</h4>
+                <p>Once the order has been dispatched, an email confirmation will be sent to you with the tracking
+                    number. You may check and track the delivery status of your orders with our local logistics partner,
+                    with your 6-digit Order Number for allSingapore deliveries.</p>
+                <p>For International deliveries, you may track your orders <strong><span
+                            style="text-decoration: underline;">here</span></strong></p>
+                <h4>2.4 What are the shipping charges like?</h4>
+                <p>Shipping is FREE for all Singapore deliveries via Standard courier. For international deliveries, you
+                    may select your item and proceed to the check out page as charges are based on weight and volume.
+                    Upon entering your delivery details, we will auto calculate the delivery charges based on your given
+                    address without the need for payment or registration</p>
+                <h4>2.5 Can I change my shipping address after my order has been confirmed?</h4>
+                <p>Unfortunately, we are unable to redirect orders once your order is confirmed. Therefore, please
+                    ensure you provide the correct shipping address.</p>
+                <h4>2.6 There is a missing item in my order, what should I do?</h4>
+                <p>We apologize for sending you an incomplete order. Please contact our Customer Care Team at <a
+                        href="mailto:marketing@company.com">marketing@company.com</a> and we will get back to you as
+                    soon as we can.</p>
+                <h4>2.7 I’ve received a defective item, what should I do?</h4>
+                <p>We apologize if you had received a defective item from us. Please contact our Customer Care Team at
+                    <a href="mailto:marketing@company.com">marketing@company.com</a> with a snapshot of the product and
+                    we will get back to you as soon as we can.</p>
+                <h4>2.8 I’ve received an incorrect item, what should I do?</h4>
+                <p>We apologize for sending you the wrong item. Please contact our Customer Care Team at <a
+                        href="mailto:marketing@company.com">marketing@company.com</a> and we will get back to you as
+                    soon as we can.</p>
+                <h4>2.9 I’ve purchased the wrong size or color</h4>
+                <p>We do not provide exchanges for size or color. We do however, accept returns for products purchased
+                    from us. You can refer to our Returns &amp; Exchanges policy <span
+                        style="text-decoration: underline;">here</span> and its procedures.</p>
+                <h4>2.10 I have not received my parcel, what should I do?</h4>
+                <p>Kindly drop an email to our Customer Care Team at <a
+                        href="mailto:marketing@company.com">marketing@company.com</a> if you have not received your
+                    parcel after 10 working days and we will assist you accordingly</p>
+                <h4>2.11 Will there be an additional charge for redelivery?</h4>
+                <p>There are no additional charges for redelivery up to two times. It is chargeable on the third attempt
+                    onwards.</p>
+                <h4>2.12 I have yet to receive my parcel within the stipulated time frame. Whom can I contact?</h4>
+                <p>You may check the status of your parcel via “Track your order” at to find out why it might have been
+                    delayed. Alternatively, you may drop us an email at <a
+                        href="mailto:marketing@company.com">marketing@company.com</a> and we will assist you further.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Store location]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[store-location]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="row bt-page">
+    <div class="col-lg-12 col-12 mt__60 mb__60" role="main" itemscope="itemscope"
+        itemtype="http://schema.org/CreativeWork">
+        <div class="container">
+            <h3>BULGARIA</h3>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="left store-loca">
+                        <h4>Mall Varna</h4>
+                        <p>186 Vladislav Varnenchik Blvd.2nd floor, store No.18 Varna 9000</p>
+                        <p>Tel: +359-893 695881</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="left store-loca">
+                        <h4>Central pedestrian area</h4>
+                        <p>23 Knyaz Boris I Blvd Varna 9000</p>
+                        <p>Tel: +359-893 695882</p>
+                    </div>
+                </div>
+            </div>
+            <h3>DUBAI</h3>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="left store-loca">
+                        <div class="left store-loca">
+                            <h4>Mall of the Emirates</h4>
+                            <p>4th Interchange, Sheikh Zayed Road 1st Level</p>
+                            <p>Tel: +971-4 341 3666</p>
+                        </div>
+                        <div class="left store-loca">
+                            <h4>Deira City Centre</h4>
+                            <p>8th Street Deira 1st Level</p>
+                            <p>Tel: +971-4 295 0790</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="left store-loca">
+                        <div class="left store-loca">
+                            <h4>Mercato</h4>
+                            <p>Jumeirah Beach Rd 1st Level</p>
+                            <p>Tel: +971-4 344 0015</p>
+                        <div class="left store-loca">
+                            <h4>Seminyak</h4>
+                            <p>Jl. Raya Seminyak No.9, Bali 80361</p>
+                            <p>Tel: +62-361 733462</p>
+                        </div>
+                        <!-- <div class="clearfix"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>INDONESIA</h3>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="left store-loca">
+                        <h4>Central Park</h4>
+                        <p>UG Floor Unit-123A, Jl. Let Jend S.Parman Kav.28, Jakarta Barat 11470</p>
+                        <p>Tel: +62-21 29200095</p>
+                        <div class="left store-loca">
+                            <h4>Pondok Indah Mall 2</h4>
+                            <p>1st Floor #127, Jl. Metro Pondok Indah Blok 3B, Jakarta Selatan 12310</p>
+                            <p>Tel: +62-21 75920987</p>
+                            <div class="left store-loca">
+                                <h4>Paris Van Java</h4>
+                                <p>Resort Level #D-06, Jl. Sukajadi No.137-139, Bandung 40162</p>
+                                <p>Tel: +62-22 82063875</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="left store-loca">
+                        <div class="left store-loca">
+                            <h4>Gandaria City</h4>
+                            <p>UG Floor Unit 61, Jl. KH Syafi¡¯I Hadzami, Jakarta Selatan 12240</p>
+                            <p>Tel: +62-21 29007806</p>
+                                <div class="left store-loca">
+                                    <h4>Galaxy Mall</h4>
+                                    <p>1st Floor, Unit 125-126, Jl. Dharma Husada Indah Timur No.37, Surabaya 60115</p>
+                                    <p>Tel: +62-31 5937282</p>
+                                </div>
+                            <!-- <div class="state"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Size guide]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[size-guide]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="row bt-page">
+    <div class="col-lg-12 col-12 mt__60 mb__60" role="main" itemscope="itemscope"
+        itemtype="http://schema.org/CreativeWork">
+        <div class="container">
+            <div class="size-guide">
+                <h2>SIZES GUIDE</h2>
+                <table class="tabla1" style="width: 100%; border-spacing: 1px; border-collapse: collapse;">
+                    <tbody>
+                        <tr>
+                            <th>US</th>
+                            <th>Bust</th>
+                            <th>Waist</th>
+                        </tr>
+                        <tr>
+                            <td>XXXS · 0</td>
+                            <td>31¾</td>
+                            <td>23½</td>
+                        </tr>
+                        <tr>
+                            <td>XXS · 2</td>
+                            <td>32¼</td>
+                            <td>24½</td>
+                        </tr>
+                        <tr>
+                            <td>XS · 4</td>
+                            <td>34</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>S · 6</td>
+                            <td>36¼</td>
+                            <td>28¼</td>
+                        </tr>
+                        <tr>
+                            <td>M · 8</td>
+                            <td>38½</td>
+                            <td>30¾</td>
+                        </tr>
+                        <tr>
+                            <td>L · 10</td>
+                            <td>41</td>
+                            <td>33½</td>
+                        </tr>
+                        <tr>
+                            <td>XL · 12</td>
+                            <td>42½</td>
+                            <td>35½</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tabla2" style="width: 100%; border-spacing: 1px; border-collapse: collapse;">
+                    <tbody>
+                        <tr>
+                            <th>US</th>
+                            <th>Bust</th>
+                            <th>Waist</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>31½</td>
+                            <td>23½</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>32¼</td>
+                            <td>24½</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>34</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>35½</td>
+                            <td>27½</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>37</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>38½</td>
+                            <td>30¾</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>40¼</td>
+                            <td>32¾</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>41¾</td>
+                            <td>34½</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>43¾</td>
+                            <td>36½</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2></h2>
+                <h2>EQUIVALENT SIZES TABLE</h2>
+                <table class="tabla3" style="width: 100%; border-spacing: 1px; border-collapse: collapse;">
+                    <tbody>
+                        <tr>
+                            <th>US</th>
+                            <th>EUR</th>
+                            <th>UK</th>
+                            <th>MEX</th>
+                        </tr>
+                        <tr>
+                            <td>XXXS · 0</td>
+                            <td>XXS</td>
+                            <td>4</td>
+                            <td>EECH</td>
+                        </tr>
+                        <tr>
+                            <td>XXS · 2</td>
+                            <td>XS</td>
+                            <td>6</td>
+                            <td>ECH</td>
+                        </tr>
+                        <tr>
+                            <td>XS · 4</td>
+                            <td>S</td>
+                            <td>8</td>
+                            <td>CH</td>
+                        </tr>
+                        <tr>
+                            <td>S · 6</td>
+                            <td>M</td>
+                            <td>10</td>
+                            <td>M</td>
+                        </tr>
+                        <tr>
+                            <td>M· 8</td>
+                            <td>L</td>
+                            <td>12</td>
+                            <td>G</td>
+                        </tr>
+                        <tr>
+                            <td>L · 10</td>
+                            <td>XL</td>
+                            <td>14</td>
+                            <td>EG</td>
+                        </tr>
+                        <tr>
+                            <td>XL · 12</td>
+                            <td>XXL</td>
+                            <td>16</td>
+                            <td>EEG</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tabla4 extratablaLarga"
+                    style="width: 100%; border-spacing: 1px; border-collapse: collapse;">
+                    <tbody>
+                        <tr>
+                            <th>US</th>
+                            <th>EUR</th>
+                            <th>UK</th>
+                            <th>MEX</th>
+                            <th>IT</th>
+                            <th>RU</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>32</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>36</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>34</td>
+                            <td>6</td>
+                            <td>1</td>
+                            <td>38</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>36</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>40</td>
+                            <td>42</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>38</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>42</td>
+                            <td>44</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>40</td>
+                            <td>12</td>
+                            <td>7</td>
+                            <td>44</td>
+                            <td>46</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>42</td>
+                            <td>14</td>
+                            <td>9</td>
+                            <td>46</td>
+                            <td>48</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>44</td>
+                            <td>16</td>
+                            <td>11</td>
+                            <td>48</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>46</td>
+                            <td>18</td>
+                            <td>13</td>
+                            <td>50</td>
+                            <td>52</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>48</td>
+                            <td>20</td>
+                            <td>15</td>
+                            <td>52</td>
+                            <td>54</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="disclaimer ">* The measurements in the guide are based on measurements taken directly from
+                    the body, not the garment. If your measurement is between two sizes, we recommend you select the
+                    larger size.</div>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+  </page>
+</root>

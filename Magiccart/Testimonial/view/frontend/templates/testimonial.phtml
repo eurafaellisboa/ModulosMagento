@@ -1,0 +1,119 @@
+<?php
+/**
+ * Copyright © 2015 PlazaThemes.com. All rights reserved.
+
+ * @author PlazaThemes Team <contact@plazathemes.com>
+ */
+ 
+if($this->getConfig('enable_frontend')):
+$testimonials = $this->getTestimonial();
+?>
+
+	<?php
+	$auto = $this->getConfig('auto');
+	if($auto)
+		$auto = 'true';
+	else
+		$auto = 'false';
+	$qty = $this->getConfig('qty');
+	$default = $this->getConfig('default');
+	$desktop = $this->getConfig('desktop');
+	$desktop_small = $this->getConfig('desktop_small');
+	$tablet = $this->getConfig('tablet');
+	$mobile = $this->getConfig('mobile');
+	$rows = $this->getConfig('rows');
+	$show_description = $this->getConfig('show_description');
+	$show_next_back = $this->getConfig('show_next_back');
+	$pagination = $this->getConfig('pagination');
+	$speed = $this->getConfig('speed');
+	if($show_next_back)
+		$show_next_back = 'true';
+	else
+		$show_next_back = 'false';
+	$show_navigation_control = $this->getConfig('show_navigation_control');
+	if($show_navigation_control)
+		$show_navigation_control = 'true';
+	else
+		$show_navigation_control = 'false';
+	?>
+<section class="testimo-slider">
+<h2 class='ma-title'><span><?php echo __($this->getConfig('title')) ?></span></h2>
+<div class="pt-testimonial-container">
+	<?php $i = 0; ?>
+	<div class="owl-container">	
+	   <ul class="ptowl"> 
+		<?php foreach ($testimonials as $testimonial): ?>	
+			<?php $url_image = $this->getMediaFolder().$testimonial['avatar']; ?>
+			
+			<?php if($i < $qty): ?>
+				<?php if($i%$rows == 0): ?>
+					<li>
+				<?php endif; ?>
+					<div class="pt-testimonial">
+						
+						<div class="content-tes">
+							<div class="img">
+								<a href="<?php echo $this->getUrl('testimonial'); ?>" class="image">
+									<img alt="<?php echo $testimonial['name'] ?>" src="<?php echo $url_image; ?>"/>
+								</a>
+							</div>
+							<div class="text">
+								<div class="info">
+									<a href="<?php echo $this->getUrl('testimonial'); ?>" class="name"><?php echo $testimonial['name']; ?></a>
+									<span class="job"><?php echo $testimonial['job']; ?></span>
+								</div>
+								
+							</div>
+						</div>
+						<div class="des">
+							<?php if($testimonial['testimonial'] && $show_description) echo __($testimonial['testimonial']); ?>
+							
+						</div>
+						<div class="email"><?php echo $testimonial['email']; ?></div>		
+						
+					</div>
+				<?php if($i%$rows == ($rows - 1)): ?>
+					</li>  
+				<?php endif; ?>    
+			<?php endif; ?>
+			<?php $i++; ?> 
+		<?php endforeach; ?>
+			<?php if($i%$rows != $rows): ?>
+				
+			<?php endif; ?>  
+		</ul>
+	</div>
+</div>
+</section>
+<script type="text/javascript">
+require([
+  "jquery",
+  "owlcarousel/minjs"
+ ], function($,owlCarousel){
+		$(document).ready(function(){
+			$(".pt-testimonial-container .ptowl").owlCarousel({
+				<?php
+					if(($auto== 'true') && $speed):
+				?>
+				autoPlay : <?php echo $speed; ?>,
+				<?php
+					endif;
+				?>
+				items : <?php echo $default; ?>,
+				itemsDesktop : [1199,<?php echo $desktop; ?>],
+				itemsDesktopSmall : [980,<?php echo $desktop_small; ?>],
+				itemsTablet: [768,<?php echo $tablet; ?>],
+				itemsMobile : [479,<?php echo $mobile; ?>],
+				slideSpeed : <?php echo $pagination; ?>,
+				paginationSpeed : <?php echo $pagination; ?>,
+				rewindSpeed : <?php echo $pagination; ?>,
+				addClassActive: true,
+				navigation : <?php echo $show_next_back; ?>,
+				stopOnHover : true,
+				pagination : <?php echo $show_navigation_control; ?>,
+				scrollPerPage:true,
+			});
+		});
+	});
+</script>
+<?php endif; ?>
