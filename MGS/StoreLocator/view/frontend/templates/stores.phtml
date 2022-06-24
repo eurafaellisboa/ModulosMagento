@@ -1,0 +1,226 @@
+<?php
+	$_storeCollection = $this->getStoreCollection();
+	$totalStoreCount = count($_storeCollection);
+	$markers = $agruments = array();
+	$curPage = 1;
+	if($this->getRequest()->getParam('p', false)) {
+		$curPage = $this->getRequest()->getParam('p', false);
+	}
+	$agruments['p'] = $curPage;
+?>
+
+<?= $block->getLayout()->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="store-search-container">
+	<div class="search-form search_by_area">
+		<form action="<?= $block->getUrl('locator/index/search', $agruments) ?>" method="GET" id="search_by_area">
+			<h2 class="title"><?= __('Search by Area') ?></h2>
+			<div class="fieldset">
+				<?php $countries = $this->getCountries(); ?>
+				<?php if (count($countries)): ?>
+				<div class="field country">
+					<label class="label" for="country"><?= __('Country') ?></label>
+					<div class="control">
+						<select name="country" id="country" class="input-text" title="<?= __('Country') ?>">
+							<?php foreach ($countries as $_country): ?>
+								<option value="<?= $_country['value'] ?>" <?= $_country['value'] == $this->getRequest()->getParam('country', '') ? 'selected' : ''; ?>>
+									<?= $_country['label'] ?>
+								</option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+				</div>
+				<?php endif; ?>
+				<div class="field state">
+					<label class="label" for="state"><?= __('State') ?></label>
+					<div class="control">
+						<input type="text" name="state" id="state" value="<?= $this->getRequest()->getParam('state', '') ?>" title="<?= __('state') ?>" class="input-text"/>
+					</div>
+				</div>
+				<div class="field city">
+					<label class="label" for="city"><?= __('City') ?></label>
+					<div class="control">
+						<input type="text" name="city" id="city" value="<?= $this->getRequest()->getParam('city', '') ?>" title="<?= __('City') ?>" class="input-text"/>
+					</div>
+				</div>
+				<div class="field zipcode">
+					<label class="label" for="zipcode"><?= __('Zipcode') ?></label>
+
+					<div class="control">
+						<input type="text" name="zipcode" id="zipcode" value="<?= $this->getRequest()->getParam('zipcode', '') ?>" title="<?= __('Zipcode') ?>" class="input-text"/>
+					</div>
+				</div>
+			</div>
+			<div class="actions-toolbar">
+				<button class="action primary btn-xs" title="<?= __('Search') ?>" type="submit"><span><?= __('Search') ?></span></button>
+			</div>
+		 </form>
+	</div>
+	<div class="search-form search_by_distance">
+		<form action="<?= $block->getUrl('locator/index/searchbydistance', $agruments) ?>" method="GET" id="search_by_distance" data-mage-init='{"validation":{}}'>
+			<input type="hidden" id="lat_search" value="" name="lat_search"/>
+			<input type="hidden" id="long_search" value="" name="long_search"/>
+			<h2 class="title"><?= __('Search by Distance') ?></h2>
+			<div class="fieldset">
+				<div class="field location">
+					<label class="label" for="location"><?= __('Location') ?></label>
+					<div class="control">
+						<input type="text" name="location" id="location"
+							   value="<?= $this->getRequest()->getParam('location') ?>"
+							   title="<?= __('Location') ?>" class="input-text"
+							   placeholder="<?= __('Street, City, State, Zipcode, Country') ?>"
+							   data-validate="{required:true}"/>
+					</div>
+				</div>
+				<div class="field radius">
+					<label class="label" for="radius"><?= __('Radius') ?></label>
+					<div class="control">
+						<input type="text" name="radius" id="radius"
+							   value="<?= $this->getRequest()->getParam('radius') ?>"
+							   title="<?= __('Radius') ?>" class="input-text"
+							   placeholder="<?= __('Kilomet') ?>"
+							   data-validate="{required:true}"/>
+					</div>
+				</div>
+			</div>
+			<div class="actions-toolbar">
+				<button class="action primary btn-xs" title="<?= __('Search') ?>" id="search_radius" type="button"><span><?= __('Search') ?></span></button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<?php if (!$totalStoreCount): ?>
+	<div class="message-warning warning message"><?= __('There are no stores.') ?></div>
+<?php endif ?>
+<div class="store-list-container">
+	<?php if ($totalStoreCount): ?>
+		<div class="store-list">
+			<div class="store-list-items">
+				<div class="action-toolbar">
+					<?= $this->getPager() ?>
+				</div>
+				<h2 class="title"><?= __('Store List') ?></h2>
+				<div class="items">
+					<ul class="stores">
+						<?php $i = 0; foreach ($_storeCollection as $store): $i++; ?>
+							<?php $markers[$i]['name'] = '<div class="map-short-info"><h3>' . $store->getName() . '</h3><p>'; ?>
+							<?php $markers[$i]['lat'] = $store->getLat(); ?>
+							<?php $markers[$i]['long'] = $store->getLng(); ?>
+							<li class="item-store-locator">
+								<div class="store-logo">
+									<a class="images-store" href="<?= $block->getUrl('locator/index/view', ['id' => $store->getId()]); ?>" title="<?= $store->getName(); ?>">
+										<img src="<?= $this->getImageUrl($store->getlogoStore()) ?>" alt="<?= $store->getName(); ?>"/>
+									</a>
+								</div>
+								<div class="store-infor">
+									<h4><a href="<?= $block->getStoreUrlKey($store); ?>"><?= $store->getName() ?></a></h4>
+									<address>
+										<?= $store->getStreetAddress() ?>, <?= $store->getCity() ?>, <?= $store->getState(); ?>, <?= __('Zip Code: %1', $store->getZipcode()) ?>, <?= $store->getCountry(); ?>
+										<?php $markers[$i]['name'] .= $store->getStreetAddress(); ?>
+										<?php $markers[$i]['name'] .= ' ' . $store->getCity(); ?>
+										<?php $markers[$i]['name'] .= ' ' . $store->getState(); ?>
+										<?php $markers[$i]['name'] .= ' ' . $store->getZipcode(); ?>
+										<?php $markers[$i]['name'] .= ' ' . $store->getCountry(); ?>
+									</address>
+
+									<?php $markers[$i]['name'] .= '</p>'; ?>
+
+									<?php if ($store->getPhoneNumber()): ?>
+										<p class="store-phone"><?= __('Phone: %1', $store->getPhoneNumber()) ?></p>
+
+										<?php $markers[$i]['name'] .= '<p>' . __('Phone: ') . '<a href="tel:' . $store->getPhoneNumber() . '">' . $store->getPhoneNumber() . '</a></p>'; ?>
+									<?php endif; ?>
+
+									<?php $markers[$i]['name'] .= '<p><a href="' . $block->getUrl('locator/index/view', ['id' => $store->getId()]) . '">' . __('Details') . '</a></p>'; ?>
+
+									<?php $markers[$i]['name'] .= '</div>'; ?>
+									
+									<?php if ($store->getLat() && $store->getLng()): ?>
+										<button
+											onclick="initializeMap(<?= $store->getLat(); ?>, <?= $store->getLng(); ?>, <?= $this->getRadius($store); ?>,'<?= str_replace('"', '-quotation-', $markers[$i]['name']); ?>', 'store-list-map');"
+											class="action primary btn-xs" title="<?= __('View Map') ?>" type="button">
+											<span>
+											<?= __('View Map') ?>
+											</span>
+										</button>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="map-stores">
+			<div id="store-list-map">&nbsp;</div>
+			<?php if (is_array($markers) && count($markers) > 0) : ?>
+				<script>
+					var markers = [
+						<?php foreach ($markers as $marker) : ?>
+						['<?= str_replace("'","\'",$marker['name']);?>', <?= $marker['lat'];?>, <?= $marker['long'];?>],
+						<?php endforeach ?>
+					];
+				</script>
+			<?php endif ?>
+			<div id="show-all-store" class="show-all-store">
+				<button onclick="drawMap(markers, googleMapDivId);" class="action primary" title="<?= __('Show All Stores') ?>" type="button">
+					<span><?= __('Show All Stores') ?></span>
+				</button>
+			</div>
+		</div>
+	<?php endif ?>
+</div>
+<script type="text/javascript">
+    var googleMapDivId = 'store-list-map';
+    require(['jquery', 'MGS_StoreLocator/js/storelocator'], function ($) {
+        $(window).load(function () {
+			<?php if (!$totalStoreCount): ?>
+				<?php if($this->getRequest()->getParam('lat_search') && $this->getRequest()->getParam('long_search')): ?>
+					google.maps.event.addDomListener(
+						window, 
+						'load', 
+						drawMapWithCircle(
+							markers, 
+							googleMapDivId, 
+							<?= $this->getRequest()->getParam('lat_search') ?>, 
+							<?= $this->getRequest()->getParam('long_search') ?>, 
+							<?= $this->getRequest()->getParam('radius') ?>
+						)
+					);
+				<?php else: ?>
+					google.maps.event.addDomListener(
+						window, 
+						'load', 
+						drawMap(
+							markers, 
+							googleMapDivId, 
+							false, 
+							false
+						)
+					);
+				<?php endif ?>
+            <?php endif ?>
+
+            $('#search_radius').click(function(){
+                if ($('#search_by_distance').valid()) {
+                    $.ajax({
+                        type: "GET",
+                        dataType: "json",
+                        url: "http://maps.googleapis.com/maps/api/geocode/json",
+                        data: {'address': $('#location').val()},
+                        success: function(data){
+                            if(data.results.length){
+                                latitude = data.results[0].geometry.location.lat;
+                                longitude = data.results[0].geometry.location.lng;
+                                $('#lat_search').val(latitude);
+                                $('#long_search').val(longitude);
+                                $("#search_by_distance").submit();
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>

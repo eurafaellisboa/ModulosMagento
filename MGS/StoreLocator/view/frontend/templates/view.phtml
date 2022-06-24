@@ -1,0 +1,66 @@
+<?php $_storeView = $this->getStoreView(); ?>
+<div class="storelocator-details">
+	<div class="line">
+		<?php if ($imageUrl = $_storeView->getImageUrl()): ?>
+		<div class="col-des-4 col-tb-5 col-mb-12">
+			<div class="store-image">
+				<img src="<?= $imageUrl ?>" alt="<?= $_storeView->getName() ?>"/>
+			</div>
+		</div>
+		<?php endif ?>
+		<div class="<?php if ($_storeView->getImageUrl()): ?>col-des-8 col-tb-7<?php else: ?>col-des-12 col-tb-12<?php endif ?> col-mb-12">
+			<div class="store-description">
+				<?php if($_storeView->getDescription()): ?>
+				<div class="content">
+					<?= $this->getDescription(); ?>
+				</div>
+				<?php endif ?>
+				<table class="table portfolio-table table-hover">
+					<tbody>
+						<tr>
+							<td><?= __('Address:') ?></td>
+							<td><?= $_storeView->getStreetAddress().' '.ucfirst($_storeView->getCity()).' '.ucfirst($_storeView->getState()).' '.$_storeView->getZipcode().' '.$_storeView->getCountry() ?></td>
+						</tr>
+						<?php if($_storeView->getEmail()): ?>
+							<tr>
+								<td><?= __('Email:') ?></td>
+								<td><a href="mailto:<?= $this->escapeHtml($_storeView->getEmail()) ?>"><?= $this->escapeHtml($_storeView->getEmail()) ?></a></td>
+							</tr>
+						<?php endif ?>
+						<?php if($_storeView->getFax()): ?>
+							<tr>
+								<td><?= __('Fax:') ?></td>
+								<td><?= $this->escapeHtml($_storeView->getFax()) ?></td>
+							</tr>
+						<?php endif ?>
+						<?php if($_storeView->getPhoneNumber()): ?>
+							<tr>
+								<td><?= __('Phone:') ?></td>
+								<td><a href="tel:<?= $this->escapeHtml($_storeView->getPhoneNumber()) ?>"><?= $this->escapeHtml($_storeView->getPhoneNumber()) ?></a></td>
+							</tr>
+						<?php endif ?>
+						<?php if($_storeView->getWebsite()): ?>
+							<tr>
+								<td><?= __('Website:') ?></td>
+								<td><a target="_blank" href="<?= $_storeView->getWebsite() ?>"><?= $_storeView->getWebsite() ?></a></td>
+							</tr>
+						<?php endif ?>
+					</tbody>
+				</table>
+				<div class="back-locator">
+					<button onclick="window.location= '<?= $block->getUrl('locator/') ?>';" class="action primary" title="<?= __('View All Store') ?>" type="button">
+						<span><?= __('Find Other Stores') ?></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if($_storeView->getTradingHours()): ?>
+		<div class="store-opening-hours">
+			<h4 class="title"><?= __('Opening Hours') ?></h4>
+			<div class="content">
+				<?= $this->getTradingHours(); ?>
+			</div>
+		</div>
+	<?php endif ?>
+</div>

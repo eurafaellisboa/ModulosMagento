@@ -1,0 +1,32 @@
+<?php $themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config'); ?>
+<?php if($apikey = $themeSettingConfig->getStoreConfig('fbuilder/social/google_api_key')): ?>
+	<?php 
+		$_storeView = $this->getStoreView(); 
+		$storeName = $_storeView->getName();
+		$storeLat = $_storeView->getLat();
+		$storeLong = $_storeView->getLng();
+		$storeRadius = $this->getRadius($_storeView);
+		if($themeSettingConfig->getStoreConfig('locator/general/height_map_detail')){
+			$_mapHeight = $themeSettingConfig->getStoreConfig('locator/general/height_map_detail');
+		}else {
+			$_mapHeight = 500;
+		}
+	?>
+	<div id="map-detail" style="height: <?= $_mapHeight ?>px"></div>
+	<?php if($storeLat && $storeLong): ?>
+		<script>
+			require(['jquery', 'MGS_StoreLocator/js/storelocator'], function($) {
+				$(window).load(function() {
+					var storeLat = <?= $storeLat ;?>;
+					var storeLong = <?= $storeLong ;?>;
+					var storeRadius = <?= $storeRadius ;?>;
+					var storeInfoText = '<div class="map-short-info"><h3><?= $storeName ; ?></h3><p><?= $_storeView->getStreetAddress() ?> <?= $_storeView->getCity() ?> <?= $_storeView->getState() ?> <?= $_storeView->getZipcode() ?> <?= $_storeView->getCountry() ?></p>';
+					var googleMapDivId = 'map-detail';
+					google.maps.event.addDomListener(window, 'load', initializeMap(storeLat, storeLong, storeRadius, storeInfoText, googleMapDivId));
+				});
+			});
+		</script>
+	<?php endif ?>
+<?php else: ?>
+	<div class="message warning"><span><?= __('Please config Google Map API') ?></span></div>
+<?php endif ?>

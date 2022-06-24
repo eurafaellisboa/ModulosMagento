@@ -1,0 +1,294 @@
+.store-search-container {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+	margin-bottom: 30px;
+	.search-form {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+		position: relative;
+		width: 100%;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-bottom: 30px;
+		@media (max-width: 991px){
+			-ms-flex: 0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		form {
+			border: 1px solid #eaeaea;
+			padding: 16px 20px 20px;
+			border-radius: 5px;
+			.title {
+				margin: 0 0 15px;
+				font-size: 1.275rem;
+				text-transform: uppercase;
+				font-weight: 600;
+				border-bottom: 1px solid #eaeaea;
+				padding-bottom: 16px;
+			}
+			.fieldset {
+				margin-bottom: 0 !important;
+				.input-text {
+					border-width: 1px;
+				}
+				.field {
+					margin-bottom: 15px;
+				}
+			}
+			.actions-toolbar {
+				margin: 5px 0 0;
+				button {
+					min-width: 140px;
+				}
+			}
+		}
+		&.search_by_area form .fieldset {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			margin-right: -10px;
+			margin-left: -10px;
+			.field {
+				-webkit-box-flex: 0;
+				-ms-flex: 0 0 50%;
+				flex: 0 0 50%;
+				max-width: 50%;
+				position: relative;
+				width: 100%;
+				min-height: 1px;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+		}
+		&.search_by_distance form .actions-toolbar {
+			margin: 20px 0 0;
+		}
+	}
+}
+.store-list-container {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+	.store-list,
+	.map-stores {
+		position: relative;
+		width: 100%;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		#store-list-map {
+			height: 697px;
+			max-height: 100%;
+			border: 1px solid #eaeaea;
+			border-radius: 3px;
+			overflow: hidden;
+		}
+		.show-all-store {
+			position: absolute;
+			bottom: 8px;
+			right: 15px;
+		}
+	}
+	.store-list {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 calc(~'100% / 3');
+		flex: 0 0 calc(~'100% / 3');
+		max-width: calc(~'100% / 3');
+		@media (min-width: 992px) and (max-width: 1199px){
+			-ms-flex: 0 0 calc(~'100% / 12 * 5');
+			flex: 0 0 calc(~'100% / 12 * 5');
+			max-width: calc(~'100% / 12 * 5');
+		}
+		@media (max-width: 991px){
+			margin-bottom: 60px;
+			-ms-flex: 0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		.store-list-items {
+			border: 1px solid #eaeaea;
+			padding: 16px 20px 20px;
+			border-radius: 5px;
+			position: relative;
+			.action-toolbar {
+				position: absolute;
+				top: 10px;
+				right: 20px;
+				.pager {
+					.toolbar-amount {
+						display: none;
+					}
+					.pages-items .item {
+						display: none;
+						margin: 0 3px;
+						&.pages-item-previous,
+						&.pages-item-next,
+						&.current {
+						  display: inline-block;
+						}
+						&.pages-item-previous,
+						&.pages-item-next {
+							.action.previous,
+							.action.next {
+								margin: 0;
+								border: 1px solid #eaeaea;
+								border-radius: 3px;
+								background: #fff;
+								&:before {
+									color: #ddd;
+								}
+								&:hover {
+									background-color: #222;
+									border-color: #222;
+									color: #fff;
+									&:before {
+										color: #fff;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			> .items {
+				height: 600px;
+				max-height: 600px;
+				overflow-y: auto;
+			}
+			.title {
+				margin: 0 0 20px;
+				font-size: 1.275rem;
+				text-transform: uppercase;
+				font-weight: 600;
+				border-bottom: 1px solid #eaeaea;
+				padding-bottom: 16px;
+			}
+			.item-store-locator {
+				&:after {
+					content: "";
+					display: table;
+					clear: both;
+				}
+				+ .item-store-locator {
+					margin-top: 20px;
+					padding-top: 20px;
+					border-top: 1px solid #eee;
+				}
+				.store-logo,
+				.store-infor {
+					float: left;
+					vertical-align: top;
+				}
+				.store-logo {
+					width: 100px;
+				}
+				.store-infor {
+					width: calc(~'100% - 100px');
+					padding-left: 20px;
+					font-size: 0.9375rem;
+					h4 {
+						margin: 0 0 10px;
+						font-weight: 400;
+						font-size: 1.175rem;
+					}
+					address {
+						color: #999;
+						margin-bottom: 10px;
+					}
+					.btn-xs {
+						padding: 0.275rem 1.375rem;
+					}
+				}
+			}
+		}
+	}
+	.map-stores {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 calc(~'100% / 3 * 2');
+		flex: 0 0 calc(~'100% / 3 * 2');
+		max-width: calc(~'100% / 3 * 2');
+		position: relative;
+		@media (min-width: 992px) and (max-width: 1199px){
+			-ms-flex: 0 0 calc(~'100% / 12 * 7');
+			flex: 0 0 calc(~'100% / 12 * 7');
+			max-width: calc(~'100% / 12 * 7');
+		}
+		@media (max-width: 991px){
+			-ms-flex: 0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+
+.storelocator-details {
+	margin-top: 70px;
+	.store-description {
+		font-size: 1em;
+		color: #777777;
+		line-height: 2;
+		.content {
+			margin-bottom: 19px;
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.back-locator {
+		margin-top: 30px;
+	}
+	.store-opening-hours .content table,
+	.store-description .portfolio-table {
+		> tbody > tr > td {
+			border: 1px solid #eaeaea;
+			vertical-align: middle;
+			padding: 8px 10px;
+			line-height: 2;
+			font-size: 0.875rem;
+			&:first-child {
+				font-weight: 700;
+				color: #222;
+				width: 30%;
+			}
+			a {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.store-opening-hours .title {
+	border-top: 1px solid #eaeaea;
+	font-size: 1.275rem;
+	text-transform: uppercase;
+	margin: 70px 0 36px;
+	padding-top: 36px;
+}
+
+.store-list-items .action-toolbar .pager .toolbar-amount {
+	display: none;
+}
+.store-list-items .action-toolbar .pager .pages-items .item {
+	display: none;
+}
+.store-list-items .action-toolbar .pager .pages-items .item.pages-item-previous,
+.store-list-items .action-toolbar .pager .pages-items .item.pages-item-next,
+.store-list-items .action-toolbar .pager .pages-items .item.current {
+	display: block;
+}
