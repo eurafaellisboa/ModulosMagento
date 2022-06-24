@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Controller\Category\View">
+        <plugin name="sparsh_ajax_layered_navigation_category_view_plugin" type="Sparsh\AjaxLayeredNavigation\Plugin\Category\View" sortOrder="1"/>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="CustomCheckoutData" type="Sparsh\AjaxLayeredNavigation\Plugin\CheckoutData" sortOrder="1"/>
+    </type>
+</config>
