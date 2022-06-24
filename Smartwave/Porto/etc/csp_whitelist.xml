@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright  Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="font-src">
+            <values>
+                <value id="fontawesome" type="host">*.fontawesome.com</value>
+                <value id="fonts-googleapis" type="host">*.fonts.googleapis.com</value>
+                <value id="g-static" type="host">*.gstatic.com</value>
+                <value id="data" type="host">data:</value>
+                <value id="cloudflare" type="host">*.cloudflare.com</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="googleapis" type="host">*.googleapis.com</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="googleapis" type="host">*.googleapis.com</value>
+                <value id="addthis" type="host">*.addthis.com</value>
+                <value id="moatads" type="host">*.moatads.com</value>
+                <value id="addthisedge" type="host">*.addthisedge.com</value>
+                <value id="facebook" type="host">*.facebook.com</value>
+                <value id="pinterest" type="host">*.pinterest.com</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="cloudflare" type="host">*.cloudflare.com</value>
+                <value id="klarna-base" type="host">https://cdn.klarna.com</value>
+                <value id="data" type="host">data:</value>
+                <value id="vimeocdn" type="host">*.vimeocdn.com</value>
+                <value id="youtube-img" type="host">https://s.ytimg.com</value>
+                <value id="widgets-magento" type="host">*.widgets.magentocommerce.com</value>
+                <value id="fpdbs" type="host">*.fpdbs.paypal.com</value>
+                <value id="t-paypal" type="host">*.t.paypal.com</value>
+                <value id="paypal" type="host">*.paypal.com</value>
+                <value id="sandbox-paypal" type="host">*.fpdbs.sandbox.paypal.com</value>
+                <value id="googleapis" type="host">*.googleapis.com</value>
+                <value id="g-static" type="host">*.gstatic.com</value>
+                <value id="addthis" type="host">*.addthis.com</value>
+                <value id="pinterest" type="host">*.pinterest.com</value>
+                <value id="cdninstagram" type="host">*.cdninstagram.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="cloudflare" type="host">*.cloudflare.com</value>
+                <value id="paypal" type="host">*.paypal.com</value>
+                <value id="googleapis" type="host">*.googleapis.com</value>
+                <value id="addthis" type="host">*.addthis.com</value>
+                <value id="cardinalcommerce" type="host">*.cardinalcommerce.com</value>
+                <value id="instagram" type="host">https://graph.instagram.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="google" type="host">*.google.com</value>
+                <value id="addthis" type="host">*.addthis.com</value>
+                <value id="pinterest" type="host">*.pinterest.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

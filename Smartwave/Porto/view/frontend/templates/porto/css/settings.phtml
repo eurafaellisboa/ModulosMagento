@@ -1,0 +1,93 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * <?php echo date("Y-m-d H:i:s"); ?>
+ */
+<?php
+    $s = $this->getConfig("porto_settings",$this->_coreRegistry->registry('cssgen_store'));
+    $_helper = $this->helper('Smartwave\Porto\Helper\Cssconfig');
+
+    if(isset($s['custom_settings']['custom_google_fonts']) && $s['custom_settings']['custom_google_fonts'])
+        echo $s['custom_settings']['custom_google_fonts'];
+?>
+body.boxed {
+<?php if(isset($s['general']['boxed_bg_color']) && $s['general']['boxed_bg_color']): ?>
+    background-color: #<?php echo $s['general']['boxed_bg_color']; ?>;
+<?php endif; ?>
+<?php if(isset($s['general']['boxed_bg_img']) && $s['general']['boxed_bg_img']): ?>
+    background-image: url(<?php echo $_helper->getBaseMediaUrl()."porto/boxed_bg/".$s['general']['boxed_bg_img']; ?>);
+<?php elseif(isset($s['general']['boxed_bg_color']) && $s['general']['boxed_bg_color']): ?>
+    background-image: none;
+<?php endif; ?>
+<?php if(isset($s['general']['boxed_custom_style']) && $s['general']['boxed_custom_style']): ?>
+    <?php echo $s['general']['boxed_custom_style']; ?>
+<?php endif; ?>
+}
+<?php
+$product_image_size = 49;
+$product_info_main = 49;
+if($s['product']['product_image_size'] == 1) {
+    $product_image_size = 8.17;
+    $product_info_main = 89.83;
+} else if($s['product']['product_image_size'] == 2) {
+    $product_image_size = 16.33;
+    $product_info_main = 81.67;
+} else if($s['product']['product_image_size'] == 3) {
+    $product_image_size = 24.5;
+    $product_info_main = 73.5;
+} else if($s['product']['product_image_size'] == 4) {
+    $product_image_size = 32.67;
+    $product_info_main = 65.33;
+} else if($s['product']['product_image_size'] == 5) {
+    $product_image_size = 40.83;
+    $product_info_main = 57.17;
+} else if($s['product']['product_image_size'] == 6) {
+    $product_image_size = 49;
+    $product_info_main = 49;
+} else if($s['product']['product_image_size'] == 7) {
+    $product_image_size = 57.17;
+    $product_info_main = 40.83;
+} else if($s['product']['product_image_size'] == 8) {
+    $product_image_size = 65.33;
+    $product_info_main = 32.67;
+} else if($s['product']['product_image_size'] == 9) {
+    $product_image_size = 73.5;
+    $product_info_main = 24.5;
+} else if($s['product']['product_image_size'] == 10) {
+    $product_image_size = 81.67;
+    $product_info_main = 16.33;
+} else if($s['product']['product_image_size'] == 11) {
+    $product_image_size = 89.83;
+    $product_info_main = 8.17;
+}
+?>
+@media (min-width: 768px) {
+    .page-layout-1column .product-info-main, .page-layout-2columns-left .product-info-main, .page-layout-2columns-right .product-info-main, .page-layout-3columns .product-info-main,.page-product-downloadable .product-options-bottom {
+        width: <?php echo $product_info_main."%"; ?>;
+    }
+    .page-layout-1column .product.media, .page-layout-2columns-left .product.media, .page-layout-2columns-right .product.media, .page-layout-3columns .product.media,.page-product-downloadable .product-options-wrapper {
+        width: <?php echo $product_image_size."%"; ?>;
+    }
+
+    .page-layout-1column .column.main > .custom-block ~ .product-info-main, .page-layout-2columns-left .column.main > .custom-block ~ .product-info-main, .page-layout-2columns-right .column.main > .custom-block ~ .product-info-main, .page-layout-3columns .column.main > .custom-block ~ .product-info-main {
+        width: <?php echo $product_info_main*0.75."%"; ?>;
+    }
+    .page-layout-1column .column.main > .custom-block ~ .product.media, .page-layout-2columns-left .column.main > .custom-block ~ .product.media, .page-layout-2columns-right .column.main > .custom-block ~ .product.media, .page-layout-3columns .column.main > .custom-block ~ .product.media {
+        width: <?php echo $product_image_size*0.75."%"; ?>;
+    }
+}
+<?php if(isset($s['category_grid']['xs_one_column']) && $s['category_grid']['xs_one_column']): ?>
+@media (max-width: 480px){
+    .products-grid .product-item {
+        float: none;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+<?php endif; ?>
+
+<?php
+if(isset($s['custom_settings']['custom_style']) && $s['custom_settings']['custom_style'])
+    echo $s['custom_settings']['custom_style'];
+if(isset($s['custom_settings']['custom_style_2']) && $s['custom_settings']['custom_style_2'])
+    echo $s['custom_settings']['custom_style_2'];
+?>
