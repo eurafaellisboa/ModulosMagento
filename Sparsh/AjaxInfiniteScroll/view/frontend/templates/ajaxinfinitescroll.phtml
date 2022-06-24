@@ -1,0 +1,45 @@
+<?php
+$isEnabledAjaxInfiniteScroll = $block->isEnabled();
+$delay = !empty($block->dely()) ? $block->dely() : '600';
+$content = !empty($block->content()) ? $block->content() : '.main';
+$pagination = !empty($block->pagination()) ? $block->pagination() : '.pages-items';
+$next = !empty($block->next()) ? $block->next() : '.next';
+$item = !empty($block->item()) ? $block->item() : '.product-item';
+$loadingImage = '';
+if ($block->loadingImage() != '') {
+    $loadingImage = $block->getMediaPath().'/sparsh/ajax_infinite_scroll/'.$block->loadingImage();
+}
+$loadingText = !empty($block->loadingText()) ? $block->loadingText() : '';
+$doneText = !empty($block->doneText()) ? $block->doneText() : '';
+if ($isEnabledAjaxInfiniteScroll) {
+    ?>
+    <script>
+        require(['jquery', 'Sparsh_AjaxInfiniteScroll/js/infinitescroll'], function ($) {
+            $(document).ready(function () {
+                var ias = $.ias({
+                    container: "<?php echo $content;?>",
+                    item: "<?php echo $item;?>",
+                    pagination: "<?php echo $pagination;?>",
+                    next: "<?php echo $next;?>",
+                    delay: "<?php echo $delay;?>",
+                });
+
+                window.ias = $.ias();
+                window.ias.extension(new IASSpinnerExtension({
+                    src: "<?php echo $loadingImage; ?>", // override text when no pages left
+                    html: '<div class="ias-spinner" style="text-align: center;font-size: 16px;color: #333;display: block;"><img style="display:inline" src="{src}"/><p><?php echo $loadingText; ?></p></div>'
+                }));
+
+                window.ias.extension(new IASNoneLeftExtension({
+                    text: "<?php echo $doneText;?>", // override text when no pages left
+                    html: '<div class="ias-noneleft" style="text-align: center;color: #333;letter-spacing: 0px;font-size: 14px;font-weight: 400;">{text}</div>'
+                }));
+
+                window.ias.on('rendered', function(items){
+                    $('body').trigger('contentUpdated');
+                });
+            });
+        });
+    </script>
+    <?php
+} ?>
