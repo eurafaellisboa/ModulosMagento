@@ -1,0 +1,20 @@
+{
+  "name": "mestremage/module-autocompletezipcode",
+  "description": "",
+  "authors": [
+    {
+      "name": "mestremage",
+      "email": "contato@mestremage.com.br"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "MestreMage\\AutoCompleteZipCode\\": ""
+    }
+  }
+}

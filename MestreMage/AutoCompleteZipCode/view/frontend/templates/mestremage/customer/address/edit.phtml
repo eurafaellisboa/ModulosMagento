@@ -1,0 +1,395 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Edit customer address template
+ *
+ * @var $block \Magento\Customer\Block\Address\Edit
+ */
+
+
+$scopeConfig = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\App\Config\ScopeConfigInterface');
+$mask_postcode = $scopeConfig->getValue('autocompletezipcode/geral/mask_postcode', \Magento\Store\Model\ScopeInterface::SCOPE_STORES);
+?>
+<form class="form-address-edit" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Contact Information') ?></span></legend><br>
+        <?php echo $block->getBlockHtml('formkey')?>
+        <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>"/>
+        <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>"/>
+        <?php echo $block->getNameBlockHtml() ?>
+        <?php if ($this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->isUsedInForm('company')): ?>
+            <?php $attributeValidationClass = $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('company'); ?>
+            <div class="field company<?php echo (strpos($attributeValidationClass, 'required-entry')) ? ' required' : '' ?>">
+                <label class="label" for="company"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
+                <div class="control">
+                    <input type="text" name="company" id="company" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" value="<?php echo $block->escapeHtml($block->getAddress()->getCompany()) ?>" class="input-text <?php /* @escapeNotVerified */ echo $attributeValidationClass ?>"/>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->isUsedInForm('telephone')): ?>
+            <?php $attributeValidationClass = $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('telephone'); ?>
+            <div class="field telefone required">
+                <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone Number') ?></span></label>
+                <div class="control">
+                    <input type="text" name="telephone"  onkeyup="mascara(this, mtel);" maxlength="15" value="<?php echo $block->escapeHtml($block->getAddress()->getTelephone()) ?>" title="<?php /* @escapeNotVerified */ echo __('Phone Number') ?>" class="input-text required-entry" id="telephone"/>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <div class="field fax">
+            <label class="label" for="fax"><span><?php /* @escapeNotVerified */ echo __('Fax') ?></span></label>
+            <div class="control">
+                <input type="text" name="fax" id="fax"  onkeyup="mascara(this, mtel);" maxlength="15"  title="<?php /* @escapeNotVerified */ echo __('Fax') ?>" value="<?php echo $block->escapeHtml($block->getAddress()->getFax()) ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('fax') ?>"/>
+            </div>
+        </div>
+
+    </fieldset>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Address') ?></span></legend><br>
+        <?php $_streetValidationClass = $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('street'); ?>
+        <?php $_i = 1; ?>
+        <?php if ($this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationClassesForLine($_i)): ?>
+            <?php $_streetValidationClass .= $this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationClassesForLine($_i); ?>
+        <?php endif; ?>
+
+        <div class="field street required">
+                <label class="label" for="zip"><span><?php /* @escapeNotVerified */ echo __('Zip/Postal Code') ?></span></label>
+                <div class="control">
+                    <input type="text" name="postcode"  onblur="pesquisarCepMm(this.value);" maxlength="9"  onkeyup="mascara(this, mcep);" value="<?php echo $block->escapeHtml($block->getAddress()->getPostcode()) ?>" title="<?php /* @escapeNotVerified */ echo __('Zip/Postal Code') ?>" id="zip" class="input-text validate-zip-international <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>"/>
+                </div>
+        </div>
+
+                    <?php for ($_i = 1, $_n = $this->helper('Magento\Customer\Helper\Address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                        <?php $_streetValidationClass = $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('street'); ?>
+                        <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+                        <?php if ($this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationClassesForLine($_i)): ?>
+                            <?php $_streetValidationClass .= $this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationClassesForLine($_i); ?>
+                        <?php endif; ?>
+                        <div class="field street">
+                            <label class="label" for="street_<?php /* @escapeNotVerified */ echo $_i ?>">
+                                <span><?php /* @escapeNotVerified */ echo $this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getLineLabel($_i) ?></span>
+                            </label>
+                            <div class="control">
+                                <input type="text" value="<?php echo $block->escapeHtml($block->getStreetLine($_i)) ?>" name="street[<?php echo $_i; ?>]" <?php if ($this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationMaxLength($_i)) { echo 'maxlength="' . $this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationMaxLength($_i) . '"' ; } ?> <?php if ($this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationMinLength($_i)) { echo 'minlength="' . $this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getValidationMinLength($_i) . '"' ; } ?> title="<?php /* @escapeNotVerified */ echo $this->helper('MestreMage\AutoCompleteZipCode\Helper\Data')->getLineLabel($_i) ?>" id="street_<?php /* @escapeNotVerified */ echo $_i ?>" class="input-text <?php /* @escapeNotVerified */ echo $_streetValidationClass ?>">
+                            </div>
+                        </div>
+                    <?php endfor; ?>
+
+        <?php  if ($this->helper('Magento\Customer\Helper\Address')->isVatAttributeVisible()) : ?>
+        <div class="field taxvat">
+            <label class="label" for="vat_id"><span><?php /* @escapeNotVerified */ echo __('VAT Number') ?></span></label>
+            <div class="control">
+                <input type="text" name="vat_id" onkeypress="mascaraMutuario(this,cpfCnpj)" value="<?php echo $block->escapeHtml($block->getAddress()->getVatId()) ?>" title="<?php /* @escapeNotVerified */ echo __('VAT Number') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('vat_id') ?>" id="vat_id"/>
+            </div>
+            <div id="msg-validacao-iw3"></div>
+        </div>
+
+
+        <script>
+            function mascaraMutuario(o,f){
+                v_obj=o;
+                v_fun=f;
+                setTimeout('execmascara()',1)
+            }
+
+            function execmascara(){
+                v_obj.value=v_fun(v_obj.value)
+            }
+
+            function cpfCnpj(v){
+                v=v.replace(/\D/g,"");
+
+                if (v.length > 0 && v.length <= 11) {
+                    //CPF
+                    v=v.replace(/(\d{3})(\d)/,"$1.$2");
+
+                    v=v.replace(/(\d{3})(\d)/,"$1.$2");
+
+                    v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+                } else {
+                    //CNPJ
+                    v=v.replace(/^(\d{2})(\d)/,"$1.$2");
+
+                    v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
+
+                    v=v.replace(/\.(\d{3})(\d)/,".$1/$2");
+
+                    v=v.replace(/(\d{4})(\d)/,"$1-$2");
+                }
+                return v
+            }
+        </script>
+
+
+        <?php  endif; ?>
+        <div class="field city required">
+            <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
+            <div class="control">
+                <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city"/>
+            </div>
+        </div>
+        <div class="field region required">
+            <label class="label" for="region_id"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
+            <div class="control">
+                <select id="region_id" name="region_id" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="validate-select  seleciona-uf" <?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>>
+                   <option value=""><?php /* @escapeNotVerified */ echo __('Please select a region, state or province.') ?></option>
+                </select>
+                <input type="hidden" id="regiao-uf">
+                <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>"  title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>"<?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>/>
+            </div>
+        </div>
+
+        <div class="field country required">
+            <label class="label" for="country"><span><?php /* @escapeNotVerified */ echo __('Country') ?></span></label>
+            <div class="control">
+                <?php echo $block->getCountryHtmlSelect() ?>
+            </div>
+        </div>
+
+        <?php $userDefinedAttributes = $block->getLayout()->getBlock('customer_form_address_user_attributes'); ?>
+        <?php if ($userDefinedAttributes):?>
+            <?php echo $userDefinedAttributes->setShowContainer(false)->toHtml(); ?>
+        <?php endif;?>
+        <?php if ($block->isDefaultBilling()): ?>
+            <div class="message info">
+                <span><?php /* @escapeNotVerified */ echo __("This is your default billing address.") ?></span>
+            </div>
+        <?php elseif ($block->canSetAsDefaultBilling()): ?>
+        <div class="field choice set billing">
+            <input type="checkbox" id="primary_billing" name="default_billing" value="1" class="checkbox"/>
+            <label class="label" for="primary_billing"><span><?php /* @escapeNotVerified */ echo __('Use as my default billing address') ?></span></label>
+        </div>
+        <?php else: ?>
+            <input type="hidden" name="default_billing" value="1"/>
+        <?php endif; ?>
+
+        <?php if ($block->isDefaultShipping()): ?>
+            <div class="message info">
+                <span><?php /* @escapeNotVerified */ echo __("This is your default shipping address.") ?></span>
+            </div>
+        <?php elseif ($block->canSetAsDefaultShipping()): ?>
+            <div class="field choice set shipping">
+                <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" class="checkbox"/>
+                <label class="label" for="primary_shipping"><span><?php /* @escapeNotVerified */ echo __('Use as my default shipping address') ?></span></label>
+            </div>
+        <?php else: ?>
+            <input type="hidden" name="default_shipping" value="1"/>
+        <?php endif; ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary" data-action="save-address" title="<?php /* @escapeNotVerified */ echo __('Save Address') ?>">
+                <span><?php /* @escapeNotVerified */ echo __('Save Address') ?></span>
+            </button>
+        </div>
+        <div class="secondary">
+            <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>">
+                <span><?php /* @escapeNotVerified */ echo __('Go back') ?></span>
+            </a>
+        </div>
+    </div>
+</form>
+<script type="text/x-magento-init">
+    {
+        "#form-validate": {
+            "validation": {}
+        },
+        "#country": {
+            "regionUpdater": {
+                "optionalRegionAllowed": <?php /* @escapeNotVerified */ echo($block->getConfig('general/region/display_all') ? 'true' : 'false'); ?>,
+                "regionListId": "#region_id",
+                "regionInputId": "#region",
+                "postcodeId": "#zip",
+                "form": "#form-validate",
+                "regionJson": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getRegionJson() ?>,
+                "defaultRegion": "<?php /* @escapeNotVerified */ echo $block->getRegionId() ?>",
+                "countriesWithOptionalZip": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getCountriesWithOptionalZip(true) ?>
+            }
+        }
+    }
+</script>
+<script>
+    var is_mask_postcode = '<?=$mask_postcode?>';
+    function limpa_formulario_cep() {
+        document.getElementById('street_1').value=("");
+        document.getElementById('street_4').value=("");
+        document.getElementById('city').value=("");
+    }
+
+    function meu_callback1(conteudo) {
+        if (!("erro" in conteudo)) {
+            document.getElementById('street_1').value=(conteudo.logradouro);
+            document.getElementById('street_4').value=(conteudo.bairro);
+            document.getElementById('city').value=(conteudo.localidade);
+            document.getElementById('regiao-uf').value=(conteudo.uf);
+
+
+
+            buscarUf(conteudo.uf);
+        }
+        else {
+            limpa_formulario_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+
+    function pesquisarCepMm(valor) {
+        var cep = valor.replace(/\D/g, '');
+        if (cep != "") {
+            var validacep = /^[0-9]{8}$/;
+
+            if(validacep.test(cep)) {
+                document.getElementById('street_1').value="";
+                document.getElementById('street_4').value= "";
+                document.getElementById('city').value="";
+                var script = document.createElement('script');
+                script.src = '//viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback1';
+                document.body.appendChild(script);
+
+            }
+            else {
+
+                limpa_formulario_cep();
+                alert("Formato de CEP inválido.");
+            }
+        }
+        else {
+            limpa_formulario_cep();
+        }
+    }
+
+    function buscarUf(uf){
+        switch(uf) {
+            case "AC":
+                document.querySelector(".seleciona-uf").value = "485";
+                break;
+            case "AL":
+                document.querySelector(".seleciona-uf").value = "486";
+                break;
+            case "AP":
+                document.querySelector(".seleciona-uf").value = "487";
+                break;
+            case "AM":
+                document.querySelector(".seleciona-uf").value = "488";
+                break;
+            case "BA":
+                document.querySelector(".seleciona-uf").value = "489";
+                break;
+            case "CE":
+                document.querySelector(".seleciona-uf").value = "490";
+                break;
+            case "ES":
+                document.querySelector(".seleciona-uf").value = "491";
+                break;
+            case "GO":
+                document.querySelector(".seleciona-uf").value = "492";
+                break;
+            case "MA":
+                document.querySelector(".seleciona-uf").value = "493";
+                break;
+            case "MT":
+                document.querySelector(".seleciona-uf").value = "494";
+                break;
+            case "MS":
+                document.querySelector(".seleciona-uf").value = "495";
+                break;
+            case "MG":
+                document.querySelector(".seleciona-uf").value = "496";
+                break;
+            case "PA":
+                document.querySelector(".seleciona-uf").value = "497";
+                break;
+            case "PB":
+                document.querySelector(".seleciona-uf").value = "498";
+                break;
+            case "PR":
+                document.querySelector(".seleciona-uf").value = "499";
+                break;
+            case "PE":
+                document.querySelector(".seleciona-uf").value = "500";
+                break;
+            case "PI":
+                document.querySelector(".seleciona-uf").value = "501";
+                break;
+            case "RJ":
+                document.querySelector(".seleciona-uf").value = "502";
+                break;
+            case "RN":
+                document.querySelector(".seleciona-uf").value = "503";
+                break;
+            case "RS":
+                document.querySelector(".seleciona-uf").value = "504";
+                break;
+            case "RO":
+                document.querySelector(".seleciona-uf").value = "505";
+                break;
+            case "RR":
+                document.querySelector(".seleciona-uf").value = "506";
+                break;
+            case "SC":
+                document.querySelector(".seleciona-uf").value = "507";
+                break;
+            case "SP":
+                document.querySelector(".seleciona-uf").value = "508";
+                break;
+            case "SE":
+                document.querySelector(".seleciona-uf").value = "509";
+                break;
+            case "TO":
+                document.querySelector(".seleciona-uf").value = "510";
+                break;
+            case "DF":
+                document.querySelector(".seleciona-uf").value = "511";
+                break;
+        }
+
+    }
+
+    if(document.querySelector('[name*="region_id"]')){
+            document.querySelector('[name*="region_id"]').onfocus = function() {
+            document.querySelector('[name*="region_id"]').blur();
+        };
+    }
+
+    function mascara(o,f){
+        v_obj=o;
+        v_fun=f;
+        setTimeout("execmascara()",1);
+    }
+    function execmascara(){
+        v_obj.value=v_fun(v_obj.value);
+    }
+    function mcep(v){
+        if(is_mask_postcode != '1'){
+            return v
+        }
+		if(v.length > 9 ){
+			return v.substring(0,9);
+		}
+		
+        v=v.replace(/\D/g,"");
+        v=v.replace(/^(\d{5})(\d)/,"$1-$2");
+        return v
+    }
+    function mtel(v){
+	if(v.length > 15 ){
+		return v.substring(0,15);
+	}
+        v=v.replace(/\D/g,"");
+        v=v.replace(/^(\d{2})(\d)/g,"($1) $2");
+        v=v.replace(/(\d)(\d{4})$/,"$1-$2");
+        return v;
+    }
+
+
+</script>
+
+

@@ -1,0 +1,26 @@
+Street,Rua
+Housenumber,"Número"
+Addition,Complemento
+"Address Lines","Endereços"
+"district","Bairro"
+"enabled","Ativar"
+
+"Line 1 Validation","Validação Linha 1"
+"Line 2 Validation","Validação Linha 2"
+"Line 3 Validation","Validação Linha 3"
+"Line 4 Validation","Validação Linha 4"
+
+"Line 1 Label","Label Linha 1"
+"Line 2 Label","Label Linha 2"
+"Line 3 Label","Label Linha 3"
+"Line 4 Label","Label Linha 4"
+
+"Line 1 Required","Linha 1 Obrigatorio"
+"Line 2 Required","Linha 2 Obrigatorio"
+"Line 3 Required","Linha 3 Obrigatorio"
+"Line 4 Required","Linha 4 Obrigatorio"
+
+"Line 1","Linha 1"
+"Line 2","Linha 2"
+"Line 3","Linha 3"
+"Line 4","Linha 4"

@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <autocompletezipcode>
+            <mestremage_address_lines>
+                <enabled>0</enabled>
+                <mestremage_address_line1>
+                    <line_enabled>1</line_enabled>
+                    <line_label>Rua</line_label>
+                    <line_required>1</line_required>
+                    <line_validation_classes>max_text_length:255,min_text_length:1</line_validation_classes>
+                </mestremage_address_line1>
+                <mestremage_address_line2>
+                    <line_enabled>0</line_enabled>
+                    <line_label>Número</line_label>
+                    <line_required>0</line_required>
+                    <line_validation_classes>validate-number:1</line_validation_classes>
+                </mestremage_address_line2>
+                <mestremage_address_line3>
+                    <line_enabled>0</line_enabled>
+                    <line_label>Complemento</line_label>
+                    <line_required>0</line_required>
+                    <line_validation_classes>max_text_length:255,min_text_length:1</line_validation_classes>
+                </mestremage_address_line3>
+                <mestremage_address_line4>
+                    <line_enabled>0</line_enabled>
+                    <line_label>Bairro</line_label>
+                    <line_required>0</line_required>
+                    <line_validation_classes>max_text_length:255,min_text_length:1</line_validation_classes>
+                </mestremage_address_line4>
+            </mestremage_address_lines>
+        </autocompletezipcode>
+    </default>
+</config>
