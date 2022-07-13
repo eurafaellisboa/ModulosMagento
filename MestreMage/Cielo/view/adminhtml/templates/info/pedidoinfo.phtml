@@ -1,0 +1,53 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ $order = $objectManager->create('\Magento\Sales\Model\Order')->load($this->getRequest()->getParam('order_id'));
+
+
+if(isset($_REQUEST['recurrent_cancel'])){
+    $cielo_status = $objectManager->get('MestreMage\Cielo\Helper\Data');
+    $retorno = $cielo_status->cancelRecurrentPaymentCielo($_REQUEST['recurrent_cancel']);
+    $order->getPayment()->setAdditionalInformation('cielo_recurrentPaymentId', '');
+    $order->getPayment()->setAdditionalInformation('cielo_intervalRecurrency','');
+    $order->getPayment()->setAdditionalInformation('cielo_endDateRecurrency', '');
+    $order->getPayment()->save();
+
+    echo '<div id="messages"><div class="messages"><div class="message message-success success"><div data-ui-id="messages-message-success">Recorrencia cancelado com sucesso!!</div></div></div></div>';
+}
+
+ if($order->getPayment()->getAdditionalInformation('mm_url_boleto_cielo')) {
+    echo '<a href="' . $order->getPayment()->getAdditionalInformation('mm_url_boleto_cielo') . '"  target="_blank" >Gerar Boleto</a>';
+ }
+
+if($order->getPayment()->getAdditionalInformation('cielo_PaymentId')){
+        echo '<p>'.__('Id Payment:') .' '.$order->getPayment()->getAdditionalInformation('cielo_PaymentId').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('TidCielo')){
+        echo '<p>'.__('Transaction Identifier:') .' '.$order->getPayment()->getAdditionalInformation('TidCielo').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_installments')){
+        echo '<p>'.__('Card Installments:') .' '.$order->getPayment()->getAdditionalInformation('cielo_installments').'x</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_intervalRecurrency')){
+    echo '<p>'.__('Interval Recurrency:') .' '.$order->getPayment()->getAdditionalInformation('cielo_intervalRecurrency').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_endDateRecurrency')){
+    echo '<p>'.__('End Date Recurrency:') .' '.date_format(date_create($order->getPayment()->getAdditionalInformation('cielo_endDateRecurrency')),"d/m/Y").'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_recurrentPaymentId')){
+    echo '<p>'.__('Recurrent PaymentId:') .' '.$order->getPayment()->getAdditionalInformation('cielo_recurrentPaymentId').'</p>';
+    echo ' <a  href="?recurrent_cancel='.$order->getPayment()->getAdditionalInformation('cielo_recurrentPaymentId').'" title="Edit" type="button" class="action-default scalable edit primary">
+        <span>Cancelar recorrencia</span></a>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_transactions_refused')){
+    echo '<p>'.__('Cartão recusado:') .' '.$order->getPayment()->getAdditionalInformation('cielo_transactions_refused').'</p>';
+}
+
+?>
+
+

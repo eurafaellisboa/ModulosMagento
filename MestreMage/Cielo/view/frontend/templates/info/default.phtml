@@ -1,0 +1,21 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$base_url = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+$order = $objectManager->create('Magento\Sales\Model\Order')->load($this->getRequest()->getParam('order_id'));
+
+if($order->getData('status') != 'processing'):
+    if($order->getPayment()->getAdditionalInformation('mm_url_boleto_cielo')):
+        $btn = '<a href="' . $order->getPayment()->getAdditionalInformation('mm_url_boleto_cielo') . '"  target="_blank" style="text-decoration: none;background-color: #32aeef;color: #fff;padding: 7px 20px;margin: 10px 0;display: block;width: 100px;text-align: center;border-radius: 5px;" >Gerar Boleto</a>';
+        ?>
+
+        <script>
+            var d1 = document.querySelector('.box.box-order-billing-method dl.payment-method');
+            d1.insertAdjacentHTML('afterend', '<?=$btn?>');
+        </script>
+
+    <?php endif; ?>
+<?php endif; ?>
+
+

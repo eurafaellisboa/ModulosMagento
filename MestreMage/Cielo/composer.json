@@ -1,0 +1,22 @@
+{
+    "name": "mestremage/module-cielo",
+    "description": "Modulo de pagamento Cielo",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "jamacio rocha",
+            "email": "suporte@mestremage.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MestreMage\\Cielo\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mestremage" translate="label" sortOrder="700"  class="mestre-magento-tab">
+            <label>Settings</label>
+        </tab>
+        <section id="modulo_cielo_section" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cielo 3.0</label>
+            <tab>mestremage</tab>
+            <resource>MestreMage_Cielo::config</resource>
+            <group id="modulo_cielo_group" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cielo</label>
+                <frontend_model>MestreMage\Cielo\Block\Adminhtml\System\Config\Extensions</frontend_model>
+            </group>
+
+        </section>
+        <section id="payment">
+            <group id="mestremageconfig" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mestre Magento Configuration Cielo 3.0</label>
+                <field id="environment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+                    <label>Environment</label>
+                    <source_model>MestreMage\Cielo\Model\Source\Environment</source_model>
+                    <comment><![CDATA[ Para testar em sandbox é preciso gerar uma Merchant IDs e Merchant Key diferentes  <a class="action add" href="https://cadastrosandbox.cieloecommerce.cielo.com.br/"  target="_blank" >acesse. </a>  ]]></comment>
+                </field>
+                <field id="merchant_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <label>Merchant IDs</label>
+                </field>
+
+                <field id="merchant_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="text">
+                    <label>Merchant Key</label>
+                </field>
+
+				<field id="active_hash" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Chave de ativação</label>
+				</field>
+                <field id="valid_error_in_checkout" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Retornar erros no Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                       <comment>Impedir que o cliente finalize a compra, quando o cartão não for aprovado</comment>
+                </field>
+                <field id="log" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log</label>
+                    <comment>Generated in directory [ROOT_MAGENTO]/var/log/cielo_card.log</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+            <group id="mestremagecc" translate="label" type="text" sortOrder="201" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mestre Magento Cielo Credit Card</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="12" translate="label" type="text">
+                    <label>Title</label>
+                </field>
+
+
+                <field id="layout_card_view" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+                    <label>Display model</label>
+                    <source_model>MestreMage\Cielo\Model\Source\Layoutcardview</source_model>
+                </field>
+
+
+                <field id="payment_action" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>Payment Action</label>
+                    <source_model>MestreMage\Cielo\Model\Source\PaymentAction</source_model>
+                </field>
+
+
+                <field id="save_credit_card" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>Enabled save credit card</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="installments" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="text">
+                    <label>Maximum number of installments</label>
+                </field>
+
+                <field id="installments_min" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+                    <label>Minimum amount to enable installment</label>
+                    <comment><![CDATA[Minimum value of the parcel if you do not want to leave 0]]></comment>
+                </field>
+
+                <field id="interest_from" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="text">
+                    <label>Interest from</label>
+                </field>
+
+                <field id="type_interest" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Type of Interest</label>
+                    <source_model>MestreMage\Cielo\Model\Source\TypeInterest</source_model>
+                </field>
+
+                <field id="interest_parcel" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="130" translate="label" type="text">
+                    <label>Interest</label>
+                    <comment>interest rate that will be applied to the</comment>
+                </field>
+
+                <field id="card_type_flag" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="131" translate="label" type="multiselect">
+                    <label>Flag card</label>
+                    <source_model>MestreMage\Cielo\Model\Source\FlagCard</source_model>
+                </field>
+
+                <field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="140" translate="label" type="allowspecific">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label" type="multiselect">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="homologation_mode_enabled" translate="label" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Homologation Mode Enabled</label>
+                    <comment>Create a product with the following SKU: cielo_test, when on homologation mode the payment method will only be available when this product is added to the shopping cart</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+
+
+                <field id="typediscountparcel" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="161" translate="label" type="select">
+                    <label>Forma de desconto em uma parcela</label>
+                    <source_model>MestreMage\Cielo\Model\Source\DiscountOneParcel</source_model>
+                </field>
+                <field id="valuediscountparcel" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="162" translate="label" type="text">
+                    <label>Valor Desconto em uma parcela</label>
+                    <comment>Valor que sera aplicado quando o cliente selecionar uma parcela.</comment>
+                </field>
+                <field id="textdiscountparcel" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="163" translate="label" type="text">
+                    <label>Texto Desconto em uma parcela</label>
+                    <comment><![CDATA[ Texto que indica o desconto aplicado. EX: '1x  {{v_v_total}} ({{v_discount}}% de desconto)' ]]></comment>
+                </field>
+
+
+
+                <field id="msg1" translate="label" type="textarea" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Without credit</label>
+                </field>
+                <field id="msg2" translate="label" type="textarea" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expired Card</label>
+                </field>
+                <field id="msg3" translate="label" type="textarea" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Locked Card</label>
+                </field>
+                <field id="msg4" translate="label" type="textarea" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Time Out</label>
+                </field>
+                <field id="msg5" translate="label" type="textarea" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Canceled Card</label>
+                </field>
+                <field id="msg6" translate="label" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>others</label>
+                </field>
+
+                <field id="recurrent" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="900" translate="label" type="select">
+                    <label>Recurrent Payment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="recurrent_disabled_method" translate="label" type="select" sortOrder="901" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable all payments</label>
+                    <comment>disable all forms of payment except this one</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="recurrent_msg1" translate="label" type="textarea" sortOrder="902" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Error recurrent + product</label>
+                    <comment>Error message if the customer wants to buy a normal product and a recurring product</comment>
+                </field>
+
+                <field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label" type="text">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+            <group id="mestremagedc" translate="label" type="text" sortOrder="201" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mestre Magento Cielo Debit Card</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="12" translate="label" type="text">
+                    <label>Title</label>
+                </field>
+
+                <field id="card_type_flag" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="131" translate="label" type="multiselect">
+                    <label>Flag card</label>
+                    <source_model>MestreMage\Cielo\Model\Source\FlagCard</source_model>
+                </field>
+
+                <field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="140" translate="label" type="allowspecific">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label" type="multiselect">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="homologation_mode_enabled" translate="label" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Homologation Mode Enabled</label>
+                    <comment>Create a product with the following SKU: cielo_test, when on homologation mode the payment method will only be available when this product is added to the shopping cart</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="msg1" translate="label" type="textarea" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Without credit</label>
+                </field>
+                <field id="msg2" translate="label" type="textarea" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expired Card</label>
+                </field>
+                <field id="msg3" translate="label" type="textarea" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Locked Card</label>
+                </field>
+                <field id="msg4" translate="label" type="textarea" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Time Out</label>
+                </field>
+                <field id="msg5" translate="label" type="textarea" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Canceled Card</label>
+                </field>
+                <field id="msg6" translate="label" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>others</label>
+                </field>
+
+                <field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label" type="text">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+            <group id="mestremagebl" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="201" translate="label">
+                <label>Mestre Magento Cielo Boleto</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+                    <label>Title</label>
+                </field>
+                <field id="order_status" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="allowspecific">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="assignor" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <label>Empresa</label>
+                </field>
+                <field id="cpf_cnpj_empresa" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <label>CPF/CNPJ</label>
+                </field>
+                <field id="endereco_empresa" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <label>Endereço</label>
+                </field>
+                <field id="instructions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="textarea">
+                    <label>Instructions</label>
+                </field>
+                <field id="days" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="text">
+                    <label>Days</label>
+                </field>
+                <field id="type_provider" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Provider</label>
+                    <source_model>MestreMage\Cielo\Model\Source\TipoBoleto</source_model>
+                </field>
+
+                <field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="multiselect">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="text">
+                    <label>Sort Order</label>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="MestreMage_Cielo::css/cielo.css" />
+        <script src="MestreMage_Cielo::js/model/credit-card-view/card.js"/>
+    </head>
+    <body>
+        <referenceBlock name="content">
+            <block as="cielo_mm" class="MestreMage\Cielo\Block\CheckoutView" name="mestremage_cielo" template="MestreMage_Cielo::Checkout_view.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="renders" xsi:type="array">
+                                                            <!-- merge payment method renders here -->
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="mestremagecc" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">MestreMage_Cielo/js/view/payment/mestremagecc</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="mestremagecc" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="mestremagedc" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">MestreMage_Cielo/js/view/payment/mestremagedc</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="mestremagedc" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="mestremagebl" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">MestreMage_Cielo/js/view/payment/mestremagebl</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="mestremagebl" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,60 @@
+<?php
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$checkout_session = $objectManager->get('Magento\Checkout\Model\Session');
+$order = $checkout_session->getLastRealOrder();
+
+if($order->getPayment()->getAdditionalInformation('cielo_fullname')){
+    echo '<p>'.__('Card Owner:') .' '.$order->getPayment()->getAdditionalInformation('cielo_fullname').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_cc_number')){
+    echo '<p>'.__('Card Last 4 Digits: ************') .substr($order->getPayment()->getAdditionalInformation('cielo_cc_number'), -4).'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_installments')){
+    echo '<p>'.__('Card Installments:') .' '.$order->getPayment()->getAdditionalInformation('cielo_installments').'x</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_recurrentPaymentId')){
+    echo '<p>'.__('Recurrent PaymentId:') .' '.$order->getPayment()->getAdditionalInformation('cielo_recurrentPaymentId').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_intervalRecurrency')){
+    echo '<p>'.__('Interval Recurrency:') .' '.$order->getPayment()->getAdditionalInformation('cielo_intervalRecurrency').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_endDateRecurrency')){
+    echo '<p>'.__('End Date Recurrency:') .' '.date_format(date_create($order->getPayment()->getAdditionalInformation('cielo_endDateRecurrency')),"d/m/Y").'</p>';
+}
+
+
+if($order->getPayment()->getAdditionalInformation('cielo_PaymentId')){
+    echo '<p>'.__('Id Payment:') .' '.$order->getPayment()->getAdditionalInformation('cielo_PaymentId').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('TidCielo')){
+    echo '<p>'.__('Transaction Identifier:') .' '.$order->getPayment()->getAdditionalInformation('TidCielo').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('mm_code_boleto_cielo')){
+    echo '<p>'.__('COD:') .' '.$order->getPayment()->getAdditionalInformation('mm_code_boleto_cielo').'</p>';
+}
+
+
+if($order->getPayment()->getAdditionalInformation('cielo_recurrentPaymentId')){
+    echo '<p>'.__('Recurrent PaymentId:') .' '.$order->getPayment()->getAdditionalInformation('recurrentPaymentId').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('mm_url_boleto_cielo')) {
+    echo '<a href="' . $order->getPayment()->getAdditionalInformation('mm_url_boleto_cielo') . '"  target="_blank" style="text-decoration: none;background-color: #32aeef;color: #fff;padding: 7px 20px;margin: 10px 0;display: block;width: 100px;text-align: center;border-radius: 5px;" >Gerar Boleto</a>';
+}
+
+if($order->getPayment()->getAdditionalInformation('url_autenticacao_cielo_mm')) {
+    echo '<p style=" color: red;font-size: 20px;">Clique <a href="' . $order->getPayment()->getAdditionalInformation('url_autenticacao_cielo_mm') . '"  target="_blank" >aqui</a> para validar as informações no seu Banco</p>';
+    echo '<script>window.onload = function(){window.open("' . $order->getPayment()->getAdditionalInformation('url_autenticacao_cielo_mm') . '");} </script>';
+}
+
+if($order->getPayment()->getAdditionalInformation('cielo_transactions_refused')){
+    echo '<p>'.__('Cartão recusado:') .' '.$order->getPayment()->getAdditionalInformation('cielo_transactions_refused').'</p>';
+}

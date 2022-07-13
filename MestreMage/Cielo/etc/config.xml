@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <default>
+        <payment>
+            <mestremagecc>
+                <active>1</active>
+                <model>MestreMage\Cielo\Model\PaymentMethodCc</model>
+                <layout_card_view>1</layout_card_view>
+                <payment_action>authorize</payment_action>
+                <order_status>pending</order_status>
+                <title><![CDATA[Cielo - Cartão de Crédito]]></title>
+                <save_credit_card>0</save_credit_card>
+                <allowspecific>0</allowspecific>
+                <installments>12</installments>
+                <type_interest>simple</type_interest>
+                <interest_parcel>0</interest_parcel>
+                <installments_min>0</installments_min>
+                <card_type_flag>mastercard,visa,amex,diners,elo,hipercard,discover,jcb,aura</card_type_flag>
+                <interest_from>3</interest_from>
+                <typediscountparcel>0</typediscountparcel>
+                <valuediscountparcel>0</valuediscountparcel>
+                <textdiscountparcel>Desconto pagamento Cielo 1x </textdiscountparcel>
+                <msg1><![CDATA[Transaction not authorized No Balance Cod: %s]]></msg1>
+                <msg2><![CDATA[Transaction not authorized Expired Card Cod: %s]]></msg2>
+                <msg3><![CDATA[Transaction not authorized Card Locked Cod: %s]]></msg3>
+                <msg4><![CDATA[Transaction not authorized Time Out Cod: %s]]></msg4>
+                <msg5><![CDATA[Transaction not authorized Canceled Card Cod: %s]]></msg5>
+                <recurrent_msg1><![CDATA[você não pode comprar produto recorrente junto com outros produtos]]></recurrent_msg1>
+                <recurrent_msg2><![CDATA[você não pode adicionar produtos recorrentes com datas diferente]]></recurrent_msg2>
+                <group>mestremage</group>
+            </mestremagecc>
+            <mestremagedc>
+                <active>1</active>
+                <model>MestreMage\Cielo\Model\PaymentMethodDc</model>
+                <order_status>pending</order_status>
+                <payment_action>authorize</payment_action>
+                <title><![CDATA[Cielo - Cartão de Debito]]></title>
+                <allowspecific>0</allowspecific>
+                <card_type_flag>mastercard,visa,amex,diners,elo,hipercard,discover,jcb,aura</card_type_flag>
+                <msg1><![CDATA[Transaction not authorized No Balance Cod: %s]]></msg1>
+                <msg2><![CDATA[Transaction not authorized Expired Card Cod: %s]]></msg2>
+                <msg3><![CDATA[Transaction not authorized Card Locked Cod: %s]]></msg3>
+                <msg4><![CDATA[Transaction not authorized Time Out Cod: %s]]></msg4>
+                <msg5><![CDATA[Transaction not authorized Canceled Card Cod: %s]]></msg5>
+                <msg6><![CDATA[Transaction not authorized Credit Card Problems Cod: %s]]></msg6>
+                <group>mestremage</group>
+            </mestremagedc>
+            <mestremagebl>
+                <active>1</active>
+                <payment_action>authorize</payment_action>
+                <model>MestreMage\Cielo\Model\PaymentMethodBl</model>
+                <order_status>pending</order_status>
+                <title><![CDATA[Cielo - Boleto]]></title>
+                <assignor><![CDATA[Empresa Teste]]></assignor>
+                <instructions><![CDATA[Aceitar somente até a data de vencimento]]></instructions>
+                <days>3</days>
+                <allowspecific>0</allowspecific>
+                <group>mestremage</group>
+            </mestremagebl>
+        </payment>
+    </default>
+</config>

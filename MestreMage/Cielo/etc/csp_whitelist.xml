@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="default-src">
+            <values>
+                <value id="apiSandbox" type="host">https://apisandbox.cieloecommerce.cielo.com.br/</value>
+                <value id="apiQuerySandbox" type="host">https://apiquerysandbox.cieloecommerce.cielo.com.br/</value>
+                <value id="api" type="host">https://api.cieloecommerce.cielo.com.br/</value>
+                <value id="apiQuery" type="host">https://apiquery.cieloecommerce.cielo.com.br/</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

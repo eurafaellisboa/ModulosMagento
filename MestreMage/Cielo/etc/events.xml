@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_place_after">
+        <observer instance="MestreMage\Cielo\Observer\Sales\OrderSaveAfter" name="mestremage_cielo_observer_sales_order_place_after"/>
+    </event>
+    <event name="sales_order_invoice_pay">
+        <observer instance="MestreMage\Cielo\Observer\Sales\OrderInvoicePay" name="mestremage_cielo_observer_sales_order_invoice_pay"/>
+    </event>
+    <event name="email_order_set_template_vars_before">
+        <observer name="add_extra_data_to_transport" instance="MestreMage\Cielo\Observer\AddExtraDataToTransport" />
+    </event>
+    <event name="sales_order_payment_cancel">
+        <observer name="sales_order_payment_cancel" instance="MestreMage\Cielo\Observer\Sales\OrderCancel" />
+    </event>
+    <event name="controller_action_predispatch_checkout_index_index">
+        <observer name="validate_cart" instance="MestreMage\Cielo\Observer\CheckoutCart" />
+    </event>
+</config>

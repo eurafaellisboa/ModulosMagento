@@ -1,0 +1,72 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$cart = $objectManager->get('\Magento\Checkout\Model\Session');
+$itemsVisible = $cart->getQuote()->getAllItems();
+$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
+$scopeConfig = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface');
+
+$recurrentpayment = 0;
+if($scopeConfig->getValue("payment/mestremagecc/recurrent", $storeScope)) {
+    if ($scopeConfig->getValue("payment/mestremagecc/recurrent_disabled_method", $storeScope)) {
+        foreach ($itemsVisible as $item) {
+            if ($item->getData('product_type') == 'simple') {
+                $_product = $objectManager->get('Magento\Catalog\Model\Product')->load($item->getProductId());
+                if ($_product->getAttributeText('recurrentpayment')) {
+                    $recurrentpayment = 1;
+                }
+            }
+        }
+        if ($recurrentpayment) {
+            echo '<style>div#checkout-payment-method-load .payment-method {display: none;}div#checkout-payment-method-load .payment-method.mm-disable-all-methods {display: block;}</style>';
+        }
+    }
+    echo '<style>form#mestremagecc-form .field.instament.required {display: none;}</style>';
+}
+?>
+
+<style>tr.mm_new_discount span.price {  font-size: 18px;  }</style>
+<script>
+    var recurrentpayment = "<?=$recurrentpayment?>";
+    require(['jquery', 'jquery/ui'], function($){
+        $( document ).ready(function() {
+            var existCondition = setInterval(function() {
+                if ($('#mestremagecc-form').length) {
+                    clearInterval(existCondition);
+                    new Card({
+                        form: document.querySelector('#card-view-cielo'),
+                        container: '.card-wrapper'
+                    });
+                    if(recurrentpayment){
+                        $("input#mestremagecc").trigger('click');
+                    }
+                    $("input#mestremagecc_cc_number").attr("placeholder","<?=__('Credit Card Number')?>");
+                    $("input#mestremagecc_fullname").attr("placeholder","<?=__('Full Name')?>");
+                }
+            }, 100);
+
+        });
+        <?php if($scopeConfig->getValue("payment/mestremagecc/typediscountparcel", $storeScope) != 0): ?>
+        setInterval(function(){
+            var mestremagentocc,mestremagentocc_installments,discount = false;
+            if(mestremagentocc = document.querySelector('input#mestremagecc')) {
+                if (mestremagentocc_installments = document.querySelector('select#mestremagecc_installments')) {
+                    if (mestremagentocc_installments.value == 1) {
+                        if(mestremagentocc.checked){
+                            discount = true;
+                        }
+
+                    }
+                }
+            }
+            if(discount){
+                $('table.data.table.table-totals tr.grand.totals').hide();
+                $('table.data.table.table-totals tr.mm_new_discount').show();
+            }else{
+                $('table.data.table.table-totals tr.grand.totals').show();
+                $('table.data.table.table-totals tr.mm_new_discount').hide();
+            }
+
+        },100);
+        <?php endif; ?>
+    });
+</script>
