@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © MagePal LLC. All rights reserved.
+ * See COPYING.txt for license details.
+ * https://www.magepal.com | support@magepal.com
+ */
+
+/**
+ * @var $block MagePal\PreviewCheckoutSuccessPage\Block\Adminhtml\System\Config\Form\Field\Preview
+ */
+
+?>
+
+<div style="text-align: center; margin: 20px">
+    <button type="button" id="inline-preview"><?= /* @noEscape */ __('Save Config & Preview') ?></button>
+    <button type="button" id="view-source"><?= /* @noEscape */ __('Save Config & View Source') ?></button>
+    <button type="button" id="new-window"><?= /* @noEscape */ __('Save Config & Open New Window') ?></button>
+</div>
+
+<div data-role="iframe-preview-panel"
+     data-mage-init='{"loader": {"template":"<?= /* @noEscape */ $block->getSpinnerTemplate() ?>"}}'">
+    <iframe  width="100%" height="1400" style="display: none" frameBorder="0" ></iframe>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "previewCheckoutSuccessPage": {
+                "urlTemplate": "<?= /* @noEscape */ $block->getSuccessPageUrl() ?>"
+            }
+        }
+    }
+</script>
