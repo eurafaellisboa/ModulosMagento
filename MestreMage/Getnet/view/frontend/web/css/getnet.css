@@ -1,0 +1,257 @@
+.checkout-payment-method .step-title {
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+.checkout-payment-method .payment-method:first-child .payment-method-title {
+    border-top: 0;
+}
+.checkout-payment-method .payment-method._active .payment-method-content {
+    display: block;
+}
+.checkout-payment-method .payment-method + .payment-method .payment-method-title {
+    border-top: 1px solid #cccccc;
+}
+.checkout-payment-method .payment-method form.form-purchase-order {
+    margin-bottom: 15px;
+}
+.checkout-payment-method .payment-method-content #po_number {
+    margin-bottom: 20px;
+}
+.checkout-payment-method .payment-method-title {
+    padding: 20px 0;
+    margin: 0;
+}
+.checkout-payment-method .payment-method-title .payment-icon {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.checkout-payment-method .payment-method-title .action-help {
+    display: inline-block;
+    margin-left: 5px;
+}
+.checkout-payment-method .payment-method-content {
+    display: none;
+    padding: 0 0 20px 22px;
+}
+.checkout-payment-method .payment-method-content .fieldset:not(:last-child) {
+    margin: 0 0 20px;
+}
+.checkout-payment-method .payment-group + .payment-group .step-title {
+    margin: 20px 0 0;
+}
+.checkout-payment-method .field-select-billing,
+.checkout-payment-method .billing-address-form {
+    max-width: 500px;
+}
+.checkout-payment-method .billing-address-same-as-shipping-block {
+    margin: 0 0 10px;
+}
+.checkout-payment-method .checkout-billing-address {
+    margin: 0 0 20px;
+}
+.checkout-payment-method .checkout-billing-address .primary .action-update {
+    margin-right: 0;
+}
+.checkout-payment-method .checkout-billing-address .billing-address-details {
+    line-height: 27px;
+    padding: 0 0 0 23px;
+}
+.checkout-payment-method .payment-method-note + .checkout-billing-address {
+    margin-top: 20px;
+}
+.checkout-payment-method .payment-method-iframe {
+    background-color: transparent;
+    display: none;
+    width: 100%;
+}
+.checkout-payment-method .no-payments-block {
+    margin: 20px 0;
+}
+.checkout-payment-method .payment-option._active .payment-option-title .action-toggle:after {
+    content: '\e621';
+}
+.checkout-payment-method .payment-option._collapsible .payment-option-title {
+    cursor: pointer;
+}
+.checkout-payment-method .payment-option._collapsible .payment-option-content {
+    display: none;
+}
+.checkout-payment-method .payment-option-title {
+    border-top: 1px solid #cccccc;
+    padding: 20px 0;
+}
+.checkout-payment-method .payment-option-title .action-toggle {
+    color: #006bb4;
+    display: inline-block;
+    text-decoration: none;
+}
+.checkout-payment-method .payment-option-title .action-toggle:after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    line-height: 16px;
+    color: #757575;
+    content: '\e622';
+    font-family: 'luma-icons';
+    margin: 0 0 0 10px;
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+.checkout-payment-method .payment-option-title .action-toggle:hover:after {
+    color: #333333;
+}
+.checkout-payment-method .payment-option-title .action-toggle:active:after {
+    color: #757575;
+}
+.checkout-payment-method .payment-option-content {
+    padding: 0 0 20px 22px;
+}
+.checkout-payment-method .payment-option-inner {
+    margin: 0 0 20px;
+}
+.checkout-payment-method .credit-card-types {
+    padding: 0;
+}
+.checkout-payment-method .credit-card-types .item {
+    display: inline-block;
+    list-style: none;
+    margin: 0 5px 0 0;
+    vertical-align: top;
+}
+.checkout-payment-method .credit-card-types .item._active {
+    font-weight: 700;
+}
+.checkout-payment-method .credit-card-types .item._active img {
+    -webkit-filter: grayscale(0%);
+}
+.checkout-payment-method .credit-card-types .item._inactive {
+    opacity: .4;
+}
+.checkout-payment-method .credit-card-types .item span {
+    display: inline-block;
+    padding-top: 6px;
+    vertical-align: top;
+}
+.checkout-payment-method .credit-card-types img {
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all .6s ease;
+}
+.checkout-payment-method .ccard .fields > .year {
+    padding-left: 5px;
+}
+.checkout-payment-method .ccard .fields .select {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.checkout-payment-method .ccard .month .select {
+    width: 140px;
+}
+.checkout-payment-method .ccard .year .select {
+    width: 80px;
+}
+.checkout-payment-method .ccard .number .input-text {
+    width: 225px;
+}
+.checkout-payment-method .ccard > .field.cvv > .control {
+    display: inline-block;
+    padding-right: 20px;
+}
+.checkout-payment-method .ccard .cvv .label {
+    display: block;
+}
+.checkout-payment-method .ccard .cvv .input-text {
+    width: 55px;
+}
+.checkout-payment-method .ccard.fieldset > .field .fields.group.group-2 .field {
+    width: auto !important;
+}
+.checkout-agreements-block .checkout-agreements {
+    margin-bottom: 20px;
+}
+.checkout-agreements-block .action-show {
+    vertical-align: baseline;
+}
+.checkout-agreements-items {
+    padding-bottom: 30px;
+}
+.checkout-agreements-items .checkout-agreements-item {
+    margin-bottom: 20px;
+}
+.checkout-agreements-items .checkout-agreements-item-title {
+    border-bottom: 0;
+}
+.checkout-agreement-item-content {
+    overflow: auto;
+}
+
+
+
+.h-card {
+    line-height: 15px;
+    border: 1px solid #ebebeb;
+    padding: 9px;
+    margin-bottom: 18px;
+    list-style: none;
+    height: 34px;
+}
+ul.ul-history {
+    padding: 0;
+}
+
+ul.ul-history .cardmemory {
+    float: left;
+    margin: 11px !important;
+}
+.h-card img {
+    display: block;
+    float: left;
+}
+.h-card label {
+    display: block;
+    float: left;
+    margin: 10px;
+}
+button.close.btndeletedhistorycard {
+    float: right;
+}
+
+input#mestremagegn_fullname {
+    width: 340px;
+}
+select#mestremagegn_installments {
+    width: 300px;
+}
+
+
+.card-wrapper {
+    float: left;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.form-container.active {
+    width: 360px;
+    margin-bottom: 8px;
+}
+form#card-view-getnet input#mestremagegn_mm_yy {
+    width: 80px;
+    margin-top: 3px;
+}
+
+form#card-view-getnet input#mestremagegn_cc_number {
+    float: left;
+    width: 182px;
+    margin-right: 3px;
+}
+form#card-view-getnet input#mestremagegn_fullname {
+    float: left;
+    width: 165px;
+}
+form#card-view-getnet input#mestremagegn_cc_cid {
+    width: 60px;
+}

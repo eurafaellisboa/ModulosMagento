@@ -1,0 +1,44 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$cart = $objectManager->get('\Magento\Checkout\Model\Cart')->getQuote();
+$session_id = $cart->getData('entity_id').preg_replace("/[^0-9]/", "", $cart->getData('created_at'));
+
+$scopeConfig = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface');
+$is_product = $scopeConfig->getValue('payment/mestremagegn/environment', \Magento\Store\Model\ScopeInterface::SCOPE_STORES);
+
+$org_id = '1snn5n9w';
+if($is_product == 'PRODUCTION'){
+    $org_id = 'k8vif92e';
+}
+
+?>
+<body>
+<noscript>
+    <iframe
+        style="width: 100px; height: 100px; border: 0; position:absolute; top: -5000px;"
+        src="https://h.online-metrix.net/fp/tags?org_id=<?=$org_id?>&session_id=<?=$session_id?>">
+    </iframe>
+</noscript>
+</body>
+
+
+<script>
+    require(['jquery', 'jquery/ui'], function($){
+        $( document ).ready(function() {
+            var existCondition = setInterval(function() {
+                if ($('#mestremagegn-form').length) {
+                    clearInterval(existCondition);
+                    new Card({
+                        form: document.querySelector('#card-view-getnet'),
+                        container: '.card-wrapper'
+                    });
+
+                    $("input#mestremagegn_cc_number").attr("placeholder","<?=__('Credit Card Number')?>");
+                    $("input#mestremagegn_fullname").attr("placeholder","<?=__('Full Name')?>");
+
+                }
+            }, 100);
+
+        });
+    });
+</script>

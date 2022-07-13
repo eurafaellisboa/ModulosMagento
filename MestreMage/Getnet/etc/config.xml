@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <default>
+        <payment>
+            <mestremagegn>
+                <active>0</active>
+                <log>0</log>
+                <model>MestreMage\Getnet\Model\PaymentMethodGn</model>
+                <layout_card_view>1</layout_card_view>
+                <payment_action>authorize</payment_action>
+                <title><![CDATA[Getnet - Cartão de Crédito]]></title>
+                <save_credit_card>0</save_credit_card>
+                <allowspecific>0</allowspecific>
+                <installments>12</installments>
+                <type_interest>simple</type_interest>
+                <interest_parcel>0</interest_parcel>
+                <installments_min>0</installments_min>
+                <interest_from>3</interest_from>
+            </mestremagegn>
+        </payment>
+    </default>
+</config>

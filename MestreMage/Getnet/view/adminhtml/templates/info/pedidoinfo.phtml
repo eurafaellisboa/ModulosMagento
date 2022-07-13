@@ -1,0 +1,19 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ $order = $objectManager->create('\Magento\Sales\Model\Order')->load($this->getRequest()->getParam('order_id'));
+
+if($order->getPayment()->getAdditionalInformation('payment_id_getnet')){
+    echo '<p>'.__('Id Payment:') .' '.$order->getPayment()->getAdditionalInformation('payment_id_getnet').'</p>';
+}
+
+
+
+if($order->getPayment()->getAdditionalInformation('status_getnet')){
+    echo '<p>'.__('Status:') .' '.$order->getPayment()->getAdditionalInformation('status_getnet').'</p>';
+}
+
+
+
+if($order->getPayment()->getAdditionalInformation('installments_getnet')){
+    echo '<p>'.__('Card Installments:') .' '.$order->getPayment()->getAdditionalInformation('installments_getnet').'x</p>';
+}
