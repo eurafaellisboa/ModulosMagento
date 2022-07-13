@@ -1,0 +1,17 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ $order = $objectManager->create('\Magento\Sales\Model\Order')->load($this->getRequest()->getParam('order_id'));
+ $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($order->getData('customer_id'));
+if($customerObj->getData('razao_social')): ?>                                   
+<tr>
+    <th>Razão Social</th>
+    <td><?=$customerObj->getData('razao_social')?></td>
+</tr>   
+<?php endif;
+
+if($customerObj->getData('inscricao_estadual')): ?>  
+<tr>
+    <th>Inscrição Estadual</th>
+    <td><?=$customerObj->getData('inscricao_estadual')?></td>
+</tr>
+<?php endif ?>             

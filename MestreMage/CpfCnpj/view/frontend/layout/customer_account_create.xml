@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceContainer name="content">
+			<block as="customer_account_mm" class="Magento\Framework\View\Element\Template" name="customer_account_mm" template="MestreMage_CpfCnpj::customer_account_mm.phtml"/>
+		</referenceContainer>
+	</body>
+</page>
