@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+<system>
+    <tab id="mestremage" translate="label" sortOrder="700"  class="mestre-magento-tab">
+        <label>Mestre magento</label>
+    </tab>
+    <section id="priceInstallment" translate="label" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+        <class>separator-top</class>
+        <label>Price Installment</label>
+        <tab>mestremage</tab>
+        <resource>MestreMage_PriceInstallment::config</resource>
+        <group id="geral" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>General</label>
+            <field id="ativarmodulo" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="log" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Log</label>
+                <comment>Generated in directory [ROOT_MAGENTO]/var/log/priceInstallment.log</comment>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+        </group>
+        <group id="loja" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>settings</label>
+            <field id="mostrartabelaparcela" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>show parcel table</label>
+                <comment>Display a table with the projection of the parcels, month by month, next to the product</comment>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="mostrarparcelaunica" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>show single parcel</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="titulotabela" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>table title</label>
+            </field>
+            <field id="valorminimoparcela" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>minimum value of plot</label>
+            </field>
+            <field id="valormaximomeses" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>maximum number of months</label>
+            </field>
+            <field id="type_interest" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Type of Interest</label>
+                <source_model>MestreMage\PriceInstallment\Model\Source\TypeInterest</source_model>
+            </field>
+            <field id="jurosapartirdaparcela" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>interest from the parcel</label>
+                <comment>Will interest be calculated from which installment / month?</comment>
+            </field>
+            <field id="valorjuros" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>interest amount</label>
+                <comment>ex: 2.00</comment>
+            </field>
+            <field id="padraodotexto" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>text pattern</label>
+                <comment>Enter {parcel} to display the number of parcels, and {price} to display its value</comment>
+            </field>
+		    <field id="textosemjuros" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>text without interest</label>
+            </field>
+            <field id="textocomjuros" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>interest text</label>
+            </field>
+			<field id="padraodotextonatabela" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>table text pattern</label>
+                <comment>{Parcel} is required and will be substituted for the number of parcels in the presentation</comment>
+            </field>
+			 <field id="precoavistanatabela" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>show price on the table?</label>
+                 <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                 <comment>Select Yes if you want to display the displayed price in the table. If no, the table will display from the second plot</comment>
+            </field>
+			<field id="textoprecoavista" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>cash price text</label>
+                <comment>The text for single parcel (in view) if displayed</comment>
+            </field>
+
+
+
+            <field id="valor_a_vista_ativarmodulo" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>In cash enable</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="desconto" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Discount</label>
+                <source_model>MestreMage\PriceInstallment\Model\Source\Discount</source_model>
+            </field>
+            <field id="valordesconto" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Discount Value</label>
+                <comment>ex: 2.00</comment>
+            </field>
+            <field id="frase" translate="label" type="text" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                <label>Phrase that will go below the price</label>
+                <comment>Phrase that will be below the price: cash on the bill with the discount</comment>
+            </field>
+        </group>
+
+    </section>
+</system>
+</config>

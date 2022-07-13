@@ -1,0 +1,156 @@
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function($){
+
+        $(window).load(function(){
+            $( ".product-options-wrapper div" ).change(function() {
+                selectProduct();
+            });
+        });
+
+        function mascaraValor(valor) {
+            valor = parseInt(valor);
+            valor.toFixed(2);
+            valor = valor.toString().replace(/\D/g,"");
+            valor = valor.toString().replace(/(\d)(\d{8})$/,"$1.$2");
+            valor = valor.toString().replace(/(\d)(\d{5})$/,"$1.$2");
+            valor = valor.toString().replace(/(\d)(\d{2})$/,"$1,$2");
+            return 'R$' + valor
+        }
+
+        function jurosSimples(valor, taxa, parcelas) {
+            var valParcela;
+            if(parcelas > 1) {
+                valor = valor + '';
+                valor = parseInt(valor.replace(/[\D]+/g,''));
+                valor = valor + '';
+                valor = valor.replace(/([0-9]{2})$/g, ".$1");
+
+                if (valor.length > 6) {
+                    valor = valor.replace(/([0-9]{3})([0-9]{2}$)/g, ".$1.$2");
+                }
+
+                valParcela = (parseFloat(valor) + parseFloat(taxa)) / parcelas;
+                var  part = valParcela.toString().split('.');
+
+                var part_2 =  part[1] + 00;
+                if(typeof part[1] === "undefined"){
+                    part_2 = '00';
+                }
+
+                valParcela = part[0]+(part_2).toString().substring(0,2);
+                valParcela = parseInt(valParcela.toString().replace(/[\D]+/g,''));
+            }else{
+                valParcela = valor;
+            }
+            return valParcela;
+        }
+
+        function jurosComposto(valor,juros,parcela){
+            var taxa,valor_final;
+            if(parcela > 1) {
+                if (juros) {
+                    taxa = parseFloat(juros) / 100;
+                    valor_final = (valor * taxa) / (1 - (Math.pow(1 / (1 + taxa), parcela)));
+                } else {
+                    valor_final = valor / parcela;
+                }
+            }else{
+                valor_final = valor;
+            }
+            return valor_final;
+        }
+
+        function aplicarPorcentagem(valor,juros,parcela){
+          var valor_final;
+            if(MestreMage_PriceInstallment.typeInterest== 'compound') {
+                valor_final = jurosComposto(valor, juros, parcela);
+            }else{
+                valor_final = jurosSimples(valor, juros, parcela);
+            }
+           var textoFinal = '';
+            if(parseInt(juros)){
+                textoFinal += ' ' + MestreMage_PriceInstallment.textoComJuros;
+            }else{
+                textoFinal += ' ' + MestreMage_PriceInstallment.textoSemJuros;
+            }
+
+            return mascaraValor(valor_final)+textoFinal;
+        }
+
+        function selectProduct() {
+            if(document.querySelector('[data-price-type*="finalPrice"] .price')) {
+                var preco_html = document.querySelector('[data-price-type*="finalPrice"] .price').innerHTML.replace(/[^0-9]/g, '');
+                var txtPadrao = MestreMage_PriceInstallment.txtPadrao;
+                var tipoDesconto = MestreMage_PriceInstallment.tipoDesconto;
+                var fraseAvista = MestreMage_PriceInstallment.fraseAvista;
+                var valorDesconto = MestreMage_PriceInstallment.valorDesconto;
+                var padraodotextonatabela = MestreMage_PriceInstallment.padraodotextonatabela;
+                var tituloTabela = MestreMage_PriceInstallment.tituloTabela;
+                var precoavistanatabela = MestreMage_PriceInstallment.precoAvistaTabela;
+                var textoPrecoAvista = MestreMage_PriceInstallment.textoPrecoAvista;
+                var parcelasModificada = MestreMage_PriceInstallment.parcelasModificada;
+                var juros = MestreMage_PriceInstallment.juros;
+                var lblParcel = MestreMage_PriceInstallment.lblParcel;
+                var lblPrice = MestreMage_PriceInstallment.lblPrice;
+                var jurosParcela = MestreMage_PriceInstallment.jurosParcela;
+
+                
+
+                var percentual = 0;
+                var finalDesconto = 0;
+                var finalPreco = preco_html;
+                if (tipoDesconto == 1) {
+                    finalDesconto = (finalPreco - parseFloat(valorDesconto.replace(/[^\d]+/g, '')));
+                } else if (tipoDesconto == 2) {
+                    percentual = parseFloat(valorDesconto) / 100.0;
+                    finalDesconto = finalPreco - (percentual * finalPreco);
+                }
+                if (MestreMage_PriceInstallment.valorAvistaAtivarmodulo) {
+                    $('div#preco-a-vista-mm p').html(fraseAvista.replace('{valor}', mascaraValor(finalDesconto)));
+                }
+				
+				$('.jsr-priceinstallment p').html((txtPadrao.replace('{price}', aplicarPorcentagem(preco_html, (jurosParcela < parcelasModificada ? 0 : juros), parcelasModificada))).replace('{parcel}', parcelasModificada));
+				
+                if (MestreMage_PriceInstallment.mostrarTabelaParcela) {
+                    var html = '';
+                    html += '<h3><a id="abre-parcelas">' + tituloTabela + '</a></h3>';
+                    html += '<table id="parcelas" style="display:none">';
+                    html += '<tr><th>' + lblParcel + '</th><th>' + lblPrice + '</th></tr>';
+                    if (parseInt(precoavistanatabela)) {
+                        html += '<tr><td>' + textoPrecoAvista + '</td><td>' + mascaraValor(finalDesconto) + '</td></tr>';
+                    }
+                    for (var i = 1; i <= parcelasModificada; i++) {
+                        html += '<tr><td>' + padraodotextonatabela.replace('{parcel}', i) + '</td><td> ' + aplicarPorcentagem(preco_html, (jurosParcela > i ? 0 : juros), i) + '</tr></td>';
+                    }
+                    html += '</table>';
+                    $('div#mestre-magento-table').html(html);
+					$('#abre-parcelas').click(function() {
+    					$('#parcelas').toggle();
+  					});
+                }
+            }
+        }
+    });
+</script>
+
+
+<style>
+    .product-info-main .product-info-price .price-box {  float: left;  width: 100%;  }
+    .jsr-priceinstallment table > tbody > tr > td,
+    .jsr-priceinstallment table > tbody > tr > th {  padding: 1px 7px;  }
+    .jsr-priceinstallment span {  width: 100%;   margin-top: 10px;  }
+    .product-info-main .product-info-stock-sku {  padding-left: 0;  }
+    div#mestre-magento-table {line-height: 5px; margin: 0 0 20px 0;font-size:14px;font-weight: 400 !important;}
+    div#mestre-magento-table tr:nth-child(even) {background-color: #f2f2f2;}
+</style>

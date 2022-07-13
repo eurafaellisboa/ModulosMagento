@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author      Jamacio Rocha
+ * @copyright   2018 MestreMage (https://mestremage.com.br)
+ * @license     https://mestremage.com.br Copyright
+ *
+ * @link        https://mestremage.com.br/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <priceInstallment>
+            <geral>
+                <ativarmodulo>0</ativarmodulo>
+                <log>0</log>
+            </geral>
+            <loja>
+                <mostrartabelaparcela>1</mostrartabelaparcela>
+                <titulotabela>title table</titulotabela>
+                <valorminimoparcela>0</valorminimoparcela>
+                <valormaximomeses>12</valormaximomeses>
+                <type_interest>simple</type_interest>
+                <jurosapartirdaparcela>2</jurosapartirdaparcela>
+                <valorjuros>0</valorjuros>
+                <padraodotexto>{parcel} x de {price}</padraodotexto>
+                <textosemjuros>interest-free</textosemjuros>
+                <textocomjuros>with interest</textocomjuros>
+                <padraodotextonatabela>{parcel} x </padraodotextonatabela>
+                <precoavistanatabela>1</precoavistanatabela>
+                <textoprecoavista>sight price</textoprecoavista>
+                <desconto>1</desconto>
+                <valordesconto>10</valordesconto>
+                <frase>ou {valor} á vista</frase>
+            </loja>
+
+        </priceInstallment>
+    </default>
+</config>
