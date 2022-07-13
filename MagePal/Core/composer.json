@@ -1,0 +1,37 @@
+{
+    "name": "magepal/magento2-core",
+    "description": "MagePal core extension",
+    "keywords": [
+        "magento 2",
+        "magepal core extension"
+    ],
+    "license": [
+        "proprietary"
+    ],
+    "homepage": "https://www.magepal.com/",
+    "support": {
+        "email": "support@magepal.com",
+        "issues": "https://github.com/magepal/magento2-core/issues/"
+    },
+    "authors": [
+        {
+            "name": "Renon Stewart",
+            "email": "renon@magepal.com",
+            "homepage": "https://www.magepal.com/",
+            "role": "Leader"
+        }
+    ],
+    "require": {
+        "magento/framework": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.1.12",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MagePal\\Core\\": ""
+        }
+    }
+}
