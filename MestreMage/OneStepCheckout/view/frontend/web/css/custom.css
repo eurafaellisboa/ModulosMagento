@@ -1,0 +1,260 @@
+/*===MestreMage - One Step Checkout===*/
+.osc .checkout-payment-method .payment-method-billing-address .billing-address-details {
+    display: none;
+}
+.osc #co-payment-form ._active button.checkout {
+    display: none;
+}
+.osc #co-payment-form .checkout-agreements {
+    display: none;
+}
+.osc #opc-sidebar .action.primary {
+    width: 100%;
+}
+.osc {
+    padding: 20px 0;
+    background: #ffffff;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    /*Shipping*/
+    /*Payment*/
+}
+.osc > .col {
+    width: 33.3333%;
+    float: left;
+    padding: 0 20px;
+}
+.rtl-layout .osc > .col {
+    float: right;
+}
+.osc .col ~ .col {
+    /*padding-left: 20px;*/
+}
+.osc ul,
+.osc ol {
+    padding: 0;
+    list-style: none;
+}
+.osc input[type="text"],
+.osc input[type="password"],
+.osc input[type="url"],
+.osc input[type="tel"],
+.osc input[type="search"],
+.osc input[type="number"],
+.osc input[type="datetime"],
+.osc input[type="email"] {
+    height: 32px;
+    line-height: 32px;
+}
+.osc select {
+    height: 32px;
+}
+.osc .step-title {
+    color: #ffffff;
+    background: #94bf61;
+    padding: 8px 20px 8px 40px;
+    text-transform: uppercase;
+    font-size: 16px;
+    position: relative;
+}
+.rtl-layout .osc .step-title {
+    padding: 8px 40px 8px 20px;
+}
+.osc .step-title:before {
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    font-family: 'Pe-icon-7-stroke';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "1";
+    font-size: 26px;
+}
+.rtl-layout .osc .step-title:before {
+    left: unset;
+    right: 7px;
+}
+.osc .checkout-shipping-method .step-title:before {
+    content: "2";
+}
+.osc .payment-methods .step-title:before {
+    content: "3";
+}
+.osc .fieldset > .field > .label {
+    font-weight: 500;
+}
+.osc .fieldset.address .field.inline {
+    width: 48%;
+    float: left;
+}
+.rtl-layout .osc .fieldset.address .field.inline {
+    float: right;
+}
+.osc .fieldset.address .field.inline.right {
+    float: right;
+}
+.rtl-layout .osc .fieldset.address .field.inline.right {
+    float: left;
+}
+.osc .table-checkout-shipping-method {
+    min-width: 100%;
+}
+.osc .form.methods-shipping {
+    padding: 10px 0;
+}
+.osc .form.methods-shipping .table-checkout-shipping-method tbody td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.osc .shipping-address-item {
+    border: 2px solid transparent;
+    line-height: 30px;
+    margin: 0 0 2rem;
+    transition: 0.3s border-color;
+    position: relative;
+    vertical-align: top;
+    word-wrap: break-word;
+}
+.osc .shipping-address-item.selected-item {
+    border-color: #ff5501;
+}
+.osc .shipping-address-item.selected-item:after {
+    background: #ff5501;
+    color: #ffffff;
+    font-family: 'icons-blank-theme';
+    height: 27px;
+    width: 29px;
+    font-size: 27px;
+    line-height: 21px;
+    padding-top: 2px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+.osc .shipping-address-item.selected-item .action-select-shipping-item {
+    visibility: hidden;
+}
+.osc .checkout-payment-method .step-title {
+    margin-bottom: 20px;
+}
+.osc .checkout-payment-method .payment-method-title {
+    border: 0;
+    padding: 0 0 5px;
+}
+.osc .checkout-payment-method .billing-address-details {
+    border: 1px solid #e1e1e1;
+}
+.osc .checkout-payment-method .billing-address-details > span {
+    display: block;
+    padding-bottom: 10px;
+}
+.osc .checkout-payment-method .billing-address-details > br {
+    display: none;
+}
+.osc .checkout-payment-method .payment-option-title {
+    border-top: 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+.osc .checkout-payment-method .payment-option-title .action-toggle {
+    display: block;
+}
+.osc .checkout-payment-method .payment-option-title .action-toggle:after {
+    float: right;
+    line-height: 20px;
+}
+.rtl-layout .osc .checkout-payment-method .payment-option-title .action-toggle:after {
+    float: left;
+}
+.osc .checkout-payment-method .payment-method-content {
+    padding-bottom: 0;
+}
+.osc .checkout-payment-method .payment-method-billing-address {
+    margin-bottom: 0;
+}
+.osc .checkout-payment-method .payment-group {
+    margin-bottom: 20px;
+}
+.osc .checkout-payment-method .payment-option-inner {
+    margin: 10px 0;
+}
+.osc .checkout-payment-method .payment-option-inner .field > .label {
+    margin: 0 0 8px;
+    display: inline-block;
+}
+.osc .checkout-payment-method .billing-address-form {
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+.osc #opc-sidebar {
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #282828;
+}
+.osc #opc-sidebar .opc-block-summary {
+    padding: 0;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+}
+.osc #opc-sidebar .opc-block-summary > .title {
+    text-transform: uppercase;
+}
+.osc #opc-sidebar .opc-block-summary .table-totals .grand strong {
+    font-size: 16px;
+}
+.osc #opc-sidebar .opc-block-summary .mark .value {
+    color: #1218ec;
+}
+.osc #opc-sidebar .opc-block-summary .minicart-items .product-item-name {
+    font-size: 12px;
+}
+.osc #opc-sidebar .opc-block-summary .items-in-cart > .title,
+.osc #opc-sidebar .opc-block-summary .minicart-items .product-item,
+.osc #opc-sidebar .opc-block-summary .minicart-items .product-item:not(:first-child) {
+    border-color: #e1e1e1;
+}
+.osc #opc-sidebar .actions-toolbar {
+    width: 100%;
+}
+.osc #opc-sidebar .actions-toolbar .primary {
+    width: 100%;
+    margin: 0;
+}
+.osc #opc-sidebar .actions-toolbar .primary .action.primary {
+    border-radius: 3px;
+    padding: 10px;
+}
+@media (max-width: 991px) {
+    .osc > .col {
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .checkout-payment-method .payment-methods,
+    .checkout-payment-method .payment-option {
+        margin: 0;
+    }
+}
+@media (max-width: 375px){
+    #maincontent{
+        margin: 0px !important;
+        padding: 0px !important;
+        width: 100%;
+    }
+    .groupe-col{
+        margin: 0px !important;
+    }
+}

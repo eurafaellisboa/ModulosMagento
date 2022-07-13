@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mestremage" sortOrder="999" translate="label">
+            <label>mestremage</label>
+        </tab>
+        <section id="opcmestremage" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>One Step Checkout</label>
+            <tab>mestremage</tab>
+            <resource>MestreMage_OneStepCheckout::opcheckout_configuration</resource>
+            <group id="general" translate="label" sortOrder="1" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="active" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="type_layout" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Type Layout</label>
+                    <source_model>MestreMage\OneStepCheckout\Model\Source\TypeLayout</source_model>
+                </field>
+				<field id="active_hash" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Chave de ativação</label>
+				</field>
+                <field id="custom_css" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom css</label>
+                    <comment>custom css insert footer checkout</comment>
+                </field>
+                <field id="custom_js" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom js</label>
+                    <comment>Custom js insert footer checkout</comment>
+                </field>
+                <field id="shipping_address" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Coluna 1</label>
+				</field>
+                 <field id="shipping_method" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Coluna 2</label>
+				</field>
+                <field id="payment_method" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Coluna 3</label>
+				</field>
+                 <field id="opc_sidebar" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Coluna 4</label>
+				</field>
+                <field id="authentication_button" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Botão de logar</label>
+				</field>
+            </group>
+            <group id="options" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Options</label>
+                <field id="checkout_comments_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Order Comments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

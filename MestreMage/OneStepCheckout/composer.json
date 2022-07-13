@@ -1,0 +1,21 @@
+{
+    "name": "mestremage/module-onestepcheckout",
+    "description": "",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mestre Mage",
+            "email": "jamacio@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MestreMage\\OneStepCheckout\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

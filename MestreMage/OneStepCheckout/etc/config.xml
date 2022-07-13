@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<opcmestremage>
+			<general>
+				<enable>0</enable>
+				<shipping_address>1  Endereço de entrega</shipping_address>
+				<shipping_method>2  Métodos de Envio</shipping_method>
+				<payment_method>3  Forma de pagamento</payment_method>
+				<opc_sidebar>4  Resumo do pedido</opc_sidebar>
+				<authentication_button>Quero me logar</authentication_button>
+			</general>
+		</opcmestremage>
+	</default>
+</config>

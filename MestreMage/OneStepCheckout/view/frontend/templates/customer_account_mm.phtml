@@ -1,0 +1,27 @@
+
+<script>
+    require([
+        "jquery",
+        "jquery/ui"
+    ], function($){
+        $( document ).ready(function() {
+            var existCondition = setInterval(function() {
+				var taxvat = $('#taxvat');
+				var telephone = $('#telephone');
+				var fax = $('#fax');
+				var zip = $('#zip');
+                if (taxvat.length) {
+                    clearInterval(existCondition);
+                    taxvat.attr('inputmode','numeric');
+                    telephone.attr('inputmode','numeric');
+                    fax.attr('inputmode','numeric');
+                    zip.attr('inputmode','numeric');
+                }
+
+            }, 100);
+            
+        });
+
+    });
+
+</script>

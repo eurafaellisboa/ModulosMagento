@@ -1,0 +1,613 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
+$scopeConfig = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/type_layout", $storeScope);
+$custom_js = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/custom_js", $storeScope);
+$custom_css = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/custom_css", $storeScope);
+
+
+$shipping_address = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/shipping_address", $storeScope);
+$shipping_method = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/shipping_method", $storeScope);
+$payment_method = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/payment_method", $storeScope);
+$opc_sidebar = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/opc_sidebar", $storeScope);
+$authentication_button = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("opcmestremage/general/authentication_button", $storeScope);
+?>
+
+<style>
+
+    /*===MestreMage - One Step Checkout===*/
+    div#checkout > .messages {
+        display: none !important;
+    }
+    .osc .checkout-payment-method .payment-method-billing-address .billing-address-details {
+        display: none;
+    }
+    .osc #co-payment-form ._active button.checkout {
+        display: none;
+    }
+    .osc #co-payment-form .checkout-agreements {
+        display: none;
+    }
+    .osc #opc-sidebar .action.primary {
+        width: 100%;
+    }
+    .osc {
+        padding: 20px 0;
+        background: #ffffff;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+    }
+    .osc > .col {
+        width: 33.3333%;
+        float: left;
+        padding: 0 20px;
+    }
+    .rtl-layout .osc > .col {
+        float: right;
+    }
+
+    .osc ul,
+    .osc ol {
+        padding: 0;
+        list-style: none;
+    }
+    .osc input[type="text"],
+    .osc input[type="password"],
+    .osc input[type="url"],
+    .osc input[type="tel"],
+    .osc input[type="search"],
+    .osc input[type="number"],
+    .osc input[type="datetime"],
+    .osc input[type="email"] {
+        height: 45px;
+        line-height: 32px;
+        background-color: #f5f5f5;
+        border: 1px solid #efefef;
+    }
+    .osc select {
+        height: 45px;
+    }
+
+    .rtl-layout .osc .step-title {
+        padding: 8px 40px 8px 40px;
+    }
+
+    .checkout-billing-address {
+        float: left;
+        margin-top: 20px;
+    }
+
+    .osc .step-title:before {
+        position: absolute;
+        left: 7px;
+        top: 5px;
+        font-family: 'Pe-icon-7-stroke';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 26px;
+    }
+    .rtl-layout .osc .step-title:before {
+        left: unset;
+        right: 7px;
+    }
+    .osc .fieldset > .field > .label {
+        font-weight: 500;
+    }
+
+    .osc .table-checkout-shipping-method {
+        min-width: 100%;
+    }
+    .osc .form.methods-shipping {
+        padding: 10px 0;
+    }
+    .osc .form.methods-shipping .table-checkout-shipping-method tbody td {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .osc .shipping-address-item {
+        border: 2px solid transparent;
+        line-height: 30px;
+        margin: 0 0 2rem;
+        transition: 0.3s border-color;
+        position: relative;
+        vertical-align: top;
+        word-wrap: break-word;
+    }
+    .osc .shipping-address-item.selected-item {
+        border-color: #ff5501;
+    }
+    .osc .shipping-address-item.selected-item:after {
+        background: #ff5501;
+        color: #ffffff;
+        font-family: 'icons-blank-theme';
+        height: 27px;
+        width: 29px;
+        font-size: 27px;
+        line-height: 21px;
+        padding-top: 2px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+    }
+    .osc .shipping-address-item.selected-item .action-select-shipping-item {
+        visibility: hidden;
+    }
+    .osc .checkout-payment-method .step-title {
+        margin-bottom: 20px;
+    }
+    .osc .checkout-payment-method .payment-method-title {
+        border: 0 !important;
+        padding: 0 0 5px;
+    }
+    .osc .checkout-payment-method .billing-address-details {
+        border: 1px solid #e1e1e1;
+    }
+    .osc .checkout-payment-method .billing-address-details > span {
+        display: block;
+        padding-bottom: 10px;
+    }
+    .osc .checkout-payment-method .billing-address-details > br {
+        display: none;
+    }
+    .osc .checkout-payment-method .payment-option-title {
+        border-top: 0;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+    .osc .checkout-payment-method .payment-option-title .action-toggle {
+        display: block;
+    }
+    .osc .checkout-payment-method .payment-option-title .action-toggle:after {
+        float: right;
+        line-height: 20px;
+    }
+    .rtl-layout .osc .checkout-payment-method .payment-option-title .action-toggle:after {
+        float: left;
+    }
+    .osc .checkout-payment-method .payment-method-content {
+        padding-bottom: 0;
+    }
+    .osc .checkout-payment-method .payment-method-billing-address {
+        margin-bottom: 0;
+    }
+    .osc .checkout-payment-method .payment-group {
+        margin-bottom: 20px;
+    }
+    .osc .checkout-payment-method .payment-option-inner {
+        margin: 10px 0;
+    }
+    .osc .checkout-payment-method .payment-option-inner .field > .label {
+        margin: 0 0 8px;
+        display: inline-block;
+    }
+    .osc .checkout-payment-method .billing-address-form {
+        margin-bottom: 20px;
+        margin-top: -10px;
+    }
+    .osc .payment-method{
+        padding: 10px;
+    }
+
+    .osc #opc-sidebar .opc-block-summary {
+        padding: 0;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        -o-box-shadow: none;
+        -ms-box-shadow: none;
+    }
+
+    .osc #opc-sidebar .opc-block-summary .table-totals .grand strong {
+        font-size: 16px;
+    }
+
+    .osc #opc-sidebar .opc-block-summary .minicart-items .product-item-name {
+        font-size: 12px;
+    }
+    .osc #opc-sidebar .opc-block-summary .items-in-cart > .title,
+    .osc #opc-sidebar .opc-block-summary .minicart-items .product-item,
+    .osc #opc-sidebar .opc-block-summary .minicart-items .product-item:not(:first-child) {
+        border-color: #e1e1e1;
+    }
+    .osc #opc-sidebar .actions-toolbar {
+        width: 100%;
+    }
+    .osc #opc-sidebar .actions-toolbar .primary {
+        width: 100%;
+        margin: 0;
+    }
+    .osc #opc-sidebar .actions-toolbar .primary .action.primary {
+        border-radius: 25px;
+        font-size: 20px;
+        background: #19c338 !important;
+        border: 1px solid #33c319 !important;
+    }
+    @media (max-width: 991px) {
+        .osc > .col {
+            width: 100%;
+        }
+    }
+    @media (max-width: 767px) {
+        .checkout-payment-method .payment-methods,
+        .checkout-payment-method .payment-option {
+            margin: 0;
+        }
+    }
+
+    .opc-block-summary {
+        background: #ffffff;
+    }
+    .groupe-col li {
+        list-style: none;
+    }
+
+    fieldset.fieldset {
+        display: contents;
+    }
+
+    input#mestremagentobl_cpf, input#mestremagentocc_cpf, input#mestremagentocc_fullname, .checkout-payment-method .ccard .number .input-text {
+        width: 100% !important;
+    }
+    .fieldset>.field, .fieldset>.fields>.field {
+        margin: 5 0 0 !important;
+    }
+
+    .osc div#checkout-step-shipping {
+        padding-top: 15px
+    }
+
+    .osc span.note {
+        font-size: 10px !important;
+        color: #909090;
+    }
+
+    .osc div[name="shippingAddress.firstname"] {
+        width: 47%;
+        float: left;
+    }
+    .osc div[name="shippingAddress.lastname"] {
+        width: 47%;
+        float:left;
+        padding-left: 10px;
+    }
+
+    .osc div[name="shippingAddress.telephone"]{
+        clear: both;
+        float: left;
+        width: 47%;
+    }
+
+    .osc div[name="shippingAddress.fax"]{
+        float: left;
+        width: 47%;
+        padding-left: 10px;
+    }
+
+    .osc div[name="shippingAddress.telephone"] .field-tooltip,
+    .osc div[name="shippingAddress.fax"] .field-tooltip{
+        display: none;
+    }
+
+    .osc div[name="shippingAddress.telephone"] .control._with-tooltip input,
+    .osc div[name="shippingAddress.fax"] .control._with-tooltip input{
+        width: 100% !important;
+    }
+
+
+
+    .osc div[name="shippingAddress.postcode"]{
+        float: left;
+        width: 100%
+    }
+
+    .osc div[name="shippingAddress.street.0"]{
+        float: left;
+        width: 70%
+    }
+
+    .osc div[name="shippingAddress.street.1"]{
+        float: left;
+        padding-left: 20px;
+        width: 24%
+    }
+    .osc div[name="shippingAddress.street.2"]{
+        float: left;
+        width: 47%
+    }
+
+    .osc div[name="shippingAddress.street.3"]{
+        float: left;
+        padding-left: 20px;
+        width: 47%
+    }
+
+    .osc div[name="shippingAddress.city"]{
+        float: left;
+        clear: both;
+        width: 47%
+    }
+
+    .osc div[name="shippingAddress.region_id"]{
+        float: left;
+        padding-left: 20px;
+        width: 47%
+    }
+
+    .osc div[name="shippingAddress.region_id"] select{
+        height: 45px;
+    }
+
+    .osc div[name="shippingAddress.country_id"] select{
+        height: 45px;
+    }
+
+    .osc .shipping-address-item.selected-item {
+        padding: 10px;
+    }
+
+    /* DEIXANDO APENAS O LOGO E CENTRALIZANDO */
+    .panel.wrapper,
+    .minicart-wrapper,
+    .block-search {
+        display: none;
+    }
+    .logo{
+        display: block;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .logo img{
+        margin: 0px auto;
+    }
+
+    /* BOT�O DE LOGIN */
+    .authentication-wrapper {
+        clear: both;
+        float: left;
+        text-align: center;
+        margin: 10px 0 0 0;
+    }
+
+    .authentication-wrapper button span {
+        display: none;
+    }
+
+    .authentication-wrapper button:before{
+        content: "<?=$authentication_button?>";
+        text-transform: uppercase !important;
+    }
+
+    button.action.action-auth-toggle {
+        background: #777;
+        width: 100%;
+        padding: 2%;
+        color: #fff;
+    }
+
+
+
+    @media (max-width: 992px) {
+        .groupe-col {
+            float: left;
+            width: 90%;
+            margin: 0 0 10px 0;
+            padding: 3%;
+        }
+        .authentication-wrapper {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 993px) {
+        .groupe-col {
+            float: left;
+            width: 30%;
+            margin: 0 10px 0 0;
+            padding: 1%;
+        }
+        .authentication-wrapper {
+            width: 30%;
+            padding: 1%;
+        }
+    }
+
+    .step-title.b-title.h3:before {
+        margin: 6px;
+        vertical-align: baseline;
+        font-family: inherit;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .opc-block-summary > .title:before{
+        margin: 0px 10px 0px -20px;
+        vertical-align: baseline;
+        font-family: inherit;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .checkout-shipping-address .step-title.b-title.h3:before{
+        content: "<?=$shipping_address?>";
+    }
+    .checkout-shipping-method .step-title.b-title.h3:before{
+        content: "<?=$shipping_method?>";
+    }
+    .payment-group .step-title.b-title.h3:before{
+        content: "<?=$payment_method?>";
+    }
+    .opc-block-summary > .title:before{
+        content: "<?=$opc_sidebar?>";
+    }
+    .billing-address-details {
+        display: none;
+    }
+
+
+    .fieldset > .field:not(.choice) > .label {
+        padding: 6px 15px 0 0;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        float: left;
+    }
+    .fieldset > .field:not(.choice) > .control {
+        width: 100%;
+        float: left;
+    }
+
+    .osc .step-title, .osc #opc-sidebar .opc-block-summary > .title {
+        font-size: 0;
+        height: 30px;
+    }
+
+    /*layout 1*/
+    <?php if($scopeConfig == 1): ?>
+    .osc .step-title,.osc #opc-sidebar .opc-block-summary > .title  {
+        color: #ffffff;
+        background: #5484a9;
+        padding: 8px 8px 8px 40px;
+        position: relative;
+        font-weight: bold;
+        border-radius: 10px 10px 0 0;
+    }
+    .groupe-col {
+        border: 1px solid #ebebeb;
+        border-radius: 20px;
+    }
+    <?php endif; ?>
+    /*layout 1*/
+
+    /*layout 2*/
+    <?php if($scopeConfig == 2): ?>
+    .osc .step-title,.osc #opc-sidebar .opc-block-summary > .title  {
+        padding: 8px 8px 8px 40px;
+        position: relative;
+        font-weight: normal;
+        color: #787878;
+        border-bottom: 1px #c7c7c7 solid;
+        text-transform: uppercase;
+    }
+    .groupe-col {
+        border: 0px;
+    }
+    .opc-block-summary .table-totals{
+        border-top: none;
+    }
+    <?php endif; ?>
+    /*layout 2*/
+
+    /*layout 3*/
+    <?php if($scopeConfig == 3): ?>
+    .osc .step-title, .osc #opc-sidebar .opc-block-summary > .title {
+        color: white;
+        background: #8ba599;
+        padding: 8px 8px 8px 40px;
+        position: relative;
+        font-weight: bold;
+    }
+    .groupe-col {
+        border: 1px solid #ebebeb;
+        box-shadow: -5px 5px 12px 2px #e8e8e8;
+    }
+    <?php endif; ?>
+    /*layout 3*/
+
+    .groupe-col {
+        max-width: 100%;
+    }
+
+    .opc-block-summary {
+        border: none;
+    }
+
+    /*custom css*/
+    <?=$custom_css?>
+</style>
+
+
+
+<script>
+    require([
+        "jquery",
+        "jquery/ui"
+    ], function($){
+        $( document ).ready(function() {
+
+            var existCondition = setInterval(function() {
+                var postcode = $('div#shipping-new-address-form [name*="shippingAddress.postcode"] [name*="postcode"]');
+                var vat_id = $('div#shipping-new-address-form [name*="shippingAddress.vat_id"] [name*="vat_id"]');
+                var telephone = $('div#shipping-new-address-form [name*="shippingAddress.telephone"] [name*="telephone"]');
+                var fax = $('div#shipping-new-address-form [name*="shippingAddress.fax"] [name*="fax"]');
+                var street_0 =  $('div#shipping-new-address-form [name*="shippingAddress.street.0"]');
+                var street_1 =  $('div#shipping-new-address-form [name*="shippingAddress.street.1"]');
+                var street_2 =  $('div#shipping-new-address-form [name*="shippingAddress.street.2"]');
+                var street_3 =  $('div#shipping-new-address-form [name*="shippingAddress.street.3"]');
+                var city = $('div#shipping-new-address-form [name*="shippingAddress.city"]');
+                var region_id = $('div#shipping-new-address-form [name*="shippingAddress.region_id"]');
+                var country_id = $('div#shipping-new-address-form [name*="shippingAddress.country_id"]');
+
+                var input_street_0 =  $('div#shipping-new-address-form [name*="shippingAddress.street.0"] [name*="street[0]"]');
+                var input_street_1 =  $('div#shipping-new-address-form [name*="shippingAddress.street.1"] [name*="street[1]"]');
+                var input_street_2 =  $('div#shipping-new-address-form [name*="shippingAddress.street.2"] [name*="street[2]"]');
+                var input_street_3 =  $('div#shipping-new-address-form [name*="shippingAddress.street.3"] [name*="street[3]"]');
+                var input_city = $('div#shipping-new-address-form [name*="shippingAddress.city"] [name*="city"]');
+
+                if (postcode.length) {
+                    clearInterval(existCondition);
+                    if(!postcode.val()){
+                        street_0.hide();
+                        street_1.hide();
+                        street_2.hide();
+                        street_3.hide();
+                        city.hide();
+                        region_id.hide();
+                        country_id.hide();
+                    }
+                    postcode.attr('inputmode','numeric');
+                    vat_id.attr('inputmode','numeric');
+                    telephone.attr('inputmode','numeric');
+                    fax.attr('inputmode','numeric');
+
+                    postcode.attr('autocomplete','off');
+                    input_street_0.attr('autocomplete','off');
+                    input_street_1.attr('autocomplete','off');
+                    input_street_2.attr('autocomplete','off');
+                    input_street_3.attr('autocomplete','off');
+                    input_city.attr('autocomplete','off');
+
+                    postcode.on('keyup input', function(){
+                        if($(this).val().length >= 8) {
+                            street_0.show('slow');
+                            street_1.show('slow');
+                            street_2.show('slow');
+                            street_3.show('slow');
+                            city.show('slow');
+                            region_id.show('slow');
+                            country_id.show('slow');
+                        }
+                    });
+                }
+                $('span#block-discount-heading').click(function(){
+                    $('button.action.action-apply').prop('type','');
+                });
+
+            }, 100);
+            
+        });
+
+        <?=$custom_js?>
+    });
+
+</script>
+
+
