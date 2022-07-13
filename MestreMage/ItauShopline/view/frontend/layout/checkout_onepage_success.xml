@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * Desenvolvido por Jamacio Rocha
+ */
+-->
+<body>
+    <referenceContainer name="order.success.additional.info">
+        <block class="Magento\Framework\View\Element\Template"
+               name="mm.order.success"
+               template="MestreMage_ItauShopline::order/success.phtml"
+               after="-">
+        </block>
+    </referenceContainer>
+</body>

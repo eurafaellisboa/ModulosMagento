@@ -1,0 +1,56 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
+$scopeConfig = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface');
+
+$use_vat_id = '';
+$taxvat = '';
+if($scopeConfig->getValue("payment/itaushopline/use_vat_id", $storeScope)) {
+    $use_vat_id = 1;
+
+    $customerSession = $objectManager->create('Magento\Customer\Model\Session');
+    if ($customerSession->isLoggedIn()) {
+       $taxvat = $customerSession->getCustomer()->getTaxvat();
+        $vat_id = '';
+        $default_shipping = $customerSession->getCustomer()->getDefaultShipping();
+        foreach($customerSession->getCustomer()->getAddresses() as $address){
+            if($default_shipping == $address->getData('entity_id')){
+                $vat_id = $address->getData('vat_id'); 
+            break;
+            }
+        }
+        if($vat_id){
+            $taxvat = $vat_id;
+        }
+    }
+}
+
+?>
+
+<script>
+    var use_vat_id = "<?=$use_vat_id?>";
+    var taxvat_mm = "<?=$taxvat?>";
+    require(['jquery', 'jquery/ui'], function($){
+        $( document ).ready(function() {
+            var existCondition = setInterval(function() {
+                if ($('#mestremagecc-form').length) {
+                    clearInterval(existCondition);
+                    if(use_vat_id){
+                        if(taxvat_mm){
+                            $("input#itaushopline_cpf").val(taxvat_mm);
+
+                        }else{
+                            $('.form-shipping-address [name*="vat_id"]').keyup(function(){
+                                var vat = $(this).val();
+                                if(vat){
+                                    $("input#itaushopline_cpf").val(vat);
+                                }
+                            })
+                        }
+                    }
+                }
+            }, 100);
+
+        });
+    });
+</script>
