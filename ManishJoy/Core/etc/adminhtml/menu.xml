@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="ManishJoy_Core::core" title="Manish Joy" module="ManishJoy_Core" sortOrder="40" dependsOnModule="ManishJoy_Core" resource="ManishJoy_Core::core"/>
+    </menu>
+</config>
