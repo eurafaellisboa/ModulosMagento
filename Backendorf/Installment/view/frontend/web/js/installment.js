@@ -72,6 +72,20 @@ define([
                 } catch (e) {
                     console.info(e);
                 }
+				
+				$(document).ajaxComplete(function(event,xhr,options) {
+    if (($('.item.product.product-item').length > 0) && 
+        ($('.price-box.price-final_price').length > 0)) {
+
+        $('.price-box.price-final_price').each(function (i, element) {
+            widget.renderPrices(element);
+            if ($(element).parents('.product-info-price').length > 0) {
+                widget.updateAllInstallments(element);
+            }
+        });
+    }
+});
+
             }
         },
         initPricesInCart: function (total = null) {
