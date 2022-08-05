@@ -1,0 +1,22 @@
+{
+    "name": "magento/module-getnet",
+    "description": "Modulo de pagamento Getnet",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Magento\\Getnet\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

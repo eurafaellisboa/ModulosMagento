@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="digitaria" translate="label" sortOrder="700"  class="digitaria-magento-tab">
+            <label>Settings</label>
+        </tab>
+        <section id="modulo_getnet_section" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Getnet Credit Card</label>
+            <tab>digitaria</tab>
+            <resource>Magento_Getnet::config</resource>
+            <group id="modulo_getnet_group" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Getnet</label>
+                <frontend_model>Magento\Getnet\Block\Adminhtml\System\Config\Extensions</frontend_model>
+            </group>
+
+        </section>
+        <section id="payment">
+            <group id="magentogn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Getnet Credit Card</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="log" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log</label>
+                    <comment>Generated in directory [ROOT_MAGENTO]/var/log/getnet_card.log</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="12" translate="label" type="text">
+                    <label>Title</label>
+                </field>
+
+
+                <field id="layout_card_view" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+                    <label>Display model</label>
+                    <source_model>Magento\Getnet\Model\Source\Layoutcardview</source_model>
+                </field>
+
+
+                <field id="payment_action" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>Payment Action</label>
+                    <source_model>Magentoe\Getnet\Model\Source\PaymentAction</source_model>
+                </field>
+
+
+                <field id="save_credit_card" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+                    <label>Enabled save credit card</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="environment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+                    <label>Environment</label>
+                    <source_model>Magento\Getnet\Model\Source\Environment</source_model>
+                </field>
+                <field id="client_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <label>client_id</label>
+                </field>
+
+                <field id="client_secret" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="text">
+                    <label>client_secret</label>
+                </field>
+
+
+                <field id="seller_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="text">
+                    <label>seller_id</label>
+                </field>
+
+
+                <field id="installments" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="text">
+                    <label>Maximum number of installments</label>
+                </field>
+
+                <field id="installments_min" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+                    <label>Minimum amount to enable installment</label>
+                    <comment><![CDATA[Minimum value of the parcel if you do not want to leave 0]]></comment>
+                </field>
+
+                <field id="interest_from" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="text">
+                    <label>Interest from</label>
+                </field>
+
+                <field id="type_interest" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Type of Interest</label>
+                    <source_model>Magento\Getnet\Model\Source\TypeInterest</source_model>
+                </field>
+
+                <field id="interest_parcel" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="130" translate="label" type="text">
+                    <label>Interest</label>
+                    <comment>interest rate that will be applied to the</comment>
+                </field>
+
+                <field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="140" translate="label" type="allowspecific">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label" type="multiselect">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="homologation_mode_enabled" translate="label" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Homologation Mode Enabled</label>
+                    <comment>Create a product with the following SKU: getnet_test, when on homologation mode the payment method will only be available when this product is added to the shopping cart</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+                <field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label" type="text">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
