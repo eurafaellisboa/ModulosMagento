@@ -1,0 +1,13 @@
+<?php
+/** @var \Magestat\FacebookPixel\Block\Product $block */
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magestat_FacebookPixel/js/actions/product": {
+            "currency": "<?= /* @noEscape */ $block->getCurrencyCode() ?>",
+            "contents": <?= /* @noEscape */ $block->getCurrentProduct() ?>
+        }
+    }
+}
+</script>

@@ -1,0 +1,16 @@
+<?php
+/** @var \Magestat\FacebookPixel\Block\Checkout $block */
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magestat_FacebookPixel/js/actions/checkout": {
+            "currency": "<?= /* @noEscape */ $block->getCurrencyCode() ?>",
+            "contents": <?= /* @noEscape */ $block->getCartContent() ?>,
+            "contentIds": <?= /* @noEscape */ $block->getSkuList() ?>,
+            "qty": <?= /* @noEscape */ $block->getCheckoutQty() ?>,
+            "total": "<?= /* @noEscape */ $block->getCheckoutTotal() ?>"
+        }
+    }
+}
+</script>
