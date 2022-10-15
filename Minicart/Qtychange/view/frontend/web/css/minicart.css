@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* CSS Document */
+
+button[name="decrement"], button[name="increment"] {
+  padding: 10px !important;
+}
+
+.minicart-items-wrapper .update-cart-item {
+	padding: 10px !important;
+	font-size:12px !important;
+	margin-top: 2px !important;
+}
+
+.minicart-items-wrapper .action.edit {
+  display: none !important;
+}
+
+.minicart-items-wrapper .item.product.product-item {
+	width: 100% !important;
+}
