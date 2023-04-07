@@ -1,0 +1,22 @@
+{
+    "name": "magento/module-parcelamento",
+    "description": "Preço Parcelado",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "name",
+            "email": "email@email.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Magento\\Parcelamento\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

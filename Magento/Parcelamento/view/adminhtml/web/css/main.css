@@ -1,0 +1,9 @@
+.config-nav-block.magento-tab strong:before {
+    background: url(../images/logo.png) no-repeat;
+    width: 30px;
+    height: 19px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: bottom;
+}
