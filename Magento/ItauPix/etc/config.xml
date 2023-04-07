@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!--
+/**
+
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <default>
+        <payment>
+            <itaupix>
+                <active>1</active>
+                <payment_action>authorize</payment_action>
+                <model>Magento\ItauPix\Model\Payment\Pix</model>
+                <order_status>pending</order_status>
+                <title><![CDATA[Pix Itau]]></title>
+                <pix_instructions_checkout><![CDATA[<img src="{{img_pix}}" width="200px" /><br /> O QRCODE Pix será apresentado assim que finalizar esse Pedido.]]></pix_instructions_checkout>
+                <success_page_information><![CDATA[
+                
+		<div id="qrcode-container">
+			<div id="qrcode"></div>
+			<div class="qrcode-instrucoes">
+				<p>
+					<img src="{{img_pix}}" width="150">
+				</p>
+				<p>
+					<strong>REALIZE O PAGAMENTO AGORA</strong>
+				</p>
+				<p>
+					<strong>1.</strong> Abra o app do seu banco ou institução financeira e entre no ambiente <strong>PIX</strong>.
+				</p>
+				<p>
+					<strong>2.</strong> Escolha a opção <strong>pagar com QRCode</strong> e escanei o código ao lado.
+				</p>
+				<p>
+					<strong>3.</strong> Cole o código, confira as informações e finalize a compra. 
+				</p>
+			</div>
+		</div>
+		
+		<div id="divinputcode">
+			<p style="text-align: center">
+				<img src="{{img_pix}}" width="150"><br />
+				<strong>REALIZE O PAGAMENTO AGORA</strong>
+			</p>
+			<p>
+				<span id="msg-copy"></span>
+				<strong>1.</strong> Copie o código:<br />
+				<input type="text" id="codeInput">
+				<button onclick="copyQrCode()">Copiar Link PIX</button>
+			</p>
+			<p>
+				<strong>2.</strong> Abra o app do seu banco ou institução financeira e entre no ambiente <strong>PIX</strong>.
+			</p>
+			<p>
+				<strong>3.</strong> Escolha a opção <strong>Pix copia e cola</strong>.
+			</p>
+			<p>
+				<strong>4.</strong> Cole o código, confira as informações e finalize a compra. 
+			</p>
+		</div>
+                
+                ]]></success_page_information>
+                <soft_descriptor><![CDATA[NomeSuaLoja]]></soft_descriptor>
+                <date_qr_code_limit>1</date_qr_code_limit>
+                <allowspecific>0</allowspecific>
+                <group>magento</group>
+            </itaupix>			
+        </payment>
+    </default>
+</config>

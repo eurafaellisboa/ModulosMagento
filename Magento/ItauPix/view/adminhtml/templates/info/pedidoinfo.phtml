@@ -1,0 +1,66 @@
+<?php
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ $order = $objectManager->create('\Magento\Sales\Model\Order')->load($this->getRequest()->getParam('order_id'));
+
+if($order->getPayment()->getAdditionalInformation('itaupix_fullname')){
+    echo '<p>'.__('Card Owner:') .' '.$order->getPayment()->getAdditionalInformation('itaupix_fullname').'</p>';
+}
+
+
+if($order->getPayment()->getAdditionalInformation('itaupix_installments')){
+    echo '<p>'.__('Card Installments:') .' '.$order->getPayment()->getAdditionalInformation('itaupix_installments').'x</p>';
+}
+
+
+if($order->getPayment()->getAdditionalInformation('itaupix_transactions_txid')){
+    echo '<p>'.__('Id Payment:') .' '.$order->getPayment()->getAdditionalInformation('itaupix_transactions_txid').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('itaupix_acquirer_chave')){
+    echo '<p>'.__('Transaction Identifier:') .' '.$order->getPayment()->getAdditionalInformation('itaupix_acquirer_chave').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('boleto_barcode')){
+    echo '<p>'.__('Codigo de barras:') .' '.$order->getPayment()->getAdditionalInformation('boleto_barcode').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('itaupix_boleto_url')) {
+    echo '<p><a href="' . $order->getPayment()->getAdditionalInformation('itaupix_boleto_url') . '"  target="_blank" style="text-decoration: none;background-color: #32aeef;color: #fff;padding: 7px 20px;margin: 10px 0;display: block;width: 100px;text-align: center;border-radius: 5px;" >Gerar Boleto</a></p>';
+}
+
+if ($order->getData('status') == 'canceled' && $order->getPayment()->getAdditionalInformation('itaupix_acquirer_chave')) {
+    echo ' <a  href="?cancelar_itens" title="Edit" type="button" class="action-default scalable edit primary"><span>CANCELAR ITENS</span></a>';
+
+    if (isset($_REQUEST['cancelar_itens'])) {
+        try {
+            foreach($order->getItems() as $item){
+                $item->cancel();
+            }
+            $order->save();
+            echo '<div id="messages"><div class="messages"><div class="message message-success success"><div data-ui-id="messages-message-success">Itens cancelado com sucesso!!</div></div></div></div>';
+        } catch (Exception $e) {
+            echo '<div id="messages"><div class="messages"><div class="message message-error error"><div data-ui-id="messages-message-error">'.$e->getMessage().'</div></div></div></div>';
+        }
+    }
+}
+?>
+
+<?php if($itaupix_pix_qr_code = $order->getPayment()->getAdditionalInformation('itaupix_pix_qr_code')) : ?>
+    <div id="qrcode"></div>
+    <p id="divinputcode">
+    <b>Pix Copia e Cola:</b>
+		<input type="text" value="<?=$itaupix_pix_qr_code?>" id="codeInput">
+        <button onclick="copyQrCode()">Copiar Pix</button>
+    </p>
+    <script type="text/javascript">
+    function copyQrCode() {
+    var copyText = document.getElementById("codeInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    }
+    </script>
+   
+<?php endif; ?>

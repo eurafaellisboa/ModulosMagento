@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="default-src">
+            <values>
+                <value id="apiSand" type="host">https://api.itau.com.br/</value>
+                <value id="apiSandPort" type="host">https://api.itau.com.br:443/</value>
+                <value id="apiCert" type="host">https://sts.itau.com.br/</value>
+                <value id="apiCertPort" type="host">https://sts.itau.com.br:443/</value>
+				<value id="apiProd" type="host">https://secure.api.itau/</value>
+                <value id="apiProdPort" type="host">https://secure.api.itau:443/</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

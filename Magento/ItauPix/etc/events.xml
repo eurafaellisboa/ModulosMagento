@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_place_after">
+        <observer instance="Magento\ItauPix\Observer\Sales\OrderSaveAfter" name="magento_itaupix_observer_sales_ordersaveafter_sales_order_save_after"/>
+    </event>
+    <event name="checkout_onepage_controller_success_action">
+        <observer instance="Magento\ItauPix\Observer\Sales\AfterPlaceOrder" name="magento_itaupix_observer_checkout_onepage_controller_success_action"/>
+    </event>    
+    <event name="email_order_set_template_vars_before">
+        <observer name="bitaupix_add_extra_data_to_transport" instance="Magento\ItauPix\Observer\AddExtraDataToTransport" />
+    </event>
+    <event name="sales_order_payment_cancel">
+        <observer name="bitaupix_sales_order_payment_cancel" instance="Magento\ItauPix\Observer\Sales\OrderCancel" />
+    </event>
+   <event name="sales_order_invoice_pay">
+        <observer instance="Magento\ItauPix\Observer\Sales\OrderInvoicePay" name="magento_itaupix_observer_sales_order_invoice_pay"/>
+    </event>    
+</config>

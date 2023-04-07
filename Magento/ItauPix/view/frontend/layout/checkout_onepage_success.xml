@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * Desenvolvido por Mestre Magento
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Magento_ItauPix::js/qrcode.min.js"/>
+    </head>
+    <body>
+    <referenceContainer name="order.success.additional.info">
+        <block class="Magento\Framework\View\Element\Template" name="onepage.success.itau.pix" template="Magento_ItauPix::order/success.phtml"/>
+    </referenceContainer>
+</body>
+</page>

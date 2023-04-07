@@ -1,0 +1,8 @@
+<body>
+    <referenceBlock name="order.create.billing.method.form">
+        <action method="setMethodFormTemplate">
+            <argument name="method" xsi:type="string">itaupixcc</argument>
+            <argument name="template" xsi:type="string">Magento_ItauPix::form/cc.phtml</argument>
+        </action>
+    </referenceBlock>
+</body>

@@ -1,0 +1,22 @@
+{
+    "name": "magento/module-itaupix",
+    "description": "Modulo de Pagamento Itau",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Magento",
+            "email": "suporte@magento.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Magento\\ItauPix\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,74 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
+$scopeConfig = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface');
+
+$use_vat_id = '';
+$taxvat = '';
+
+if ($scopeConfig->getValue("payment/itaupix/use_vat_id", $storeScope)) {
+    $use_vat_id = 1;
+
+    $customerSession = $objectManager->create('Magento\Customer\Model\Session');
+    if ($customerSession->isLoggedIn()) {
+        $taxvat = $customerSession->getCustomer()->getTaxvat();
+        $vat_id = '';
+        $default_shipping = $customerSession->getCustomer()->getDefaultShipping();
+        foreach ($customerSession->getCustomer()->getAddresses() as $address) {
+            if ($default_shipping == $address->getData('entity_id')) {
+                $vat_id = $address->getData('vat_id');
+                break;
+            }
+        }
+        if ($vat_id) {
+            $taxvat = $vat_id;
+        }
+    }
+}
+
+?>
+
+<script>
+    require(['jquery'], function($) {
+
+        var use_vat_id = "<?= $use_vat_id ?>";
+        var taxvat_mm = "<?= $taxvat ?>";
+        (function() {
+            const send = XMLHttpRequest.prototype.send;
+            XMLHttpRequest.prototype.send = function() {
+                this.addEventListener('load', function() {
+                    if ($('#itaupix-form').length) {
+
+                        if (use_vat_id && !$("#itaupix_cpf").val()) {
+                            console.log('vat_id teste');
+                            if (taxvat_mm) {
+                                $("#itaupix_cpf").val(taxvat_mm);
+
+                            } else {
+                                $('.form-shipping-address [name*="vat_id"]').keyup(function() {
+                                    var vat = $(this).val();
+                                    if (vat) {
+                                        $("input#itaupix_cpf").val(vat);
+                                    }
+                                })
+                            }
+                        }
+                    }
+
+
+                });
+                return send.apply(this, arguments)
+            }
+        })();
+    });
+
+
+    function maskValue(valor) {
+        valor = valor.toString().replace(/\D/g, "");
+        valor = valor.toString().replace(/(\d)(\d{8})$/, "$1.$2");
+        valor = valor.toString().replace(/(\d)(\d{5})$/, "$1.$2");
+        valor = valor.toString().replace(/(\d)(\d{2})$/, "$1,$2");
+        return valor
+
+    }
+</script>

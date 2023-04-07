@@ -1,0 +1,124 @@
+<?php
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$checkout_session = $objectManager->get('Magento\Checkout\Model\Session');
+$configProvider = $objectManager->get('\MestreMage\ItauPix\Model\Source\ConfigProvider');
+$order = $checkout_session->getLastRealOrder();
+
+
+
+if($order->getPayment()->getAdditionalInformation('itaupix_transactions_txid')){
+    echo '<p>'.__('Id Payment:') .' '.$order->getPayment()->getAdditionalInformation('itaupix_transactions_txid').'</p>';
+}
+
+
+if($order->getPayment()->getAdditionalInformation('boleto_barcode')){
+    echo '<p>'.__('Codigo de barras:') .' '.$order->getPayment()->getAdditionalInformation('boleto_barcode').'</p>';
+}
+
+if($order->getPayment()->getAdditionalInformation('itaupix_boleto_url')) {
+    echo '<p><a href="' . $order->getPayment()->getAdditionalInformation('itaupix_boleto_url') . '"  target="_blank" style="text-decoration: none; background-color: #32aeef;color: #fff; padding: 7px 20px; margin: 10px auto; display: block;width: 100px; text-align: center; border-radius: 5px;" >Gerar Boleto</a></p>';
+}
+
+?>
+
+<?php if($itaupix_pix_qr_code = $order->getPayment()->getAdditionalInformation('itaupix_pix_qr_code')) : ?>
+	<div class="pix">
+		<?= $configProvider->getSuccessPageInformation() ?>
+	</div>
+    
+	<script type="text/javascript">
+    function copyQrCode() {
+		var copyText = document.getElementById("codeInput");
+		copyText.select();
+		copyText.setSelectionRange(0, 99999);
+		document.execCommand("copy");
+		document.getElementById('msg-copy').innerHTML = 'Copiado com Sucesso!';
+    }
+
+
+	(function() {
+		const send = XMLHttpRequest.prototype.send;
+		XMLHttpRequest.prototype.send = function() {
+			this.addEventListener('load', function() {
+				if (!document.getElementById("codeInput").value) {
+					makeQrCode();
+				}
+			});
+			return send.apply(this, arguments)
+		}
+	})();
+
+
+
+    function makeQrCode() {
+		var code_copy = "<?=$itaupix_pix_qr_code?>";
+		document.getElementById("codeInput").value = code_copy;
+        new QRCode(document.getElementById("qrcode"), code_copy);
+    }
+    </script>
+	
+    <style>
+		/* mobile */
+		@media (max-width: 580px) {
+		  #qrcode-container{
+			  display: none;
+		  }
+		  #divinputcode{
+			  display: block;
+		  }
+		}
+
+		/* tablet laptop */
+		@media (min-width: 581px) {
+		  #qrcode-container{
+			  display: block;
+		  }
+		  #divinputcode{
+			  display: none;
+		  }
+		}
+		
+		#divinputcode p {
+			padding: 10px;
+		}
+
+		#divinputcode input {
+			padding: 20px;
+			border-radius: 10px;
+		}
+		#divinputcode button {
+			height: 50px;
+			width: 100%;
+			border-radius: 10px;
+			background: #28ab6c;
+			color: #fff;
+		}
+
+		div#qrcode img{
+			width: 100%;
+		}
+
+		div#qrcode {
+			float: left;
+			width: 200px;
+			margin: 0 20px 0 0;
+		}
+
+		div.pix{
+			margin: 50px 0 0 0;
+			min-height: 350px;
+		}
+		
+		span#msg-copy {
+			display: block;
+			clear: both;
+			text-align: center;
+			color: #fff;
+			font-weight: bold;
+			background: #32bcad;
+			margin: 0px 0px 10px 0px;
+		}
+		
+    </style>    
+<?php endif; ?>
