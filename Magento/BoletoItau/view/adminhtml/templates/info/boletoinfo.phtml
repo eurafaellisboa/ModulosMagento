@@ -1,0 +1,72 @@
+<?php
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$order = $objectManager->create('\Magento\Sales\Model\Order')->load($this->getRequest()->getParam('order_id'));
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$base_url = $storeManager->getStore()->getBaseUrl();
+$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
+$scopeConfig = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface');
+date_default_timezone_set('America/Sao_Paulo');
+
+$data1 = date('Y-m-d', strtotime("+".(int) $scopeConfig->getValue('payment/boletoitau/days_duplicate', $storeScope)." days",strtotime($order->getData('created_at')))); 
+$data2 = date('Y-m-d');
+
+
+$priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data');
+if($order->getPayment()->getAdditionalInformation('itau_shopline_data_genereted')):
+    $street = $order->getBillingAddress()->getStreet();
+    if(count($street) == 4){
+        $rua = (isset($street[0]) ? $street[0] : '..');
+        $complemento = (isset($street[2]) ? $street[2] : '..');
+        $numero = (isset($street[1]) ? $street[1] : '..');
+        $bairro = (isset($street[3]) ? $street[3] : '..');
+    }else{
+        $rua = (isset($street[0]) ? $street[0] : '..');
+        $complemento = '';
+        $numero = (isset($street[1]) ? $street[1] : '..');
+        $bairro = (isset($street[2]) ? $street[2] : '..');
+    }
+    ?>
+
+    <style type="text/css">
+        input[type=submit] {background-color: #011f7c; color: #faf73d; border-radius: 5px; padding: 8px; margin-bottom: 5px; width: 100px;border: none;}
+    </style>
+    <body>
+<div>
+    <p>
+        Valor: <?php print $priceHelper->currency($order->getPayment()->getAdditionalInformation('itau_shopline_valor'), true, false); ?> <br>
+        BIme: <?php print $order->getBillingAddress()->getFirstName().' '.$order->getBillingAddress()->getLastName(); ?> <br>
+        Endereço: <?php print $rua.', '.$numero.', '.$bairro.', '.$complemento.', '.$order->getBillingAddress()->getCity(); ?> <br>
+    </p>
+    <form action="https://shopline.itau.com.br/shopline/shopline.aspx" method="post" name="form" onsubmit="BoletoItau()" target="SHOPLINE">
+        <input type="hidden" name="DC" value="<?=$order->getPayment()->getAdditionalInformation('itau_shopline_data_genereted')?>" />
+        <input type="submit" name="Shopline" value="Gerar Boleto" />
+    </form>
+
+    <?php  if(strtotime($data1) > strtotime($data2)): ?>
+        <br>
+        <button onclick="generateNew()" >Gerar 2º via Boleto</button>
+    <?php endif; ?>
+</div>
+<script language='JavaScript'>
+    function generateNew(){
+        if (confirm("Deseja gerar 2° via de boleto")) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+                location.reload();
+            }
+        };
+        xmlhttp.open("GET", "<?=$base_url?>rest/all/V1/magento-boletoitau/viaboleto?param=<?=$this->getRequest()->getParam('order_id')?>", true);
+        xmlhttp.send();
+        }
+
+    }
+
+    function BoletoItau(){
+        window.open('','SHOPLINE','toolbar=yes,menubar=yes,resizable=yes,status=no,scrollbars=yes,width=815,height=575');
+    }
+</script>
+<?php endif; ?>

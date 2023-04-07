@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+	<tab id="digitaria" translate="label" sortOrder="700">
+		<label>Agência Digitaria</label>
+	</tab>
+	<section id="modulo_boletoitau_section" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+		<label>Boleto Itaú</label>
+		<tab>digitaria</tab>
+		<resource>Magento_BoletoItau::config</resource>
+		<group id="modulo_boletoitau_group" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Itau ShopLine</label>
+			<frontend_model>Magento\BoletoItau\Block\Adminhtml\System\Config\Extensions</frontend_model>
+		</group>
+
+	</section>
+	<section id="payment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999950" translate="label">
+		<group id="boletoitau" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999950" translate="label">
+			<label>Boleto Itaú</label>
+
+			<field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label" type="select">
+				<label>Enabled</label>
+				<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+			</field>
+			<field id="log" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Log</label>
+				<comment>Generated in directory [ROOT_MAGENTO]/var/log/boletoitau.log</comment>
+				<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+			</field>
+
+			<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+				<label>Title</label>
+			</field>
+
+			<field id="company_code" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
+				<label>Codigo da Empresa</label>
+			</field>
+
+			<field id="encrytion_Key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+				<label>Encrytion Key</label>
+			</field>
+
+			<field id="bank_slip_noteline1" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+				<label>Comentario Linha 1</label>
+			</field>
+
+			<field id="bank_slip_noteline2" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+				<label>Comentario Linha 2</label>
+			</field>
+
+			<field id="bank_slip_noteline3" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+				<label>Comentario Linha 3</label>
+			</field>
+
+			<field id="days_due_date" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+				<label>Dias corridos até o vencimento</label>
+				<comment>O número representa diferença de dias entre a data da requisição e a data de vencimento. </comment>
+			</field>
+			
+			<field id="days_duplicate" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+				<label>Habilitar opção de 2º via</label>
+				<comment>Adicionar um limite de tempo para gerar a segunda via. </comment>
+			</field>
+
+
+			<field id="order_invoice" translate="label" type="select" sortOrder="53" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Faturar</label>
+				<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				<comment>Gerar fatura automatica, quando o boleto for pago.</comment>
+			</field>
+
+			<field id="css_box_sucess_page" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="55" translate="label" type="textarea">
+				<label>css tela de sucesso</label>
+				<comment>Customiza as cores na tela de sucesso</comment>
+			</field>
+
+			<field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="allowspecific">
+				<label>Payment from Applicable Countries</label>
+				<source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+			</field>
+
+			<field id="use_vat_id" translate="label" type="select" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Preencher CPF/CNPJ com dados do Cadastro </label>
+				<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment>O CPF/CNPJ será preenchido de acordo com as informações do cadastro do cliente.</comment>
+			</field>   
+
+			<field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="multiselect">
+				<label>Payment from Applicable Countries</label>
+				<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+				<can_be_empty>1</can_be_empty>
+			</field>
+			<field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="text">
+				<label>Sort Order</label>
+			</field>
+		</group>
+	</section>
+</system>
+</config>

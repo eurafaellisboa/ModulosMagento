@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<payment>
+			<boletoitau>
+				<active>1</active>
+				<payment_action>authorize</payment_action>
+				<model>Magento\BoletoItau\Model\Payment\Itaushopline</model>
+				<order_status>pending</order_status>
+				<title><![CDATA[Itau Shopline - Boleto]]></title>
+				<bank_slip_noteline1><![CDATA[Sr. Caixa,]]></bank_slip_noteline1>
+				<bank_slip_noteline2><![CDATA[Não receber após o vencimento.]]></bank_slip_noteline2>
+				<bank_slip_noteline3><![CDATA[Obrigado.]]></bank_slip_noteline3>
+				<css_box_sucess_page><![CDATA[
+		.btn-gerar-boleto {
+            background-color: #203f57;
+            color: #FFF;
+            border-radius: 0px;
+            padding: 15px 20px;
+            margin-bottom: 5px;
+            border: none;
+            font-size: 15px;
+        }
+        .boleto-itau {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 0px;
+            color: #203f57;
+            font-weight: bold;
+        }]]></css_box_sucess_page>
+				<days_due_date>3</days_due_date>
+				<days_duplicate>6</days_duplicate>
+				<per_day_interest>3</per_day_interest>
+				<allowspecific>0</allowspecific>
+			</boletoitau>
+		</payment>
+	</default>
+</config>

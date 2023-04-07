@@ -1,0 +1,49 @@
+<?php
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$checkout_session = $objectManager->get('Magento\Checkout\Model\Session');
+$order = $checkout_session->getLastRealOrder();
+$priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data');
+$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORES;
+$css_box_sucess_page = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue("payment/boletoitau/css_box_sucess_page", $storeScope);
+
+
+
+if($order->getPayment()->getAdditionalInformation('itau_shopline_data_genereted')):
+    $street = $order->getBillingAddress()->getStreet();
+    if(count($street) == 4){
+        $rua = (isset($street[0]) ? $street[0] : '..');
+        $complemento = (isset($street[2]) ? $street[2] : '..');
+        $numero = (isset($street[1]) ? $street[1] : '..');
+        $bairro = (isset($street[3]) ? $street[3] : '..');
+    }else{
+        $rua = (isset($street[0]) ? $street[0] : '..');
+        $complemento = '';
+        $numero = (isset($street[1]) ? $street[1] : '..');
+        $bairro = (isset($street[2]) ? $street[2] : '..');
+    }
+    ?>
+
+    <style type="text/css">
+        <?=$css_box_sucess_page?>
+    </style>
+
+    <div class="boleto-itau">
+        <p>
+            Valor do Pedido: <?php print $priceHelper->currency($order->getPayment()->getAdditionalInformation('itau_shopline_valor'), true, false); ?> <br>
+            Nome: <?php print $order->getBillingAddress()->getFirstName().' '.$order->getBillingAddress()->getLastName(); ?> <br>
+            Endereço: <?php print $rua.', '.$numero.', '.$bairro.', '.$complemento.', '.$order->getBillingAddress()->getCity(); ?> <br>
+        </p>
+        <form action="https://shopline.itau.com.br/shopline/shopline.aspx" method="post" name="form" onsubmit="BoletoItau()" target="SHOPLINE">
+            <input type="hidden" name="DC" value="<?=$order->getPayment()->getAdditionalInformation('itau_shopline_data_genereted')?>" />
+            <input type="submit" class="btn-gerar-boleto" name="Shopline" value="Gerar Boleto" />
+        </form>
+
+    </div>
+    <script language='JavaScript'>
+        function BoletoItau(){
+        var win = window.open('','SHOPLINE','toolbar=yes,menubar=yes,resizable=yes,status=no,scrollbars=yes,width=750,height=500');
+        setTimeout(function() { win.close();}, 25000);
+        }
+    </script>
+<?php endif; ?>
