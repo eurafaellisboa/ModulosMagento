@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <customfreeshipping>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>Digitaria\CustomFreeShipping\Model\Carrier\CustomFreeShipping</model>
+                <name>Digitaria Custom Shipping Method</name>
+                <price>0.00</price>
+                <title>Digitaria Sample Shipping Method</title>
+                <ziprange>80000000,89999999,149.99</ziprange>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+            </customfreeshipping>
+        </carriers>
+    </default>
+</config>

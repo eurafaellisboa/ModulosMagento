@@ -1,0 +1,28 @@
+{
+    "name": "digitaria/customfreeshipping",
+    "description": "Custom Free Shipping Module for Magento 2",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "authors": [
+    {
+      "name": "Agency Digitaria",
+      "email": "magento@digitaria.com.br",
+      "homepage": "https://www.digitaria.com.br",
+      "role": "Technical Support"
+    }
+    ],
+    "require": {
+        "php": "~7.0.0|~7.1.0|~7.2.0|~7.3.0|~7.4.0",
+        "magento/framework": "^102.0.0",
+        "magento/module-shipping": "^100.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Digitaria\\CustomFreeShipping\\": ""
+        }
+    }
+}
