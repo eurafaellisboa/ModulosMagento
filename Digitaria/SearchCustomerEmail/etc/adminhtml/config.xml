@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/config.xsd">
+    <default>
+        <searchcustomeremail>
+            <general>
+                <enabled>0</enabled>
+                <mask_enabled>0</mask_enabled>
+                <content>Don't remember which email registered with the store? No problem, just enter your taxvat in the field below and if you have an account, the email used in the registration will be displayed.</content>
+            </general>
+        </searchcustomeremail>
+    </default>
+</config>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="digitaria" translate="label" sortOrder="10">
+            <label>Agência Digitaria</label>
+        </tab>
+        <section id="searchcustomeremail" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Search Customer Email</label>
+            <tab>digitaria</tab>
+            <resource>Digitaria_SearchCustomerEmail::config_searchcustomeremail</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="mask_enabled" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Mask</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+						  <comment><![CDATA[Activates the taxvat mask in the field to search for emails.]]></comment>
+                </field>
+                <field id="content" translate="label" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Page Content</label>
+                    <comment><![CDATA[Enter the content for the page.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

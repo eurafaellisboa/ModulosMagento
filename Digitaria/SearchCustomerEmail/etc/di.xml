@@ -1,0 +1,13 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+<type name="Magento\Framework\App\ActionFactory">
+    <arguments>
+        <argument name="controllerMap" xsi:type="array">
+            <item name="index" xsi:type="array">
+                <item name="class" xsi:type="string">Digitaria\SearchCustomerEmail\Controller\RecoverEmail\Recover</item>
+                <item name="resultFactory" xsi:type="string">Magento\Framework\View\Result\PageFactory</item>
+            </item>
+        </argument>
+    </arguments>
+</type>
+
+</config>

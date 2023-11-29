@@ -1,0 +1,109 @@
+<?php
+/** @var \Magento\Customer\Block\Account\Forgotpassword $block */
+$helper = $this->helper('Digitaria\SearchCustomerEmail\Helper\Data');
+$pageContent = $helper->pageContent();
+$isMaskEnabled = $helper->isMaskEnabled();
+?>
+<div class="frame">
+    <div class="line">
+        <div class="form-box block block-customer-forgot-password">
+            <div class="block-title">
+                <h2 class="title" id="block-customer-login-heading" role="heading" aria-level="2">
+                    <span><?= __('Recover Email') ?></span>
+                </h2>
+            </div>
+            <form id="search-customer-email-form" action="<?= $block->getUrl('searchcustomeremail/recoveremail/search') ?>" method="post">
+                <fieldset class="fieldset" data-hasrequired="<?php echo __('* Required Fields') ?>">
+                    <div class="field note" style="margin-bottom:20px">
+                        <?php echo $pageContent; ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="taxvat" class="required"></label>
+                        <input type="text" name="taxvat" id="taxvat" class="input-text required-entry" placeholder="<?= __('Enter your Taxvat*') ?>" />
+                    </div>
+                </fieldset>
+
+                <div class="actions actions-toolbar">
+                    <div class="primary">
+                        <button type="submit" class="action primary">
+                            <span><?= __('Search Email') ?></span>
+                        </button>
+                    </div>
+                    <div class="secondary">
+                        <a class="action back" href="<?= $block->getUrl('customer/account/forgotpassword') ?>">
+                            <span><?= __('Go back') ?></span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+            <div id="search-customer-email-result"></div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    #search-customer-email-result {
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    #search-customer-email-result p {
+        font-size: 17px;
+        float: left;
+    }
+
+    #search-customer-email {
+        text-decoration: underline;
+        float: left;
+    }
+</style>
+
+
+<script>
+    require(['jquery', 'inputmask'], function($) {
+        $(document).ready(function() {
+            var maskEnabled = <?= $isMaskEnabled ? 'true' : 'false' ?>;
+
+            var SPMaskBehavior = function (val) {
+                return val.replace(/\D/g, '').length > 11 ? '00.000.000/0000-00' : '000.000.000-0099';
+            };
+
+            var spOptions = {
+                onKeyPress: function(val, e, field, options) {
+                    field.mask(SPMaskBehavior(val), options);
+                }
+            };
+
+            if (maskEnabled) {
+                $('#taxvat').mask(SPMaskBehavior, spOptions);
+            }
+
+            $('#search-customer-email-form').submit(function(event) {
+                event.preventDefault();
+                var form = $(this);
+                var resultContainer = $('#search-customer-email-result');
+
+                $.ajax({
+                    url: form.attr('action'),
+                    type: 'post',
+                    dataType: 'json',
+                    data: form.serialize(),
+                    beforeSend: function() {
+                        resultContainer.html('<p><?= __('Loading...') ?></p>');
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            resultContainer.html('<p><?php echo __('The registered email for the taxvat is:&nbsp;') . '<span id="search-customer-email">' ?>' + response.email + '</span></p>');
+                        } else {
+                            resultContainer.html('<p><?= __('Email not found for this taxvat') ?></p>');
+                        }
+                    },
+                    error: function() {
+                        resultContainer.html('<p><?= __('An error occurred while processing the request. Please try again.') ?></p>');
+                    }
+                });
+            });
+        });
+    });
+</script>

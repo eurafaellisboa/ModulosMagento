@@ -1,0 +1,24 @@
+{
+    "name": "digitaria/searchcustomeremail",
+    "description": "Digitaria Search Customer Email Module",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Rafael Lisboa",
+            "email": "falecomigo@eurafaellisboa.com.br"
+        }
+    ],
+    "require": {
+        "php": "~7.2.0",
+        "magento/framework": "101.*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Digitaria\\SearchCustomerEmail\\": ""
+        }
+    }
+}
