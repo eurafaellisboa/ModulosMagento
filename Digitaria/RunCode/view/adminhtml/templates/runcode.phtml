@@ -1,0 +1,33 @@
+<?php 
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_CreateMenuBackend
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2017-2018 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+?>
+<h5>Deseja rodar o comando para atualizar as peças?</h5>
+<form method="post" action="<?php echo $block->getUrl('runcode/create/crowd') ?>">
+    <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+    <button type="submit" class="action-default scalable" style="width:200px;margin-top:20px;">Atualizar Peças</button>
+</form>
+
+<form method="post" action="<?php echo $block->getUrl('runcode/create/reindex') ?>">
+    <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+    <button type="submit" class="action-default scalable" style="width:200px;margin-top:20px;">Reindexar</button>
+</form>
+
+<form method="post" action="<?php echo $block->getUrl('runcode/create/cache') ?>">
+    <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+    <button type="submit" class="action-default scalable" style="width:200px;margin-top:20px;">Limpar Cache</button>
+</form>
