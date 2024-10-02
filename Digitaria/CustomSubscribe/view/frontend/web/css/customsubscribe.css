@@ -1,0 +1,83 @@
+.block.newsletter .title {
+    display: block !important;
+  }
+
+ .block.newsletter .actions {
+    display: inline-grid;
+    vertical-align: top;
+    width: 22%;
+}
+
+  .block.newsletter .content {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .block.newsletter .field {
+    margin-bottom: 15px;
+    width: 35%;
+    height: 50px;
+    display: inline-grid;
+  }
+  
+  .block.newsletter {
+    background: #CCC;
+    margin-bottom: 0;
+  }
+  
+  .block.newsletter .field input {
+    height: 50px;
+  }
+  
+  .block.newsletter {
+    text-align: center;
+    background: #FBFBFB;
+    color: #203f57;
+    padding: 20px 0;
+  }
+
+.block.newsletter .field .control::before {
+    line-height: 50px;
+    color: #dddddd;
+    content: '\f84c';
+    font-family: 'porto-icons';
+}
+
+.block.newsletter .field .control::before {
+    line-height: 50px;
+    color: #dddddd;
+    content: '\f84c';
+    font-family: 'porto-icons';
+}
+
+.block.newsletter .subscribe_name .control::before {
+    line-height: 50px;
+    color: #dddddd;
+    content: '\e91a';
+    font-family: 'porto-icons';
+}
+
+.action.subscribe.primary:hover {
+    color: #52ade2 !important;
+    background: #FFF !important;
+  }
+
+.block.newsletter .form.subscribe {
+    margin-top: 20px;
+  }
+
+.checkout-index-index .block.newsletter {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+
+.block.newsletter .field {
+  width: 100%;
+}
+
+.block.newsletter .actions {
+    width: 100%;
+  }
+
+}
