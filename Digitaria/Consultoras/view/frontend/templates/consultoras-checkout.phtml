@@ -1,0 +1,18 @@
+<?php 
+//$catalogSession->setConsultora("Marcela");	
+//var_dump($catalogSession->getConsultora());
+var_dump($block->getValue());
+//var_dump($checkoutSession->GetConsultoras());
+ ?>
+
+<script type="text/javascript">	
+require(['jquery', 'jquery/ui'], function($){
+ $( document ).ready(function() {
+var consultora = '<?php echo $block->getValue();?>'; 
+var existCondition = setInterval(function() {	 
+consultoras = $('#custom-checkout-form input[name="checkout_buyer_name"]');
+	consultoras.val(consultora); 
+});
+});	
+});		
+</script>

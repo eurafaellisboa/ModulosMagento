@@ -1,0 +1,47 @@
+<?php  
+/*
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); 
+$catalogSession = $objectManager->get('Magento\Catalog\Model\Session');
+$categoryFactory = $objectManager->get('\Magento\Catalog\Model\CategoryFactory');// Instance of Category Model
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+$atualName = $category->getName();
+
+$categoryId = 41; // YOUR CATEGORY ID
+$category = $categoryFactory->create()->load($categoryId);
+ // Children  Categories
+$subcategorias = $category->getChildrenCategories();
+foreach($subcategorias as $subcategoria) { 
+	
+	if (str_contains($subcategoria->getName(), $atualName)) { 
+		$catalogSession->setConsultora($subcategoria->getName());
+		echo $catalogSession->getConsultora();
+		break;
+	}	
+}
+
+*/
+
+//pega o valor da categoria atual
+$currentCategory = $block->getCurrentCategory();
+$atualName = $currentCategory->getName();
+
+$parent_category_id = '41'; //ID da categoria Consultoras
+$categoryObj = $this->categoryRepository->get($parent_category_id);
+$subcategories = $categoryObj->getChildrenCategories();
+foreach($subcategories as $subcategorie) {
+    //verifica se a categoria atual corresponde a alguma categoria de consultora
+	if (str_contains($subcategorie->getName(), $atualName)) { 
+		$consultora = $subcategorie->getName();
+		$block->setValue($consultora);
+		var_dump($block->getValue());
+		break;
+	}
+}
+
+//echo $test;
+//if (str_contains($test, $atualID)) { 
+	
+//}
+
+//echo $currentCategory->getId();
+
