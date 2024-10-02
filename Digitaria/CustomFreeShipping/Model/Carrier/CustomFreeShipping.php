@@ -84,91 +84,82 @@ class CustomFreeShipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier
      * @param RateRequest $request
      * @return bool|Result
      */
-    public function collectRates(RateRequest $request)
-    {
-        if (!$this->getConfigFlag('active')) {
-            return false;
-        }
 
-        // Obtenha os IDs dos grupos de clientes permitidos na configuração
-        $allowedCustomerGroups = $this->getConfigData('customergroup');
-        if ($this->customerSession->isLoggedIn()) {
-            // Obtenha o ID do grupo de clientes do cliente atual
-            $customerGroupId = $this->customerSession->getCustomer()->getGroupId();
+public function collectRates(RateRequest $request)
+{
+    if (!$this->getConfigFlag('active')) {
+        return false;
+    }
 
-            // Obtenha a lista de grupos de clientes permitidos a partir da configuração
-            $allowedCustomerGroups = explode(',', $this->getConfigData('customergroup'));
+    $zipRanges = $this->getConfigData('ziprange');
 
-            // Converta os IDs de grupo de clientes em números inteiros
-            $allowedCustomerGroups = array_map('intval', $allowedCustomerGroups);
-    
-            // Verifique se o ID do grupo de clientes está na lista de grupos permitidos
-            if (!in_array($customerGroupId, $allowedCustomerGroups)) {
-                $logger->info('Grupo de cliente não permitido.');
-                return false; // Grupo de cliente não permitido
-            }
-        } else {
-    
-        }
+    if (!empty($zipRanges)) { 
+        $zipRangesArray = explode("\n", $zipRanges);
+        $customerZip = $request->getDestPostcode();
 
-        $zipRanges = $this->getConfigData('ziprange');
+        $methodFound = false;
 
-        if (!empty($zipRanges)) { 
-            $zipRangesArray = explode("\n", $zipRanges);
-            $customerZip = $request->getDestPostcode();
+        foreach ($zipRangesArray as $zipRange) {
+            $rangeData = explode(',', $zipRange);
+            if (count($rangeData) == 3) {
+                $startZip = trim($rangeData[0]);
+                $endZip = trim($rangeData[1]);
 
-            $methodFound = false;
+                if ($customerZip >= $startZip && $customerZip <= $endZip) {
+                    $minimumValue = floatval(trim($rangeData[2]));
 
-            foreach ($zipRangesArray as $zipRange) {
-                $rangeData = explode(',', $zipRange);
-                if (count($rangeData) == 3) {
-                    $startZip = trim($rangeData[0]);
-                    $endZip = trim($rangeData[1]);
+                    // Obtenha o subtotal do carrinho
+                    $subtotal = $request->getPackageValue();
 
-                    if ($customerZip >= $startZip && $customerZip <= $endZip) {
-                        $minimumValue = floatval(trim($rangeData[2]));
+                    // Obtenha o preço do produto em si
+                    $itemPrice = 0;
+                    foreach ($request->getAllItems() as $item) {
+                        $itemPrice += $item->getBaseRowTotal();
+                    }
 
-                        // Obtenha o subtotal do carrinho
-                        $subtotal = $request->getPackageValue();
-
-                        // Obtenha o preço do produto em si
-                        $itemPrice = 0;
-                        foreach ($request->getAllItems() as $item) {
-                            $itemPrice += $item->getBaseRowTotal();
-                        }
-
-                        if ($subtotal >= $minimumValue || $itemPrice >= $minimumValue) {
-                            $methodFound = true;
-                            break;
-                        }
+                    if ($subtotal >= $minimumValue || $itemPrice >= $minimumValue) {
+                        $methodFound = true;
+                        break;
                     }
                 }
             }
-
-            if (!$methodFound) {
-                return false;
-            }
         }
 
-        /** @var \Magento\Shipping\Model\Rate\Result $result */
-        $result = $this->_rateResultFactory->create();
-
-        /** @var \Magento\Quote\Model\Quote\Address\RateResult\Method $method */
-        $method = $this->_rateMethodFactory->create();
-
-        $method->setCarrier($this->_code);
-        $method->setCarrierTitle($this->getConfigData('title'));
-
-        $method->setMethod($this->_code);
-        $method->setMethodTitle($this->getConfigData('name'));
-
-        $amount = $this->getShippingPrice();
-
-        $method->setPrice($amount);
-        $method->setCost($amount);
-
-        $result->append($method);
-
-        return $result;
+        if (!$methodFound) {
+            return false;
+        }
     }
+
+    /** @var \Magento\Shipping\Model\Rate\Result $result */
+    $result = $this->_rateResultFactory->create();
+
+    /** @var \Magento\Quote\Model\Quote\Address\RateResult\Method $method */
+    $method = $this->_rateMethodFactory->create();
+
+    $method->setCarrier($this->_code);
+    $method->setCarrierTitle($this->getConfigData('title'));
+
+    $method->setMethod($this->_code);
+    $method->setMethodTitle($this->getConfigData('name'));
+
+    $amount = $this->getShippingPrice();
+
+    $method->setPrice($amount);
+    $method->setCost($amount);
+
+    // Verifique se o cliente é um "Representante" e, se for, não adicione este método
+    if ($this->customerSession->isLoggedIn()) {
+        $customerGroupId = $this->customerSession->getCustomer()->getGroupId();
+
+        // Verifique se o cliente é um "Representante" (você pode substituir 4 pelo ID do grupo de clientes "Representante")
+        if ($customerGroupId == 4) {
+            return $result;
+        }
+    }
+
+    $result->append($method);
+
+    return $result;
+}
+
 }
