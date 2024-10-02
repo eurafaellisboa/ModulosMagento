@@ -1,0 +1,30 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+$authenticationUrl = 'https://api.rd.services/auth/dialog';
+$customUrls = $block->getUrl('adminhtml/system_config/edit/section/rdmarketing_api');
+?>
+
+<main id="maincontent" class="page-main">
+<?php if (!$this->getClientID()): ?>
+    <p><?= __('When creating your application in the <a href="https://appstore.rdstation.com/pt-BR/publisher" target="_blank">RD Station App Store</a>, you will receive two credentials known as <i>client_id</i> and <i>client_secret.</i>') ?></p>
+    <p><?= __('These credentials are used to generate the <i>code</i>, which authorizes the connection of the module to a specific RD Station Marketing account.') ?></p>
+    <p><?= __('The callback URL that should be registered in the App within RD Station Marketing is: <b>%1</b>', $this->getSecureBaseUrl() . 'rdmarketing/index/index/') ?></p>
+    <p><?= __('After creating the App in RD Station, insert the <i>client_id</i> and <i>client_secret</i> credentials by clicking') ?>
+    <a target="_blank" href="<?= $customUrls ?>"><?= __('here') ?></a></p>
+<?php elseif (($this->getClientID()) && !$this->getCode()): ?>
+    <p><?= __('Congratulations, you have already created the credentials known as <i>client_id</i> and <i>client_secret.</i>') ?></p>
+    <p><?= __('Now it\'s time to generate the <i>code</i> to complete the authentication between the module and your RD Station Marketing account.') ?></p>
+    <p><?= __('The callback URL that should be registered in the App within RD Station Marketing is: <b>%1</b>', $this->getSecureBaseUrl() . 'rdmarketing/index/index/') ?></p>
+    <p><?= $this->getCode() ?></p>
+    <a class="action-primary" href="<?= $authenticationUrl ?>?client_id=<?= $this->getClientID() ?>&redirect_uri=<?= $this->getSecureBaseUrl() . 'rdmarketing/index/index/' ?>&state=" target="_blank">
+    <?= __('Generate Code') ?></a>
+<?php elseif ($this->getCode()): ?>
+    <p><?= __('The Code has already been generated. To enable the button and generate a new code, you need to remove the saved code. Please click') ?>
+    <a href="<?= $customUrls ?>" target="_blank"><?= __('here') ?></a>
+    <?= __('to remove.') ?>
+</p>
+
+<?php else: ?>
+    <p><?= __('Code: <span id="rdmarketing-code">%1</span>', $block->escapeHtml($this->getCode())) ?></p>
+<?php endif; ?>
+</main>

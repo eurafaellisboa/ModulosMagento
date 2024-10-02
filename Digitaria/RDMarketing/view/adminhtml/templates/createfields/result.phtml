@@ -1,0 +1,59 @@
+<main id="maincontent" class="page-main">
+    <div class="page-title-wrapper">
+        <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
+            <span class="base" data-ui-id="page-title-wrapper"><?php echo __('Result of Custom Fields Creation');?></span>
+        </h1>
+    </div>
+
+    <p style="margin-top:20px;"><?php echo __('Check below the results of the field creation.');?></p>
+    <?php
+
+    $responses = $block->resultGenerateAction();
+
+    $successCount = 0; // Count the successful field creations
+
+    foreach ($responses as $response) {
+        if ($response['success']) {
+            $successCount++;
+        } else {
+            if (isset($response['response_body'])) {
+                $responseBody = json_decode($response['response_body'], true);
+    
+                if (isset($responseBody['errors'])) {
+                    foreach ($responseBody['errors'] as $errorType => $errors) {
+                        foreach ($errors as $error) {
+                            if (isset($error['error_type']) && $error['error_type'] === 'TAKEN') {
+                                if ($errorType === 'api_identifier') {
+                                    preg_match("/'api_identifier' = '([^']+)'/", $error['error_message'], $matches);
+                                    if (isset($matches[1])) {
+                                        echo __("A field with the name <strong>'{$matches[1]}'</strong> already exists.<br>");
+                                    } else {
+                                        echo __('Error creating the field.<br>');
+                                    }
+                                } elseif ($errorType === 'name') {
+                                    preg_match("/'name' = '([^']+)'/", $error['error_message'], $matches);
+                                    if (isset($matches[1])) {
+                                        echo __("A field with the name <strong>'{$matches[1]}'</strong> already exists.<br>");
+                                    } else {
+                                        echo __('Unknown error creating the field.<br>');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    echo __('Unknown error creating the field.<br>');
+                }
+            } else {
+                echo 'Error: ' . $response['message'] . '<br>';
+            }
+        }
+    }
+    
+
+    if ($successCount === count($responses)) {
+        echo __('All fields were successfully created.<br>');
+    }
+    ?>
+
+</main>

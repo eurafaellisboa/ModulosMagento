@@ -1,0 +1,29 @@
+<?php
+    $blockObj = $block->getLayout()->createBlock('Digitaria\RDMarketing\Block\CustomLinkToAdmin');
+?>
+<main id="maincontent" class="page-main">
+
+    <?php if ($this->getCode()): ?>
+        <p><b>Code:</b> <span id="rdmarketing-code"><?php echo $this->escapeHtml($this->getCode()); ?></span></p>
+        <p><?= $block->escapeHtml(__('Now with the CODE in hand, you need to save it in the ADMIN at:') . __('Store → Settings → Digitaria Agency → API RD Station Marketing → "Code" field.')) ?></p>        
+
+        <button type="button" class="action primary" onclick="copyCode()"><?= $block->escapeHtml(__('Copy Code')); ?></button>
+        <script type="text/javascript">
+            function copyCode() {
+                var codeElement = document.getElementById('rdmarketing-code');
+                var code = codeElement.innerText;
+                navigator.clipboard.writeText(code).then(function() {
+                    alert('Code copied successfully!');
+                }, function() {
+                    alert('Failed to copy the code.');
+                });
+            }
+        </script>
+
+        <a href="<?= $blockObj->getCustomAdminUrl() ?>" class="action primary" target="_blank"><?= $block->escapeHtml(__('Access ADMIN')); ?></a>
+
+    <?php else: ?>
+        <p><?= $block->escapeHtml(__('Code not available.')) ?></p>
+        <p><?= $block->escapeHtml(__('Complete your settings in the ADMIN to view the RD code.')) ?></p>
+    <?php endif; ?>
+</main>

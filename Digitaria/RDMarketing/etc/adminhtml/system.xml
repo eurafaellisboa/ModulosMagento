@@ -1,0 +1,45 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="digitaria" translate="label" sortOrder="10">
+            <label>Digitaria</label>
+        </tab>
+        <section id="rdmarketing_api" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>API RD Station Marketing</label>
+            <tab>digitaria</tab>
+            <resource>Digitaria_RDMarketing::config_rdmarketing_api</resource>
+            <group id="authentication" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Authentication Settings</label>
+                <field id="client_id" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="code" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Code</label>
+                </field>
+                <field id="link" translate="label" type="link" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>RD Station Authentication Link</label>
+                    <frontend_model>Digitaria\RDMarketing\Block\Adminhtml\System\Config\Link</frontend_model>
+                </field>
+            </group>
+            <!--
+            <group id="customfields" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+    <label>Custom Fields</label>
+    <field id="generate_fields" translate="label" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Generate Fields</label>
+        <frontend_model>Digitaria\RDMarketing\Block\Adminhtml\System\Config\Button</frontend_model>
+    </field>
+</group>-->
+
+
+            <group id="log_settings" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Log Settings</label>
+                <field id="log_cleanup_days" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cleanup Logs After</label>
+                    <source_model>Digitaria\RDMarketing\Model\Config\Source\LogCleanupDays</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

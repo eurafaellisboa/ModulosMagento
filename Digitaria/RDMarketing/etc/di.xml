@@ -1,0 +1,37 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="digitaria_rdmarketing_eventlog_listing_data_source" xsi:type="string">Digitaria\RDMarketing\Model\ResourceModel\EventLog\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Digitaria\RDMarketing\Model\ResourceModel\EventLog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">rdstationmarketing_log</argument>
+            <argument name="resourceModel" xsi:type="string">Digitaria\RDMarketing\Model\ResourceModel\EventLog</argument>
+        </arguments>
+    </virtualType>
+
+<type name="Magento\Framework\App\ActionFactory">
+    <arguments>
+        <argument name="controllerMap" xsi:type="array">
+            <item name="index" xsi:type="array">
+                <item name="class" xsi:type="string">Digitaria\RDMarketing\Controller\Index\Index</item>
+                <item name="resultFactory" xsi:type="string">Magento\Framework\View\Result\PageFactory</item>
+            </item>
+
+            <item name="generate" xsi:type="array">
+                <item name="class" xsi:type="string">Digitaria\RDMarketing\Controller\Generate\Index</item>
+                <item name="resultFactory" xsi:type="string">Magento\Framework\View\Result\PageFactory</item>
+            </item>
+
+            <item name="result" xsi:type="array">
+                <item name="class" xsi:type="string">Digitaria\RDMarketing\Controller\Generate\Result</item>
+                <item name="resultFactory" xsi:type="string">Magento\Framework\View\Result\PageFactory</item>
+            </item>
+        </argument>
+    </arguments>
+</type>
+
+</config>

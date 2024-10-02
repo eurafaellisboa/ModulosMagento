@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="rdstation_sales_order_place_after" instance="Digitaria\RDMarketing\Observer\SendOrderOpportunity" />
+    </event>
+	
+    <event name="customer_register_success">
+        <observer name="register_success" instance="Digitaria\RDMarketing\Observer\RegisterSuccess" />
+    </event>
+	
+    <event name="controller_action_postdispatch_contact_index_post">
+        <observer name="contact_us_post" instance="Digitaria\RDMarketing\Observer\ContactUsPost" />
+    </event>
+	
+	<event name="review_save_after">
+        <observer name="review_save_after" instance="Digitaria\RDMarketing\Observer\ReviewSaveAfter" />
+    </event>
+
+    <event name="newsletter_subscriber_save_after">
+        <observer name="newsletter_subscribe_observer" instance="Digitaria\RDMarketing\Observer\NewsletterSubscribe"/>
+    </event>
+
+    <event name="ecomteck_productquestions_new_question">
+        <observer name="send_question_observer" instance="Digitaria\RDMarketing\Observer\SendQuestion"/>
+    </event>
+</config>

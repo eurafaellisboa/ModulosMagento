@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+    <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="admin_system_config_changed_section_rdstation">
+        <observer name="digitaria_rdstation_disable" instance="Digitaria\RDMarketing\Observer\DisableOutput" />
+    </event>
+	 <event name="sales_order_save_commit_after">
+        <observer name="order_save_after" instance="Digitaria\RDMarketing\Observer\OrderSaveAfter" />
+    </event>
+</config>

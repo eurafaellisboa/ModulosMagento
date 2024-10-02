@@ -1,0 +1,33 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Digitaria_RDMarketing::menu"
+    		 title="Agency Digitaria" module="Digitaria_RDMarketing"
+    		 sortOrder="10"
+    		 resource="Magento_Backend::content"
+    		/>
+
+    	<!-- START: new node -->  
+    	<add id="Digitaria_RDMarketing::menu_item"
+    		 title="RD Station API Log" module="Digitaria_RDMarketing"
+    		 sortOrder="10" parent="Digitaria_RDMarketing::menu"
+    		 action="rdmarketing/eventlog/index"
+    		 resource="Digitaria_RDMarketing::menu_item"
+			 
+    		/>
+
+			<add id="Digitaria_RDMarketing::menu_items"
+    		 title="RD Station Code" module="Digitaria_RDMarketing"
+    		 sortOrder="10" parent="Digitaria_RDMarketing::menu"
+    		 action="rdmarketing/code/index"
+    		 resource="Digitaria_RDMarketing::menu_items"
+    		/>
+
+			<add id="Digitaria_RDMarketing::menu_item_generate"
+    		 title="RD Station Create Fields" module="Digitaria_RDMarketing"
+    		 sortOrder="10" parent="Digitaria_RDMarketing::menu"
+    		 action="rdmarketing/createfields/index"
+    		 resource="Digitaria_RDMarketing::menu_item_generate"
+    		/>
+    	<!-- END:   new node --> 
+    </menu>
+</config>

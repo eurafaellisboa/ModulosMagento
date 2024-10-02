@@ -1,0 +1,9 @@
+<main id="maincontent" class="page-main">
+    <p><?= $block->escapeHtml(__('By clicking the button below, the necessary custom fields will be automatically created within RD Station Marketing.')) ?></p>
+    <p style="margin-bottom:20px;"><i><?= $block->escapeHtml(__('This step should only be performed after the authorization code has been created.')) ?></i></p>
+
+<?php
+$customUrl = $block->getUrl('rdmarketing/createfields/result');
+?>
+<a href="<?= $customUrl ?>" class="action-primary"><?= $block->escapeHtml(__('Create Custom Fields')) ?></a>
+</main> 
