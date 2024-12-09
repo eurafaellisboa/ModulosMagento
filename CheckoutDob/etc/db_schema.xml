@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+
+ *
+ * @category Nuzz
+ * @package  Nuzz/CheckoutDob
+ * @author   Rafael Lisboa <rafael@nuzz.com.br>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://nuzz.com.br
+ */
+ -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="quote" resource="default" engine="innodb">
+        <column xsi:type="text" name="dob" nullable="true" comment="Date Of Birthday"/>
+    </table>
+
+    <table name="sales_order" resource="default" engine="innodb">
+        <column xsi:type="text" name="dob" nullable="true" comment="Date Of Birthday"/>
+    </table>
+
+</schema>
